@@ -28,5 +28,20 @@
     },
     "metadata_sanitized": true,
     "video_in_archive": false
+  },
+  "map01-clean": {
+    "source_run": "20260926_211228_775641_release-clean-map01",
+    "metadata_sanitized": true,
+    "video_in_archive": false,
+    "video": {
+      "filename": "laya-map01-clean.mp4",
+      "sha256": "1920c7d4c175ddc1b1afb072994b4e273524b78e272cf5de7e124e7ec1d9d5f8",
+      "bytes": 271724574
+    },
+    "evidence": {
+      "filename": "map01-clean-evidence.tar.gz",
+      "sha256": "46d1d8ea8998d81a8a60d1023953caa0ac024f268315f2d3c2fd292484ac101e",
+      "bytes": 1435993
+    }
   }
 }

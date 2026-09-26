@@ -1,0 +1,31 @@
+{
+  "local_tests": 109,
+  "clean_checkout_tests": 109,
+  "datasets_validated": 38,
+  "model_choices_identical": "200/200",
+  "model_probabilities_identical": "200/200",
+  "runtime_modules_identical_except_imports": {
+    "combat": true,
+    "decision_questions": true,
+    "decision_timing": true,
+    "executor": true,
+    "items": true,
+    "laya_runtime": true,
+    "mission": true,
+    "model_decoding": true,
+    "movement_questions": true,
+    "navigation": true,
+    "policy": true,
+    "question_heads": true,
+    "resource_questions": true
+  },
+  "clean_game": {
+    "run": "20260926_211228_775641_release-clean-map01",
+    "level_completed": true,
+    "experiment_valid": true,
+    "passed": true,
+    "exit_seconds": 163.257,
+    "deaths": 1
+  },
+  "clean_source_commit": "0926e13a05af1d28f1506a5f5ea6835b7938078c"
+}

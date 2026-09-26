@@ -22,6 +22,12 @@ single runs on development maps, not evidence of robustness across seeds.
   `.venv/bin/python -m tools.verify_run <run-directory>`.
 - Verify release assets using `SHA256SUMS`.
 
+A further run from a clean checkout completed MAP01 in 163.257 s with one
+death and passed every quality gate. Its recording is `laya-map01-clean.mp4`
+and its telemetry is `map01-clean-evidence.tar.gz`. The package matched all
+200 recorded reference choices and probabilities; 109 tests passed locally
+and in the clean checkout.
+
 The code follows the merged `doomlib/`, `tools/`, `tests/` and `docs/` layout and
 preserves Windows UTF-8 fixes. A pinned ViZDoom patch fixes the sector-line
 buffer overflow when loading MAP03 without changing the WAD or game rules.
