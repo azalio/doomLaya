@@ -1,0 +1,54 @@
+{
+  "refresh_attack_target": true,
+  "decision_format": "committed",
+  "label_source": "one offline teacher policy; never called by runtime",
+  "note": "development data; validation selects checkpoints, not an independent gameplay benchmark",
+  "source_hashes": {
+    "runs/map02-teacher-reachable49-delay12/telemetry.jsonl": "057c498bf3ebca4b0c67baa33ab877e04ce644eed3907a8c243e35ded8db3dc0",
+    "runs/map02-teacher-reachable49-delay12/examples.json": "d1494e96c597c1c1cddfe94f4a771e3c75102030f598a4d7f7d0a0c58157a3da",
+    "runs/map02-teacher-reachable54-delay12/telemetry.jsonl": "42e3a98fc87a138b7d2542334d98bbbfce07e3429650d41ea99455b5d4122b52",
+    "runs/map02-teacher-reachable54-delay12/examples.json": "a2c6b67601932283ea7af416502d34251841703deefc0ef6e66e05a2eeb38fdd",
+    "runs/map02-teacher-reachable48-delay12/telemetry.jsonl": "1a6a072ce94345e11bc51ffd1b979e8f0624e7d4f7bc8d3023a9f9cd4c256822",
+    "runs/map02-teacher-reachable48-delay12/examples.json": "8dddbb0e4aa9b69b29afd37c21c30da98b5f1acd8796e037bfee74804f82a979"
+  },
+  "train": {
+    "rows": 2362,
+    "sha256": "9d327c3328b4223c5381452a7bc3e3e87321b00f134cec83b7e3c20787d514e4",
+    "kinds": {
+      "command": 1006,
+      "enemy": 350,
+      "weapon": 550,
+      "movement": 315,
+      "item": 79,
+      "switch": 62
+    },
+    "command_labels": {
+      "pickup": 72,
+      "continue": 737,
+      "use_switch": 61,
+      "attack": 99,
+      "exit": 9,
+      "open_door": 28
+    }
+  },
+  "validation": {
+    "rows": 650,
+    "sha256": "383a05c873d17e936da28c84155a222c326af2cfaf0933cab6bccb9b9a279d10",
+    "kinds": {
+      "weapon": 130,
+      "enemy": 80,
+      "movement": 133,
+      "command": 234,
+      "item": 43,
+      "switch": 30
+    },
+    "command_labels": {
+      "continue": 164,
+      "attack": 18,
+      "use_switch": 12,
+      "pickup": 22,
+      "open_door": 14,
+      "exit": 4
+    }
+  }
+}

@@ -12,7 +12,28 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: python -m pip install -r requirements-lock.txt
-      - run: python -m unittest test_authority.py test_publication.py
+      - run: sudo apt-get update && sudo apt-get install -y cmake libboost-all-dev libsdl2-dev libopenal-dev
+      - run: python -m pip install uv
+      - run: python scripts/install_vizdoom_sector_fix.py
+      - run: python -m unittest test_authority.py test_map2.py test_model_decoding.py test_weapon_sensor.py test_publication.py test_training_examples.py test_weapon_audit.py test_pickup_aim_memory.py test_resource_questions.py test_decision_timing.py test_navigation_combat.py test_item_action_mask.py test_question_heads.py test_movement_questions.py
       - run: python scripts/check_publication.py
       - run: python training/finetune.py --data training --validate-only
       - run: python training/finetune.py --data training/v3 --validate-only
+      - run: python training/finetune.py --data training/map2-v4 --validate-only
+      - run: python training/finetune.py --data training/map2-v5 --validate-only
+      - run: python training/finetune.py --data training/map2-factorized-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-corrections-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-combined-v1 --validate-only
+      - run: python training/finetune.py --data training/map2-committed-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-committed-replay-v1 --validate-only
+      - run: python training/finetune.py --data training/map2-weapon-demonstrations-v1 --validate-only
+      - run: python training/finetune.py --data training/map2-weapons-v1 --validate-only
+      - run: python training/finetune.py --data training/map2-reachable-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-dagger-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-goal-recovery-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-lift-replay-v1 --validate-only
+      - run: python training/finetune.py --data training/map2-route-contrasts-v3 --validate-only
+      - run: python training/finetune.py --data training/map2-explicit-v2 --validate-only
+      - run: python training/finetune.py --data training/map2-resources-v1 --validate-only
+      - run: python training/build_goal_invariant_items.py --replay training/map2-explicit-v2 --output "$RUNNER_TEMP/goal-invariant-items"
+      - run: python training/finetune.py --data "$RUNNER_TEMP/goal-invariant-items" --validate-only

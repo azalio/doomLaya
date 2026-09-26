@@ -1,0 +1,65 @@
+{
+  "decision_format": "committed",
+  "label_source": "one offline teacher policy; never called by runtime",
+  "note": "development data; validation selects checkpoints, not an independent gameplay benchmark",
+  "source_hashes": {
+    "runs/map02-teacher-seed48-v15/telemetry.jsonl": "7984c0a95b0fd74764e2336e60be6e2a75161da68817402f667bd73050082f94",
+    "runs/map02-teacher-seed48-v15/examples.json": "63b3834227ebe4d2fde161e81067c7f8a357177a0b2323cb8a3ab4b02408983b",
+    "runs/map02-teacher-seed49-v16/telemetry.jsonl": "dc006d7976ba05883765e2caecb994c3577e0a500e90c5a0d36cf7d8c59edc7c",
+    "runs/map02-teacher-seed49-v16/examples.json": "fcfde3d00fa624890c0f75a11c86b2ec39e820ad6532032b3cb732646dcba04b",
+    "runs/map02-teacher-seed54-v16/telemetry.jsonl": "8377f432bd857afd8edf9c008778e2f7b62dba02cc44a1ce962ea41ee45ff232",
+    "runs/map02-teacher-seed54-v16/examples.json": "1b357c23b73f12ab80738612144e483a58bd12cb917fac653f736bbeecd82dcf",
+    "runs/20260925_085902_858334_map02-corrected-v1/telemetry.jsonl": "dd8cb8ccdc45e5e2bd0ba7c9e52d062f5a9fb256c482335e217b6f7707ef095a",
+    "runs/20260925_085902_858334_map02-corrected-v1/decisions.jsonl": "f2a5f8d710ddf36763aeae7a93a78f9b43d5a47319ffaca282dfc1881b91bded",
+    "runs/20260925_093641_320146_map02-combined-v1/telemetry.jsonl": "d00eb88a687dff94f97f826eb71b90177433fdb21eee1911599569f39eee999b",
+    "runs/20260925_093641_320146_map02-combined-v1/decisions.jsonl": "fa267f45a49580c849d91626b7db3dd3a9f6ab2230dbaf6d1b31a3b95081f5f6",
+    "runs/20260925_101007_313814_map02-committed-v1/telemetry.jsonl": "19edbb771da7d26c57503d4d7a9002595116fe4879d3e1ecd75327db1792e51a",
+    "runs/20260925_101007_313814_map02-committed-v1/decisions.jsonl": "e8aeb2ffc348f9a7aebd7dd9b7f470668672d87bd0d67982194450c1759d3d54",
+    "runs/20260925_111454_185591_map02-conditional-v1/telemetry.jsonl": "549a18808c4577a21904ad9eb63d56abff8ef23e38a27d88b8dd4c295429bbe4",
+    "runs/20260925_111454_185591_map02-conditional-v1/decisions.jsonl": "3a357642456289f66e96aef771d480c46ddf0a43743687fc928d778e55004225",
+    "runs/20260925_111821_070227_map02-conditional-seed54/telemetry.jsonl": "0fc78a9c015733a920b92e16b85695174791393193a4217f0ef6a937361fde7d",
+    "runs/20260925_111821_070227_map02-conditional-seed54/decisions.jsonl": "ef867b4f7642f559261642877a93f2a5b27d3849deb1e91716288aa4724f8af9",
+    "runs/20260925_112259_469510_map02-feedback-seed54/telemetry.jsonl": "d25ecb324c5bfb2f3ac154f1fe7fdeecc3c12e6906f702ced965d2526eb43059",
+    "runs/20260925_112259_469510_map02-feedback-seed54/decisions.jsonl": "34110f839a2a305618eebc0af7257fe4e236b23ee6ed77be65a9e8eaed00dc2e"
+  },
+  "train": {
+    "rows": 3087,
+    "sha256": "8a967f4955543bcd077599dc6bfff047a54c0cf662af6f3f56431e6fae8a4c6f",
+    "kinds": {
+      "weapon": 550,
+      "enemy": 350,
+      "item": 400,
+      "command": 1117,
+      "movement": 571,
+      "switch": 99
+    },
+    "command_labels": {
+      "continue": 549,
+      "attack": 155,
+      "pickup": 180,
+      "exit": 10,
+      "open_door": 144,
+      "use_switch": 79
+    }
+  },
+  "validation": {
+    "rows": 778,
+    "sha256": "0302a9acafe0ea86f77c17d990e5ee281c4396045d99e99425219bbf22a8f605",
+    "kinds": {
+      "item": 100,
+      "movement": 201,
+      "weapon": 130,
+      "enemy": 80,
+      "command": 236,
+      "switch": 31
+    },
+    "command_labels": {
+      "continue": 138,
+      "attack": 37,
+      "pickup": 30,
+      "use_switch": 10,
+      "open_door": 15,
+      "exit": 6
+    }
+  }
+}

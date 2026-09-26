@@ -1,0 +1,16 @@
+{
+  "source": "training/map2-v5",
+  "decision_format": "factorized",
+  "source_sha256": {
+    "train": "65d2dafbe4753a7911c221434c916bc1ca7d59aa2e73e659c0c62902c9f8992a",
+    "validation": "2dd9cf6d488497958e09f9eb2626d98e393fe7e394eb9e5f54e7ec048a1fc132"
+  },
+  "train": {
+    "rows": 1904,
+    "sha256": "f5fa99ca8683273c17fab44286774deb41b313e5fea01503b176ff13de7023d5"
+  },
+  "validation": {
+    "rows": 461,
+    "sha256": "e08b169c3405b8a2e229f785b3549f7802cf9df5a1dd7921e98d9e925204b485"
+  }
+}

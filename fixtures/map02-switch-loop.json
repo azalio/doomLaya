@@ -1,0 +1,902 @@
+{
+  "kind": "switch",
+  "source_run": "runs/20260926_114406_854332_map02-fast54",
+  "source_sha256": {
+    "config.json": "5effc30f6d65eb3f397dfcadf73d2618e7dfdd998231caa62f97ba625ceed26b",
+    "decisions.jsonl": "4e0623b1590428acf8f8267b7bec42730e6d12add526f5f68d01feedb58e589e"
+  },
+  "goals": [
+    "805",
+    "662"
+  ],
+  "cases": [
+    {
+      "tick": 21007,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 36.7m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: ArmorBonus#58, ArmorBonus#59, Clip#383, Shell#33, HealthBonus#110, HealthBonus#109, Shell#30, HealthBonus#108, HealthBonus#130, Clip#73.\nAvailable mechanisms: door switch #662 36.7m; lift #805 phase call 52.6m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 103 ammo; shotgun 24 ammo; super_shotgun 24 ammo.\nClearance: left 2.3m, right 0.2m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: RedCard#5 [Key] 41.9m; BlueCard#27 [Key] 56.2m; Medikit#48 [Health] 59.6m; YellowCard#key_21 [Key] 76.0m; ArmorBonus#58 [Armor] 27.9m; ArmorBonus#59 [Armor] 28.8m; Clip#383 [Ammo] 29.2m; Shell#33 [Ammo] 29.5m; HealthBonus#110 [Health] 33.2m; HealthBonus#109 [Health] 33.3m; Shell#30 [Ammo] 33.3m; HealthBonus#108 [Health] 33.4m; HealthBonus#130 [Health] 35.0m; Clip#73 [Ammo] 35.2m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 36.7m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 52.6m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 36.691759831805655,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 52.58259595117547,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 21403,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 36.7m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: ArmorBonus#58, ArmorBonus#59, Clip#383, Shell#33, HealthBonus#110, HealthBonus#109, Shell#30, HealthBonus#108, HealthBonus#130, Clip#73.\nAvailable mechanisms: door switch #662 36.7m; lift #805 phase call 52.6m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 103 ammo; shotgun 24 ammo; super_shotgun 24 ammo.\nClearance: left 2.3m, right 0.2m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: RedCard#5 [Key] 41.9m; BlueCard#27 [Key] 56.2m; Medikit#48 [Health] 59.6m; YellowCard#key_21 [Key] 76.0m; ArmorBonus#58 [Armor] 27.9m; ArmorBonus#59 [Armor] 28.8m; Clip#383 [Ammo] 29.2m; Shell#33 [Ammo] 29.5m; HealthBonus#110 [Health] 33.2m; HealthBonus#109 [Health] 33.3m; Shell#30 [Ammo] 33.3m; HealthBonus#108 [Health] 33.4m; HealthBonus#130 [Health] 35.0m; Clip#73 [Ammo] 35.2m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 36.7m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 52.6m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 36.691759831805655,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 52.58259595117547,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 21817,
+      "packet": {
+        "state": "Current command: use_switch #805 Lift 50.2m; upper route keys: blue; status executing.\nEnemy range: none; health: wounded; space: left tight, right open.\nReachable items: ArmorBonus#58, ArmorBonus#59, Clip#383, Shell#33, Shell#30, HealthBonus#110, HealthBonus#109, HealthBonus#108, HealthBonus#130, HealthBonus#133.\nAvailable mechanisms: door switch #662 36.9m; lift #805 phase call 50.2m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 103 ammo; shotgun 24 ammo; super_shotgun 24 ammo.\nClearance: left 0.8m, right 7.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: RedCard#5 [Key] 40.7m; BlueCard#27 [Key] 53.8m; Medikit#48 [Health] 57.2m; YellowCard#key_21 [Key] 73.8m; ArmorBonus#58 [Armor] 25.8m; ArmorBonus#59 [Armor] 26.8m; Clip#383 [Ammo] 26.9m; Shell#33 [Ammo] 27.1m; Shell#30 [Ammo] 31.0m; HealthBonus#110 [Health] 31.4m; HealthBonus#109 [Health] 31.6m; HealthBonus#108 [Health] 31.7m; HealthBonus#130 [Health] 32.8m; HealthBonus#133 [Health] 33.1m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 36.9m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 50.2m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 36.903830457274694,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 50.221329954084446,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 22519,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 50.6m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 3.0m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 22915,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 50.6m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 3.0m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 23311,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 50.6m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 3.3m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 23725,
+      "packet": {
+        "state": "Current command: use_switch #805 Lift 23.3m; upper route keys: blue; status executing.\nEnemy range: none; health: wounded; space: left tight, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 1.0m, right 1.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 24121,
+      "packet": {
+        "state": "Current command: use_switch #805 Lift 23.3m; upper route keys: blue; status executing.\nEnemy range: none; health: wounded; space: left tight, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 1.0m, right 1.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 24517,
+      "packet": {
+        "state": "Current command: use_switch #805 Lift 23.3m; upper route keys: blue; status executing.\nEnemy range: none; health: wounded; space: left tight, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 1.0m, right 1.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 24913,
+      "packet": {
+        "state": "Current command: use_switch #805 Lift 23.3m; upper route keys: blue; status executing.\nEnemy range: none; health: wounded; space: left tight, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 1.0m, right 1.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 25327,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 50.6m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 2.5m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    },
+    {
+      "tick": 25723,
+      "packet": {
+        "state": "Current command: use_switch #662 Door switch 50.6m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: Shell#33, Shell#30, HealthBonus#133, HealthBonus#130, HealthBonus#129, HealthBonus#132, HealthBonus#131.\nAvailable mechanisms: door switch #662 50.6m; lift #805 phase call 23.3m Upper route keys: blue (missing).\nHP 65; armor 84.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 20 ammo; super_shotgun 20 ammo.\nClearance: left 2.5m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: BlueCard#27 [Key] 28.0m; Medikit#48 [Health] 31.3m; RedCard#5 [Key] 40.3m; YellowCard#key_21 [Key] 52.5m; Shell#33 [Ammo] 2.9m; Shell#30 [Ammo] 9.9m; ArmorBonus#140 [Armor] 12.5m; HealthBonus#133 [Health] 14.4m; HealthBonus#130 [Health] 15.0m; HealthBonus#129 [Health] 15.1m; HealthBonus#132 [Health] 15.3m; HealthBonus#131 [Health] 15.8m; ArmorBonus#138 [Armor] 16.4m; ArmorBonus#139 [Armor] 17.3m.\nUnreachable: #728.",
+        "questions": {
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "662": "Activate door switch #662 to open a closed passage. Distance 50.6m.",
+              "805": "Call, board and ride lift #805 to the upper floor. Phase: call. Distance 23.3m. Upper route keys: blue (missing)."
+            }
+          }
+        },
+        "targets": {
+          "switch": {
+            "662": {
+              "id": 662,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 1312.0,
+              "y": -896.0,
+              "board": [
+                1280.0,
+                -896.0
+              ],
+              "upper_floor": -88,
+              "approach": [
+                1352.0,
+                -896.0
+              ],
+              "sectors": [
+                150
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 50.60849849831912,
+              "locked": false
+            },
+            "805": {
+              "id": 805,
+              "kind": "lift",
+              "name": "Lift",
+              "x": -864.0,
+              "y": -384.0,
+              "board": [
+                -864.0,
+                -352.0
+              ],
+              "upper_floor": 64,
+              "approach": [
+                -864.0,
+                -424.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 23.25034760278574,
+              "locked": false
+            }
+          }
+        },
+        "observation": {
+          "hp": 65.0
+        }
+      }
+    }
+  ]
+}

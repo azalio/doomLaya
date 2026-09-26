@@ -1,0 +1,8 @@
+{
+  "compiler_repo": "https://github.com/ZDoom/acc",
+  "compiler_commit": "bdb9bc4d2c5aee7ca3ff8da985d73aaf83af0557",
+  "compiler_version": "1.60",
+  "source_sha256": "de539383738d96e86540d242e296eca521d4183f09e5f08402867bb5975137e3",
+  "pk3_sha256": "f942db23e83bde0a4655b869d02c7ec50ffd25a759185a0d50eb184c779646cf",
+  "reproducible_build_verified": true
+}

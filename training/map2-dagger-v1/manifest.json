@@ -1,0 +1,32 @@
+{
+  "source_type": "offline DAgger-style corrections; no runtime teacher",
+  "source_sha256": {
+    "runs/map02-reachable-corrections-v1/examples.json": "35da5be2bbdaac7774b28f4d9b5319c5cd0ee02b577bc4c9e9ffc1fa1c4f3f1d",
+    "training/map2-reachable-v2/train.json": "13d31f5cf66cce672af0c98c50dedf2e65376a5d3f9fe4c9606ef3ea5ee8d2ba",
+    "training/map2-reachable-v2/validation.json": "80c500510b8b61bb761137d86b627144ed4c00b9135176b625b20ee9277562a2"
+  },
+  "train": {
+    "rows": 3208,
+    "sha256": "b20facdc22037e634fbb793b0bd39666af0dd872fe119255cd14200585521126",
+    "kinds": {
+      "item": 610,
+      "command": 1025,
+      "weapon": 875,
+      "movement": 348,
+      "switch": 121,
+      "enemy": 229
+    }
+  },
+  "validation": {
+    "rows": 999,
+    "sha256": "be09cf5d66bf95d38bf2234bc5ba4f7606701221bc14717d1169d695b49fa60c",
+    "kinds": {
+      "weapon": 260,
+      "command": 312,
+      "movement": 188,
+      "enemy": 96,
+      "item": 113,
+      "switch": 30
+    }
+  }
+}

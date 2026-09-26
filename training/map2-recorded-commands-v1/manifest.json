@@ -1,0 +1,93 @@
+{
+  "note": "Offline teacher labels on unchanged recorded states and questions. Model rollout episodes split by parity. All disagreements and every fourth agreement retained. Late-route diagnostic cases from heads54 episode0 are now development training data, not held-out evaluation.",
+  "sources": {
+    "runs/20260926_101603_592788_map02-heads54/config.json": "5fd7ff6afa7752cda2bee016c79856c57df8c92b4b7faa621dddce8e063ab6c0",
+    "runs/20260926_101603_592788_map02-heads54/telemetry.jsonl": "dcfd96ed271197f695477ff84362c97e346afb57f364326b3566ec6117d4fe53",
+    "runs/20260926_101603_592788_map02-heads54/decisions.jsonl": "1581bbcdec236aad559c897f43c660fa6e4c1f0ba7eadbd2e78d504c3063f098",
+    "runs/20260926_113538_560451_map02-dense54/config.json": "29bea9dbeba7114b259a30580997eb160524b6be39652f51cda76d090db7bb52",
+    "runs/20260926_113538_560451_map02-dense54/telemetry.jsonl": "e4424600c424385adddb0fbadfd827e80cf543abd8f59a21d193db14be5b4d38",
+    "runs/20260926_113538_560451_map02-dense54/decisions.jsonl": "dc4a2bd963df17ac1c11fe5a495ab110922e19ad6ce95bd1ce88aef3cbcc835f",
+    "training/map2-dense-route-v1/train.json": "de770b8d5c43c90531bd74c8ac2b9224ee3706d60b3972d873c659099ed5c8a6",
+    "training/map2-dense-route-v1/validation.json": "d48fe6c113b419e0fef0e7392c1bca4b0582ac70e9622cc6dfb787859c13a658"
+  },
+  "runs": {
+    "20260926_101603_592788_map02-heads54": {
+      "commands": 1628,
+      "regenerated_state_exact": 0,
+      "action_pairs": {
+        "attack -> attack": 424,
+        "pickup -> pickup": 333,
+        "attack -> pickup": 87,
+        "pickup -> attack": 86,
+        "open_door -> open_door": 43,
+        "pickup -> use_switch": 359,
+        "attack -> use_switch": 20,
+        "use_switch -> use_switch": 216,
+        "open_door -> use_switch": 14,
+        "use_switch -> attack": 9,
+        "use_switch -> pickup": 24,
+        "open_door -> pickup": 10,
+        "exit -> explore": 1,
+        "explore -> explore": 2
+      }
+    },
+    "20260926_113538_560451_map02-dense54": {
+      "commands": 685,
+      "regenerated_state_exact": 0,
+      "action_pairs": {
+        "attack -> attack": 227,
+        "pickup -> pickup": 311,
+        "attack -> pickup": 74,
+        "pickup -> attack": 27,
+        "open_door -> pickup": 3,
+        "open_door -> open_door": 2,
+        "use_switch -> pickup": 36,
+        "pickup -> use_switch": 1,
+        "use_switch -> use_switch": 4
+      }
+    }
+  },
+  "splits": {
+    "train": {
+      "rows": 1383,
+      "labels": {
+        "exit": 117,
+        "open_door": 125,
+        "use_switch": 473,
+        "attack": 306,
+        "pickup": 360,
+        "explore": 2
+      },
+      "sources": {
+        "counterfactual_current_goal_on_recorded_world": 107,
+        "offline_teacher_label_on_exact_recorded_command": 699,
+        "counterfactual_route_keys_and_enemy_distance": 136,
+        "offline_teacher_consistent_policy": 355,
+        "counterfactual_resource_state": 12,
+        "paired_key_ownership_or_enemy_distance": 15,
+        "offline_correction_of_model_rollout": 56,
+        "controlled_reachable_supplies": 3
+      },
+      "sha256": "074cff5af318f4b8cc2d721f225e5f4d8bea31a9c1555beec53b382d5ee35e58"
+    },
+    "validation": {
+      "rows": 636,
+      "labels": {
+        "open_door": 44,
+        "attack": 164,
+        "pickup": 222,
+        "exit": 40,
+        "use_switch": 166
+      },
+      "sources": {
+        "counterfactual_current_goal_on_recorded_world": 15,
+        "offline_teacher_label_on_exact_recorded_command": 436,
+        "offline_teacher_consistent_policy": 153,
+        "counterfactual_route_keys_and_enemy_distance": 11,
+        "offline_correction_of_model_rollout": 11,
+        "counterfactual_resource_state": 10
+      },
+      "sha256": "0baa44f2f28c2d3905fc41e5e9e4667c16d9977746f317ce0ea0f50ee3542449"
+    }
+  }
+}

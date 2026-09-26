@@ -1,0 +1,49 @@
+{
+  "note": "Synthetic offline labels plus replay. No live teacher. Development validation selects weights; recorded late-game cases are not included.",
+  "sources": {
+    "training/map2-goal-invariant-items-v1/train.json": "58c0fb73ff08af3943191a779bb540754b4c80a7855c7a75ecf3caa64d7f0c90",
+    "training/map2-goal-invariant-items-v1/validation.json": "1e6ca3fe8dcde54296666bcca508c1d487865534a34081979b3e8c3b70ce40d0"
+  },
+  "splits": {
+    "train": {
+      "rows": 2040,
+      "kinds": {
+        "item": 960,
+        "command": 1080
+      },
+      "variants": {
+        "empty_shells": 272,
+        "blocked_key": 120,
+        "replay": 893,
+        "full_health": 43,
+        "critical_health": 280,
+        "near_enemy": 22,
+        "far_enemy": 23,
+        "loaded": 240,
+        "all_keys": 120,
+        "loaded_shells": 27
+      },
+      "sha256": "2c29dad3665c9daf3e338b751000927679316122e6c7ba3d88a922ddd9b6a4d0"
+    },
+    "validation": {
+      "rows": 550,
+      "kinds": {
+        "command": 295,
+        "item": 255
+      },
+      "variants": {
+        "empty_shells": 85,
+        "loaded": 70,
+        "critical_health": 92,
+        "replay": 199,
+        "blocked_key": 35,
+        "loaded_shells": 15,
+        "near_enemy": 3,
+        "all_keys": 35,
+        "full_health": 14,
+        "far_enemy": 2
+      },
+      "sha256": "745f1ee91e65846eed1998c34b3c23ea4c4e2d60d487ffaed3f0fb0505a8dd30"
+    }
+  }
+}

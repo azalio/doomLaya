@@ -1,0 +1,57 @@
+{
+  "decision_format": "committed",
+  "label_source": "one offline teacher policy; never called by runtime",
+  "note": "development data; validation selects checkpoints, not an independent gameplay benchmark",
+  "source_hashes": {
+    "runs/map02-teacher-seed48-v15/telemetry.jsonl": "7984c0a95b0fd74764e2336e60be6e2a75161da68817402f667bd73050082f94",
+    "runs/map02-teacher-seed48-v15/examples.json": "63b3834227ebe4d2fde161e81067c7f8a357177a0b2323cb8a3ab4b02408983b",
+    "runs/map02-teacher-seed49-v16/telemetry.jsonl": "dc006d7976ba05883765e2caecb994c3577e0a500e90c5a0d36cf7d8c59edc7c",
+    "runs/map02-teacher-seed49-v16/examples.json": "fcfde3d00fa624890c0f75a11c86b2ec39e820ad6532032b3cb732646dcba04b",
+    "runs/map02-teacher-seed54-v16/telemetry.jsonl": "8377f432bd857afd8edf9c008778e2f7b62dba02cc44a1ce962ea41ee45ff232",
+    "runs/map02-teacher-seed54-v16/examples.json": "1b357c23b73f12ab80738612144e483a58bd12cb917fac653f736bbeecd82dcf",
+    "runs/20260925_085902_858334_map02-corrected-v1/telemetry.jsonl": "dd8cb8ccdc45e5e2bd0ba7c9e52d062f5a9fb256c482335e217b6f7707ef095a",
+    "runs/20260925_085902_858334_map02-corrected-v1/decisions.jsonl": "f2a5f8d710ddf36763aeae7a93a78f9b43d5a47319ffaca282dfc1881b91bded",
+    "runs/20260925_093641_320146_map02-combined-v1/telemetry.jsonl": "d00eb88a687dff94f97f826eb71b90177433fdb21eee1911599569f39eee999b",
+    "runs/20260925_093641_320146_map02-combined-v1/decisions.jsonl": "fa267f45a49580c849d91626b7db3dd3a9f6ab2230dbaf6d1b31a3b95081f5f6"
+  },
+  "train": {
+    "rows": 3026,
+    "sha256": "db95bb6fa47cda2c7801b472a929ef70111116a0ae05be9d39f87a66f16728f4",
+    "kinds": {
+      "item": 400,
+      "command": 998,
+      "enemy": 350,
+      "movement": 428,
+      "weapon": 550,
+      "switch": 300
+    },
+    "command_labels": {
+      "continue": 616,
+      "use_switch": 71,
+      "attack": 125,
+      "pickup": 146,
+      "exit": 10,
+      "open_door": 30
+    }
+  },
+  "validation": {
+    "rows": 803,
+    "sha256": "7d7497abb887c11ff246d8caf7328d0208e5e50a96ae5cf98ba92f6eac249e37",
+    "kinds": {
+      "command": 234,
+      "enemy": 80,
+      "item": 100,
+      "weapon": 130,
+      "movement": 179,
+      "switch": 80
+    },
+    "command_labels": {
+      "continue": 139,
+      "use_switch": 12,
+      "attack": 25,
+      "pickup": 38,
+      "exit": 6,
+      "open_door": 14
+    }
+  }
+}

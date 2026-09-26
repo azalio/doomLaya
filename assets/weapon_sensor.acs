@@ -1,0 +1,27 @@
+#library "LAYAOBS"
+#include "zcommon.acs"
+
+global int 10:layaSensorReady;
+global int 11:layaSelectedWeapon;
+global int 12:layaOwnedWeapons;
+
+script "LayaWeaponObservation" ENTER
+{
+    while (TRUE)
+    {
+        layaSensorReady = 1742;
+        layaSelectedWeapon =
+            CheckWeapon("Fist") + 2 * CheckWeapon("Pistol") +
+            3 * CheckWeapon("Shotgun") + 4 * CheckWeapon("Chaingun") +
+            5 * CheckWeapon("RocketLauncher") + 6 * CheckWeapon("PlasmaRifle") +
+            7 * CheckWeapon("BFG9000") + 8 * CheckWeapon("SuperShotgun") +
+            9 * CheckWeapon("Chainsaw");
+        layaOwnedWeapons =
+            2 * (CheckInventory("Fist") > 0) + 4 * (CheckInventory("Pistol") > 0) +
+            8 * (CheckInventory("Shotgun") > 0) + 16 * (CheckInventory("Chaingun") > 0) +
+            32 * (CheckInventory("RocketLauncher") > 0) + 64 * (CheckInventory("PlasmaRifle") > 0) +
+            128 * (CheckInventory("BFG9000") > 0) + 256 * (CheckInventory("SuperShotgun") > 0) +
+            512 * (CheckInventory("Chainsaw") > 0);
+        Delay(1);
+    }
+}

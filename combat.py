@@ -1,7 +1,10 @@
 """Удержание видимой цели и выбор оружия из настоящего инвентаря."""
 import math
 
-WEAPON_NAMES = {1:'melee',2:'pistol',3:'shotgun',4:'chaingun',5:'rocket_launcher',6:'plasma_rifle',7:'BFG'}
+WEAPON_NAMES = {1:'melee',2:'pistol',3:'shotgun',4:'chaingun',5:'rocket_launcher',6:'plasma_rifle',7:'BFG',8:'super_shotgun',9:'chainsaw'}
+
+WEAPON_SLOTS={**{i:i for i in range(1,8)},8:3,9:1}
+AMMO_COST={1:0,2:1,3:1,4:1,5:1,6:1,7:40,8:2,9:0}
 
 
 def target_bearing(target, s):

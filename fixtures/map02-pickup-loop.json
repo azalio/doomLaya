@@ -1,0 +1,1994 @@
+{
+  "note": "Frozen development loop observations. Never used to build goal-invariant training data.",
+  "source_run": "runs/20260926_011626_071151_map02-mask54",
+  "source_sha256": {
+    "config.json": "6881bc6e75c9ba0bcd0d4f67ab53074c1f78f6ceface873ccd7fe1cfd9c5276d",
+    "decisions.jsonl": "8114d7d43b84351b9b74c507acf1f518065a39097de8580b4b4331ed96dd8504"
+  },
+  "goals": [
+    "36",
+    "33"
+  ],
+  "cases": [
+    {
+      "tick": 16814,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 5.8m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, HealthBonus#110, Shell#33, Shell#32, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 29.3m; lift #805 phase call 51.7m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 4.6m, right 6.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 5.8m; GreenArmor#31 [Armor] 21.3m; RedCard#5 [Key] 33.9m; BlueCard#27 [Key] 53.3m; Medikit#48 [Health] 56.9m; YellowCard#key_21 [Key] 70.8m; Clip#905 [Ammo] 13.5m; ArmorBonus#58 [Armor] 22.3m; ArmorBonus#59 [Armor] 23.2m; HealthBonus#110 [Health] 26.5m; Shell#33 [Ammo] 28.0m; Shell#32 [Ammo] 28.8m; HealthBonus#130 [Health] 30.7m; HealthBonus#133 [Health] 31.3m; HealthBonus#129 [Health] 31.4m; HealthBonus#131 [Health] 31.6m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 5.8m.",
+              "31": "GreenArmor; reachable; 21.3m.",
+              "905": "Clip; reachable; 13.5m.",
+              "58": "ArmorBonus; reachable; 22.3m.",
+              "59": "ArmorBonus; reachable; 23.2m.",
+              "110": "HealthBonus; reachable; 26.5m.",
+              "33": "Shell; reachable; 28.0m.",
+              "32": "Shell; reachable; 28.8m.",
+              "130": "HealthBonus; reachable; 30.7m.",
+              "133": "HealthBonus; reachable; 31.3m.",
+              "129": "HealthBonus; reachable; 31.4m.",
+              "131": "HealthBonus; reachable; 31.6m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 5.84824274073688,
+              "bearing": 23.1,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 21.31327246768463,
+              "bearing": 14.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 13.540909633532255,
+              "bearing": 12.6,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 22.2803366688211,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 23.220835831966358,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 26.537567177313456,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 28.025916026817157,
+              "bearing": 39.4,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 28.77510621120459,
+              "bearing": -6.4,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 30.72764944343049,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 31.251333131892192,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 31.413596399473075,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 31.59085714217759,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 17126,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 10.2m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, Shell#33, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 35.5m; lift #805 phase call 46.7m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 2.3m, right 6.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 10.2m; GreenArmor#31 [Armor] 14.7m; RedCard#5 [Key] 37.1m; BlueCard#27 [Key] 49.6m; Medikit#48 [Health] 53.1m; YellowCard#key_21 [Key] 69.3m; Clip#905 [Ammo] 6.9m; ArmorBonus#58 [Armor] 21.3m; ArmorBonus#59 [Armor] 22.3m; Shell#33 [Ammo] 23.2m; Shell#32 [Ammo] 24.1m; HealthBonus#110 [Health] 27.1m; HealthBonus#130 [Health] 28.2m; HealthBonus#133 [Health] 28.6m; HealthBonus#129 [Health] 28.9m; HealthBonus#131 [Health] 29.2m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 10.2m.",
+              "31": "GreenArmor; reachable; 14.7m.",
+              "905": "Clip; reachable; 6.9m.",
+              "58": "ArmorBonus; reachable; 21.3m.",
+              "59": "ArmorBonus; reachable; 22.3m.",
+              "33": "Shell; reachable; 23.2m.",
+              "32": "Shell; reachable; 24.1m.",
+              "110": "HealthBonus; reachable; 27.1m.",
+              "130": "HealthBonus; reachable; 28.2m.",
+              "133": "HealthBonus; reachable; 28.6m.",
+              "129": "HealthBonus; reachable; 28.9m.",
+              "131": "HealthBonus; reachable; 29.2m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 10.18741568922901,
+              "bearing": 23.1,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 14.696927327530789,
+              "bearing": 3.3,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 6.900643067859775,
+              "bearing": 3.5,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 21.28220235298719,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 22.281099347948732,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 23.18487207949778,
+              "bearing": 40.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 24.103834908417802,
+              "bearing": 42.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 27.051637464592996,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 28.237845253154514,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 28.573079818463395,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 28.87310206760826,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 29.187174506977698,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 17438,
+      "packet": {
+        "state": "Current command: pickup #33 Shell 34.4m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, HealthBonus#110, Shell#33, Shell#32, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 27.3m; lift #805 phase call 58.1m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 7.1m, right 9.1m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 10.1m; GreenArmor#31 [Armor] 26.9m; RedCard#5 [Key] 36.3m; BlueCard#27 [Key] 59.6m; Medikit#48 [Health] 63.1m; YellowCard#key_21 [Key] 76.2m; Clip#905 [Ammo] 19.2m; ArmorBonus#58 [Armor] 27.9m; ArmorBonus#59 [Armor] 28.7m; HealthBonus#110 [Health] 31.2m; Shell#33 [Ammo] 34.4m; Shell#32 [Ammo] 35.1m; HealthBonus#130 [Health] 36.7m; HealthBonus#133 [Health] 37.3m; HealthBonus#129 [Health] 37.4m; HealthBonus#131 [Health] 37.5m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 10.1m.",
+              "31": "GreenArmor; reachable; 26.9m.",
+              "905": "Clip; reachable; 19.2m.",
+              "58": "ArmorBonus; reachable; 27.9m.",
+              "59": "ArmorBonus; reachable; 28.7m.",
+              "110": "HealthBonus; reachable; 31.2m.",
+              "33": "Shell; reachable; 34.4m.",
+              "32": "Shell; reachable; 35.1m.",
+              "130": "HealthBonus; reachable; 36.7m.",
+              "133": "HealthBonus; reachable; 37.3m.",
+              "129": "HealthBonus; reachable; 37.4m.",
+              "131": "HealthBonus; reachable; 37.5m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 10.134581024409071,
+              "bearing": -45.2,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 26.926239209152197,
+              "bearing": 44.1,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 19.151792959294614,
+              "bearing": -44.7,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 27.858260435840887,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 28.749993357586145,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 31.231328330105928,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 34.39326115472677,
+              "bearing": -5.1,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 35.14339507353942,
+              "bearing": -3.4,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 36.70677874282794,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 37.282735342644834,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 37.40233551434144,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 37.534877770215736,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 17776,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 14.7m; status executing.\nEnemy range: none; health: wounded; space: left tight, right tight.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, Shell#33, ArmorBonus#59, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 37.9m; lift #805 phase call 52.0m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 1.3m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 14.7m; GreenArmor#31 [Armor] 18.0m; RedCard#5 [Key] 42.7m; BlueCard#27 [Key] 55.9m; Medikit#48 [Health] 59.3m; YellowCard#key_21 [Key] 76.1m; Clip#905 [Ammo] 11.1m; ArmorBonus#58 [Armor] 28.1m; Shell#33 [Ammo] 29.1m; ArmorBonus#59 [Armor] 29.1m; Shell#32 [Ammo] 30.1m; HealthBonus#110 [Health] 33.7m; HealthBonus#130 [Health] 35.0m; HealthBonus#133 [Health] 35.3m; HealthBonus#129 [Health] 35.6m; HealthBonus#131 [Health] 36.0m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 14.7m.",
+              "31": "GreenArmor; reachable; 18.0m.",
+              "905": "Clip; reachable; 11.1m.",
+              "58": "ArmorBonus; reachable; 28.1m.",
+              "33": "Shell; reachable; 29.1m.",
+              "59": "ArmorBonus; reachable; 29.1m.",
+              "32": "Shell; reachable; 30.1m.",
+              "110": "HealthBonus; reachable; 33.7m.",
+              "130": "HealthBonus; reachable; 35.0m.",
+              "133": "HealthBonus; reachable; 35.3m.",
+              "129": "HealthBonus; reachable; 35.6m.",
+              "131": "HealthBonus; reachable; 36.0m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 14.699494655541756,
+              "bearing": 40.6,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 17.982036084680097,
+              "bearing": 46.1,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 11.106672733853316,
+              "bearing": 40.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 28.13051199040773,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 29.070703530488785,
+              "bearing": 41.1,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 29.127982453993507,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 30.092530219386237,
+              "bearing": 43.2,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 33.687588711494755,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 35.025081221112636,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 35.32457716056223,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 35.64895316215984,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 35.98430173760799,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 18088,
+      "packet": {
+        "state": "Current command: pickup #33 Shell 23.4m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, Shell#33, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 34.9m; lift #805 phase call 46.9m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 3.0m, right 4.0m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 9.7m; GreenArmor#31 [Armor] 15.1m; RedCard#5 [Key] 36.6m; BlueCard#27 [Key] 49.7m; Medikit#48 [Health] 53.2m; YellowCard#key_21 [Key] 69.2m; Clip#905 [Ammo] 7.3m; ArmorBonus#58 [Armor] 21.1m; ArmorBonus#59 [Armor] 22.1m; Shell#33 [Ammo] 23.4m; Shell#32 [Ammo] 24.3m; HealthBonus#110 [Health] 26.8m; HealthBonus#130 [Health] 28.2m; HealthBonus#133 [Health] 28.5m; HealthBonus#129 [Health] 28.8m; HealthBonus#131 [Health] 29.1m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 9.7m.",
+              "31": "GreenArmor; reachable; 15.1m.",
+              "905": "Clip; reachable; 7.3m.",
+              "58": "ArmorBonus; reachable; 21.1m.",
+              "59": "ArmorBonus; reachable; 22.1m.",
+              "33": "Shell; reachable; 23.4m.",
+              "32": "Shell; reachable; 24.3m.",
+              "110": "HealthBonus; reachable; 26.8m.",
+              "130": "HealthBonus; reachable; 28.2m.",
+              "133": "HealthBonus; reachable; 28.5m.",
+              "129": "HealthBonus; reachable; 28.8m.",
+              "131": "HealthBonus; reachable; 29.1m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 9.669968725792577,
+              "bearing": 40.9,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 15.138767112014573,
+              "bearing": 43.8,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 7.3446890854015185,
+              "bearing": 42.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 21.088567729648453,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 22.086145025106532,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 23.360286643383365,
+              "bearing": 45.2,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 24.261144522437935,
+              "bearing": 41.4,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 26.764710109119804,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 28.184837733290944,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 28.53748059806201,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 28.82570892553013,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 29.128254174152094,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 18400,
+      "packet": {
+        "state": "Current command: pickup #33 Shell 29.7m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, HealthBonus#110, Shell#33, Shell#32, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 29.2m; lift #805 phase call 53.4m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 6.5m, right 4.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 7.1m; GreenArmor#31 [Armor] 22.5m; RedCard#5 [Key] 35.0m; BlueCard#27 [Key] 55.1m; Medikit#48 [Health] 58.6m; YellowCard#key_21 [Key] 72.5m; Clip#905 [Ammo] 14.7m; ArmorBonus#58 [Armor] 24.0m; ArmorBonus#59 [Armor] 24.9m; HealthBonus#110 [Health] 28.1m; Shell#33 [Ammo] 29.7m; Shell#32 [Ammo] 30.5m; HealthBonus#130 [Health] 32.5m; HealthBonus#133 [Health] 33.0m; HealthBonus#129 [Health] 33.2m; HealthBonus#131 [Health] 33.4m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 7.1m.",
+              "31": "GreenArmor; reachable; 22.5m.",
+              "905": "Clip; reachable; 14.7m.",
+              "58": "ArmorBonus; reachable; 24.0m.",
+              "59": "ArmorBonus; reachable; 24.9m.",
+              "110": "HealthBonus; reachable; 28.1m.",
+              "33": "Shell; reachable; 29.7m.",
+              "32": "Shell; reachable; 30.5m.",
+              "130": "HealthBonus; reachable; 32.5m.",
+              "133": "HealthBonus; reachable; 33.0m.",
+              "129": "HealthBonus; reachable; 33.2m.",
+              "131": "HealthBonus; reachable; 33.4m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 7.141764773416057,
+              "bearing": 31.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 22.46707258351997,
+              "bearing": -41.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 14.670737618895517,
+              "bearing": -41.7,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 24.00823586816246,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 24.942702989996576,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 28.117708684217547,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 29.693121230414004,
+              "bearing": -13.3,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 30.461824503571517,
+              "bearing": -11.5,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 32.498225492916156,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 33.02362755663032,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 33.184617521777476,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 33.35982168918604,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 18712,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 11.1m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, HealthBonus#110, Shell#33, Shell#32, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 29.6m; lift #805 phase call 57.5m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 8.1m, right 6.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 11.1m; GreenArmor#31 [Armor] 25.5m; RedCard#5 [Key] 38.1m; BlueCard#27 [Key] 59.5m; Medikit#48 [Health] 63.0m; YellowCard#key_21 [Key] 76.9m; Clip#905 [Ammo] 17.8m; ArmorBonus#58 [Armor] 28.4m; ArmorBonus#59 [Armor] 29.3m; HealthBonus#110 [Health] 32.2m; Shell#33 [Ammo] 33.8m; Shell#32 [Ammo] 34.7m; HealthBonus#130 [Health] 36.9m; HealthBonus#133 [Health] 37.5m; HealthBonus#129 [Health] 37.6m; HealthBonus#131 [Health] 37.8m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 11.1m.",
+              "31": "GreenArmor; reachable; 25.5m.",
+              "905": "Clip; reachable; 17.8m.",
+              "58": "ArmorBonus; reachable; 28.4m.",
+              "59": "ArmorBonus; reachable; 29.3m.",
+              "110": "HealthBonus; reachable; 32.2m.",
+              "33": "Shell; reachable; 33.8m.",
+              "32": "Shell; reachable; 34.7m.",
+              "130": "HealthBonus; reachable; 36.9m.",
+              "133": "HealthBonus; reachable; 37.5m.",
+              "129": "HealthBonus; reachable; 37.6m.",
+              "131": "HealthBonus; reachable; 37.8m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 11.062650275248405,
+              "bearing": -27.3,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 25.51566284085258,
+              "bearing": 43.3,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 17.818867083498123,
+              "bearing": 44.3,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 28.38754143807999,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 29.31217698317349,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 32.23623857268872,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 33.83931634621257,
+              "bearing": -32.5,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 34.653294850876314,
+              "bearing": -30.9,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 36.92978081344229,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 37.453711817377545,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 37.61608997770923,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 37.79100318227961,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 19024,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 9.4m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, Shell#33, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 34.8m; lift #805 phase call 46.4m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 3.0m, right 6.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 9.4m; GreenArmor#31 [Armor] 15.0m; RedCard#5 [Key] 36.1m; BlueCard#27 [Key] 49.1m; Medikit#48 [Health] 52.6m; YellowCard#key_21 [Key] 68.5m; Clip#905 [Ammo] 7.2m; ArmorBonus#58 [Armor] 20.5m; ArmorBonus#59 [Armor] 21.5m; Shell#33 [Ammo] 22.9m; Shell#32 [Ammo] 23.7m; HealthBonus#110 [Health] 26.2m; HealthBonus#130 [Health] 27.6m; HealthBonus#133 [Health] 27.9m; HealthBonus#129 [Health] 28.2m; HealthBonus#131 [Health] 28.5m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 9.4m.",
+              "31": "GreenArmor; reachable; 15.0m.",
+              "905": "Clip; reachable; 7.2m.",
+              "58": "ArmorBonus; reachable; 20.5m.",
+              "59": "ArmorBonus; reachable; 21.5m.",
+              "33": "Shell; reachable; 22.9m.",
+              "32": "Shell; reachable; 23.7m.",
+              "110": "HealthBonus; reachable; 26.2m.",
+              "130": "HealthBonus; reachable; 27.6m.",
+              "133": "HealthBonus; reachable; 27.9m.",
+              "129": "HealthBonus; reachable; 28.2m.",
+              "131": "HealthBonus; reachable; 28.5m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 9.390659379928259,
+              "bearing": 43.0,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 14.96991113813111,
+              "bearing": 18.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 7.200267139800293,
+              "bearing": 15.1,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 20.457276288069856,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 21.455029953893565,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 22.851080068122503,
+              "bearing": 39.5,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 23.738303578284647,
+              "bearing": 41.6,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 26.157514143986074,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 27.56274971993211,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 27.919743308740962,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 28.20492329138344,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 28.504794847878884,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 19336,
+      "packet": {
+        "state": "Current command: pickup #33 Shell 26.2m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, Shell#33, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 33.2m; lift #805 phase call 49.8m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 4.0m, right 5.6m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 8.9m; GreenArmor#31 [Armor] 17.9m; RedCard#5 [Key] 36.7m; BlueCard#27 [Key] 52.3m; Medikit#48 [Health] 55.8m; YellowCard#key_21 [Key] 71.2m; Clip#905 [Ammo] 10.1m; ArmorBonus#58 [Armor] 22.8m; ArmorBonus#59 [Armor] 23.8m; Shell#33 [Ammo] 26.2m; Shell#32 [Ammo] 27.1m; HealthBonus#110 [Health] 28.0m; HealthBonus#130 [Health] 30.5m; HealthBonus#133 [Health] 30.9m; HealthBonus#129 [Health] 31.1m; HealthBonus#131 [Health] 31.4m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 8.9m.",
+              "31": "GreenArmor; reachable; 17.9m.",
+              "905": "Clip; reachable; 10.1m.",
+              "58": "ArmorBonus; reachable; 22.8m.",
+              "59": "ArmorBonus; reachable; 23.8m.",
+              "33": "Shell; reachable; 26.2m.",
+              "32": "Shell; reachable; 27.1m.",
+              "110": "HealthBonus; reachable; 28.0m.",
+              "130": "HealthBonus; reachable; 30.5m.",
+              "133": "HealthBonus; reachable; 30.9m.",
+              "129": "HealthBonus; reachable; 31.1m.",
+              "131": "HealthBonus; reachable; 31.4m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 8.874787141764532,
+              "bearing": 44.6,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 17.927349103504834,
+              "bearing": -16.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 10.143836212228004,
+              "bearing": -14.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 22.838350214263897,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 23.822868973820682,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 26.215804479638752,
+              "bearing": 15.4,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 27.087902494614138,
+              "bearing": 17.3,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 27.98427359033611,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 30.46996567919117,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 30.880344446186335,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 31.128389994028435,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 31.390407039819475,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 19674,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 14.1m; status executing.\nEnemy range: none; health: wounded; space: left open, right tight.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, Shell#33, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 37.5m; lift #805 phase call 51.5m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 1.5m, right 1.3m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 14.1m; GreenArmor#31 [Armor] 17.6m; RedCard#5 [Key] 42.0m; BlueCard#27 [Key] 55.2m; Medikit#48 [Health] 58.7m; YellowCard#key_21 [Key] 75.4m; Clip#905 [Ammo] 10.5m; ArmorBonus#58 [Armor] 27.4m; ArmorBonus#59 [Armor] 28.4m; Shell#33 [Ammo] 28.4m; Shell#32 [Ammo] 29.4m; HealthBonus#110 [Health] 32.9m; HealthBonus#130 [Health] 34.3m; HealthBonus#133 [Health] 34.6m; HealthBonus#129 [Health] 34.9m; HealthBonus#131 [Health] 35.2m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 14.1m.",
+              "31": "GreenArmor; reachable; 17.6m.",
+              "905": "Clip; reachable; 10.5m.",
+              "58": "ArmorBonus; reachable; 27.4m.",
+              "59": "ArmorBonus; reachable; 28.4m.",
+              "33": "Shell; reachable; 28.4m.",
+              "32": "Shell; reachable; 29.4m.",
+              "110": "HealthBonus; reachable; 32.9m.",
+              "130": "HealthBonus; reachable; 34.3m.",
+              "133": "HealthBonus; reachable; 34.6m.",
+              "129": "HealthBonus; reachable; 34.9m.",
+              "131": "HealthBonus; reachable; 35.2m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 14.078737126153444,
+              "bearing": 44.6,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 17.56219480896539,
+              "bearing": 39.1,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 10.541664543191171,
+              "bearing": 42.2,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 27.37490249051823,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 28.372387770609137,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 28.42814185520977,
+              "bearing": 39.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 29.440289165367698,
+              "bearing": 41.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 32.94271347560161,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 34.28669568989117,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 34.59086434250572,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 34.912121811294035,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 35.24463934801477,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 19986,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 7.4m; status executing.\nEnemy range: none; health: wounded; space: left open, right open.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, ArmorBonus#59, HealthBonus#110, HealthBonus#130, Shell#33, Shell#32, HealthBonus#129, HealthBonus#131, HealthBonus#133.\nAvailable mechanisms: door switch #662 20.9m; lift #805 phase call 57.4m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 11.9m, right 5.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 7.4m; GreenArmor#31 [Armor] 29.4m; RedCard#5 [Key] 29.6m; BlueCard#27 [Key] 57.2m; Medikit#48 [Health] 60.7m; YellowCard#key_21 [Key] 71.6m; Clip#905 [Ammo] 21.8m; ArmorBonus#58 [Armor] 24.3m; ArmorBonus#59 [Armor] 25.1m; HealthBonus#110 [Health] 26.3m; HealthBonus#130 [Health] 33.8m; Shell#33 [Ammo] 33.9m; Shell#32 [Ammo] 34.4m; HealthBonus#129 [Health] 34.5m; HealthBonus#131 [Health] 34.5m; HealthBonus#133 [Health] 34.5m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 7.4m.",
+              "31": "GreenArmor; reachable; 29.4m.",
+              "905": "Clip; reachable; 21.8m.",
+              "58": "ArmorBonus; reachable; 24.3m.",
+              "59": "ArmorBonus; reachable; 25.1m.",
+              "110": "HealthBonus; reachable; 26.3m.",
+              "130": "HealthBonus; reachable; 33.8m.",
+              "33": "Shell; reachable; 33.9m.",
+              "32": "Shell; reachable; 34.4m.",
+              "129": "HealthBonus; reachable; 34.5m.",
+              "131": "HealthBonus; reachable; 34.5m.",
+              "133": "HealthBonus; reachable; 34.5m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 7.3856012828387865,
+              "bearing": 11.2,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 29.449165503803503,
+              "bearing": -15.0,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 21.810321032272398,
+              "bearing": -18.5,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 24.326039827889307,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 25.089910487481305,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 26.261984596935044,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 33.81119580734728,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 33.91044211838704,
+              "bearing": 42.8,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 34.44074371825741,
+              "bearing": 44.3,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 34.51830187141996,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 34.52454715828357,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 34.526540105959114,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    },
+    {
+      "tick": 20298,
+      "packet": {
+        "state": "Current command: pickup #36 Medikit 14.6m; status executing.\nEnemy range: none; health: wounded; space: left tight, right tight.\nReachable items: Medikit#36, GreenArmor#31, Clip#905, ArmorBonus#58, Shell#33, ArmorBonus#59, Shell#32, HealthBonus#110, HealthBonus#130, HealthBonus#133, HealthBonus#129, HealthBonus#131.\nAvailable mechanisms: door switch #662 37.8m; lift #805 phase call 51.9m Upper route keys: blue (missing).\nHP 59; armor 2.\nInventory: melee 0 ammo; pistol 118 ammo; shotgun 1 ammo; super_shotgun 1 ammo.\nClearance: left 1.3m, right 0.8m. Movement: stationary.\nCollected keys: none.\nNo enemies visible or seen in the last two seconds.\nItems: Medikit#36 [Health] 14.6m; GreenArmor#31 [Armor] 17.9m; RedCard#5 [Key] 42.6m; BlueCard#27 [Key] 55.7m; Medikit#48 [Health] 59.2m; YellowCard#key_21 [Key] 76.0m; Clip#905 [Ammo] 11.0m; ArmorBonus#58 [Armor] 28.0m; Shell#33 [Ammo] 28.9m; ArmorBonus#59 [Armor] 29.0m; Shell#32 [Ammo] 29.9m; HealthBonus#110 [Health] 33.6m; HealthBonus#130 [Health] 34.9m; HealthBonus#133 [Health] 35.2m; HealthBonus#129 [Health] 35.5m; HealthBonus#131 [Health] 35.8m.\nUnreachable: #728.",
+        "questions": {
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "36": "Medikit; reachable; 14.6m.",
+              "31": "GreenArmor; reachable; 17.9m.",
+              "905": "Clip; reachable; 11.0m.",
+              "58": "ArmorBonus; reachable; 28.0m.",
+              "33": "Shell; reachable; 28.9m.",
+              "59": "ArmorBonus; reachable; 29.0m.",
+              "32": "Shell; reachable; 29.9m.",
+              "110": "HealthBonus; reachable; 33.6m.",
+              "130": "HealthBonus; reachable; 34.9m.",
+              "133": "HealthBonus; reachable; 35.2m.",
+              "129": "HealthBonus; reachable; 35.5m.",
+              "131": "HealthBonus; reachable; 35.8m."
+            }
+          }
+        },
+        "targets": {
+          "item": {
+            "36": {
+              "name": "Medikit",
+              "id": 36,
+              "x": 536.0,
+              "y": -1160.0,
+              "z": 24.0,
+              "distance": 14.617171755851777,
+              "bearing": 22.1,
+              "category": "Health",
+              "reachable": true
+            },
+            "31": {
+              "name": "GreenArmor",
+              "id": 31,
+              "x": -192.0,
+              "y": -1280.0,
+              "z": -24.0,
+              "distance": 17.8538116206014,
+              "bearing": 41.4,
+              "category": "Armor",
+              "reachable": true
+            },
+            "905": {
+              "name": "Clip",
+              "id": 905,
+              "x": 54.620941162109375,
+              "y": -1317.6806335449219,
+              "z": -24.0,
+              "distance": 10.961814157116434,
+              "bearing": 42.9,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "58": {
+              "name": "ArmorBonus",
+              "id": 58,
+              "x": 240.0,
+              "y": -672.0,
+              "z": 8.0,
+              "distance": 27.991214883234612,
+              "bearing": 46.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "33": {
+              "name": "Shell",
+              "id": 33,
+              "x": -240.0,
+              "y": -816.0,
+              "z": -24.0,
+              "distance": 28.920507515089337,
+              "bearing": 42.7,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "59": {
+              "name": "ArmorBonus",
+              "id": 59,
+              "x": 240.0,
+              "y": -640.0,
+              "z": 8.0,
+              "distance": 28.98883380365778,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "32": {
+              "name": "Shell",
+              "id": 32,
+              "x": -240.0,
+              "y": -776.0,
+              "z": -24.0,
+              "distance": 29.941839009172188,
+              "bearing": 44.7,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "110": {
+              "name": "HealthBonus",
+              "id": 110,
+              "x": 400.0,
+              "y": -496.0,
+              "z": 0.0,
+              "distance": 33.559743659665855,
+              "bearing": 45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "130": {
+              "name": "HealthBonus",
+              "id": 130,
+              "x": -16.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 34.8760005454896,
+              "bearing": -40.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "133": {
+              "name": "HealthBonus",
+              "id": 133,
+              "x": -48.0,
+              "y": -496.0,
+              "z": -32.0,
+              "distance": 35.17477177465012,
+              "bearing": -45.8,
+              "category": "Health",
+              "reachable": true
+            },
+            "129": {
+              "name": "HealthBonus",
+              "id": 129,
+              "x": -32.0,
+              "y": -480.0,
+              "z": -32.0,
+              "distance": 35.49960815350214,
+              "bearing": -45.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "131": {
+              "name": "HealthBonus",
+              "id": 131,
+              "x": -16.0,
+              "y": -464.0,
+              "z": -32.0,
+              "distance": 35.835454353275175,
+              "bearing": -44.1,
+              "category": "Health",
+              "reachable": true
+            }
+          }
+        },
+        "observation": {
+          "hp": 59.0
+        }
+      }
+    }
+  ]
+}

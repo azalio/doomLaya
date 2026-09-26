@@ -1,0 +1,45 @@
+{
+  "source_type": "offline training only",
+  "source_sha256": {
+    "training/map2-weapon-demonstrations-v1/train.json": "eeeccd176b2d5730479b6561414f6595b2cc9147511fdd823162cef25c3f091a",
+    "training/map2-committed-replay-v1/train.json": "8a967f4955543bcd077599dc6bfff047a54c0cf662af6f3f56431e6fae8a4c6f",
+    "training/map2-weapon-demonstrations-v1/validation.json": "7124091b06f90023a5da272912b9d3a5a414acd04ee115af9c01ce4c5cf3fc3f",
+    "training/map2-committed-replay-v1/validation.json": "0302a9acafe0ea86f77c17d990e5ee281c4396045d99e99425219bbf22a8f605"
+  },
+  "train": {
+    "rows": 3374,
+    "sha256": "aac154bad1ff12720aa83a77406e6151e23859586377e9d2c0bd3dcc29f3edf8",
+    "kinds": {
+      "weapon": 1104,
+      "enemy": 430,
+      "command": 1127,
+      "movement": 477,
+      "item": 173,
+      "switch": 63
+    },
+    "weapon_labels": {
+      "super_shotgun": 469,
+      "pistol": 274,
+      "shotgun": 329,
+      "melee": 32
+    }
+  },
+  "validation": {
+    "rows": 992,
+    "sha256": "73f68c915dbea668800d1ac976d80d6de8b80c7d75981531628da6400483d24d",
+    "kinds": {
+      "item": 88,
+      "weapon": 261,
+      "enemy": 98,
+      "movement": 213,
+      "command": 280,
+      "switch": 52
+    },
+    "weapon_labels": {
+      "super_shotgun": 108,
+      "pistol": 86,
+      "melee": 14,
+      "shotgun": 53
+    }
+  }
+}

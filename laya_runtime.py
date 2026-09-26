@@ -31,3 +31,15 @@ def base_checkpoint(local=None):
     if not (path / "model.safetensors").is_file():
         raise FileNotFoundError(f"Not a Laya checkpoint: {path}")
     return path
+
+
+def enable_single_option_padding(model):
+    """Pad the masked option axis for upstream's topk(2) confidence features."""
+    def pad_options(module,args):
+        import torch
+        ids,attention,markers,mask,qtype,*rest=args
+        if markers.shape[1]!=1:return args
+        markers=torch.cat((markers,torch.zeros_like(markers)),dim=1)
+        mask=torch.cat((mask,torch.zeros_like(mask)),dim=1)
+        return (ids,attention,markers,mask,qtype,*rest)
+    return model.register_forward_pre_hook(pad_options)

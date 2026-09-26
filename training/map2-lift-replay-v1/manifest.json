@@ -1,0 +1,62 @@
+{
+  "note": "Development replay. Recent episodes 1, 4, 7 held out from training; older development splits retained. No runtime teacher.",
+  "routes": {
+    "728": [
+      "red"
+    ],
+    "805": [
+      "blue"
+    ]
+  },
+  "sources": {
+    "runs/map02-lift-facts-corrections/examples.json": "447ecf7ed2ae83ef100e0c4a16a846c39f68c39787c6a85a496268b9f72dddea",
+    "training/map2-goal-recovery-v2/train.json": "1b00b872dcf8f3b0a9f2d95dda5868c9659d3f2a44755e3ab9989c4fbd42486f",
+    "training/map2-dagger-v2/train.json": "e2193193efbb1e38f5339a412197dd32c4676da28605bbb3f7fc893562fcf93b",
+    "training/map2-reachable-v2/train.json": "13d31f5cf66cce672af0c98c50dedf2e65376a5d3f9fe4c9606ef3ea5ee8d2ba",
+    "training/map2-goal-recovery-v2/validation.json": "fef5fbd2d0d4c3f7e2f431ca3949f323ec5b251739ed16d31839ba8d9f64ca6d",
+    "training/map2-dagger-v2/validation.json": "f18684a038b4a00c1045c8b45a07439ce35443d2ccb00656371de6f4da3881f1",
+    "training/map2-reachable-v2/validation.json": "80c500510b8b61bb761137d86b627144ed4c00b9135176b625b20ee9277562a2"
+  },
+  "splits": {
+    "train": {
+      "rows": 2571,
+      "sha256": "60b63e3f2b6d5b3a15b2c06de12702da1af6da0cb2f6b39394a3f82b916c6fe3",
+      "kinds": {
+        "item": 766,
+        "command": 1005,
+        "movement": 350,
+        "switch": 100,
+        "weapon": 250,
+        "enemy": 100
+      },
+      "commands": {
+        "use_switch": 112,
+        "exit": 97,
+        "continue": 372,
+        "pickup": 168,
+        "open_door": 149,
+        "attack": 107
+      }
+    },
+    "validation": {
+      "rows": 788,
+      "sha256": "e5bbaa718cf85d4a8714de4fb0081df042a3081fc64f77e0e20aa27ed54af8b1",
+      "kinds": {
+        "item": 294,
+        "weapon": 62,
+        "switch": 45,
+        "command": 275,
+        "movement": 87,
+        "enemy": 25
+      },
+      "commands": {
+        "continue": 112,
+        "open_door": 37,
+        "use_switch": 26,
+        "pickup": 40,
+        "attack": 26,
+        "exit": 34
+      }
+    }
+  }
+}

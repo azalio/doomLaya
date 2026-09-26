@@ -1,0 +1,33 @@
+{
+  "source_type": "offline curriculum only",
+  "source_sha256": {
+    "training/map2-reachable-demonstrations-v1/train.json": "9d327c3328b4223c5381452a7bc3e3e87321b00f134cec83b7e3c20787d514e4",
+    "training/map2-weapons-v1/train.json": "aac154bad1ff12720aa83a77406e6151e23859586377e9d2c0bd3dcc29f3edf8",
+    "training/map2-reachable-demonstrations-v1/validation.json": "383a05c873d17e936da28c84155a222c326af2cfaf0933cab6bccb9b9a279d10",
+    "training/map2-weapons-v1/validation.json": "73f68c915dbea668800d1ac976d80d6de8b80c7d75981531628da6400483d24d"
+  },
+  "train": {
+    "rows": 3691,
+    "sha256": "49d31c6db00a5924d5d7e88e49dc52431d2050bf64867043a485daed97ff2aa9",
+    "kinds": {
+      "enemy": 449,
+      "item": 351,
+      "command": 1278,
+      "weapon": 1103,
+      "movement": 448,
+      "switch": 62
+    }
+  },
+  "validation": {
+    "rows": 999,
+    "sha256": "6d28ab76547f70d4c49f47a204a53c4b797434c84ea33acc8d0428b4d5086272",
+    "kinds": {
+      "command": 312,
+      "movement": 188,
+      "item": 113,
+      "weapon": 260,
+      "enemy": 96,
+      "switch": 30
+    }
+  }
+}

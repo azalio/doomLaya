@@ -1,0 +1,33 @@
+{
+  "note": "Offline synthetic contrasts plus development replay; no runtime policy.",
+  "source_sha256": {
+    "training/map2-lift-replay-v1/train.json": "60b63e3f2b6d5b3a15b2c06de12702da1af6da0cb2f6b39394a3f82b916c6fe3",
+    "training/map2-lift-replay-v1/validation.json": "e5bbaa718cf85d4a8714de4fb0081df042a3081fc64f77e0e20aa27ed54af8b1"
+  },
+  "splits": {
+    "train": {
+      "rows": 2888,
+      "sha256": "f49b0724fe857c7d0f5fee9d89b68c5b889c98a7684ba50a3234cbe26c4f8921",
+      "kinds": {
+        "item": 500,
+        "switch": 490,
+        "enemy": 100,
+        "movement": 250,
+        "command": 1328,
+        "weapon": 220
+      }
+    },
+    "validation": {
+      "rows": 727,
+      "sha256": "903ba96de91d0fb2f3bdd0cbd07e6e266d5bcbf5db1080e36e7e684fa397929e",
+      "kinds": {
+        "switch": 134,
+        "command": 326,
+        "item": 125,
+        "weapon": 55,
+        "movement": 62,
+        "enemy": 25
+      }
+    }
+  }
+}

@@ -1,15 +1,22 @@
 """Память полезных предметов и проверяемый прирост ресурсов игрока."""
 import math
 
-WEAPONS={'Shotgun':3,'SuperShotgun':3,'Chaingun':4,'PlasmaRifle':6,'RocketLauncher':5,'BFG9000':7,'Chainsaw':1}
+WEAPONS={'Shotgun':3,'SuperShotgun':8,'Chaingun':4,'PlasmaRifle':6,'RocketLauncher':5,'BFG9000':7,'Chainsaw':9}
+
+
+def weapon_slot(name,inventory):
+    slot=WEAPONS.get(name)
+    if slot==8 and '8' not in inventory:return 3
+    if slot==9 and '9' not in inventory:return 1
+    return slot
 
 
 def utility(item,s):
     name,category=item['name'],item['category']
     if category=='Weapon':
-        slot=WEAPONS.get(name)
+        slot=weapon_slot(name,s['inventory'])
         if slot and (not s['inventory'][str(slot)]['owned'] or
-                     (name in ('SuperShotgun','Chainsaw') and s['inventory'][str(slot)]['owned']<2)):
+                     (name in ('SuperShotgun','Chainsaw') and slot in (1,3) and s['inventory'][str(slot)]['owned']<2)):
             return 100
         return 0
     if category=='Key':return 85

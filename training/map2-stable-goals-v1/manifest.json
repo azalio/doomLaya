@@ -1,0 +1,35 @@
+{
+  "note": "Label-preserving mechanism-goal contrasts plus unchanged recorded command training. The fast54 switch-loop fixture is excluded from training. No runtime goal retention rule.",
+  "sources": {
+    "training/map2-recorded-commands-v1/train.json": "074cff5af318f4b8cc2d721f225e5f4d8bea31a9c1555beec53b382d5ee35e58",
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "training/map2-recorded-commands-v1/validation.json": "0baa44f2f28c2d3905fc41e5e9e4667c16d9977746f317ce0ea0f50ee3542449",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02"
+  },
+  "splits": {
+    "train": {
+      "rows": 2474,
+      "kinds": {
+        "command": 1383,
+        "switch": 1091
+      },
+      "previous_goals": {
+        "offered": 795,
+        "selected": 382
+      },
+      "sha256": "5ba4bec79d72a5e29a8261b4b5d917518afbc0d138b93a380177d79b3015d5d7"
+    },
+    "validation": {
+      "rows": 898,
+      "kinds": {
+        "switch": 262,
+        "command": 636
+      },
+      "previous_goals": {
+        "offered": 196,
+        "selected": 98
+      },
+      "sha256": "0dde120019eea35c557374e93b40fc14c8e6f02df28decbdabedaaec98e25e8a"
+    }
+  }
+}

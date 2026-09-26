@@ -1,0 +1,33 @@
+{
+  "note": "Synthetic geometry pairs and unchanged original movement replay. Recorded death-window cases are excluded. No runtime movement policy.",
+  "sources": {
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02"
+  },
+  "splits": {
+    "train": {
+      "rows": 710,
+      "labels": {
+        "continue": 259,
+        "strafe_right": 172,
+        "backward": 128,
+        "strafe_left": 146,
+        "stationary": 5
+      },
+      "synthetic": 360,
+      "sha256": "69655b24bef855fb75d0ba78744e4d00ac98fd8dc037efece1bee990b16c96ac"
+    },
+    "validation": {
+      "rows": 195,
+      "labels": {
+        "continue": 70,
+        "strafe_left": 40,
+        "backward": 36,
+        "strafe_right": 48,
+        "stationary": 1
+      },
+      "synthetic": 108,
+      "sha256": "a87465ea832bc9995225d7c4de41d8c2f662f5103ea30201049c3d6042cce216"
+    }
+  }
+}

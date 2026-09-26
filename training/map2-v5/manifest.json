@@ -1,0 +1,115 @@
+{
+  "label_source": "offline demonstrations and explicit combat counterfactuals",
+  "sources": {
+    "map02-teacher-seed53-v11": {
+      "split": "train",
+      "sha256": "a654cfcb93445262319244699667d9cf73abe78733799482dae863d9401ff026",
+      "summary": {
+        "no_monsters": false,
+        "source_type": "offline_teacher",
+        "model_inference": false,
+        "map_completed": true,
+        "seed": 53,
+        "seconds": 428.9714285714286,
+        "deaths": 1,
+        "counts": {
+          "attack": 358,
+          "pickup": 257,
+          "open_door": 18,
+          "use_switch": 135,
+          "exit": 67
+        },
+        "examples": 1670
+      }
+    },
+    "map02-mechanics-no-monsters-seed47-v7": {
+      "split": "train",
+      "sha256": "184c582b3388126cb04e4e5472e8cd604c95e4746e73fcc9d391e36bad996d42",
+      "summary": {
+        "no_monsters": true,
+        "source_type": "offline_teacher",
+        "model_inference": false,
+        "map_completed": true,
+        "seed": 47,
+        "seconds": 125.2,
+        "deaths": 0,
+        "counts": {
+          "use_switch": 155,
+          "pickup": 45,
+          "open_door": 11,
+          "exit": 33
+        },
+        "examples": 488
+      }
+    },
+    "map02-teacher-seed54-v12": {
+      "split": "validation",
+      "sha256": "44fee6daabd70d3ae93fb26d44c4b7ede50ecedd88627e38e7d627cfc424f0cd",
+      "summary": {
+        "no_monsters": false,
+        "source_type": "offline_teacher",
+        "model_inference": false,
+        "map_completed": true,
+        "seed": 54,
+        "seconds": 367.9428571428571,
+        "deaths": 0,
+        "counts": {
+          "attack": 234,
+          "pickup": 169,
+          "open_door": 22,
+          "use_switch": 259,
+          "exit": 32
+        },
+        "examples": 1432
+      }
+    },
+    "map02-mechanics-seed55-v12": {
+      "split": "validation",
+      "sha256": "1acfc54bd55f1f2a62be73e325778e4e4ec37219590f698e580e4cadbf648705",
+      "summary": {
+        "no_monsters": true,
+        "source_type": "offline_teacher",
+        "model_inference": false,
+        "map_completed": true,
+        "seed": 55,
+        "seconds": 125.2,
+        "deaths": 0,
+        "counts": {
+          "use_switch": 155,
+          "pickup": 45,
+          "open_door": 11,
+          "exit": 33
+        },
+        "examples": 488
+      }
+    }
+  },
+  "train": {
+    "rows": 1059,
+    "sha256": "65d2dafbe4753a7911c221434c916bc1ca7d59aa2e73e659c0c62902c9f8992a",
+    "groups": {
+      "command:pickup": 207,
+      "command:open_door": 33,
+      "command:attack": 279,
+      "weapon:shotgun": 183,
+      "command:exit": 91,
+      "command:use_switch": 80,
+      "weapon:pistol": 136,
+      "weapon:melee": 50
+    }
+  },
+  "validation": {
+    "rows": 280,
+    "sha256": "2dd9cf6d488497958e09f9eb2626d98e393fe7e394eb9e5f54e7ec048a1fc132",
+    "groups": {
+      "weapon:shotgun": 57,
+      "weapon:pistol": 44,
+      "command:pickup": 53,
+      "command:use_switch": 20,
+      "command:attack": 54,
+      "command:exit": 22,
+      "weapon:melee": 10,
+      "command:open_door": 20
+    }
+  }
+}

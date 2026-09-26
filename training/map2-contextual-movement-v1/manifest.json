@@ -1,0 +1,33 @@
+{
+  "note": "Recorded movement contexts with synthetic rear clearance. Original state, enemy range, resources and previous movement are unchanged. Original rows retained. The held-out death window is excluded.",
+  "sources": {
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02"
+  },
+  "splits": {
+    "train": {
+      "rows": 466,
+      "new_pairs": 58,
+      "labels": {
+        "continue": 194,
+        "backward": 67,
+        "strafe_left": 99,
+        "strafe_right": 101,
+        "stationary": 5
+      },
+      "sha256": "375f9614e3931a66d3393a3ae9f68ed298ceac8e07faadcb3a0900af5b70873b"
+    },
+    "validation": {
+      "rows": 111,
+      "new_pairs": 12,
+      "labels": {
+        "continue": 48,
+        "strafe_right": 18,
+        "strafe_left": 27,
+        "backward": 17,
+        "stationary": 1
+      },
+      "sha256": "df3f24d3088c3a5ffc3c68db8fc0ff927412df71d9b033b3d58886eba8e9f8fa"
+    }
+  }
+}

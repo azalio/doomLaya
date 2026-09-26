@@ -1,6 +1,8 @@
 """Audit every non-idle motor frame against an accepted, unexpired model response."""
 import argparse,hashlib,json
 from pathlib import Path
+from combat import WEAPON_SLOTS
+from decision_questions import NAVIGATION_ACTIONS
 
 def check(run):
  run=Path(run);cfg=json.loads((run/'config.json').read_text());summary=json.loads((run/'summary.json').read_text())
@@ -18,9 +20,29 @@ def check(run):
   require(hashlib.sha256((run/'source'/name).read_bytes()).hexdigest()==digest,'Source snapshot changed: '+name)
  for d in decisions:
   p=d['packet'];directive=d['directive'];key=d['answers']['command']['choice']
-  expected=p['commands'][key]
+  if cfg['args'].get('mask_unreachable_items'):
+   require(all(i.get('reachable') is True for i in p.get('targets',{}).get('item',{}).values()),'Unreachable item remained selectable')
+   require(all(i.get('reachable') is False for i in p.get('masked_unreachable_items',())), 'Reachable item was masked')
+  if p.get('decision_format') in ('factorized','committed'):
+   from decision_questions import decode
+   expected=decode(d,p,directive['decision_id'])
+  else:expected=p['commands'][key]
   require(directive['action']==expected['action'] and directive['target']==expected['target'],'Model target/action replaced')
+  require(directive.get('movement')==expected.get('movement'),'Model combat movement replaced')
+  require(directive.get('combat_target')==expected.get('combat_target'),'Secondary model combat target replaced')
   require(directive['weapon']==p['weapons'].get(d['answers']['weapon']['choice']),'Model weapon replaced')
+  if 'subrequests' in d:
+   required={'command','weapon'}|set(p['question_dependencies'].get(key,[]))
+   require(set(d['answers'])==required,'Wrong conditional questions')
+   combined={}
+   for part in d['subrequests']:
+    require(set(part['questions'])==set(part['answers']),'Conditional response keys differ')
+    require(part['routing'].get('weights_sha256')==d['routing'].get('weights_sha256'),'Conditional checkpoint changed')
+    combined.update(part['answers'])
+   require(combined==d['answers'],'Conditional answers replaced')
+   require(sum(part['tokens'] for part in d['subrequests'])==d['tokens'],'Conditional token usage mismatch')
+   require(abs(sum(part.get('cost_usd',0) for part in d['subrequests'])-d.get('cost_usd',0))<1e-10,'Conditional cost mismatch')
+   require(d['latency_ms']+1>=sum(part['latency_ms'] for part in d['subrequests']),'Conditional latency excludes a request')
   if d['applied']:accepted[directive['decision_id']]=d
  for index,s in enumerate(rows):
   a=s['buttons'];e=s['execution'];did=e['decision_id'];prefix=f"tick {s['tick']}: "
@@ -35,13 +57,21 @@ def check(run):
   require(s['tick']<=command['expires_tick'],prefix+'Expired decision')
   require(e['action']==kind,prefix+'Action override')
   require(e['target_id']==((command['target'] or {}).get('id')),prefix+'Target override')
+  require(e.get('movement')==command.get('movement'),prefix+'Combat movement override')
+  if kind=='attack' and 'recover_same_goal' not in s.get('reflexes',[]):
+   if a[1]:require(command.get('movement')=='backward',prefix+'Unauthorized backward attack')
+   if a[2]:require(command.get('movement')=='strafe_left',prefix+'Unauthorized left strafe')
+   if a[3]:require(command.get('movement')=='strafe_right',prefix+'Unauthorized right strafe')
+  secondary=command.get('combat_target') if kind in NAVIGATION_ACTIONS else None
+  require(e.get('combat_target_id')==(secondary['id'] if secondary else None),prefix+'Secondary combat target override')
   if a[5]:
-   require(kind=='attack',prefix+'Unauthorized attack')
+   require(kind=='attack' or secondary is not None,prefix+'Unauthorized attack')
    if command['weapon'] is not None:require(s['weapon']==command['weapon'],prefix+'Firing a weapon other than the model requested')
-   require(any(x['id']==e['target_id'] for x in s['enemies']),prefix+'Shooting at unobserved/different enemy')
-  if a[6]:require(kind in ('open_door','exit'),prefix+'Unauthorized USE')
+   shot_target=e['target_id'] if kind=='attack' else e.get('combat_target_id')
+   require(any(x['id']==shot_target and x.get('visible',True) for x in s['enemies']),prefix+'Shooting at unobserved/different enemy')
+  if a[6]:require(kind in ('open_door','use_switch','exit'),prefix+'Unauthorized USE')
   for slot in range(1,8):
-   if a[6+slot]:require(command['weapon']==slot,prefix+'Unauthorized weapon selection')
+   if a[6+slot]:require(WEAPON_SLOTS.get(command['weapon'])==slot,prefix+'Unauthorized weapon selection')
   if kind=='wait':require(not any(a[:7]),prefix+'Wait overridden')
  require(bool(accepted),'No accepted model decisions')
  require(summary['video_frames']==len(rows) if cfg['args']['record'] else True,'Video/telemetry frame mismatch')

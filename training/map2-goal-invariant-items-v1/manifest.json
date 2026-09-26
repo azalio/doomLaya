@@ -1,0 +1,64 @@
+{
+  "note": "Offline label-preserving item-goal augmentation. Original train/validation allocation retained. No teacher or extra decision rule at runtime.",
+  "sources": {
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02"
+  },
+  "splits": {
+    "train": {
+      "rows": 5181,
+      "kinds": {
+        "command": 1212,
+        "item": 2299,
+        "combat": 390,
+        "switch": 380,
+        "weapon": 400,
+        "movement": 350,
+        "enemy": 150
+      },
+      "previous_goals": {
+        "offered_previous_goal": 1903,
+        "selected_previous_goal": 805
+      },
+      "source_types": {
+        "offline_teacher_consistent_policy": 677,
+        "counterfactual_item_previous_goal": 1499,
+        "offline_correction_of_model_rollout": 1402,
+        "counterfactual_route_keys_and_enemy_distance": 673,
+        "counterfactual_current_goal_on_recorded_world": 165,
+        "paired_key_ownership_or_enemy_distance": 211,
+        "counterfactual_resource_state": 348,
+        "controlled_reachable_supplies": 202,
+        "controlled_weapon_inventory": 4
+      },
+      "sha256": "58c0fb73ff08af3943191a779bb540754b4c80a7855c7a75ecf3caa64d7f0c90"
+    },
+    "validation": {
+      "rows": 1870,
+      "kinds": {
+        "command": 348,
+        "item": 1103,
+        "switch": 95,
+        "enemy": 37,
+        "movement": 87,
+        "weapon": 100,
+        "combat": 100
+      },
+      "previous_goals": {
+        "offered_previous_goal": 908,
+        "selected_previous_goal": 397
+      },
+      "source_types": {
+        "offline_correction_of_model_rollout": 493,
+        "counterfactual_item_previous_goal": 713,
+        "counterfactual_resource_state": 233,
+        "counterfactual_route_keys_and_enemy_distance": 111,
+        "controlled_reachable_supplies": 19,
+        "offline_teacher_consistent_policy": 210,
+        "counterfactual_current_goal_on_recorded_world": 46,
+        "paired_key_ownership_or_enemy_distance": 45
+      },
+      "sha256": "1e6ca3fe8dcde54296666bcca508c1d487865534a34081979b3e8c3b70ce40d0"
+    }
+  }
+}

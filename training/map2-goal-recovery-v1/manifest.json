@@ -1,0 +1,51 @@
+{
+  "note": "Synthetic current goals; recorded world and offline teacher targets remain unchanged. Development data, not independent gameplay evidence.",
+  "sources": [
+    "runs/map02-teacher-reachable49-delay12",
+    "runs/map02-teacher-reachable54-delay12",
+    "runs/map02-teacher-reachable48-delay12"
+  ],
+  "replay": "training/map2-dagger-v2",
+  "splits": {
+    "train": {
+      "rows": 2100,
+      "sha256": "1b9f88e969e8c2dc6ff0edf41498b88fb45affb5637ee9a9105a1d0d512a8371",
+      "kinds": {
+        "weapon": 200,
+        "command": 1000,
+        "item": 450,
+        "movement": 250,
+        "switch": 100,
+        "enemy": 100
+      },
+      "commands": {
+        "pickup": 180,
+        "open_door": 116,
+        "continue": 259,
+        "use_switch": 177,
+        "exit": 88,
+        "attack": 180
+      }
+    },
+    "validation": {
+      "rows": 720,
+      "sha256": "c35e4372f1dde51e0998d451279dd27e8af563d31e95c86269dc9bb479153562",
+      "kinds": {
+        "item": 150,
+        "enemy": 40,
+        "command": 330,
+        "movement": 83,
+        "weapon": 66,
+        "switch": 51
+      },
+      "commands": {
+        "open_door": 45,
+        "pickup": 45,
+        "exit": 43,
+        "attack": 45,
+        "continue": 107,
+        "use_switch": 45
+      }
+    }
+  }
+}

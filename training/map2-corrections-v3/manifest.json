@@ -1,0 +1,34 @@
+{
+  "source_run": "20260925_085902_858334_map02-corrected-v1",
+  "source_sha256": {
+    "config.json": "79861ef6a7468dc436f5f9aaf09eb3ae73bad510c724af59da0dc9942e54b9c4",
+    "decisions.jsonl": "f2a5f8d710ddf36763aeae7a93a78f9b43d5a47319ffaca282dfc1881b91bded",
+    "telemetry.jsonl": "dd8cb8ccdc45e5e2bd0ba7c9e52d062f5a9fb256c482335e217b6f7707ef095a"
+  },
+  "development_seed": 48,
+  "label_source": "offline corrections; split by episodes, not an independent performance test",
+  "train": {
+    "rows": 1310,
+    "sha256": "39078b345fb887f93c33b18dd3711d0393d7f11dcad94b5644b1c92024229943",
+    "groups": {
+      "command": 380,
+      "item": 190,
+      "enemy": 190,
+      "movement": 190,
+      "switch": 170,
+      "weapon": 190
+    }
+  },
+  "validation": {
+    "rows": 400,
+    "sha256": "01a63c8a6ba17aeb5b692e48853439e829892d50aeed5513854b2c00ce039ca5",
+    "groups": {
+      "movement": 70,
+      "enemy": 70,
+      "weapon": 70,
+      "switch": 50,
+      "command": 70,
+      "item": 70
+    }
+  }
+}

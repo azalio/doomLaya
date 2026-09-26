@@ -18,6 +18,8 @@ class Replay:
         self.decisions=[json.loads(l) for l in (self.path/'decisions.jsonl').read_text().splitlines()]
         events=[json.loads(l) for l in (self.path/'events.jsonl').read_text().splitlines()]
         self.finish=next((e['game_seconds'] for e in events if e['event']=='level_finished'),None)
+        self.death_times=[e['game_seconds'] for e in events if e['event']=='death']
+        self.error_times=[e['game_seconds'] for e in events if e['event']=='api_error']
         self.decoder=subprocess.Popen(['ffmpeg','-hide_banner','-loglevel','error','-i',str(self.path/'video.mp4'),
                                        '-vf','crop=1120:840:40:108,scale=1280:960:flags=neighbor',
                                        '-f','rawvideo','-pix_fmt','rgb24','-'],stdout=subprocess.PIPE)
@@ -52,13 +54,16 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('laya');p.add_argument('jev');p.add_argument('--output',required=True)
     a=p.parse_args();paths=[Path(a.laya),Path(a.jev)]
     configs=[json.loads((r/'config.json').read_text()) for r in paths]
-    for field in ('map','seed','skill','seconds','interval','give','stop_after_level'):
-        if configs[0]['args'][field]!=configs[1]['args'][field]:raise ValueError('Different setup: '+field)
+    for field in ('map','seed','skill','seconds','interval','give','stop_after_level','decision_format','question_schedule',
+                  'weapon_sensor','map_weapons','reachable_items','physical_facts','explicit_movement','movement_facts','mechanism_facts','combat_during_pickup','combat_during_navigation','refresh_attack_target','explicit_actions','pickup_recent_targets','item_resource_facts','inventory_events','ammo_events','mask_unreachable_items'):
+        if configs[0]['args'].get(field)!=configs[1]['args'].get(field):raise ValueError('Different setup: '+field)
     if configs[0]['source_sha256']!=configs[1]['source_sha256']:raise ValueError('Different controller code')
     if configs[0]['wad_sha256']!=configs[1]['wad_sha256']:raise ValueError('Different WAD')
     if configs[0]['args']['model'] not in ('typed-decisions','doom-adapted') or configs[1]['args']['model']!='jev':raise ValueError('Expected Laya left and Jev right')
     output=Path(a.output);output.parent.mkdir(parents=True,exist_ok=True)
     replays=[Replay(r) for r in paths];frames=max(len(r.rows) for r in replays)
+    initial_map=configs[0]['args']['map'].upper()
+    next_map=f'MAP{int(initial_map[3:])+1:02d}'
     encoder=subprocess.Popen(['ffmpeg','-hide_banner','-loglevel','error','-n','-f','rawvideo','-pix_fmt','rgb24',
                               '-s','2560x1440','-r','35','-i','-','-an','-c:v','libx264','-preset','veryfast','-crf','22',
                               '-pix_fmt','yuv420p','-movflags','+faststart',str(output)],stdin=subprocess.PIPE)
@@ -77,8 +82,8 @@ def main():
             cost_label='API $0 (compute not priced)' if i==0 else f"API total ${r.summary['external_api_cost_usd']:.6f}"
             text(x+26,62,f"{s.get('map','')}   SEED {configs[i]['args']['seed']}   SKILL {configs[i]['args']['skill']}   {cost_label}",22)
             im.paste(frame,(x,105))
-            if frozen or s.get('map')!='MAP01':
-                label=f"MAP01 COMPLETE {r.finish:.2f}s | MAP02" if r.finish else 'TIME BUDGET REACHED'
+            if frozen or s.get('map')!=initial_map:
+                label=f"{initial_map} COMPLETE {r.finish:.2f}s | {next_map}" if r.finish else 'TIME BUDGET REACHED'
                 if frozen:label+=' | FROZEN'
                 d.rectangle((x+12,117,x+1268,171),fill='#10151f')
                 text(x+28,127,label,26,colors[i])
@@ -89,7 +94,9 @@ def main():
             text(x+24,y+77,f"HTTP {decision.get('latency_ms',0):.0f}ms incl. RTT   STATE AGE {age:.0f}ms   CALLS {r.count}   ID #{s.get('execution',{}).get('decision_id','-')}",22)
             resource=s.get('resource',{}).get('target');combat=s.get('combat',{})
             target=combat.get('target_name') or (resource['name'] if resource else s['tactic'])
-            text(x+24,y+114,f"TARGET {target}   ERRORS {r.summary['errors']}   DEATHS {r.summary['deaths']}   COST ${r.cost:.6f}",22)
+            deaths=sum(t<=s['seconds'] for t in r.death_times)
+            errors=sum(t<=s['seconds'] for t in r.error_times)
+            text(x+24,y+114,f"TARGET {target}   ERRORS {errors}   DEATHS {deaths}   COST ${r.cost:.6f}",22)
             probs=decision.get('answers',{}).get('command',{}).get('probabilities',decision.get('probabilities',{}))
             short=sorted(((k,k) for k in probs),key=lambda pair:probs[pair[0]],reverse=True)[:4]
             selected_weapon=WEAPON_NAMES.get(s.get('execution',{}).get('weapon'),'keep')

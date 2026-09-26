@@ -1,0 +1,48 @@
+{
+  "map": "MAP02",
+  "label_source": "offline teacher and explicitly marked counterfactuals",
+  "sources": {
+    "map02-teacher-seed45-v7": {
+      "split": "train",
+      "sha256": "3b082534e87f48048afce2d678638b10fc8a41e39ee3d9f394e2c278c6dc841d"
+    },
+    "map02-mechanics-no-monsters-seed47-v7": {
+      "split": "train",
+      "sha256": "184c582b3388126cb04e4e5472e8cd604c95e4746e73fcc9d391e36bad996d42"
+    },
+    "map02-teacher-seed46-v4": {
+      "split": "validation",
+      "sha256": "fc63e9eb580175b6e46d76eb979c6bfce0df53a16d78fce6755fdfc6cf3d546f"
+    }
+  },
+  "train": {
+    "rows": 1139,
+    "sha256": "28bd9e271614857926549028451a7287699824fa164f810b2e470dc70b1c222e",
+    "groups": {
+      "command:use_switch": 150,
+      "weapon:shotgun": 241,
+      "command:pickup": 187,
+      "command:open_door": 65,
+      "weapon:pistol": 175,
+      "command:attack": 159,
+      "weapon:melee": 51,
+      "command:explore": 20,
+      "command:exit": 91
+    }
+  },
+  "validation": {
+    "rows": 234,
+    "sha256": "cde637cd751d536f85f4f2c952194dd035b93ad5873f2395b643fae4a57842c1",
+    "groups": {
+      "weapon:pistol": 46,
+      "command:pickup": 40,
+      "command:use_switch": 5,
+      "weapon:shotgun": 56,
+      "command:attack": 44,
+      "command:open_door": 12,
+      "command:exit": 20,
+      "command:explore": 5,
+      "weapon:melee": 6
+    }
+  }
+}

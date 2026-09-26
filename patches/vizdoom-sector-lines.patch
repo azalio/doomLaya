@@ -1,0 +1,39 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d765161..cdaa3f5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
+ #-----------------------------------------------------------------------------------------------------------------------
+ 
+ project(ViZDoom VERSION 1.3.1)
+-set(ViZDoom_VERSION_SUFFIX "")
++set(ViZDoom_VERSION_SUFFIX ".post1")
+ set(ViZDoom_VERSION_STR ${ViZDoom_VERSION_MAJOR}.${ViZDoom_VERSION_MINOR}.${ViZDoom_VERSION_PATCH}${ViZDoom_VERSION_SUFFIX})
+ set(ViZDoom_VERSION_ID ${ViZDoom_VERSION_MAJOR}${ViZDoom_VERSION_MINOR}${ViZDoom_VERSION_PATCH})
+ 
+diff --git a/src/lib/ViZDoomSharedMemory.h b/src/lib/ViZDoomSharedMemory.h
+index c806690..a4e4a8e 100644
+--- a/src/lib/ViZDoomSharedMemory.h
++++ b/src/lib/ViZDoomSharedMemory.h
+@@ -91,7 +91,7 @@ namespace vizdoom {
+         double floorHeight;
+         double ceilingHeight;
+         unsigned int lineCount;
+-        unsigned int lines[128];
++        unsigned int lines[MAX_LINES];
+     };
+ 
+     struct SMLine{
+diff --git a/src/vizdoom/src/viz_game.h b/src/vizdoom/src/viz_game.h
+index 1accb7e..7d8837f 100644
+--- a/src/vizdoom/src/viz_game.h
++++ b/src/vizdoom/src/viz_game.h
+@@ -108,7 +108,7 @@ struct VIZSector{
+     double floorHeight;
+     double ceilingHeight;
+     unsigned int lineCount;
+-    unsigned int lines[128];
++    unsigned int lines[VIZ_MAX_LINES];
+ };
+ 
+ struct VIZLine{

@@ -1,0 +1,46 @@
+{
+  "note": "Offline supervised learning; no teacher at runtime. Validation is development data used for checkpoint selection.",
+  "item_resource_facts": true,
+  "pickup_recent_targets": true,
+  "heldout_recent_episodes": [
+    1,
+    4
+  ],
+  "sources": {
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02",
+    "runs/20260925_220409_354120_map02-explicit-trained54/config.json": "098079b7f3578337ac93157f7e688eb58f9b4f4e13573be9202b9e2772f8e966",
+    "runs/20260925_220409_354120_map02-explicit-trained54/telemetry.jsonl": "35724cc753e40547664754852090e9e715e8b7b16c7c591a78582d5d3a9ac4cc",
+    "runs/20260925_220409_354120_map02-explicit-trained54/decisions.jsonl": "5ee2d346b73dd10fd4509482fbc85a3673260cfe8b04fc35cd4c587dd35dc99a"
+  },
+  "splits": {
+    "train": {
+      "rows": 4370,
+      "sha256": "7dc766528fa75ebca13ba150cb9423cbde0e74e809659262bf87a8be3b573c53",
+      "augmented_rows": 3293,
+      "kinds": {
+        "command": 1410,
+        "item": 897,
+        "movement": 421,
+        "weapon": 479,
+        "switch": 407,
+        "combat": 548,
+        "enemy": 208
+      }
+    },
+    "validation": {
+      "rows": 1418,
+      "sha256": "6ee85a4f3a499f62c2a76f5b303a6ca80cdf9b67035c7b13a9da626f471b9051",
+      "augmented_rows": 0,
+      "kinds": {
+        "item": 447,
+        "switch": 95,
+        "combat": 152,
+        "command": 430,
+        "weapon": 126,
+        "movement": 112,
+        "enemy": 56
+      }
+    }
+  }
+}

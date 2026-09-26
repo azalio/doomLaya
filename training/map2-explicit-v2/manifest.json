@@ -1,0 +1,114 @@
+{
+  "note": "Offline supervision only. Development validation selects checkpoints, not independent gameplay proof.",
+  "explicit_actions": true,
+  "combat_during_pickup": true,
+  "heldout_recent_episodes": [
+    1,
+    4,
+    7
+  ],
+  "routes": {
+    "728": [
+      "red"
+    ],
+    "805": [
+      "blue"
+    ]
+  },
+  "sources": {
+    "runs/20260925_202313_471214_map02-route-contrasts54/config.json": "a8cb60993e29104914fedb00681bf3d86d1bf41449a38b8d3bb0be0a0b9b5056",
+    "runs/20260925_202313_471214_map02-route-contrasts54/telemetry.jsonl": "dcdd5daef2e9d18f58fba178ca08eda82f0026defbc3842a7240892bb5e5b1d2",
+    "runs/20260925_202313_471214_map02-route-contrasts54/decisions.jsonl": "2847f6747ffa873b8e82e0eefd5c95d6d0901397e77df51182cdcf8731b1e37c",
+    "runs/map02-teacher-reachable49-delay12/config.json": "59d2572769dc7fceb1ea59be8471ff5c68f26db13b0b8cf3b2cb4af4a22d34b8",
+    "runs/map02-teacher-reachable49-delay12/telemetry.jsonl": "057c498bf3ebca4b0c67baa33ab877e04ce644eed3907a8c243e35ded8db3dc0",
+    "runs/map02-teacher-reachable49-delay12/examples.json": "d1494e96c597c1c1cddfe94f4a771e3c75102030f598a4d7f7d0a0c58157a3da",
+    "runs/map02-teacher-reachable48-delay12/config.json": "3af48176dff07c75e9d0d5e9c3edd3d3ab25121dafd7f616afe343e5d254948c",
+    "runs/map02-teacher-reachable48-delay12/telemetry.jsonl": "1a6a072ce94345e11bc51ffd1b979e8f0624e7d4f7bc8d3023a9f9cd4c256822",
+    "runs/map02-teacher-reachable48-delay12/examples.json": "8dddbb0e4aa9b69b29afd37c21c30da98b5f1acd8796e037bfee74804f82a979",
+    "training/map2-route-contrasts-v3/train.json": "3b4f593dd516be94c3c15dd1ee15d8ace88778018ded6ec7a0d90abc8e7c0953",
+    "training/map2-route-contrasts-v3/validation.json": "32032a32e0694317744db9bda022701e7775b484bc4cd9271f498eff29318dca"
+  },
+  "splits": {
+    "train": {
+      "rows": 3682,
+      "sha256": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+      "kinds": {
+        "combat": 390,
+        "movement": 350,
+        "command": 1212,
+        "switch": 380,
+        "item": 800,
+        "weapon": 400,
+        "enemy": 150
+      },
+      "groups": {
+        "command:exit": 145,
+        "switch:all": 380,
+        "item:health": 273,
+        "command:attack": 320,
+        "movement:all": 350,
+        "command:pickup": 320,
+        "command:use_switch": 320,
+        "weapon:all": 400,
+        "enemy:all": 150,
+        "item:weapon": 232,
+        "item:ammo": 183,
+        "command:open_door": 107,
+        "item:key": 87,
+        "item:armor": 25,
+        "combat:fire": 190,
+        "combat:hold": 200
+      },
+      "source_types": {
+        "offline_correction_of_model_rollout": 1402,
+        "counterfactual_current_goal_on_recorded_world": 165,
+        "paired_key_ownership_or_enemy_distance": 211,
+        "offline_teacher_consistent_policy": 677,
+        "counterfactual_resource_state": 348,
+        "counterfactual_route_keys_and_enemy_distance": 673,
+        "controlled_reachable_supplies": 202,
+        "controlled_weapon_inventory": 4
+      }
+    },
+    "validation": {
+      "rows": 1157,
+      "sha256": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02",
+      "kinds": {
+        "item": 390,
+        "command": 348,
+        "combat": 100,
+        "switch": 95,
+        "movement": 87,
+        "weapon": 100,
+        "enemy": 37
+      },
+      "groups": {
+        "command:exit": 45,
+        "command:open_door": 63,
+        "enemy:all": 37,
+        "switch:all": 95,
+        "command:pickup": 80,
+        "command:use_switch": 80,
+        "item:health": 80,
+        "movement:all": 87,
+        "command:attack": 80,
+        "item:armor": 95,
+        "item:weapon": 95,
+        "weapon:all": 100,
+        "item:ammo": 95,
+        "item:key": 25,
+        "combat:fire": 50,
+        "combat:hold": 50
+      },
+      "source_types": {
+        "counterfactual_resource_state": 233,
+        "offline_correction_of_model_rollout": 493,
+        "paired_key_ownership_or_enemy_distance": 45,
+        "offline_teacher_consistent_policy": 210,
+        "counterfactual_route_keys_and_enemy_distance": 111,
+        "controlled_reachable_supplies": 19,
+        "counterfactual_current_goal_on_recorded_world": 46
+      }
+    }
+  }
+}

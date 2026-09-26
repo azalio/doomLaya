@@ -1,0 +1,31 @@
+{
+  "note": "Offline explicit movement targets. All four physical choices preserved; duplicate continuation removed. No held-out death-window rows.",
+  "sources": {
+    "training/map2-contextual-movement-v1/train.json": "375f9614e3931a66d3393a3ae9f68ed298ceac8e07faadcb3a0900af5b70873b",
+    "training/map2-movement-clearance-v1/train.json": "69655b24bef855fb75d0ba78744e4d00ac98fd8dc037efece1bee990b16c96ac",
+    "training/map2-contextual-movement-v1/validation.json": "df3f24d3088c3a5ffc3c68db8fc0ff927412df71d9b033b3d58886eba8e9f8fa",
+    "training/map2-movement-clearance-v1/validation.json": "a87465ea832bc9995225d7c4de41d8c2f662f5103ea30201049c3d6042cce216"
+  },
+  "splits": {
+    "train": {
+      "rows": 826,
+      "labels": {
+        "strafe_right": 307,
+        "backward": 240,
+        "strafe_left": 274,
+        "stationary": 5
+      },
+      "sha256": "37a5cab6a1e5240e29d89d0f0bf586ed533746b0da5dd28cc7b3e1626ece3dba"
+    },
+    "validation": {
+      "rows": 219,
+      "labels": {
+        "strafe_left": 72,
+        "strafe_right": 85,
+        "backward": 61,
+        "stationary": 1
+      },
+      "sha256": "54551e881d165e93c7f7062f67cf91908b66d99ed8d985b2351d50a3d265b252"
+    }
+  }
+}

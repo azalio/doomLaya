@@ -3,7 +3,7 @@
 Laya и Jev играют в FreeDoom. Модель выбирает действие, цель и оружие;
 контроллер строит маршрут, целится и нажимает кнопки по её команде.
 
-[Обучение](TRAINING.md) · [Результаты](COMPARISON.md) ·
+[Обучение](TRAINING.md) · [MAP02](MAP02.md) · [Результаты](COMPARISON.md) ·
 [Веса и публикация](PUBLISHING.md) · [Контракт управления](DOOM.md)
 
 ## Проверенный результат
@@ -32,8 +32,8 @@ Laya и Jev играют в FreeDoom. Модель выбирает действ
 ## Установка
 
 Нужны Python 3.12+, Git, [uv](https://docs.astral.sh/uv/) и `ffmpeg` в PATH.
-На macOS: `brew install uv ffmpeg`. На Ubuntu для запуска без окна также
-нужны системные библиотеки SDL/OpenGL, перечисленные в документации ViZDoom.
+На macOS: `brew install uv ffmpeg cmake boost sdl2 openal-soft`. На Ubuntu
+для сборки нужны `cmake`, `libboost-all-dev`, `libsdl2-dev`, `libopenal-dev`.
 Клонируйте репозиторий и установите окружение.
 
 ```bash
@@ -42,7 +42,13 @@ cd doomLaya
 uv venv --python 3.12
 uv pip install --python .venv/bin/python -r requirements-lock.txt
 uv pip install --python .venv/bin/python -r requirements-model.txt
+.venv/bin/python scripts/install_vizdoom_sector_fix.py
 ```
+
+Последняя команда собирает ViZDoom `1.3.1.post1` из закреплённой ревизии
+с патчем буфера секторов. Штатная `1.3.1` падает на MAP03: у одного сектора
+168 линий при размере массива 128. Карты и игровая логика не меняются.
+После повторной установки `requirements-lock.txt` примените патч снова.
 
 `requirements-model.txt` нужен для локальной Laya и обучения; для одного Jev
 достаточно первого файла. Версия исходников Laya закреплена по commit SHA.
@@ -141,7 +147,10 @@ chmod 600 .env
 
 ## Граница ответственности
 
-Модель получает текстовое состояние и два вопроса: `command`, `weapon`.
+По умолчанию модель получает текстовое состояние и два вопроса: `command`, `weapon`.
+Режим `--decision-format factorized` отдельно спрашивает действие, цель, оружие
+и движение в бою. Режим `committed` добавляет текущую цель и явную команду
+продолжения; он используется в [эксперименте MAP02](MAP02.md).
 Варианты команд включают конкретных видимых монстров и наблюдавшиеся предметы.
 Исполнитель умеет целиться, идти к указанной цели и обходить препятствия.
 Он не выбирает полезность предметов, приоритет боя или лучшее оружие.
@@ -161,7 +170,7 @@ chmod 600 .env
 ## Проверка
 
 ```bash
-.venv/bin/python -m unittest test_authority.py test_publication.py
+.venv/bin/python -m unittest test_authority.py test_map2.py test_publication.py
 .venv/bin/python scripts/check_publication.py
 .venv/bin/python check_authority.py runs/<run>
 .venv/bin/python verify_run.py runs/<run>

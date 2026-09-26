@@ -1,0 +1,41 @@
+{
+  "note": "Offline teacher demonstrations only, at every recorded decision. Dense full contexts and balanced command replay. Held-out model death-window excluded. No runtime teacher.",
+  "sources": {
+    "runs/map02-teacher-reachable49-delay12/config.json": "59d2572769dc7fceb1ea59be8471ff5c68f26db13b0b8cf3b2cb4af4a22d34b8",
+    "runs/map02-teacher-reachable49-delay12/telemetry.jsonl": "057c498bf3ebca4b0c67baa33ab877e04ce644eed3907a8c243e35ded8db3dc0",
+    "runs/map02-teacher-reachable49-delay12/examples.json": "d1494e96c597c1c1cddfe94f4a771e3c75102030f598a4d7f7d0a0c58157a3da",
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "runs/map02-teacher-reachable48-delay12/config.json": "3af48176dff07c75e9d0d5e9c3edd3d3ab25121dafd7f616afe343e5d254948c",
+    "runs/map02-teacher-reachable48-delay12/telemetry.jsonl": "1a6a072ce94345e11bc51ffd1b979e8f0624e7d4f7bc8d3023a9f9cd4c256822",
+    "runs/map02-teacher-reachable48-delay12/examples.json": "8dddbb0e4aa9b69b29afd37c21c30da98b5f1acd8796e037bfee74804f82a979",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02"
+  },
+  "splits": {
+    "train": {
+      "rows": 984,
+      "dense_before_dedup": 545,
+      "labels": {
+        "open_door": 117,
+        "pickup": 259,
+        "attack": 250,
+        "use_switch": 241,
+        "exit": 117
+      },
+      "both_keys": 90,
+      "sha256": "de770b8d5c43c90531bd74c8ac2b9224ee3706d60b3972d873c659099ed5c8a6"
+    },
+    "validation": {
+      "rows": 648,
+      "dense_before_dedup": 561,
+      "labels": {
+        "attack": 250,
+        "pickup": 159,
+        "open_door": 45,
+        "use_switch": 149,
+        "exit": 45
+      },
+      "both_keys": 71,
+      "sha256": "d48fe6c113b419e0fef0e7392c1bca4b0582ac70e9622cc6dfb787859c13a658"
+    }
+  }
+}
