@@ -1,0 +1,31 @@
+{
+  "repo": "azalio/laya-doom-map02",
+  "revision": "b8370c9429e80896cf58a5e8fb1eeefb94066a4b",
+  "tag": "v0.2.0",
+  "public": true,
+  "anonymous_metadata_and_card_verified": true,
+  "weights_sha256_verified_from_hub_metadata": {
+    "laya-map2-explicit-v2/model.safetensors": {
+      "sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641",
+      "bytes": 1685197088
+    },
+    "laya-map2-root-goals-v1/model.safetensors": {
+      "sha256": "49bdc21f7061d6f6393e4c3df2040cd836d2b9ef1ff0d2d643fd2ca39f46c7d3",
+      "bytes": 1685197088
+    },
+    "laya-map2-goal-invariant-items-v1/model.safetensors": {
+      "sha256": "33c8538f05d07ebe3bf6509a7133d5d5f054be695c515d72ab7eae40a44460ae",
+      "bytes": 1685197088
+    },
+    "laya-map2-explicit-movement-v1/model.safetensors": {
+      "sha256": "a189b2c764903282b49f3575b8295e397c587e1c71a1051a19916d0f9f74edc2",
+      "bytes": 1685197088
+    },
+    "laya-map2-stable-goals-v1/model.safetensors": {
+      "sha256": "22bb11a2c9efd61f6928b20699267fee5ce841c087f54985b27d5d7d16e248a7",
+      "bytes": 1685197088
+    }
+  },
+  "weights_sha256": "f8d2531bfeb4968058590d73ccf71b143df51855a6ab00406d30bb08ee078c49",
+  "file_count": 41
+}
