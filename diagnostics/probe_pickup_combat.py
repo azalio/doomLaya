@@ -4,8 +4,8 @@ from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import make_game,Sensors,BUTTONS
-from executor import Executor
-from mission import Mission,map_data
+from doomlib.executor import Executor
+from doomlib.mission import Mission,map_data
 
 
 def probe(seed,hold=False):

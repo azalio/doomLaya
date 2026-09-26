@@ -12,12 +12,12 @@ from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import make_game,BUTTONS
-from mission import Mission,map_data
-from executor import Executor
-from policy import request
-from decision_questions import factorize,compact_state
-from combat import WEAPON_NAMES
-from items import WEAPONS
+from doomlib.mission import Mission,map_data
+from doomlib.executor import Executor
+from doomlib.policy import request
+from doomlib.decision_questions import factorize,compact_state
+from doomlib.combat import WEAPON_NAMES
+from doomlib.items import WEAPONS
 
 
 def oracle(packet,s,nav):

@@ -1,0 +1,20 @@
+{
+  "map01": {
+    "experiment_valid": true,
+    "level_completed": true,
+    "passed": false,
+    "acceptance_errors": [
+      "max_stationary_seconds exceeds 4",
+      "max_no_new_region_seconds exceeds 25"
+    ]
+  },
+  "map02": {
+    "experiment_valid": true,
+    "level_completed": true,
+    "passed": false,
+    "acceptance_errors": [
+      "max_no_new_region_seconds exceeds 25",
+      "max_upgrade_delay_seconds exceeds 1.5"
+    ]
+  }
+}

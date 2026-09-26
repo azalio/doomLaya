@@ -17,7 +17,7 @@ def variant(row,name):
         body='Body clearance: '+', '.join(f'{side} {value:.1f}m' for side,value in clearance.items())+'.'
         lines=state.splitlines();position=next(i for i,line in enumerate(lines) if line.startswith('HP '));lines.insert(position,body);state='\n'.join(lines)
     if name=='question_facts':
-        from movement_questions import describe_movement
+        from doomlib.movement_questions import describe_movement
         current=re.search(r'Movement: ([^.]+)',state)
         q=describe_movement(q,clearance,current[1] if current else None)
     return state,q

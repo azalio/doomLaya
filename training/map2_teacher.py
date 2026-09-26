@@ -11,11 +11,11 @@ from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import make_game, Sensors, BUTTONS
-from executor import Executor
-from mission import Mission, map_data
-from policy import request
-from items import utility, WEAPONS
-from combat import AMMO_COST
+from doomlib.executor import Executor
+from doomlib.mission import Mission, map_data
+from doomlib.policy import request
+from doomlib.items import utility, WEAPONS
+from doomlib.combat import AMMO_COST
 
 
 def labels(packet,s,reachable,navigator,weapon_resupply=False):
@@ -81,8 +81,8 @@ def collect(seed,seconds,output,no_monsters=False,latency_ticks=0,physical_facts
     if decision_ticks<1 or not 0<=latency_ticks<decision_ticks:raise ValueError("latency_ticks must be smaller than positive decision_ticks")
     output=Path(output);output.mkdir(parents=True,exist_ok=False)
     source=output/'source';source.mkdir()
-    files=['agent.py','executor.py','navigation.py','mission.py','policy.py','items.py','decision_timing.py','training/map2_teacher.py']
-    if weapon_sensor:files+=['assets/weapon_sensor.acs','assets/weapon_sensor.pk3','combat.py']
+    files=['agent.py','doomlib/executor.py','doomlib/navigation.py','doomlib/mission.py','doomlib/policy.py','doomlib/items.py','doomlib/decision_timing.py','training/map2_teacher.py']
+    if weapon_sensor:files+=['assets/weapon_sensor.acs','assets/weapon_sensor.pk3','doomlib/combat.py']
     hashes={}
     for name in files:
         dest=source/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(name,dest)
@@ -111,7 +111,7 @@ def collect(seed,seconds,output,no_monsters=False,latency_ticks=0,physical_facts
                     reachable=controller.navigator.reachable((s['x'],s['y']));signature=new
                 if pending and tick>=pending[0]:
                     controller.accept(pending[1],tick);pending=None
-                from decision_timing import inventory_signature,request_reason
+                from doomlib.decision_timing import inventory_signature,request_reason
                 inventory=inventory_signature(s,episode)
                 reason=request_reason(tick,last_request,decision_ticks,inventory,last_inventory,inventory_events)
                 if pending is None and reason is not None:

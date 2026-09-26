@@ -1,0 +1,285 @@
+{
+  "experiment_valid": true,
+  "passed": false,
+  "errors": [],
+  "level_completed": true,
+  "acceptance_errors": [
+    "max_no_new_region_seconds exceeds 25",
+    "max_upgrade_delay_seconds exceeds 1.5"
+  ],
+  "authority": {
+    "pass": true,
+    "frames": 29352,
+    "accepted_decisions": 1625,
+    "errors": [],
+    "level_completed": true,
+    "final_map": "MAP03"
+  },
+  "navigation": {
+    "max_no_objective_progress_seconds": 10.03,
+    "max_stationary_seconds": 3.0,
+    "max_stationary_turn_reversals_per_second": 3,
+    "max_no_new_cell_seconds": 11.11,
+    "max_no_new_region_seconds": 26.63,
+    "aim_overridden_ticks": 0,
+    "unique_cells_last_episode": 6
+  },
+  "weapon_use": {
+    "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+    "max_upgrade_delay_seconds": 1.514,
+    "max_model_upgrade_choice_delay_seconds": 0.886,
+    "worst_upgrade_delay": {
+      "tick": 6879,
+      "seconds": 196.543,
+      "episode": 1,
+      "equipped": 2,
+      "available_upgrade": 3,
+      "model_selected": 3
+    }
+  },
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "35/1",
+        "nb_frames": "29352"
+      }
+    ],
+    "format": {
+      "duration": "838.628571"
+    }
+  },
+  "levels": [
+    {
+      "event": "level_finished",
+      "game_seconds": 835.6,
+      "map": "MAP02",
+      "alive": true,
+      "engine_finished": true
+    }
+  ],
+  "summary": {
+    "kills": 133,
+    "deaths": 2,
+    "decisions": 1628,
+    "errors": 0,
+    "pickups": 59,
+    "levels_completed": 1,
+    "doors_opened": 39,
+    "stuck_recoveries": 9,
+    "bumps": 0,
+    "damage": 549.0,
+    "status": "completed",
+    "error": null,
+    "model": "doom-adapted",
+    "final_map": "MAP03",
+    "game_seconds": 838.629,
+    "wall_seconds": 838.751,
+    "latency_ms_median": 430.47,
+    "latency_ms_p90": 444.43,
+    "input_tokens_total": 3774290,
+    "input_tokens_avg": 2318.36,
+    "external_api_cost_usd": 0,
+    "local_compute_cost_usd": null,
+    "enemy_in_view_share": 0.3608,
+    "action_ticks": {
+      "wait": 86,
+      "attack": 11245,
+      "pickup": 10452,
+      "use_switch": 5068,
+      "open_door": 1502,
+      "explore": 21,
+      "exit": 978
+    },
+    "reflex_ticks": {
+      "aim_selected_enemy": 7988,
+      "waypoint": 14518,
+      "brake_before_route_turn": 2085,
+      "route_while_aiming_selected_enemy": 2113,
+      "aim_secondary_model_enemy": 2416,
+      "select_model_weapon": 92,
+      "approach_selected_item": 232,
+      "open_selected_door": 437,
+      "navigation_exhausted": 292,
+      "stuck": 9,
+      "recover_same_goal": 149,
+      "use_selected_switch": 192,
+      "board_selected_lift": 67,
+      "ride_selected_lift": 343,
+      "cross_teleport_on_selected_route": 12,
+      "activate_selected_exit": 4
+    },
+    "resource_gains": {
+      "ammo_2": 324,
+      "hp": 319.0,
+      "armor": 337.0,
+      "ammo_3": 250,
+      "weapon_3": 3,
+      "weapon_8": 3
+    },
+    "video_frames": 29352,
+    "laya_health": {
+      "status": "ok",
+      "models": {
+        "doom-adapted": "mps"
+      },
+      "checkpoint": "laya-map2-explicit-v2",
+      "weights_sha256": "f8d2531bfeb4968058590d73ccf71b143df51855a6ab00406d30bb08ee078c49",
+      "laya_source_commit": "42626c348753fbb17572a813127df2278a1ec527",
+      "decoding": {
+        "method": "argmax",
+        "temperature": 0.0,
+        "seed": 0,
+        "questions": null
+      },
+      "compatibility": [
+        "single-option-padding"
+      ],
+      "weights_sha256_kind": "question_heads_manifest",
+      "question_heads": {
+        "default": {
+          "checkpoint": "laya-map2-explicit-v2",
+          "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+        },
+        "command": {
+          "checkpoint": "laya-map2-root-goals-v1",
+          "weights_sha256": "49bdc21f7061d6f6393e4c3df2040cd836d2b9ef1ff0d2d643fd2ca39f46c7d3"
+        },
+        "item": {
+          "checkpoint": "laya-map2-goal-invariant-items-v1",
+          "weights_sha256": "33c8538f05d07ebe3bf6509a7133d5d5f054be695c515d72ab7eae40a44460ae"
+        },
+        "movement": {
+          "checkpoint": "laya-map2-explicit-movement-v1",
+          "weights_sha256": "a189b2c764903282b49f3575b8295e397c587e1c71a1051a19916d0f9f74edc2"
+        },
+        "switch": {
+          "checkpoint": "laya-map2-stable-goals-v1",
+          "weights_sha256": "22bb11a2c9efd61f6928b20699267fee5ce841c087f54985b27d5d7d16e248a7"
+        },
+        "shared_encoder_verified": true
+      },
+      "training": {
+        "base": {
+          "item": 0.37435897435897436,
+          "command": 0.6609195402298851,
+          "combat": 0.87,
+          "switch": 0.7789473684210526,
+          "movement": 0.735632183908046,
+          "weapon": 1.0,
+          "enemy": 1.0
+        },
+        "epochs": [
+          {
+            "epoch": 1,
+            "validation": {
+              "item": 0.3974358974358974,
+              "command": 0.7816091954022989,
+              "combat": 0.99,
+              "switch": 0.8315789473684211,
+              "movement": 0.7011494252873564,
+              "weapon": 1.0,
+              "enemy": 1.0
+            },
+            "seconds": 169.5739407499932
+          },
+          {
+            "epoch": 2,
+            "validation": {
+              "item": 0.38461538461538464,
+              "command": 0.7873563218390804,
+              "combat": 0.99,
+              "switch": 0.8421052631578947,
+              "movement": 0.7011494252873564,
+              "weapon": 1.0,
+              "enemy": 1.0
+            },
+            "seconds": 329.24068316599005
+          },
+          {
+            "epoch": 3,
+            "validation": {
+              "item": 0.39487179487179486,
+              "command": 0.7873563218390804,
+              "combat": 0.99,
+              "switch": 0.8526315789473684,
+              "movement": 0.7471264367816092,
+              "weapon": 1.0,
+              "enemy": 1.0
+            },
+            "seconds": 486.5565911659942
+          },
+          {
+            "epoch": 4,
+            "validation": {
+              "item": 0.4128205128205128,
+              "command": 0.7327586206896551,
+              "combat": 0.99,
+              "switch": 0.8210526315789474,
+              "movement": 0.7126436781609196,
+              "weapon": 1.0,
+              "enemy": 1.0
+            },
+            "seconds": 642.0534448749968
+          },
+          {
+            "epoch": 5,
+            "validation": {
+              "item": 0.41794871794871796,
+              "command": 0.7701149425287356,
+              "combat": 0.98,
+              "switch": 0.8421052631578947,
+              "movement": 0.7931034482758621,
+              "weapon": 0.99,
+              "enemy": 1.0
+            },
+            "seconds": 791.9859826659958
+          },
+          {
+            "epoch": 6,
+            "validation": {
+              "item": 0.3769230769230769,
+              "command": 0.7787356321839081,
+              "combat": 0.99,
+              "switch": 0.8210526315789474,
+              "movement": 0.7471264367816092,
+              "weapon": 1.0,
+              "enemy": 1.0
+            },
+            "seconds": 944.41506595799
+          },
+          {
+            "epoch": 7,
+            "validation": {
+              "item": 0.382051282051282,
+              "command": 0.7385057471264368,
+              "combat": 0.99,
+              "switch": 0.8210526315789474,
+              "movement": 0.7241379310344828,
+              "weapon": 0.99,
+              "enemy": 1.0
+            },
+            "seconds": 1098.154722207997
+          },
+          {
+            "epoch": 8,
+            "validation": {
+              "item": 0.43333333333333335,
+              "command": 0.7241379310344828,
+              "combat": 0.99,
+              "switch": 0.8526315789473684,
+              "movement": 0.7586206896551724,
+              "weapon": 1.0,
+              "enemy": 1.0
+            },
+            "seconds": 1251.3650479579956
+          }
+        ]
+      }
+    },
+    "run": "20260926_201638_873591_map02-root-goals54"
+  }
+}

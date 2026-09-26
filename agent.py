@@ -11,21 +11,20 @@ import os
 from pathlib import Path
 import re
 import statistics
-import subprocess
 import time
 
 import numpy as np
 import requests
 import vizdoom as vzd
 
-from overlay import Overlay, Recorder
-from navigation import Navigator
-from combat import Combat, WEAPON_NAMES
-from items import Items
-from mission import Mission, map_data
-from report import build_report
-from executor import Executor
-from policy import request as policy_request, decode as policy_decode, ACTIONS
+from doomlib.overlay import Overlay, Recorder
+from doomlib.mission import Mission, map_data
+from doomlib.report import build_report
+from doomlib.executor import Executor
+from doomlib.policy import request as policy_request, decode as policy_decode, ACTIONS
+from doomlib import ensure_utf8_stdio
+
+ensure_utf8_stdio()
 
 ROOT = Path(__file__).resolve().parent
 TICRATE = 35
@@ -117,7 +116,7 @@ class Sensors:
         removed_object_ids=sorted(self.previous_object_ids-set(objects))
         self.previous_object_ids=set(objects)
         self.key_pickups=[]
-        from items import WEAPONS
+        from doomlib.items import WEAPONS
         for obj in raw.objects:
             if obj.name in WEAPONS:self.weapon_objects[obj.id]=dict(name=obj.name,x=obj.position_x,y=obj.position_y)
         for oid,item in list(self.weapon_objects.items()):
@@ -207,7 +206,7 @@ class Sensors:
         inventory={str(i):{'owned':int(var('WEAPON'+str(i))),'ammo':int(var('AMMO'+str(i)))} for i in range(1,8)}
         if self.weapon_sensor:
             if int(var('USER10'))!=1742:raise RuntimeError('Weapon observer is not running')
-            from combat import WEAPON_SLOTS
+            from doomlib.combat import WEAPON_SLOTS
             weapon=int(var('USER11')) or weapon
             owned=int(var('USER12'))
             inventory={str(i):{'owned':int(bool(owned&(1<<i))),'ammo':0 if i in (1,9) else int(var('AMMO'+str(WEAPON_SLOTS[i])))} for i in range(1,10)}
@@ -440,7 +439,7 @@ def main():
               'vizdoom': vzd.__version__, 'tics_per_second': TICRATE,
               'command_ttl_seconds':2, 'automatic_weapon_pickup_switch':False,
               'source_sha256': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                                for name in ['agent.py', 'overlay.py', 'report.py', 'navigation.py', 'combat.py', 'items.py', 'mission.py', 'policy.py', 'executor.py', 'decision_questions.py', 'decision_timing.py', 'resource_questions.py', 'serve_doom_laya.py', 'model_decoding.py', 'laya_runtime.py', 'question_heads.py', 'movement_questions.py']}}
+                                for name in ['agent.py', 'doomlib/__init__.py', 'doomlib/overlay.py', 'doomlib/report.py', 'doomlib/navigation.py', 'doomlib/combat.py', 'doomlib/items.py', 'doomlib/mission.py', 'doomlib/policy.py', 'doomlib/executor.py', 'doomlib/decision_questions.py', 'doomlib/decision_timing.py', 'doomlib/resource_questions.py', 'serve_doom_laya.py', 'doomlib/model_decoding.py', 'doomlib/laya_runtime.py', 'doomlib/question_heads.py', 'doomlib/movement_questions.py']}}
     if health.get('laya_source_commit'):
         config['laya_source_commit'] = health['laya_source_commit']
     if args.map_weapons:config['map_knowledge'].append('weapon_markers')
@@ -583,7 +582,7 @@ def main():
                 future = None
             if fatal:
                 raise RuntimeError(fatal)
-            from decision_timing import inventory_signature,request_reason
+            from doomlib.decision_timing import inventory_signature,request_reason
             inventory=inventory_signature(s,episode,include_ammo=args.ammo_events)
             trigger=request_reason(tick,last_request,interval_ticks,inventory,last_inventory,args.inventory_events)
             if future is None and trigger is not None:
@@ -591,35 +590,35 @@ def main():
                 elif args.reachable_items:controller.annotate_reachable_items(s)
                 packet=policy_request(s,controller.known,controller.mission)
                 if args.decision_format!='flat':
-                    from decision_questions import factorize,with_commitment
+                    from doomlib.decision_questions import factorize,with_commitment
                     packet=factorize(packet)
                     if args.decision_format=='committed':packet=with_commitment(packet)
                     if args.explicit_actions:
-                        from decision_questions import without_action_continuation
+                        from doomlib.decision_questions import without_action_continuation
                         packet=without_action_continuation(packet)
                     if args.refresh_attack_target:
-                        from decision_questions import refresh_attack_target
+                        from doomlib.decision_questions import refresh_attack_target
                         packet=refresh_attack_target(packet)
                 if args.combat_during_navigation:
-                    from decision_questions import with_navigation_combat
+                    from doomlib.decision_questions import with_navigation_combat
                     packet=with_navigation_combat(packet,include_recent=args.pickup_recent_targets)
                 elif args.combat_during_pickup:
-                    from decision_questions import with_pickup_combat
+                    from doomlib.decision_questions import with_pickup_combat
                     packet=with_pickup_combat(packet,include_recent=args.pickup_recent_targets)
                 if args.item_resource_facts:
-                    from resource_questions import with_resource_facts
+                    from doomlib.resource_questions import with_resource_facts
                     packet=with_resource_facts(packet)
                 if args.mask_unreachable_items:
-                    from decision_questions import mask_unreachable_items
+                    from doomlib.decision_questions import mask_unreachable_items
                     packet=mask_unreachable_items(packet)
                 if args.explicit_movement:
-                    from movement_questions import without_movement_continuation
+                    from doomlib.movement_questions import without_movement_continuation
                     packet=without_movement_continuation(packet)
                 if args.movement_facts and 'movement' in packet['questions']:
-                    from movement_questions import with_movement_clearance
+                    from doomlib.movement_questions import with_movement_clearance
                     packet=with_movement_clearance(packet,controller.navigator.movement_clearance(s))
                 if args.question_schedule=='conditional':
-                    from decision_questions import dependencies
+                    from doomlib.decision_questions import dependencies
                     packet['question_dependencies']=dependencies(packet)
                 text=packet['state']
                 pending={'tick':tick,'episode':episode,'request_reason':trigger,'state':text,'packet':packet,'snapshot_tactic':tactic,'hp':s['hp']}
@@ -669,9 +668,10 @@ def main():
     except KeyboardInterrupt:
         status = 'interrupted'
     except Exception as exc:
+        import traceback
+        traceback.print_exc()  # <-- ajout temporaire pour debug
         fatal = type(exc).__name__ + ': ' + (str(exc) if isinstance(exc, RuntimeError) else 'see events')
         status = 'failed'
-        import traceback
         stack=[{'file':Path(frame.filename).name,'line':frame.lineno,'function':frame.name} for frame in traceback.extract_tb(exc.__traceback__)]
         event('fatal', total_ticks, error_type=type(exc).__name__,stack=stack)
     finally:

@@ -1,0 +1,211 @@
+{
+  "kills": 16,
+  "deaths": 0,
+  "decisions": 347,
+  "errors": 0,
+  "pickups": 11,
+  "levels_completed": 1,
+  "doors_opened": 14,
+  "stuck_recoveries": 3,
+  "bumps": 0,
+  "damage": 34.0,
+  "status": "completed",
+  "error": null,
+  "model": "doom-adapted",
+  "final_map": "MAP02",
+  "game_seconds": 177.943,
+  "wall_seconds": 177.932,
+  "latency_ms_median": 384.72,
+  "latency_ms_p90": 420.62,
+  "input_tokens_total": 674168,
+  "input_tokens_avg": 1942.85,
+  "external_api_cost_usd": 0,
+  "local_compute_cost_usd": null,
+  "enemy_in_view_share": 0.1824,
+  "action_ticks": {
+    "wait": 33,
+    "exit": 1119,
+    "open_door": 892,
+    "attack": 1515,
+    "use_switch": 1183,
+    "pickup": 1486
+  },
+  "reflex_ticks": {
+    "waypoint": 4070,
+    "open_selected_door": 205,
+    "aim_selected_enemy": 1041,
+    "route_while_aiming_selected_enemy": 103,
+    "aim_secondary_model_enemy": 122,
+    "brake_before_route_turn": 212,
+    "stuck": 3,
+    "recover_same_goal": 37,
+    "approach_selected_item": 21,
+    "activate_selected_exit": 6
+  },
+  "resource_gains": {
+    "ammo_2": 45,
+    "hp": 16.0,
+    "armor": 109.0
+  },
+  "video_frames": 6228,
+  "laya_health": {
+    "status": "ok",
+    "models": {
+      "doom-adapted": "mps"
+    },
+    "checkpoint": "laya-map2-explicit-v2",
+    "weights_sha256": "f8d2531bfeb4968058590d73ccf71b143df51855a6ab00406d30bb08ee078c49",
+    "laya_source_commit": "42626c348753fbb17572a813127df2278a1ec527",
+    "decoding": {
+      "method": "argmax",
+      "temperature": 0.0,
+      "seed": 0,
+      "questions": null
+    },
+    "compatibility": [
+      "single-option-padding"
+    ],
+    "weights_sha256_kind": "question_heads_manifest",
+    "question_heads": {
+      "default": {
+        "checkpoint": "laya-map2-explicit-v2",
+        "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+      },
+      "command": {
+        "checkpoint": "laya-map2-root-goals-v1",
+        "weights_sha256": "49bdc21f7061d6f6393e4c3df2040cd836d2b9ef1ff0d2d643fd2ca39f46c7d3"
+      },
+      "item": {
+        "checkpoint": "laya-map2-goal-invariant-items-v1",
+        "weights_sha256": "33c8538f05d07ebe3bf6509a7133d5d5f054be695c515d72ab7eae40a44460ae"
+      },
+      "movement": {
+        "checkpoint": "laya-map2-explicit-movement-v1",
+        "weights_sha256": "a189b2c764903282b49f3575b8295e397c587e1c71a1051a19916d0f9f74edc2"
+      },
+      "switch": {
+        "checkpoint": "laya-map2-stable-goals-v1",
+        "weights_sha256": "22bb11a2c9efd61f6928b20699267fee5ce841c087f54985b27d5d7d16e248a7"
+      },
+      "shared_encoder_verified": true
+    },
+    "training": {
+      "base": {
+        "item": 0.37435897435897436,
+        "command": 0.6609195402298851,
+        "combat": 0.87,
+        "switch": 0.7789473684210526,
+        "movement": 0.735632183908046,
+        "weapon": 1.0,
+        "enemy": 1.0
+      },
+      "epochs": [
+        {
+          "epoch": 1,
+          "validation": {
+            "item": 0.3974358974358974,
+            "command": 0.7816091954022989,
+            "combat": 0.99,
+            "switch": 0.8315789473684211,
+            "movement": 0.7011494252873564,
+            "weapon": 1.0,
+            "enemy": 1.0
+          },
+          "seconds": 169.5739407499932
+        },
+        {
+          "epoch": 2,
+          "validation": {
+            "item": 0.38461538461538464,
+            "command": 0.7873563218390804,
+            "combat": 0.99,
+            "switch": 0.8421052631578947,
+            "movement": 0.7011494252873564,
+            "weapon": 1.0,
+            "enemy": 1.0
+          },
+          "seconds": 329.24068316599005
+        },
+        {
+          "epoch": 3,
+          "validation": {
+            "item": 0.39487179487179486,
+            "command": 0.7873563218390804,
+            "combat": 0.99,
+            "switch": 0.8526315789473684,
+            "movement": 0.7471264367816092,
+            "weapon": 1.0,
+            "enemy": 1.0
+          },
+          "seconds": 486.5565911659942
+        },
+        {
+          "epoch": 4,
+          "validation": {
+            "item": 0.4128205128205128,
+            "command": 0.7327586206896551,
+            "combat": 0.99,
+            "switch": 0.8210526315789474,
+            "movement": 0.7126436781609196,
+            "weapon": 1.0,
+            "enemy": 1.0
+          },
+          "seconds": 642.0534448749968
+        },
+        {
+          "epoch": 5,
+          "validation": {
+            "item": 0.41794871794871796,
+            "command": 0.7701149425287356,
+            "combat": 0.98,
+            "switch": 0.8421052631578947,
+            "movement": 0.7931034482758621,
+            "weapon": 0.99,
+            "enemy": 1.0
+          },
+          "seconds": 791.9859826659958
+        },
+        {
+          "epoch": 6,
+          "validation": {
+            "item": 0.3769230769230769,
+            "command": 0.7787356321839081,
+            "combat": 0.99,
+            "switch": 0.8210526315789474,
+            "movement": 0.7471264367816092,
+            "weapon": 1.0,
+            "enemy": 1.0
+          },
+          "seconds": 944.41506595799
+        },
+        {
+          "epoch": 7,
+          "validation": {
+            "item": 0.382051282051282,
+            "command": 0.7385057471264368,
+            "combat": 0.99,
+            "switch": 0.8210526315789474,
+            "movement": 0.7241379310344828,
+            "weapon": 0.99,
+            "enemy": 1.0
+          },
+          "seconds": 1098.154722207997
+        },
+        {
+          "epoch": 8,
+          "validation": {
+            "item": 0.43333333333333335,
+            "command": 0.7241379310344828,
+            "combat": 0.99,
+            "switch": 0.8526315789473684,
+            "movement": 0.7586206896551724,
+            "weapon": 1.0,
+            "enemy": 1.0
+          },
+          "seconds": 1251.3650479579956
+        }
+      ]
+    }
+  },
+  "run": "20260926_204707_880341_map01-root-goals48"
+}

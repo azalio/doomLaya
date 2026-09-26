@@ -4,8 +4,8 @@ from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import make_game,BUTTONS,Sensors
-from mission import Mission,map_data
-from executor import Executor
+from doomlib.mission import Mission,map_data
+from doomlib.executor import Executor
 from diagnostics.probe_door_corner import spawn_fixture
 
 
@@ -24,8 +24,8 @@ def run_fixture(output,baseline_source=None):
         sensors=Sensors(mission.data['door_sectors'],mission.data['doors'])
         controller=Executor(game.get_state().sectors,mission)
         if baseline_source:
-            old_nav=load_source(Path(baseline_source)/'navigation.py','baseline_navigation')
-            old_exec=load_source(Path(baseline_source)/'executor.py','baseline_executor')
+            old_nav=load_source(Path(baseline_source)/'doomlib/navigation.py','baseline_navigation')
+            old_exec=load_source(Path(baseline_source)/'doomlib/executor.py','baseline_executor')
             old_exec.Navigator=old_nav.Navigator
             controller=old_exec.Executor(game.get_state().sectors,mission)
         actual=next(o for o in game.get_state().objects if o.name=='HealthBonus' and abs(o.position_x-816)<1 and abs(o.position_y+496)<1)

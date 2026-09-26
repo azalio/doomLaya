@@ -4,7 +4,10 @@ os.environ['USE_TF']='0';os.environ['TOKENIZERS_PARALLELISM']='false';os.environ
 import argparse,collections,hashlib,json,random,shutil,time,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from laya_runtime import base_checkpoint,choose_device,BASE_REPO,BASE_REVISION,LAYA_SOURCE_COMMIT
+from doomlib.laya_runtime import base_checkpoint,choose_device,BASE_REPO,BASE_REVISION,LAYA_SOURCE_COMMIT
+from doomlib import ensure_utf8_stdio
+
+ensure_utf8_stdio()
 
 p=argparse.ArgumentParser();p.add_argument('--epochs',type=int,default=4);p.add_argument('--output',default='checkpoints/laya-doom-head-v1');p.add_argument('--base');p.add_argument('--lr',type=float,default=3e-5);p.add_argument('--encoder-last',type=int,default=0);p.add_argument('--data',default='training');p.add_argument('--device',choices=['auto','cpu','mps','cuda'],default='auto');p.add_argument('--validate-only',action='store_true');p.add_argument('--max-len',type=int);p.add_argument('--head-max-len',type=int);p.add_argument('--cache-encoder',action='store_true');p.add_argument('--command-weight',type=float,default=1);p.add_argument('--item-weight',type=float,default=1);p.add_argument('--weapon-weight',type=float,default=1);p.add_argument('--switch-weight',type=float,default=1);a=p.parse_args()
 if min(a.command_weight,a.item_weight,a.weapon_weight,a.switch_weight)<=0:p.error('validation weights must be positive')

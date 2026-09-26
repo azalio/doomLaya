@@ -3,8 +3,8 @@ import argparse,json,statistics,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import LayaClient
-from decision_questions import dependencies
-from policy import decode
+from doomlib.decision_questions import dependencies
+from doomlib.policy import decode
 p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--item-resource-facts',action='store_true');a=p.parse_args()
 if a.output.exists():p.error('output exists')
 client=LayaClient('http://127.0.0.1:8001/predict','doom-adapted')
@@ -14,7 +14,7 @@ records=[]
 for index,row in enumerate(rows[::max(1,len(rows)//16)][:16]):
     packet=row['packet'];results={}
     if a.item_resource_facts:
-        from resource_questions import with_resource_facts
+        from doomlib.resource_questions import with_resource_facts
         packet=with_resource_facts(packet)
     for schedule in (('parallel','conditional') if index%2 else ('conditional','parallel')):
         result=client.predict(packet['state'],packet['questions'],dependencies(packet) if schedule=='conditional' else None)

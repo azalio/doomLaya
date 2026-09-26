@@ -23,7 +23,7 @@ for line in (a.run/'decisions.jsonl').open():
  except json.JSONDecodeError:continue
  packet=d['packet']
  if a.resource_facts:
-  from resource_questions import with_resource_facts
+  from doomlib.resource_questions import with_resource_facts
   packet=with_resource_facts(packet)
  for kind,q in packet['questions'].items():
   ids,markers=build_sequence(tok,packet['state'],{'t':'choice','ins':q['instructions'],'crit':q['criteria']},cfg['max_len'],cfg['head_max_len'])

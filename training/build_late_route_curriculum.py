@@ -9,8 +9,8 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from policy import request
-from decision_questions import factorize,with_commitment,without_action_continuation,mask_unreachable_items
+from doomlib.policy import request
+from doomlib.decision_questions import factorize,with_commitment,without_action_continuation,mask_unreachable_items
 
 
 def paired_examples(rng,index):

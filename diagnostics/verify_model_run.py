@@ -2,8 +2,8 @@
 import json,sys,math,subprocess
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from check_authority import check
-from check_navigation import analyze
+from tools.check_authority import check
+from tools.check_navigation import analyze
 from diagnostics.check_weapon_use import analyze as analyze_weapon_use
 
 def level_completion(config, events, rows):

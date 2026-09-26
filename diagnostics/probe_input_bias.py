@@ -49,7 +49,7 @@ def main():
     if a.output.exists():p.error('output exists')
     rows=json.loads(a.challenge.read_text())
     if a.explicit_movement:
-        from movement_questions import explicit_example
+        from doomlib.movement_questions import explicit_example
         rows=[explicit_example(r) for r in rows]
     client=LayaClient('http://127.0.0.1:8001/predict','doom-adapted');routing=client.health();results=[]
     try:

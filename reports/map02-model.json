@@ -1,0 +1,36 @@
+{
+  "weights_sha256": "f8d2531bfeb4968058590d73ccf71b143df51855a6ab00406d30bb08ee078c49",
+  "weights_sha256_kind": "question_heads_manifest",
+  "question_heads": {
+    "default": {
+      "checkpoint": "laya-map2-explicit-v2",
+      "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+    },
+    "command": {
+      "checkpoint": "laya-map2-root-goals-v1",
+      "weights_sha256": "49bdc21f7061d6f6393e4c3df2040cd836d2b9ef1ff0d2d643fd2ca39f46c7d3"
+    },
+    "item": {
+      "checkpoint": "laya-map2-goal-invariant-items-v1",
+      "weights_sha256": "33c8538f05d07ebe3bf6509a7133d5d5f054be695c515d72ab7eae40a44460ae"
+    },
+    "movement": {
+      "checkpoint": "laya-map2-explicit-movement-v1",
+      "weights_sha256": "a189b2c764903282b49f3575b8295e397c587e1c71a1051a19916d0f9f74edc2"
+    },
+    "switch": {
+      "checkpoint": "laya-map2-stable-goals-v1",
+      "weights_sha256": "22bb11a2c9efd61f6928b20699267fee5ce841c087f54985b27d5d7d16e248a7"
+    },
+    "shared_encoder_verified": true
+  },
+  "laya_source_commit": "42626c348753fbb17572a813127df2278a1ec527",
+  "decoding": {
+    "method": "argmax",
+    "temperature": 0.0,
+    "seed": 0,
+    "questions": null
+  },
+  "base_repo": "convaiinnovations/laya",
+  "base_revision": "1c5edc17a7acd8701df6fc341c0d179f1c62c982"
+}

@@ -14,9 +14,9 @@ import sys
 import time
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from decision_questions import without_action_continuation
-from laya_runtime import enable_single_option_padding
-from model_decoding import ChoiceDecoder
+from doomlib.decision_questions import without_action_continuation
+from doomlib.laya_runtime import enable_single_option_padding
+from doomlib.model_decoding import ChoiceDecoder
 
 
 def main():

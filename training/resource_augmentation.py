@@ -1,8 +1,8 @@
 """Offline factual rendering and label-preserving order/ID augmentation."""
 import copy
 import re
-from resource_questions import describe
-from combat import WEAPON_NAMES
+from doomlib.resource_questions import describe
+from doomlib.combat import WEAPON_NAMES
 
 
 def resource_facts(row):

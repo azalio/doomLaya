@@ -6,8 +6,8 @@ import json
 import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from items import WEAPONS
-from resource_questions import ammo_pool,has_pool_weapon
+from doomlib.items import WEAPONS
+from doomlib.resource_questions import ammo_pool,has_pool_weapon
 
 
 def summarize(probe,run):

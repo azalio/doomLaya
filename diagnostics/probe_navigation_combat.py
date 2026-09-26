@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import LayaClient
-from decision_questions import with_navigation_combat,dependencies,decode
+from doomlib.decision_questions import with_navigation_combat,dependencies,decode
 
 
 def main():

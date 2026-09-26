@@ -4,8 +4,8 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import vizdoom
 from agent import LayaClient
-from mission import Mission,map_data
-from policy import request,decode
+from doomlib.mission import Mission,map_data
+from doomlib.policy import request,decode
 from training.map2_teacher import labels
 
 

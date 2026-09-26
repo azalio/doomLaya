@@ -3,7 +3,7 @@ import argparse,collections,copy,json,re,statistics,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import LayaClient,JevClient
-from policy import decode
+from doomlib.policy import decode
 
 
 def select(run):

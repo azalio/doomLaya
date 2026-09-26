@@ -4,9 +4,9 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import vizdoom
 from agent import LayaClient
-from mission import Mission,map_data
-from policy import request,decode
-from decision_questions import dependencies
+from doomlib.mission import Mission,map_data
+from doomlib.policy import request,decode
+from doomlib.decision_questions import dependencies
 from training.map2_teacher import labels
 
 
@@ -42,7 +42,7 @@ def legal(packet):
 
 def explicit(packet):
     """Require explicit actions while preserving all other available choices."""
-    from decision_questions import without_action_continuation
+    from doomlib.decision_questions import without_action_continuation
     without_action_continuation(packet)
     packet['question_dependencies']=dependencies(packet)
     return packet

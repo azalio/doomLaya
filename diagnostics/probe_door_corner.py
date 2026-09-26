@@ -5,8 +5,8 @@ from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import vizdoom
 from agent import make_game,BUTTONS,Sensors
-from mission import Mission,map_data
-from executor import Executor
+from doomlib.mission import Mission,map_data
+from doomlib.executor import Executor
 
 
 def spawn_fixture(output,position):

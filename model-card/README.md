@@ -43,7 +43,7 @@ v3: продолжение лучшей v2, голова со скоростью
 Это доли верных ответов, а не вероятность прохождения игры.
 Инструкции и зафиксированные данные
 поставляются в исходном репозитории [doomLaya](https://github.com/azalio/doomLaya)
-([TRAINING.md](https://github.com/azalio/doomLaya/blob/main/TRAINING.md)).
+([TRAINING.md](https://github.com/azalio/doomLaya/blob/main/docs/TRAINING.md)).
 
 ## Игровая проверка и ограничения
 

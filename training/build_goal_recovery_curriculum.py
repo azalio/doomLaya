@@ -3,8 +3,8 @@ import argparse,collections,copy,hashlib,json,random,re,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import vizdoom
-from mission import Mission,map_data
-from decision_questions import split_command
+from doomlib.mission import Mission,map_data
+from doomlib.decision_questions import split_command
 from training.build_committed_dataset import demonstration_packets,examples
 
 

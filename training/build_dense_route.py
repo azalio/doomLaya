@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import vizdoom
-from mission import Mission,map_data
+from doomlib.mission import Mission,map_data
 from training.build_committed_dataset import examples,demonstration_packets
 from training.build_explicit_curriculum import normalize
 

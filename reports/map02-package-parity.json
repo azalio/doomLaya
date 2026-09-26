@@ -1,0 +1,1611 @@
+{
+  "note": "Packaged checkpoints and relocated server compared against recorded pre-publication outputs; not a new accuracy benchmark.",
+  "cases": 200,
+  "choices_identical": 200,
+  "probabilities_identical": 200,
+  "weights_sha256": "f8d2531bfeb4968058590d73ccf71b143df51855a6ab00406d30bb08ee078c49",
+  "challenge_sha256": "a2b0d7d937e2f25f74e07cbf741566e499b6ee1b0c4681aea57251141c7d92e3",
+  "seconds": 22.524,
+  "results": [
+    {
+      "index": 0,
+      "kind": "command",
+      "choice": "use_switch",
+      "reference_choice": "use_switch",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 1,
+      "kind": "weapon",
+      "choice": "super_shotgun",
+      "reference_choice": "super_shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 2,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 3,
+      "kind": "command",
+      "choice": "use_switch",
+      "reference_choice": "use_switch",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 4,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 5,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 6,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 7,
+      "kind": "weapon",
+      "choice": "super_shotgun",
+      "reference_choice": "super_shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 8,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 9,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 10,
+      "kind": "command",
+      "choice": "attack",
+      "reference_choice": "attack",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 11,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 12,
+      "kind": "enemy",
+      "choice": "16",
+      "reference_choice": "16",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 13,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 14,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 15,
+      "kind": "weapon",
+      "choice": "shotgun",
+      "reference_choice": "shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 16,
+      "kind": "item",
+      "choice": "17",
+      "reference_choice": "17",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 17,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 18,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 19,
+      "kind": "weapon",
+      "choice": "super_shotgun",
+      "reference_choice": "super_shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 20,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 21,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 22,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 23,
+      "kind": "weapon",
+      "choice": "shotgun",
+      "reference_choice": "shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 24,
+      "kind": "item",
+      "choice": "107",
+      "reference_choice": "107",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 25,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 26,
+      "kind": "command",
+      "choice": "attack",
+      "reference_choice": "attack",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 27,
+      "kind": "weapon",
+      "choice": "shotgun",
+      "reference_choice": "shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 28,
+      "kind": "enemy",
+      "choice": "49",
+      "reference_choice": "49",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 29,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 30,
+      "kind": "command",
+      "choice": "use_switch",
+      "reference_choice": "use_switch",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 31,
+      "kind": "weapon",
+      "choice": "super_shotgun",
+      "reference_choice": "super_shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 32,
+      "kind": "switch",
+      "choice": "805",
+      "reference_choice": "805",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 33,
+      "kind": "command",
+      "choice": "attack",
+      "reference_choice": "attack",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 34,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 35,
+      "kind": "item",
+      "choice": "17",
+      "reference_choice": "17",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 36,
+      "kind": "combat",
+      "choice": "115",
+      "reference_choice": "115",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 37,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 38,
+      "kind": "weapon",
+      "choice": "shotgun",
+      "reference_choice": "shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 39,
+      "kind": "item",
+      "choice": "106",
+      "reference_choice": "106",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 40,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 41,
+      "kind": "command",
+      "choice": "attack",
+      "reference_choice": "attack",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 42,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 43,
+      "kind": "enemy",
+      "choice": "3",
+      "reference_choice": "3",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 44,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 45,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 46,
+      "kind": "weapon",
+      "choice": "shotgun",
+      "reference_choice": "shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 47,
+      "kind": "item",
+      "choice": "7",
+      "reference_choice": "7",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 48,
+      "kind": "combat",
+      "choice": "41",
+      "reference_choice": "41",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 49,
+      "kind": "command",
+      "choice": "use_switch",
+      "reference_choice": "use_switch",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 50,
+      "kind": "weapon",
+      "choice": "super_shotgun",
+      "reference_choice": "super_shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 51,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 52,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 53,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 54,
+      "kind": "item",
+      "choice": "935",
+      "reference_choice": "935",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 55,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 56,
+      "kind": "command",
+      "choice": "attack",
+      "reference_choice": "attack",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 57,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 58,
+      "kind": "item",
+      "choice": "43",
+      "reference_choice": "43",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 59,
+      "kind": "combat",
+      "choice": "118",
+      "reference_choice": "118",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 60,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 61,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 62,
+      "kind": "item",
+      "choice": "1",
+      "reference_choice": "1",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 63,
+      "kind": "combat",
+      "choice": "40",
+      "reference_choice": "40",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 64,
+      "kind": "command",
+      "choice": "attack",
+      "reference_choice": "attack",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 65,
+      "kind": "weapon",
+      "choice": "super_shotgun",
+      "reference_choice": "super_shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 66,
+      "kind": "enemy",
+      "choice": "38",
+      "reference_choice": "38",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 67,
+      "kind": "movement",
+      "choice": "strafe_left",
+      "reference_choice": "strafe_left",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 68,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 69,
+      "kind": "weapon",
+      "choice": "pistol",
+      "reference_choice": "pistol",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 70,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 71,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 72,
+      "kind": "command",
+      "choice": "pickup",
+      "reference_choice": "pickup",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 73,
+      "kind": "weapon",
+      "choice": "shotgun",
+      "reference_choice": "shotgun",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 74,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 75,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 76,
+      "kind": "item",
+      "choice": "107",
+      "reference_choice": "107",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 77,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 78,
+      "kind": "item",
+      "choice": "36",
+      "reference_choice": "36",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 79,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 80,
+      "kind": "enemy",
+      "choice": "90",
+      "reference_choice": "90",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 81,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 82,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 83,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 84,
+      "kind": "enemy",
+      "choice": "50",
+      "reference_choice": "50",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 85,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 86,
+      "kind": "item",
+      "choice": "17",
+      "reference_choice": "17",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 87,
+      "kind": "combat",
+      "choice": "115",
+      "reference_choice": "115",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 88,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 89,
+      "kind": "enemy",
+      "choice": "79",
+      "reference_choice": "79",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 90,
+      "kind": "movement",
+      "choice": "backward",
+      "reference_choice": "backward",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 91,
+      "kind": "item",
+      "choice": "342",
+      "reference_choice": "342",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 92,
+      "kind": "combat",
+      "choice": "40",
+      "reference_choice": "40",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 93,
+      "kind": "switch",
+      "choice": "805",
+      "reference_choice": "805",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 94,
+      "kind": "enemy",
+      "choice": "49",
+      "reference_choice": "49",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 95,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 96,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 97,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 98,
+      "kind": "item",
+      "choice": "weapon_72",
+      "reference_choice": "weapon_72",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 99,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 100,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 101,
+      "kind": "combat",
+      "choice": "hold",
+      "reference_choice": "hold",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 102,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 103,
+      "kind": "item",
+      "choice": "18",
+      "reference_choice": "18",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 104,
+      "kind": "enemy",
+      "choice": "24",
+      "reference_choice": "24",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 105,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 106,
+      "kind": "enemy",
+      "choice": "40",
+      "reference_choice": "40",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 107,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 108,
+      "kind": "item",
+      "choice": "13",
+      "reference_choice": "13",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 109,
+      "kind": "item",
+      "choice": "weapon_71",
+      "reference_choice": "weapon_71",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 110,
+      "kind": "enemy",
+      "choice": "3",
+      "reference_choice": "3",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 111,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 112,
+      "kind": "enemy",
+      "choice": "37",
+      "reference_choice": "37",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 113,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 114,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 115,
+      "kind": "enemy",
+      "choice": "142",
+      "reference_choice": "142",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 116,
+      "kind": "movement",
+      "choice": "strafe_left",
+      "reference_choice": "strafe_left",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 117,
+      "kind": "item",
+      "choice": "64",
+      "reference_choice": "64",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 118,
+      "kind": "item",
+      "choice": "5",
+      "reference_choice": "5",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 119,
+      "kind": "item",
+      "choice": "weapon_71",
+      "reference_choice": "weapon_71",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 120,
+      "kind": "item",
+      "choice": "31",
+      "reference_choice": "31",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 121,
+      "kind": "item",
+      "choice": "46",
+      "reference_choice": "46",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 122,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 123,
+      "kind": "item",
+      "choice": "64",
+      "reference_choice": "64",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 124,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 125,
+      "kind": "enemy",
+      "choice": "50",
+      "reference_choice": "50",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 126,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 127,
+      "kind": "item",
+      "choice": "18",
+      "reference_choice": "18",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 128,
+      "kind": "enemy",
+      "choice": "16",
+      "reference_choice": "16",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 129,
+      "kind": "movement",
+      "choice": "strafe_left",
+      "reference_choice": "strafe_left",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 130,
+      "kind": "item",
+      "choice": "43",
+      "reference_choice": "43",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 131,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 132,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 133,
+      "kind": "item",
+      "choice": "46",
+      "reference_choice": "46",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 134,
+      "kind": "enemy",
+      "choice": "119",
+      "reference_choice": "119",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 135,
+      "kind": "movement",
+      "choice": "backward",
+      "reference_choice": "backward",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 136,
+      "kind": "enemy",
+      "choice": "25",
+      "reference_choice": "25",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 137,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 138,
+      "kind": "enemy",
+      "choice": "37",
+      "reference_choice": "37",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 139,
+      "kind": "movement",
+      "choice": "strafe_left",
+      "reference_choice": "strafe_left",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 140,
+      "kind": "switch",
+      "choice": "805",
+      "reference_choice": "805",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 141,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 142,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 143,
+      "kind": "enemy",
+      "choice": "2",
+      "reference_choice": "2",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 144,
+      "kind": "movement",
+      "choice": "strafe_right",
+      "reference_choice": "strafe_right",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 145,
+      "kind": "item",
+      "choice": "31",
+      "reference_choice": "31",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 146,
+      "kind": "item",
+      "choice": "454",
+      "reference_choice": "454",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 147,
+      "kind": "enemy",
+      "choice": "37",
+      "reference_choice": "37",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 148,
+      "kind": "movement",
+      "choice": "strafe_left",
+      "reference_choice": "strafe_left",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 149,
+      "kind": "switch",
+      "choice": "728",
+      "reference_choice": "728",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 150,
+      "kind": "item",
+      "choice": "1",
+      "reference_choice": "1",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 151,
+      "kind": "item",
+      "choice": "43",
+      "reference_choice": "43",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 152,
+      "kind": "item",
+      "choice": "48",
+      "reference_choice": "48",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 153,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 154,
+      "kind": "item",
+      "choice": "43",
+      "reference_choice": "43",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 155,
+      "kind": "item",
+      "choice": "107",
+      "reference_choice": "107",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 156,
+      "kind": "item",
+      "choice": "8",
+      "reference_choice": "8",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 157,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 158,
+      "kind": "item",
+      "choice": "11",
+      "reference_choice": "11",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 159,
+      "kind": "item",
+      "choice": "342",
+      "reference_choice": "342",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 160,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 161,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 162,
+      "kind": "item",
+      "choice": "164",
+      "reference_choice": "164",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 163,
+      "kind": "item",
+      "choice": "64",
+      "reference_choice": "64",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 164,
+      "kind": "item",
+      "choice": "46",
+      "reference_choice": "46",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 165,
+      "kind": "item",
+      "choice": "43",
+      "reference_choice": "43",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 166,
+      "kind": "item",
+      "choice": "8",
+      "reference_choice": "8",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 167,
+      "kind": "item",
+      "choice": "342",
+      "reference_choice": "342",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 168,
+      "kind": "item",
+      "choice": "150",
+      "reference_choice": "150",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 169,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 170,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 171,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 172,
+      "kind": "item",
+      "choice": "107",
+      "reference_choice": "107",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 173,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 174,
+      "kind": "item",
+      "choice": "18",
+      "reference_choice": "18",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 175,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 176,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 177,
+      "kind": "item",
+      "choice": "11",
+      "reference_choice": "11",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 178,
+      "kind": "item",
+      "choice": "1",
+      "reference_choice": "1",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 179,
+      "kind": "item",
+      "choice": "6",
+      "reference_choice": "6",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 180,
+      "kind": "item",
+      "choice": "64",
+      "reference_choice": "64",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 181,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 182,
+      "kind": "switch",
+      "choice": "805",
+      "reference_choice": "805",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 183,
+      "kind": "item",
+      "choice": "154",
+      "reference_choice": "154",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 184,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 185,
+      "kind": "item",
+      "choice": "6",
+      "reference_choice": "6",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 186,
+      "kind": "switch",
+      "choice": "662",
+      "reference_choice": "662",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 187,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 188,
+      "kind": "item",
+      "choice": "6",
+      "reference_choice": "6",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 189,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 190,
+      "kind": "item",
+      "choice": "31",
+      "reference_choice": "31",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 191,
+      "kind": "item",
+      "choice": "64",
+      "reference_choice": "64",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 192,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 193,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 194,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 195,
+      "kind": "item",
+      "choice": "43",
+      "reference_choice": "43",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 196,
+      "kind": "item",
+      "choice": "weapon_15",
+      "reference_choice": "weapon_15",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 197,
+      "kind": "item",
+      "choice": "106",
+      "reference_choice": "106",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 198,
+      "kind": "item",
+      "choice": "64",
+      "reference_choice": "64",
+      "choice_identical": true,
+      "probabilities_identical": true
+    },
+    {
+      "index": 199,
+      "kind": "item",
+      "choice": "10",
+      "reference_choice": "10",
+      "choice_identical": true,
+      "probabilities_identical": true
+    }
+  ]
+}

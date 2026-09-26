@@ -2,7 +2,7 @@
 import argparse,hashlib,json,random,re,sys,collections
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from decision_questions import compact_state
+from doomlib.decision_questions import compact_state
 p=argparse.ArgumentParser();p.add_argument('--sources',nargs='+',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
 a.output.mkdir(exist_ok=False);manifest={'sources':[str(x) for x in a.sources],'source_hashes':{},'splits':{}};train_keys=set()
 for split in ('train','validation'):

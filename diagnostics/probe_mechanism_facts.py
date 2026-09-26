@@ -4,10 +4,10 @@ from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import make_game,BUTTONS,LayaClient
-from mission import Mission,map_data
-from executor import Executor
-from policy import request,decode
-from decision_questions import factorize,with_commitment,refresh_attack_target,dependencies
+from doomlib.mission import Mission,map_data
+from doomlib.executor import Executor
+from doomlib.policy import request,decode
+from doomlib.decision_questions import factorize,with_commitment,refresh_attack_target,dependencies
 
 
 def main():

@@ -2,7 +2,7 @@
 import argparse,collections,hashlib,json,random,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from policy import request
+from doomlib.policy import request
 from training.build_committed_dataset import examples
 from training.map2_teacher import labels
 

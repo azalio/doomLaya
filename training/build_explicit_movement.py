@@ -7,7 +7,7 @@ import random
 import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from movement_questions import explicit_example
+from doomlib.movement_questions import explicit_example
 
 
 def main():

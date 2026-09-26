@@ -9,7 +9,11 @@ import json
 import threading
 import time
 from pathlib import Path
-from laya_runtime import BASE_REPO, BASE_REVISION, LAYA_SOURCE_COMMIT, base_checkpoint, choose_device, enable_single_option_padding
+from doomlib.laya_runtime import BASE_REPO, BASE_REVISION, LAYA_SOURCE_COMMIT, base_checkpoint, choose_device, enable_single_option_padding
+
+from doomlib import ensure_utf8_stdio
+
+ensure_utf8_stdio()
 
 
 def main():
@@ -24,13 +28,13 @@ def main():
     parser.add_argument("--sampling-seed",type=int,default=0)
     parser.add_argument("--sample-questions",nargs="+",help="Sample only these question names; other answers keep argmax")
     args = parser.parse_args()
-    from model_decoding import ChoiceDecoder
+    from doomlib.model_decoding import ChoiceDecoder
     decoder=ChoiceDecoder(args.choice_temperature,args.sampling_seed,args.sample_questions)
     if args.model == "doom-adapted" and not args.checkpoint:
         parser.error("--checkpoint is required for doom-adapted")
     if args.model == "typed-decisions" and args.checkpoint:
         parser.error("--checkpoint is reserved for doom-adapted; original weights use the pinned revision")
-    from question_heads import parse_head_specs
+    from doomlib.question_heads import parse_head_specs
     try: head_specs = parse_head_specs(args.head_checkpoint, args.item_head_checkpoint)
     except ValueError as error: parser.error(str(error))
     if head_specs and args.model != "doom-adapted":
@@ -54,7 +58,7 @@ def main():
     inference = model
     head_metadata = None
     if head_specs:
-        from question_heads import QuestionHeads, load_head
+        from doomlib.question_heads import QuestionHeads, load_head
         def digest(path):
             with path.open("rb") as handle:
                 return hashlib.file_digest(handle, "sha256").hexdigest()

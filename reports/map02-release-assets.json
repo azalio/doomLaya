@@ -1,0 +1,32 @@
+{
+  "map01": {
+    "source_run": "20260926_204707_880341_map01-root-goals48",
+    "video": {
+      "filename": "laya-map01.mp4",
+      "sha256": "5c0dc6af8b8e58b476b2583f54512cc6f55abd8bda42bd554a8ae1a60b977c48",
+      "bytes": 299031967
+    },
+    "evidence": {
+      "filename": "map01-evidence.tar.gz",
+      "sha256": "6649afb2e6a4e46a7191f22ed9549dd4ddf25568cbbfdd61c011b6851bd8ed85",
+      "bytes": 1445930
+    },
+    "metadata_sanitized": true,
+    "video_in_archive": false
+  },
+  "map02": {
+    "source_run": "20260926_201638_873591_map02-root-goals54",
+    "video": {
+      "filename": "laya-map02.mp4",
+      "sha256": "e9e88a9a8eecafed2b5608e5aab87897b55fc6113560543e04188061f8ea7c8d",
+      "bytes": 948608145
+    },
+    "evidence": {
+      "filename": "map02-evidence.tar.gz",
+      "sha256": "d58cb875887afe3aec2b737a1a88bd71695c36eda81b3d85d409072999545dfa",
+      "bytes": 8924070
+    },
+    "metadata_sanitized": true,
+    "video_in_archive": false
+  }
+}

@@ -8,9 +8,9 @@ import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import vizdoom
-from mission import Mission,map_data
-from policy import request
-from decision_questions import split_command,TARGET_TYPES
+from doomlib.mission import Mission,map_data
+from doomlib.policy import request
+from doomlib.decision_questions import split_command,TARGET_TYPES
 from training.map2_teacher import labels
 
 

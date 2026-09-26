@@ -2,8 +2,8 @@
 import argparse,collections,copy,hashlib,json,random,re,sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from combat import WEAPON_NAMES,AMMO_COST
-from policy import request
+from doomlib.combat import WEAPON_NAMES,AMMO_COST
+from doomlib.policy import request
 
 
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()

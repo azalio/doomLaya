@@ -1,12 +1,38 @@
 # doomLaya
 
+[English](README.en.md) · Русский
+
 Laya и Jev играют в FreeDoom. Модель выбирает действие, цель и оружие;
 контроллер строит маршрут, целится и нажимает кнопки по её команде.
 
-[Обучение](TRAINING.md) · [MAP02](MAP02.md) · [Результаты](COMPARISON.md) ·
-[Веса и публикация](PUBLISHING.md) · [Контракт управления](DOOM.md)
+[Обучение](docs/TRAINING.md) · [MAP02](docs/MAP02.md) · [Результаты](docs/COMPARISON.md) ·
+[Веса и публикация](docs/PUBLISHING.md) · [Контракт управления](docs/DOOM.md)
 
-## Проверенный результат
+## Обновление v0.2.0: MAP01 и MAP02
+
+Один комплект весов прошёл обе карты с тем же исполнителем:
+
+| Карта | Seed, skill | Выход | Смерти | Полное решение, p50 |
+|---|---|---:|---:|---:|
+| MAP01 → MAP02 | 48, 3 | 174,914 с | 0 | 384,72 мс |
+| MAP02 → MAP03 | 54, 3 | 835,600 с | 2 | 430,47 мс |
+
+После каждого выхода записаны три секунды следующей карты. Аудит управления,
+видео и реального времени пройден. Общий `passed=false` сохраняется:
+на MAP01 превышены пороги неподвижности и времени без нового района,
+на MAP02 — времени без нового района и смены оружия. Это по одному
+прогону; устойчивость на других seed не проверена.
+
+[Веса на Hugging Face](https://huggingface.co/azalio/laya-doom-map02) ·
+[Запуск и обучение](docs/MAP02.md) ·
+[Видео MAP02](https://github.com/azalio/doomLaya/releases/download/v0.2.0/laya-map02.mp4) ·
+[Финал MAP02, 65 секунд](https://github.com/azalio/doomLaya/releases/download/v0.2.0/laya-map02-finish.mp4) ·
+[Видео MAP01](https://github.com/azalio/doomLaya/releases/download/v0.2.0/laya-map01.mp4).
+
+Ниже сохранено сравнение прежней v3 с Jev. Оно относится к другой
+конфигурации и не оценивает новый комплект весов.
+
+## Сравнение v0.1.0 на MAP01
 
 Сравнение проведено 22 сентября 2026 на macOS/MPS: FreeDoom MAP01, сложность
 `skill 3`, начальное значение генератора случайных чисел `seed 48`. У моделей
@@ -27,7 +53,7 @@ Laya и Jev играют в FreeDoom. Модель выбирает действ
 [Видео: Laya v3 и Jev](https://github.com/azalio/doomLaya/releases/download/v0.1.0/laya-vs-jev.mp4) ·
 [Видео: исходная Laya и Jev](https://github.com/azalio/doomLaya/releases/download/v0.1.0/original-laya-vs-jev.mp4) ·
 [Модель на Hugging Face](https://huggingface.co/azalio/laya-doom-v3) · [Архив весов](https://github.com/azalio/doomLaya/releases/tag/v0.1.0).
-Команды скачивания — в [PUBLISHING.md](PUBLISHING.md).
+Команды скачивания — в [PUBLISHING.md](docs/PUBLISHING.md).
 
 ## Установка
 
@@ -85,8 +111,8 @@ uv pip install --python .venv/bin/python -r requirements-model.txt
 (cd checkpoints/laya-doom-v3 && shasum -a 256 -c SHA256SUMS)
 ```
 
-Другие варианты: [архив из GitHub Release](PUBLISHING.md) или
-[обучение своей модели](TRAINING.md). Команда `git clone` скачивает исходники без весов.
+Другие варианты: [архив из GitHub Release](docs/PUBLISHING.md) или
+[обучение своей модели](docs/TRAINING.md). Команда `git clone` скачивает исходники без весов.
 
 ```bash
 .venv/bin/python serve_doom_laya.py \
@@ -125,7 +151,7 @@ chmod 600 .env
 (исходный на 8000, адаптацию на 8001), затем:
 
 ```bash
-.venv/bin/python run_comparison.py --seed 48 --seconds 180
+.venv/bin/python -m tools.run_comparison --seed 48 --seconds 180
 ```
 
 В строке `SUITE` скрипт выведет каталог результатов. Путь к каждому прогону
@@ -134,9 +160,9 @@ chmod 600 .env
 даже если исполнитель правильно выполнил все команды модели.
 
 ```bash
-.venv/bin/python render_comparison.py runs/<laya-run> runs/<jev-run> \
+.venv/bin/python -m tools.render_comparison runs/<laya-run> runs/<jev-run> \
   --output runs/laya-vs-jev.mp4
-.venv/bin/python measure_network.py runs/network.json
+.venv/bin/python -m tools.measure_network runs/network.json
 ```
 
 В видео два окна: видны HP, патроны, убийства, команда, цель, оружие,
@@ -150,7 +176,7 @@ chmod 600 .env
 По умолчанию модель получает текстовое состояние и два вопроса: `command`, `weapon`.
 Режим `--decision-format factorized` отдельно спрашивает действие, цель, оружие
 и движение в бою. Режим `committed` добавляет текущую цель и явную команду
-продолжения; он используется в [эксперименте MAP02](MAP02.md).
+продолжения; он используется в [эксперименте MAP02](docs/MAP02.md).
 Варианты команд включают конкретных видимых монстров и наблюдавшиеся предметы.
 Исполнитель умеет целиться, идти к указанной цели и обходить препятствия.
 Он не выбирает полезность предметов, приоритет боя или лучшее оружие.
@@ -170,10 +196,10 @@ chmod 600 .env
 ## Проверка
 
 ```bash
-.venv/bin/python -m unittest test_authority.py test_map2.py test_publication.py
+.venv/bin/python -m unittest tests.test_authority tests.test_map2 tests.test_publication
 .venv/bin/python scripts/check_publication.py
-.venv/bin/python check_authority.py runs/<run>
-.venv/bin/python verify_run.py runs/<run>
+.venv/bin/python -m tools.check_authority runs/<run>
+.venv/bin/python -m tools.verify_run runs/<run>
 ```
 
 В каждой записи сохраняются запросы/ответы, события, покадровая телеметрия,

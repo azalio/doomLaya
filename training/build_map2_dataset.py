@@ -8,9 +8,9 @@ import random
 import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from policy import request
-from mission import Mission,map_data
-from combat import WEAPON_NAMES
+from doomlib.policy import request
+from doomlib.mission import Mission,map_data
+from doomlib.combat import WEAPON_NAMES
 import vizdoom
 
 

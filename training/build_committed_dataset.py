@@ -4,11 +4,11 @@ from pathlib import Path
 from types import SimpleNamespace
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from agent import make_game,BUTTONS
-from mission import Mission,map_data
-from executor import Executor
-from policy import request
-from combat import WEAPON_NAMES
-from decision_questions import factorize,with_commitment,split_command,TARGET_TYPES
+from doomlib.mission import Mission,map_data
+from doomlib.executor import Executor
+from doomlib.policy import request
+from doomlib.combat import WEAPON_NAMES
+from doomlib.decision_questions import factorize,with_commitment,split_command,TARGET_TYPES
 from training.map2_teacher import labels as teacher_labels
 
 
@@ -17,13 +17,13 @@ def examples(packet,gold,source,tick,episode,refresh_attack=False,explicit_actio
     action,target,movement=split_command(gold['command'])
     committed=with_commitment(factorize(packet))
     if refresh_attack:
-        from decision_questions import refresh_attack_target
+        from doomlib.decision_questions import refresh_attack_target
         committed=refresh_attack_target(committed)
     if explicit_actions:
-        from decision_questions import without_action_continuation
+        from doomlib.decision_questions import without_action_continuation
         committed=without_action_continuation(committed)
     if pickup_combat:
-        from decision_questions import with_pickup_combat
+        from doomlib.decision_questions import with_pickup_combat
         committed=with_pickup_combat(committed,include_recent=pickup_recent)
     same=committed['commands'].get('continue')
     continuation=same and same['action']==action and (same.get('target') or {}).get('id')==(selected.get('target') or {}).get('id')
