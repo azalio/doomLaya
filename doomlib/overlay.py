@@ -54,8 +54,13 @@ class Overlay:
             d.rounded_rectangle((1200, y + 26, 1865, y + 35), radius=4, fill='#253043')
             if p > 0:
                 d.rounded_rectangle((1200, y + 26, 1200 + max(8, 665 * p), y + 35), radius=4, fill=COLORS[i])
-        txt(1200, 780, f"CMD #{state.get('execution',{}).get('decision_id')}  {'WAIT API' if pending else 'READY'}", 26)
-        txt(1200, 832, f"{decision.get('latency_ms', 0):.0f} ms   {decision.get('tokens', 0)} tokens", 26)
+        pending_label="WAIT DECISION" if decision.get("minimum_decision_delay_ticks",0) else "WAIT API"
+        txt(1200, 780, f"CMD #{state.get('execution',{}).get('decision_id')}  {pending_label if pending else 'READY'}", 26)
+        if decision.get('minimum_decision_delay_ticks',0):
+            txt(1200, 820, f"RTT {decision.get('latency_ms',0):.0f} ms  APPLY {decision.get('decision_age_ms',0):.0f} ms", 22)
+            txt(1200, 850, f"MIN DELAY {decision['minimum_decision_delay_ticks']} ticks  {decision.get('tokens',0)} tokens", 18)
+        else:
+            txt(1200, 832, f"{decision.get('latency_ms', 0):.0f} ms   {decision.get('tokens', 0)} tokens", 26)
         txt(1200, 883, f"DECISIONS {stats['decisions']}   ERRORS {stats['errors']}", 22)
         txt(1200, 925, 'KEYS '+(', '.join(state.get('keys',[])) or 'none')+f"   LEVELS {stats.get('levels_completed',0)}",18,'#ffd670')
         txt(42, 978, f"{state.get('map','')}   {len(state['enemies'])} known enemies   {len(state['items'])} items   {stats['deaths']} deaths", 26)

@@ -1,0 +1,54 @@
+{
+  "note": "Offline corrections: prefer visible threats except an enemy within 2m; give visible hitscanners a distance weight of 0.65. Prefer loaded plasma, super shotgun, shotgun, chaingun, pistol, rocket launcher, chainsaw, fists. These rules are labels, never a live fallback. Same-map development validation; not a claim that this priority is universally optimal.",
+  "sources": {
+    "runs/20260927_005344_352697_map03-item-nogoal54/decisions.jsonl": "f8afcaa4d476e96fb5041a4ece27aa07ce6d0914fba0a4fdeb7b688e6543e001",
+    "runs/20260927_011001_959304_map03-item-nogoal54-full/decisions.jsonl": "0fd3b7f6e2289f477a94b9fa6969f29025c9dd27f939891002724b9ac656c488",
+    "runs/20260927_013723_483038_map03-categorical54/decisions.jsonl": "17b0673c72e23e2573c725019046dc84f5ce17d123ad0c42048cc51c83cdcdce",
+    "training/map3-combat-v1/train.json": "3f842ae03a38b05676ee90e1c9f88d202e05f93345c0d1fbbee88a76559188f5",
+    "training/map3-combat-v1/validation.json": "06d846552b2b97a4ea378bfb09a5c7a2727f69998ea294dcdd0329b6d17a353b"
+  },
+  "splits": {
+    "train": {
+      "rows": 1287,
+      "sha256": "6c12f409333e073569117ab150998e15368963f2b6d56a114c978986ea616f25",
+      "kinds": {
+        "weapon": 676,
+        "enemy": 611
+      },
+      "categories": {
+        "shotgun": 364,
+        "visible_priority": 340,
+        "attack": 75,
+        "visible_threat": 225,
+        "shotgun_over_chaingun": 202,
+        "pistol": 37,
+        "pickup": 34,
+        "use_switch": 5,
+        "open_door": 2,
+        "super_shotgun": 1,
+        "exit": 2
+      }
+    },
+    "validation": {
+      "rows": 581,
+      "sha256": "6ddb5b531032cd7bd52ee19924c062c39d9fe884d40775d91915422169929dbb",
+      "kinds": {
+        "enemy": 280,
+        "weapon": 301
+      },
+      "categories": {
+        "visible_priority": 163,
+        "visible_threat": 100,
+        "shotgun_over_chaingun": 100,
+        "shotgun": 122,
+        "attack": 26,
+        "chaingun": 25,
+        "pistol": 29,
+        "pickup": 13,
+        "use_switch": 2,
+        "open_door": 1
+      }
+    }
+  },
+  "builder_sha256": "8a690cdb252ea71e6c6e4d81d1c803358f9d373cd1bdec5179d1276f1c85074d"
+}

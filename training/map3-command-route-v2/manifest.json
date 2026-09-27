@@ -1,0 +1,92 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "note": "Supervised command labels from a successful no-monsters MAP03 mechanics demonstration, never live gameplay by Laya. Every fifth four-second demonstration block is held out; nearby states are correlated. Previous gameplay-derived replay retains its allocation, with at most 160 training rows per old category and every post-yellow full-inventory correction. Only Current command line removed, matching server projection. Development fitting, not independent generalization.",
+    "sources": {
+      "runs/map03-mechanics-exit-platform54/config.json": "ed195e19c8b6b3c8c928b6921e3bce3cccca9b73d6df0ea06a4d0312590f0fb6",
+      "runs/map03-mechanics-exit-platform54/summary.json": "b272ecb968d7cc749f88bf4370b1b9060ab946ef8bde5d9396be6c2f9dcb6918",
+      "runs/map03-mechanics-exit-platform54/examples.jsonl": "57ca258a2f6cae88e75f497df71fba00d28ebf1c06dc8e0947662041375db4a3",
+      "training/map3-command-continuation-v2/train.json": "f80e21f8ab4fdb5bb300991c29a5805ae4fdea7ce58a9a07bdb973aa88f7e552",
+      "training/map3-command-continuation-v2/validation.json": "05e68dc091518b5d4c71418e3fbc59521dc0ff0a43ce2904ed305068979b6cab"
+    },
+    "splits": {
+      "validation": {
+        "rows": 969,
+        "sha256": "d31f09d51bd3aa55c308777ebb11c47470633a034ce47f2bf3942de71d9ae8a7",
+        "categories": {
+          "useful_resource": 201,
+          "continue_route": 205,
+          "loaded_weapon": 79,
+          "nearby_enemy": 6,
+          "mechanics_route_use_switch": 42,
+          "nearby_threat": 187,
+          "urgent_health": 47,
+          "post_yellow_continue_route": 70,
+          "nearby_door": 55,
+          "open_door": 17,
+          "exit": 25,
+          "mechanics_route_pickup": 11,
+          "blocking_door": 1,
+          "blocked_door_prerequisite": 7,
+          "mechanics_route_exit": 2,
+          "attack": 1,
+          "shells_before_route": 1,
+          "mechanics_route_open_door": 6,
+          "use_switch": 3,
+          "reachable_key": 2,
+          "continue_route_with_supplies": 1
+        }
+      },
+      "train": {
+        "rows": 1275,
+        "sha256": "fec1f6df0713fc9038c0aaa09b04d0b30fab3c657600a73a062fbf989a47fc55",
+        "categories": {
+          "nearby_threat": 160,
+          "nearby_door": 160,
+          "urgent_health": 43,
+          "post_yellow_continue_route": 220,
+          "exit": 59,
+          "useful_resource": 160,
+          "mechanics_route_use_switch": 147,
+          "continue_route": 160,
+          "mechanics_route_exit": 15,
+          "continue_route_with_supplies": 6,
+          "attack": 3,
+          "mechanics_route_open_door": 31,
+          "mechanics_route_pickup": 45,
+          "open_door": 11,
+          "loaded_weapon": 16,
+          "blocking_door": 2,
+          "blocked_door_prerequisite": 12,
+          "shells_before_route": 4,
+          "nearby_enemy": 13,
+          "loaded_weapon_before_route": 1,
+          "explore": 4,
+          "use_switch": 3
+        }
+      }
+    },
+    "removed": {
+      "validation": 3,
+      "train": 8
+    },
+    "builder_sha256": "bee54e47dded8c58c2682df3b1c80f8198552fcc263d9ca05bd392931a7988fa"
+  },
+  "sources": {
+    "training/map3-command-route-v1/train.json": "fec1f6df0713fc9038c0aaa09b04d0b30fab3c657600a73a062fbf989a47fc55",
+    "training/map3-command-route-v1/validation.json": "d31f09d51bd3aa55c308777ebb11c47470633a034ce47f2bf3942de71d9ae8a7"
+  },
+  "checkpoint_config_sha256": "d3db715b89c75ab472cf6ee7c46347edb4180cda66a089752fd0d619c23eebc5",
+  "filter_sha256": "9dc39f7b321a9746ce02b5eab7cc664c9ac906963728ab3fa653154682d55892",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1275,
+      "sha256": "fec1f6df0713fc9038c0aaa09b04d0b30fab3c657600a73a062fbf989a47fc55"
+    },
+    "validation": {
+      "rows": 969,
+      "sha256": "d31f09d51bd3aa55c308777ebb11c47470633a034ce47f2bf3942de71d9ae8a7"
+    }
+  }
+}

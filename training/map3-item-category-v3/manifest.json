@@ -1,0 +1,55 @@
+{
+  "input_projection": "item-category-v2",
+  "note": "Uses observed category from the original Items line and compact distance-first criteria. Original IDs, names, distances, reachability and ownership are preserved; all choices remain available. Original split allocations retained. Synthetic examples vary health, armor, ammunition and distances, with disjoint synthetic health values and non-bonus distance grids per item category in validation; bonus distances are sampled independently. Labels use the existing offline resource scorer. MAP03 held-out run remains validation-only. Development validation; no success or independent-map claim.",
+  "sources": {
+    "training/map3-compact-item-v2/train.json": "febd3fe16f736dc8ee00b813d055cbda381da5eec89fb40beca8652a3c186450",
+    "training/map3-compact-item-v2/validation.json": "63fba88b53154f352768bda7852d8aabe1f28d169c6487bef74bb33aa80f26f6"
+  },
+  "removed": {},
+  "splits": {
+    "train": {
+      "rows": 3113,
+      "sha256": "9b564722973c2ef9dab58fc023024b7d58c95ec4d5d115b51e243b1d00c53d76",
+      "categories": {
+        "recorded_weapon": 259,
+        "recorded_ammo": 364,
+        "recorded_key": 340,
+        "recorded_health": 329,
+        "recorded_armor": 23,
+        "health": 236,
+        "pickup": 77,
+        "key": 243,
+        "ammo": 247,
+        "weapon": 227,
+        "synthetic_health": 187,
+        "synthetic_weapon": 95,
+        "synthetic_key": 414,
+        "synthetic_armor": 60,
+        "synthetic_ammo": 12
+      }
+    },
+    "validation": {
+      "rows": 1773,
+      "sha256": "8e60eb19c590c7eba3166a00c84a979b2c2deb899a3c8723bf0551813e1f0841",
+      "categories": {
+        "recorded_weapon": 162,
+        "recorded_ammo": 393,
+        "recorded_key": 300,
+        "recorded_health": 200,
+        "recorded_armor": 146,
+        "weapon": 80,
+        "key": 87,
+        "ammo": 90,
+        "health": 89,
+        "pickup": 34,
+        "synthetic_key": 110,
+        "synthetic_health": 42,
+        "synthetic_armor": 17,
+        "synthetic_weapon": 21,
+        "synthetic_ammo": 2
+      }
+    }
+  },
+  "builder_sha256": "0d0d76cad5ed7b6175e9371177937722cd41a9bb5b1c480546c1d0324cf57b2d",
+  "projection_sha256": "63dd57ce09ee639a791f9c901645bf96c09c64753cbc343190b2e208c7141b0d"
+}

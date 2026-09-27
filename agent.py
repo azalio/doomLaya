@@ -76,7 +76,8 @@ def emit_event(handle,event_type,tick,**extra):
 
 
 class Sensors:
-    def __init__(self,door_sectors=(),door_lines=(),weapon_sensor=False):
+    def __init__(self,door_sectors=(),door_lines=(),weapon_sensor=False,enemy_memory_ticks=70):
+        self.enemy_memory_ticks=enemy_memory_ticks
         self.weapon_sensor=weapon_sensor
         self.door_lines=door_lines
         self.keys=set()
@@ -100,7 +101,7 @@ class Sensors:
             self.enemy_memory[enemy['id']]=dict(enemy,last_seen_tick=tick)
         remembered=[]
         for oid,enemy in list(self.enemy_memory.items()):
-            if oid not in objects or objects[oid].name!=enemy['name'] or tick-enemy['last_seen_tick']>70:
+            if oid not in objects or objects[oid].name!=enemy['name'] or tick-enemy['last_seen_tick']>self.enemy_memory_ticks:
                 del self.enemy_memory[oid]
             elif oid not in visible:
                 b=bearing(enemy['x'],enemy['y'],px,py,angle)
@@ -217,6 +218,7 @@ class Sensors:
             'hitcount': int(var('HITCOUNT')), 'damagecount': var('DAMAGECOUNT'),
             'x': px, 'y': py, 'z':var('POSITION_Z'), 'angle': angle, 'engine_tic': game.get_episode_time(),
             'walls': walls, 'rays': rays, 'enemies': enemies, 'dead_ids': dead_ids,
+            'enemy_memory_ticks': self.enemy_memory_ticks,
             'inventory': inventory,
             'items': items, 'obstacles': obstacles, 'door': doors[0] if doors else None,
             'removed_object_ids':removed_object_ids,
@@ -388,29 +390,51 @@ def main():
     parser.add_argument('--mechanism-facts',action='store_true',help='Expose mapped keys connected to each lift upper platform')
     parser.add_argument('--explicit-movement',action='store_true',help='Require an explicit movement instead of the duplicate continue option')
     parser.add_argument('--movement-facts',action='store_true',help='Attach measured body clearance only to the movement question')
+    parser.add_argument('--movement-obstacle-facts',action='store_true',help='Describe close obstacles and clear space as measured facts without removing movement options')
     parser.add_argument('--physical-facts',action='store_true',help='Expose factual item reachability and body movement clearance to the model')
     parser.add_argument('--combat-during-pickup',action='store_true',help='Let the model select optional simultaneous fire during item collection')
     parser.add_argument('--combat-during-navigation',action='store_true',help='Let the model select optional fire while following an item, mechanism, door, exit, or exploration route')
     parser.add_argument('--inventory-events',action='store_true',help='Request another model decision when weapon ownership, keys, or episode changes')
     parser.add_argument('--ammo-events',action='store_true',help='Also request a decision when an owned weapon gains or loses enough ammo to fire')
     parser.add_argument('--mask-unreachable-items',action='store_true',help='Offer item commands only when the observed route graph contains a path')
+    parser.add_argument('--floor-hazard-facts',action='store_true',help='Describe mapped damaging floor contact to the learned look gate; do not mask or choose actions')
+    parser.add_argument('--look-gate',action='store_true',help='Let a separately learned look head add a turn while preserving normal action rankings')
+    parser.add_argument('--look-actions',action='store_true',help='Offer an explicit clockwise half-turn and recent health-loss facts to the command model')
+    parser.add_argument('--enemy-sequences',action='store_true',help='Let the model explicitly choose an ordered subset of known enemies to attack')
+    parser.add_argument('--enemy-commitment-facts',action='store_true',help='Expose the latest accepted enemy target and its age without locking it')
+    parser.add_argument('--enemy-visibility-facts',action='store_true',help='Describe current visibility beside each enemy option without removing remembered targets')
     parser.add_argument('--item-resource-facts',action='store_true',help='Expose current health, armor, and relevant ammunition beside each item option')
     parser.add_argument('--pickup-recent-targets',action='store_true',help='Allow explicit pickup-combat targeting of enemies seen in the last two seconds')
     parser.add_argument('--explicit-actions',action='store_true',help='Require an explicit action and target each time, while retaining goal context')
     parser.add_argument('--refresh-attack-target',action='store_true',help='Ask the model to select the enemy again when continuing combat')
     parser.add_argument('--question-schedule',choices=['parallel','conditional'],default='parallel')
+    parser.add_argument('--attack-turn-rate',type=float,choices=[9,18,36],default=9,help='Motor limit in degrees per tick while aiming at the explicitly selected attack target')
     parser.add_argument('--interval', type=float, default=.5, help='Минимальный интервал запросов, секунды')
+    parser.add_argument('--minimum-decision-delay-ticks',type=int,default=0,help='Optional lower bound for response application, in game ticks; real RTT is still measured and slow responses are never applied early')
     args = parser.parse_args()
+    if not 0<=args.minimum_decision_delay_ticks<2*TICRATE:parser.error('--minimum-decision-delay-ticks must be in 0..69')
+    if args.minimum_decision_delay_ticks and (args.dry or not args.realtime):parser.error('Delayed decisions require a real model and realtime game clock')
     if args.model=='doom-adapted' and args.endpoint=='http://127.0.0.1:8000/predict':
         args.endpoint='http://127.0.0.1:8001/predict'
     if args.explicit_movement and args.decision_format=='flat':
         parser.error('--explicit-movement requires factorized or committed decisions')
+    if args.movement_obstacle_facts and not args.movement_facts:
+        parser.error('--movement-obstacle-facts requires --movement-facts')
     if args.movement_facts and args.decision_format=='flat':
         parser.error('--movement-facts requires factorized or committed decisions')
     if args.mask_unreachable_items and (args.decision_format=='flat' or not (args.reachable_items or args.physical_facts)):
         parser.error('--mask-unreachable-items requires factored decisions and --reachable-items or --physical-facts')
     if args.ammo_events and not args.inventory_events:
         parser.error('--ammo-events requires --inventory-events')
+    if args.floor_hazard_facts and not args.look_gate:parser.error('--floor-hazard-facts requires --look-gate')
+    if args.look_gate and args.look_actions:parser.error('Choose --look-gate or --look-actions')
+    if args.look_gate and args.decision_format=='flat':parser.error('--look-gate requires factored decisions')
+    if args.look_actions and args.decision_format=='flat':
+        parser.error('--look-actions requires factored decisions')
+    if args.enemy_sequences and not (args.explicit_actions and args.refresh_attack_target):parser.error('--enemy-sequences requires explicit actions and refreshed attack targets')
+    if args.enemy_commitment_facts and args.decision_format=='flat':parser.error('--enemy-commitment-facts requires factored decisions')
+    if args.enemy_visibility_facts and args.decision_format=='flat':
+        parser.error('--enemy-visibility-facts requires factored decisions')
     if args.item_resource_facts and args.decision_format=='flat':
         parser.error('--item-resource-facts requires factorized or committed decisions')
     if args.pickup_recent_targets and not (args.combat_during_pickup or args.combat_during_navigation):
@@ -435,11 +459,13 @@ def main():
     # Health проверяется до старта игры: не превращаем ошибку сервера в эвристический прогон.
     if not args.dry:
         health = client.health()
+        if args.enemy_sequences and health.get('question_heads',{}).get('enemy',{}).get('question_format')!='enemy-sequence-v1':raise RuntimeError('Server has no trained enemy-sequence head')
+        if args.look_gate and 'look_gate' not in health.get('question_heads',{}):raise RuntimeError('Server has no learned look_gate head')
     config = {'args': vars(args), 'wad_sha256':hashlib.sha256((Path(vzd.__file__).parent/'freedoom2.wad').read_bytes()).hexdigest(), 'protocol':'model-authority-v1', 'questions':'dynamic; exact request in decisions.jsonl', 'map_knowledge':['geometry','exit','switches','key_markers'], 'laya_health': health,
               'vizdoom': vzd.__version__, 'tics_per_second': TICRATE,
               'command_ttl_seconds':2, 'automatic_weapon_pickup_switch':False,
               'source_sha256': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                                for name in ['agent.py', 'doomlib/__init__.py', 'doomlib/overlay.py', 'doomlib/report.py', 'doomlib/navigation.py', 'doomlib/combat.py', 'doomlib/items.py', 'doomlib/mission.py', 'doomlib/policy.py', 'doomlib/executor.py', 'doomlib/decision_questions.py', 'doomlib/decision_timing.py', 'doomlib/resource_questions.py', 'serve_doom_laya.py', 'doomlib/model_decoding.py', 'doomlib/laya_runtime.py', 'doomlib/question_heads.py', 'doomlib/movement_questions.py']}}
+                                for name in ['agent.py', 'doomlib/__init__.py', 'doomlib/overlay.py', 'doomlib/report.py', 'doomlib/navigation.py', 'doomlib/combat.py', 'doomlib/items.py', 'doomlib/mission.py', 'doomlib/policy.py', 'doomlib/executor.py', 'doomlib/decision_questions.py', 'doomlib/decision_timing.py', 'doomlib/look_questions.py', 'doomlib/floor_hazards.py', 'doomlib/enemy_commitment.py', 'doomlib/enemy_sequences.py', 'doomlib/compact_movement.py', 'doomlib/compact_enemy.py', 'doomlib/compact_weapon.py', 'doomlib/compact_item.py', 'doomlib/enemy_ranking.py', 'doomlib/ranked_inference.py', 'doomlib/resource_questions.py', 'serve_doom_laya.py', 'doomlib/model_decoding.py', 'doomlib/laya_runtime.py', 'doomlib/question_heads.py', 'doomlib/movement_questions.py']}}
     if health.get('laya_source_commit'):
         config['laya_source_commit'] = health['laya_source_commit']
     if args.map_weapons:config['map_knowledge'].append('weapon_markers')
@@ -459,10 +485,15 @@ def main():
     future = None
     pending = None
     sensors, controller = Sensors(), Controller()
+    from doomlib.look_questions import DamageHistory
+    damage_history=DamageHistory()
+    from doomlib.enemy_commitment import EnemyCommitment
+    enemy_commitment=EnemyCommitment()
     stats = {'kills': 0, 'deaths': 0, 'decisions': 0, 'errors': 0, 'pickups': 0,
              'levels_completed': 0, 'doors_opened': 0, 'stuck_recoveries': 0, 'bumps': 0, 'damage': 0}
     counts, reflex_counts, resource_counts = Counter(), Counter(), Counter()
     latencies, tokens, costs = [], [], []
+    application_delays=[]
     decision = {}
     tactic = 'wait'
     history = deque([tactic], maxlen=3)
@@ -496,9 +527,15 @@ def main():
         new=result['choice']
         stale=pending['episode']!=episode or tick-pending['tick']>2*TICRATE
         apply=not(final or stale)
+        result['decision_accepted_tick']=tick if apply else None
+        result['decision_age_ticks']=tick-pending['tick']
+        result['decision_age_ms']=round((tick-pending['tick'])*1000/TICRATE,3)
+        result['minimum_decision_delay_ticks']=args.minimum_decision_delay_ticks
+        if apply:application_delays.append(result['decision_age_ms'])
         reason='run_finished' if final else ('stale' if stale else 'model_command')
         if apply:
             controller.accept(directive,tick)
+            enemy_commitment.accept(directive,tick)
             if new!=tactic:event('tactic',tick,previous=tactic,next=new,reason=reason)
             tactic,switched=new,tick
         result['directive']=directive
@@ -528,8 +565,11 @@ def main():
     try:
         game = make_game(args)
         spawn()
-        controller=Controller(game.get_state().sectors,Mission(map_data(game.get_doom_game_path(),current_map,args.skill)),map_weapons=args.map_weapons,mechanism_facts=args.mechanism_facts)
+        controller=Controller(game.get_state().sectors,Mission(map_data(game.get_doom_game_path(),current_map,args.skill)),map_weapons=args.map_weapons,mechanism_facts=args.mechanism_facts,attack_turn_rate=args.attack_turn_rate)
         sensors=Sensors(controller.mission.data['door_sectors'],controller.mission.data['doors'],weapon_sensor=args.weapon_sensor)
+        if args.floor_hazard_facts:
+            from doomlib.floor_hazards import FloorHazards
+            floor_hazards=FloorHazards(game.get_doom_game_path(),current_map,game.get_state().sectors)
         overlay = Overlay(ACTIONS, 'dry idle' if args.dry else args.model)
         if args.record:
             dest = run / 'video.mp4' if args.record == 'auto' else Path(args.record).expanduser().resolve()
@@ -548,10 +588,12 @@ def main():
                     game.set_doom_map(current_map)
                     next_level_tick=tick
                 episode += 1
+                enemy_commitment.reset()
                 game.new_episode()
                 spawn()
-                controller=Controller(game.get_state().sectors,Mission(map_data(game.get_doom_game_path(),current_map,args.skill)),map_weapons=args.map_weapons,mechanism_facts=args.mechanism_facts)
+                controller=Controller(game.get_state().sectors,Mission(map_data(game.get_doom_game_path(),current_map,args.skill)),map_weapons=args.map_weapons,mechanism_facts=args.mechanism_facts,attack_turn_rate=args.attack_turn_rate)
                 sensors=Sensors(controller.mission.data['door_sectors'],controller.mission.data['doors'],weapon_sensor=args.weapon_sensor)
+                if args.floor_hazard_facts:floor_hazards=FloorHazards(game.get_doom_game_path(),current_map,game.get_state().sectors)
                 event('episode_started',tick,map=current_map,episode=episode,engine_map=game.get_doom_map(),x=float(game.get_game_variable(vzd.GameVariable.POSITION_X)),y=float(game.get_game_variable(vzd.GameVariable.POSITION_Y)))
                 tactic, switched, previous = 'wait', tick, None
             raw, s = sensors.read(game, tick)
@@ -574,7 +616,10 @@ def main():
                 stats['doors_opened'] += 1
                 event('door_opened', tick, sector=door)
             controller.observe(s,tick,raw.sectors)
-            if future is not None and future.done():
+            if args.look_actions or args.look_gate:s['recent_damage']=damage_history.observe(s,tick,episode)
+            if args.floor_hazard_facts:s['floor_hazard']=floor_hazards.observe(s,raw.sectors)
+            from doomlib.decision_timing import response_ready
+            if future is not None and response_ready(future,pending['tick'],tick,args.minimum_decision_delay_ticks):
                 try:
                     accept(future.result(), tick)
                 except Exception as exc:
@@ -605,6 +650,25 @@ def main():
                 elif args.combat_during_pickup:
                     from doomlib.decision_questions import with_pickup_combat
                     packet=with_pickup_combat(packet,include_recent=args.pickup_recent_targets)
+                if args.enemy_visibility_facts:
+                    from doomlib.decision_questions import with_enemy_visibility_facts
+                    packet=with_enemy_visibility_facts(packet)
+                if args.enemy_commitment_facts:
+                    from doomlib.enemy_commitment import with_enemy_commitment
+                    packet=with_enemy_commitment(packet,enemy_commitment.facts(tick))
+                if args.enemy_sequences:
+                    from doomlib.enemy_sequences import with_enemy_sequences
+                    packet=with_enemy_sequences(packet)
+                if args.look_gate:
+                    from doomlib.look_questions import with_look_gate
+                    look_facts=dict(s['recent_damage'])
+                    if args.floor_hazard_facts:
+                        look_facts['standing_on_damaging_floor']=s['floor_hazard']['mapped_damaging_floor']
+                        packet['floor_hazard']=s['floor_hazard']
+                    packet=with_look_gate(packet,look_facts)
+                if args.look_actions:
+                    from doomlib.look_questions import with_look_action
+                    packet=with_look_action(packet,s['recent_damage'])
                 if args.item_resource_facts:
                     from doomlib.resource_questions import with_resource_facts
                     packet=with_resource_facts(packet)
@@ -617,6 +681,9 @@ def main():
                 if args.movement_facts and 'movement' in packet['questions']:
                     from doomlib.movement_questions import with_movement_clearance
                     packet=with_movement_clearance(packet,controller.navigator.movement_clearance(s))
+                    if args.movement_obstacle_facts:
+                        from doomlib.movement_questions import with_movement_obstacle_facts
+                        packet=with_movement_obstacle_facts(packet)
                 if args.question_schedule=='conditional':
                     from doomlib.decision_questions import dependencies
                     packet['question_dependencies']=dependencies(packet)
@@ -696,6 +763,9 @@ def main():
                    'final_map':current_map, 'game_seconds': round(total_ticks/TICRATE, 3), 'wall_seconds': round(game_wall_seconds, 3),
                    'latency_ms_median': round(statistics.median(latencies), 2) if latencies else None,
                    'latency_ms_p90': round(float(np.percentile(latencies, 90)), 2) if latencies else None,
+                   'minimum_decision_delay_ticks':args.minimum_decision_delay_ticks,
+                   'decision_application_ms_median':round(statistics.median(application_delays),3) if application_delays else None,
+                   'decision_application_ms_p90':round(float(np.percentile(application_delays,90)),3) if application_delays else None,
                    'input_tokens_total': sum(tokens), 'input_tokens_avg': round(statistics.mean(tokens), 2) if tokens else 0,
                    'external_api_cost_usd': sum(costs), 'local_compute_cost_usd': None,
                    'enemy_in_view_share': round(enemy_ticks/max(1,total_ticks), 4),

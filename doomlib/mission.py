@@ -34,16 +34,18 @@ def map_data(wad, name, skill=3):
             a,b=vertices[start],vertices[end]
             doors.append({'line':index,'sector':sides[back][-1],'key':locks.get(special),
                           'a':a,'b':b,'center':((a[0]+b[0])/2,(a[1]+b[1])/2)})
-        if special in (62,103,99,133,134,135,136,137):
+        if special in (61,62,71,103,112,99,133,134,135,136,137):
             a,b=vertices[start],vertices[end];length=math.dist(a,b)
             center=((a[0]+b[0])/2,(a[1]+b[1])/2)
             normal=((b[1]-a[1])/length,-(b[0]-a[0])/length)
             targets=[i for i,sector in enumerate(sectors) if sector[-1]==tag]
-            switches.append({'id':index,'kind':'lift' if special==62 else 'door','name':'Lift' if special==62 else 'Door switch','x':center[0],'y':center[1],
+            switches.append({'id':index,'kind':'lift' if special==62 else ('floor' if special==71 else 'door'),'name':'Lift' if special==62 else ('Floor switch' if special==71 else 'Door switch'),'x':center[0],'y':center[1],
                              'board':(center[0]-normal[0]*32,center[1]-normal[1]*32),
                              'upper_floor':max(sectors[i][0] for i in targets),
                              'approach':(center[0]+normal[0]*40,center[1]+normal[1]*40),
                              'sectors':targets,'key':{99:'blue',133:'blue',134:'red',135:'red',136:'yellow',137:'yellow'}.get(special)})
+            if special==61:switches[-1]['repeatable']=True
+            if special==71:switches[-1]['initial_floors']={i:sectors[i][0] for i in targets}
         if special in (39,97):
             from shapely.geometry import LineString,Point
             from shapely.ops import polygonize
@@ -68,6 +70,9 @@ def map_data(wad, name, skill=3):
         exits.append({'line':index,'special':special,'center':center,
                       'approach':(center[0]+normal[0]*40,center[1]+normal[1]*40),
                       'use':special in (11,51),'secret':special in (51,124)})
+    exit_sectors={sides[side][-1] for e in exits if not e['secret'] for side in lines[e['line']][5:] if side!=65535}
+    for switch in switches:
+        if switch['kind']=='floor' and exit_sectors.intersection(switch['sectors']):switch['route_exit']=True
     return {'name':name.upper(),'exits':exits,'door_sectors':sorted(door_sectors),'doors':doors,'teleports':teleports,'switches':switches,'key_markers':key_markers,'weapon_markers':weapon_markers}
 
 
@@ -77,6 +82,8 @@ class Mission:
         self.exit=next((e for e in data['exits'] if not e['secret']),None)
         self.activated_switches=set()
         self.lowered_lifts=set()
+        self.used_switches=set()
+        self.pending_switches={}
 
     def annotate_lift_routes(self,navigator):
         """Describe mapped keys connected to a lift's upper platform without descending."""
@@ -93,6 +100,10 @@ class Mission:
             lift['route_keys']=sorted({key['color'] for key in self.data.get('key_markers',())
                                        if navigator.nearest((key['x'],key['y'])) in seen})
 
+    def note_switch_use(self,switch_id,engine_tick):
+        """Record an executed USE; consume a one-shot button only after its door opens."""
+        self.pending_switches[switch_id]=engine_tick
+
     def observe(self,s,sectors):
         closed=[];switches=[]
         for switch in self.data.get('switches',[]):
@@ -108,8 +119,17 @@ class Mission:
                     phase='ride'
                     if floor>=switch['upper_floor']-1 and s.get('z',floor)>=switch['upper_floor']-1:self.activated_switches.add(switch['id'])
                 elif floor<=s.get('z',floor)+24 and switch['id'] in self.lowered_lifts:phase='board'
+            elif switch.get('kind')=='floor':
+                if any(sectors[i].floor_height<height-.5 for i,height in switch['initial_floors'].items()):self.activated_switches.add(switch['id'])
             else:
-                if any(sectors[i].ceiling_height-sectors[i].floor_height>=56 for i in switch['sectors']):self.activated_switches.add(switch['id'])
+                opened=any(sectors[i].ceiling_height-sectors[i].floor_height>=56 for i in switch['sectors'])
+                pressed=self.pending_switches.get(switch['id'])
+                if pressed is not None:
+                    if s.get('engine_tic',0)-pressed>105:self.pending_switches.pop(switch['id'])
+                    elif opened:
+                        self.used_switches.add(switch['id']);self.pending_switches.pop(switch['id'])
+                if opened or (switch['id'] in self.used_switches and not switch.get('repeatable')):self.activated_switches.add(switch['id'])
+                else:self.activated_switches.discard(switch['id'])
                 closed.extend(i for i in switch['sectors'] if sectors[i].ceiling_height-sectors[i].floor_height<56)
             switches.append(dict(switch,phase=phase,activated=switch['id'] in self.activated_switches and (switch.get('kind')!='lift' or s.get('z',0)>=switch['upper_floor']-24),
                                  distance=math.dist((s['x'],s['y']),(switch['x'],switch['y']))/32,

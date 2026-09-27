@@ -13,6 +13,7 @@ FORBIDDEN = {".env", ".venv", ".map", "runs", "checkpoints", "dist", "archive", 
 def main():
     candidates = subprocess.check_output(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=ROOT).decode().split("\0")
     errors = []
+    registry = json.loads((ROOT / "training/datasets.json").read_text())
     total = 0
     files = sorted(set(filter(None, candidates)))
     for name in files:
@@ -29,8 +30,11 @@ def main():
             errors.append(f"binary artifact: {name}")
         size = path.stat().st_size
         total += size
-        if size > 10 * 1024 * 1024:
-            errors.append(f"file exceeds source budget of 10 MiB: {name}")
+        # Registered datasets retain raw observations and questions for API replay.
+        dataset = name in registry and name.startswith("training/") and name.endswith(("/train.json", "/validation.json"))
+        limit_mib = 12 if dataset else 10
+        if size > limit_mib * 1024 * 1024:
+            errors.append(f"file exceeds source budget of {limit_mib} MiB: {name}")
             continue
         content = path.read_bytes()
         if SECRET.search(content):

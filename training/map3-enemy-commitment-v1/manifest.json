@@ -1,0 +1,31 @@
+{
+  "note": "Offline teacher retains an available model-selected enemy for its first second unless another enemy is within 1.5m and current is farther than 5m. Otherwise prior visible-threat labels. Counterfactual no-active-attack contrasts share their source episode split. Episode modulo 3=0 held out; same-map development, not independent unseen-map validation. No runtime target locking.",
+  "sources": {
+    "runs/20260927_052202_009419_map03-look-gate54/decisions.jsonl": "4da4d32ba3606088f06edbb609a49138d3219afa78148e431f647c2541b964b5",
+    "runs/20260927_040019_370654_map03-visible54/decisions.jsonl": "69afc9a9da3e53328aa8bf4665d67cc4f1f704e6b9ac6bc5438523a50c8dfc57",
+    "runs/20260927_021804_634568_map03-world-rapid54/decisions.jsonl": "188cfbc4dbb9ca7918c34ecb300e077824eec08a5cf22f2009dde6a5930a9f9a",
+    "training/map3-combat-rapid-v2/train.json": "486acd92a1ac31ff368f04f4ad1d99e25b3520a71ff5c96991e6e8f0b8b11056",
+    "training/map3-combat-rapid-v2/validation.json": "80b23fa39ab4ee85a8ededb2505b5dde51acc3619bf2c97527c5f8eed5abbbdf"
+  },
+  "splits": {
+    "train": {
+      "rows": 912,
+      "sha256": "cb92dad310a35ad3b64bad6a7de5dda4d68fcdc8252613587c519760d7ab2508",
+      "categories": {
+        "replay": 150,
+        "visible_priority": 437,
+        "recent_target": 325
+      }
+    },
+    "validation": {
+      "rows": 448,
+      "sha256": "b7111908962be6b6c7c270a95f26cdf9f4c355850d91a8db3699cd90bb6a8441",
+      "categories": {
+        "visible_priority": 188,
+        "replay": 60,
+        "recent_target": 200
+      }
+    }
+  },
+  "builder_sha256": "df45f97fa92a8b9c311cb098cfb551b8f9e3b81a702f72a871e0ba7f1f486c2b"
+}

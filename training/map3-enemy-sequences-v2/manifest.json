@@ -1,0 +1,53 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "question_format": "enemy-sequence-v1",
+    "note": "Offline full ordered-plan labels, all nonempty ordered subsets remain model options. First target: keep the previous visible target unless a point-blank threat, otherwise prioritize visible shooters and bearing; remaining known actors ordered by weighted distance. Teacher first target copied from recorded successful offline rollout. Candidate-order reversals share the same split. Separate recorded runs held out; same-map development, not unseen-map validation.",
+    "sources": {
+      "runs/20260927_055033_785988_map03-enemy-commitment54/decisions.jsonl": "7774479fa11f09a50360ff987808540546e627637cebb446b21dd94db0910664",
+      "runs/20260927_065910_131003_map03-geometry-floor54/decisions.jsonl": "af6259d724bff1def9732ec4844c102b658e14464a3588fbc1219b5ade921d3c",
+      "runs/20260927_072337_446048_map03-retreat54/decisions.jsonl": "b383432c5b44062aa989079e6e807f3ba685d64c802399fc3a945ddaffb8bb95",
+      "runs/map03-focused-queue-floor-geometry54-delay16/examples.jsonl": "9b6659e89d39bebf0adbf3a4141cb346fb5181351997e419955be7d18c293ff0",
+      "runs/map03-focused-queue-floor-geometry54-delay16/telemetry.jsonl": "13e0620acefb98f898046eeb2b8562289ac66fc6919a82e9bb68867b66df5bb7",
+      "runs/map03-focused-queue-floor-geometry54-delay16/summary.json": "989add471f579de9dfd420bda188b84612adb186b2461a8129124b08201713be",
+      "runs/20260927_061142_146264_map03-aim18-54/decisions.jsonl": "c51bcf778f0c75e47c364d6259126a49783b5234b1dd734084b0b09e05b58f8c"
+    },
+    "splits": {
+      "train": {
+        "rows": 1206,
+        "sha256": "b655bd7234b2fb98955a13a407bb4bb3ae7d39290682f19802753e59d5cfe78b",
+        "categories": {
+          "full_3": 634,
+          "full_2": 572
+        }
+      },
+      "validation": {
+        "rows": 272,
+        "sha256": "0b64d1f8a9eb34a516f9ff1ec8241119c6f368a160a4f10076f83b62195c674d",
+        "categories": {
+          "full_2": 152,
+          "full_3": 120
+        }
+      }
+    },
+    "builder_sha256": "e9eccab8a4314d4ad213b58d7301b5239a94a6293d4abcbbeb7e50983721ff11",
+    "formatter_sha256": "6b46b9fa0f7cc0131266d192c15e7dd7495e5eca78898b384efb0250c29e98f8"
+  },
+  "sources": {
+    "training/map3-enemy-sequences-v1/train.json": "b655bd7234b2fb98955a13a407bb4bb3ae7d39290682f19802753e59d5cfe78b",
+    "training/map3-enemy-sequences-v1/validation.json": "0b64d1f8a9eb34a516f9ff1ec8241119c6f368a160a4f10076f83b62195c674d"
+  },
+  "checkpoint_config_sha256": "bffc84f538db46468b169ea24ecd1f893e2dcf8bf51582df52a3901b3611d9ed",
+  "filter_sha256": "9dc39f7b321a9746ce02b5eab7cc664c9ac906963728ab3fa653154682d55892",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1206,
+      "sha256": "b655bd7234b2fb98955a13a407bb4bb3ae7d39290682f19802753e59d5cfe78b"
+    },
+    "validation": {
+      "rows": 272,
+      "sha256": "0b64d1f8a9eb34a516f9ff1ec8241119c6f368a160a4f10076f83b62195c674d"
+    }
+  }
+}

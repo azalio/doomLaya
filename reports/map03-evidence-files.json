@@ -1,0 +1,154 @@
+{
+  "metadata_sanitized": true,
+  "source_hashes_preserved": true,
+  "files": {
+    "config.json": {
+      "sha256": "424aec8d50ac6511ea978d9974487d7badc5787d6a264539e592df00eac239c5",
+      "bytes": 10660
+    },
+    "summary.json": {
+      "sha256": "343cd364150ad43b62334587e75673e8816aad68571ecb118ff17ecad5aa427c",
+      "bytes": 7570
+    },
+    "verification.json": {
+      "sha256": "247ba62ac53b543c781b155a992b87d3b6289a9690a459ed256e7362871968a1",
+      "bytes": 9699
+    },
+    "authority-verification.json": {
+      "sha256": "4787c247c29b11e301e8ace56f0cf287da73ec83926060faecf401aa3d04d7c1",
+      "bytes": 135
+    },
+    "decisions.jsonl": {
+      "sha256": "849814157c09a99e081400f620ef71fefd983704a7366a390a3b3ab2b8023a0f",
+      "bytes": 41218867
+    },
+    "events.jsonl": {
+      "sha256": "bdb8f6c3053cae6a8780ac82b698bf23d3b503dcc7943d4196917e30f588c0d0",
+      "bytes": 94141
+    },
+    "telemetry.jsonl": {
+      "sha256": "9a08b75c74f6be81b5a608e080e892d0c07861a81b2baec7d48fc8b7c64ef4cc",
+      "bytes": 212981892
+    },
+    "source/agent.py": {
+      "sha256": "1c7ca758cd3e3c6b00e82ab1988bf270ededdd9b669d7b5f29d6ca1ba8da87b0",
+      "bytes": 48818
+    },
+    "source/assets/weapon_sensor.acs": {
+      "sha256": "de539383738d96e86540d242e296eca521d4183f09e5f08402867bb5975137e3",
+      "bytes": 1071
+    },
+    "source/assets/weapon_sensor.pk3": {
+      "sha256": "f942db23e83bde0a4655b869d02c7ec50ffd25a759185a0d50eb184c779646cf",
+      "bytes": 638
+    },
+    "source/doomlib/__init__.py": {
+      "sha256": "5d2c60ed48c5e074d2bc6eee5596fe78936ec892f4e8a5290927c0be48a667fe",
+      "bytes": 532
+    },
+    "source/doomlib/combat.py": {
+      "sha256": "dad5cfc9bfe950e128580291da631f6432141b2a3b5803c1f5bc6ddc41cf23b0",
+      "bytes": 4352
+    },
+    "source/doomlib/compact_enemy.py": {
+      "sha256": "d21598478ab88807c9677d56fd68774f6f0b959a1dd3cca7b723b21d0aae8190",
+      "bytes": 787
+    },
+    "source/doomlib/compact_item.py": {
+      "sha256": "63dd57ce09ee639a791f9c901645bf96c09c64753cbc343190b2e208c7141b0d",
+      "bytes": 2319
+    },
+    "source/doomlib/compact_movement.py": {
+      "sha256": "17056fae4a9dedbffe8672aa4094368ea8ef12d18fddd26ec407b16a4178d48f",
+      "bytes": 2509
+    },
+    "source/doomlib/compact_weapon.py": {
+      "sha256": "07b72cc1e13285e041e18e2244e78e0a04ec7a0c911de9bab109787f7950044e",
+      "bytes": 974
+    },
+    "source/doomlib/decision_questions.py": {
+      "sha256": "820e0fedf2bf7ac107b5e16b1607646e0a3ccde4004ffd25c3527d6a0e78ebec",
+      "bytes": 15871
+    },
+    "source/doomlib/decision_timing.py": {
+      "sha256": "73c0da014eb8abc865fcc8d6cdaab5b4abb1242011ec14480af2e954d983399a",
+      "bytes": 1069
+    },
+    "source/doomlib/enemy_commitment.py": {
+      "sha256": "7d94347e8fc608d073f49e0f64c328f8e3b58b9b1c078bf6eaf918cef0dfc5b8",
+      "bytes": 2425
+    },
+    "source/doomlib/enemy_ranking.py": {
+      "sha256": "26e54b34f31e3b11941b196a94e6b11a95a2d91114c1875e375ddb1c65e6ca26",
+      "bytes": 3659
+    },
+    "source/doomlib/enemy_sequences.py": {
+      "sha256": "6b46b9fa0f7cc0131266d192c15e7dd7495e5eca78898b384efb0250c29e98f8",
+      "bytes": 2737
+    },
+    "source/doomlib/executor.py": {
+      "sha256": "926a070e6671aa820db18d97ce00143892317236eea7f2b4228d8f19c1db0301",
+      "bytes": 19061
+    },
+    "source/doomlib/floor_hazards.py": {
+      "sha256": "a199640d8fb287f4b31fef2ffad14f742252b23586e39aed64c8b6a3cc94f009",
+      "bytes": 1764
+    },
+    "source/doomlib/items.py": {
+      "sha256": "9f4f42c9f37d987dbb3bb5e24f978b078095501427e78db1cfc0a11f4d1eabea",
+      "bytes": 4230
+    },
+    "source/doomlib/laya_runtime.py": {
+      "sha256": "20f467c5d2f2b46b0459bec156b5a0e3e3e82487002c6f8719948bd12a617adc",
+      "bytes": 1753
+    },
+    "source/doomlib/look_questions.py": {
+      "sha256": "e9fc0440acb599459f909d88564492100975c4553a54c6c14178fc634cf5d3ad",
+      "bytes": 6011
+    },
+    "source/doomlib/mission.py": {
+      "sha256": "7110e6c50f7345d9e93e2d797eb02f8ce35fb27b0c95b06ac29bd08597362a06",
+      "bytes": 9556
+    },
+    "source/doomlib/model_decoding.py": {
+      "sha256": "9614ba6be859b00acc953cde70c757460b844a485f81e02ff9ce9a6afceef906",
+      "bytes": 1696
+    },
+    "source/doomlib/movement_questions.py": {
+      "sha256": "db49ee9055cd472968214e129c4331ab4af07df7f58b704ff649386321728d42",
+      "bytes": 2734
+    },
+    "source/doomlib/navigation.py": {
+      "sha256": "49b24b5b6fdd0889f35dadcf3cf5991d27144856a80709a5fbbafd40dea8bb17",
+      "bytes": 16893
+    },
+    "source/doomlib/overlay.py": {
+      "sha256": "9f9d590d79e4f289a0fb086913b546d7085f1e29652c7c75fbb754f1b5ac84c1",
+      "bytes": 5845
+    },
+    "source/doomlib/policy.py": {
+      "sha256": "266d786a8d4d1e38e1d12ceb15913f9a2a767ef3a9578c991430e551847cae6a",
+      "bytes": 7898
+    },
+    "source/doomlib/question_heads.py": {
+      "sha256": "e1d2789b2a3aad1f28784c5614e931d7b7f83f83d0839d28d8265117b21ab612",
+      "bytes": 7850
+    },
+    "source/doomlib/ranked_inference.py": {
+      "sha256": "5080d5fb5fd46debae2d95ee27eba664a6ae5d2993363f3b639c17e900dbc285",
+      "bytes": 1735
+    },
+    "source/doomlib/report.py": {
+      "sha256": "49598f6e47db989c5a9530773dcac007ed7f0199b9bed71c6777f7cab7898089",
+      "bytes": 3402
+    },
+    "source/doomlib/resource_questions.py": {
+      "sha256": "921b6572c17ff353be7d3ba8d5d32225b593220f201d761dc8b113d31b170fdc",
+      "bytes": 1828
+    },
+    "source/serve_doom_laya.py": {
+      "sha256": "edbc6dc4e4ad260ba28613f93976bca8a893ae2b57fbe89f1221207c9866a3b1",
+      "bytes": 17063
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "note": "Correct physical closed-door prerequisite on exact recorded command questions. The source prefix is immutable. MAP03 episode split; previous data retains allocation. No runtime rule. Development validation, not generalization.",
+  "sources": {
+    "runs/map03-blocked-door-teacher-prefix.jsonl": "3d670fb73e56216eaa10c356d784a73491b9119f477977d5c4b8b509e359569f",
+    "training/map3-route-recovery-v1/train.json": "7d3958e2e34114317961efb60750c68960bcd94d723a464704a82846e8513063",
+    "training/map3-route-recovery-v1/validation.json": "eee0642cc7f037e0969921a0edaf0683b72ccdb4adaaaa0dcbf7ed07f572a7e8"
+  },
+  "splits": {
+    "train": {
+      "rows": 999,
+      "sha256": "257525099d7c2e50f8ed5ff50ea25174c5723b4890876ae1ae437a31c8792b4d",
+      "categories": {
+        "exit": 80,
+        "nearby_enemy": 203,
+        "blocking_door": 75,
+        "health_before_route": 37,
+        "continue_route_with_supplies": 158,
+        "use_switch": 80,
+        "open_door": 69,
+        "attack": 37,
+        "shells_before_route": 139,
+        "pickup": 18,
+        "reachable_key": 29,
+        "loaded_weapon_before_route": 36,
+        "urgent_health": 20,
+        "blocked_door_prerequisite": 14,
+        "explore": 4
+      }
+    },
+    "validation": {
+      "rows": 453,
+      "sha256": "bb97543dc6eb5b382efd2d2f90dc10cbfdc471cb7e87aef38a7339bcf076218f",
+      "categories": {
+        "use_switch": 40,
+        "continue_route_with_supplies": 60,
+        "shells_before_route": 63,
+        "exit": 40,
+        "loaded_weapon_before_route": 36,
+        "nearby_enemy": 83,
+        "urgent_health": 17,
+        "attack": 17,
+        "blocked_door_prerequisite": 4,
+        "health_before_route": 25,
+        "blocking_door": 5,
+        "open_door": 36,
+        "pickup": 8,
+        "reachable_key": 19
+      }
+    }
+  },
+  "builder_sha256": "45545decb54c29fb78873c541f52f303e3df4b8ab17ff722d4bf0299b200fd16"
+}

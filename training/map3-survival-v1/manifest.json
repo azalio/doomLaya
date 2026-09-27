@@ -1,0 +1,70 @@
+{
+  "note": "Offline labels on exact recorded MAP03 questions. Local resource/combat conditions only; no scripted navigation labels. MAP03 episodes split by parity; goal variants remain in their original split. MAP02 retention preserves its original split. Same-map validation, not unseen-level evaluation. Runtime never imports this module.",
+  "sources": {
+    "runs/20260926_221346_221148_map03-door-specials54/config.json": "22d48ac7d03fc96ff5c3b94e93585416523144f12ee293df63b3a154c64e63ba",
+    "runs/20260926_221346_221148_map03-door-specials54/decisions.jsonl": "5c6a352dce85066da87a14e79deecf251835db36bbf6e8df0a07fcc7d0a83a89",
+    "runs/20260926_221346_221148_map03-door-specials54/summary.json": "d82e7665cfe364af6c3f7f295b760710c0836ca9c68c3d752928d46b07222cf7",
+    "training/map2-root-goals-v1/train.json": "650851a3d5f9c3402866ea6891db75433f759e35370fdd0a1ef3ec3a7bd6523d",
+    "training/map2-root-goals-v1/validation.json": "0357db31d2b803441b5d67018dd6d1b1e2e2eee4fbfb1f454c23ce2998f1ec63"
+  },
+  "action_pairs": {
+    "open_door -> pickup": 28,
+    "open_door -> open_door": 10,
+    "use_switch -> pickup": 100,
+    "attack -> pickup": 178,
+    "attack -> attack": 204,
+    "pickup -> pickup": 96,
+    "use_switch -> attack": 2
+  },
+  "splits": {
+    "train": {
+      "rows": 934,
+      "labels": {
+        "pickup": 396,
+        "attack": 227,
+        "open_door": 107,
+        "exit": 100,
+        "use_switch": 100,
+        "explore": 4
+      },
+      "categories": {
+        "loaded_weapon_before_route": 156,
+        "nearby_enemy": 127,
+        "open_door": 100,
+        "exit": 100,
+        "pickup": 100,
+        "shells_before_route": 65,
+        "attack": 100,
+        "use_switch": 100,
+        "urgent_health": 30,
+        "health_before_route": 45,
+        "blocking_door": 7,
+        "explore": 4
+      },
+      "sha256": "a250fb1eca5199251a8ce37e9c6acf511ad85808320d5b65d780b128af31c976"
+    },
+    "validation": {
+      "rows": 421,
+      "labels": {
+        "attack": 119,
+        "exit": 40,
+        "pickup": 181,
+        "open_door": 41,
+        "use_switch": 40
+      },
+      "categories": {
+        "nearby_enemy": 79,
+        "exit": 40,
+        "loaded_weapon_before_route": 123,
+        "shells_before_route": 18,
+        "blocking_door": 1,
+        "attack": 40,
+        "pickup": 40,
+        "use_switch": 40,
+        "open_door": 40
+      },
+      "sha256": "1c5cfbec90bed458c2fd42a97354e4fe545bde4a17876560404ee754ca5fa73c"
+    }
+  },
+  "builder_sha256": "798f5888b4005343fa680b584064c236dc1078ab50bd2aaa056cbd7494db88f9"
+}

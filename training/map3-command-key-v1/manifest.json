@@ -1,0 +1,71 @@
+{
+  "note": "Synthetic inventory/HP/identifier contrasts around three recorded no-monsters red-key approach states. Geometry, reachability, available choices and pickup label unchanged. HP >=85 and armor=100 do not require the listed healing/armor under the existing offline teacher; shells >=20 and bullets >=100 are above resupply thresholds. Pistol/chaingun shared ammunition remains consistent. Highest source tick held out for development contrasts; all three source frames were seen by the base head, so this is not independent validation. All post-yellow full-ammo corrections retained; old training categories bounded at 100 rows. No runtime rule.",
+  "sources": {
+    "training/map3-command-route-v2/train.json": "fec1f6df0713fc9038c0aaa09b04d0b30fab3c657600a73a062fbf989a47fc55",
+    "training/map3-command-route-v2/validation.json": "d31f09d51bd3aa55c308777ebb11c47470633a034ce47f2bf3942de71d9ae8a7"
+  },
+  "heldout_source_tick": 3736,
+  "splits": {
+    "validation": {
+      "rows": 1097,
+      "sha256": "cdf5ba4fd3f8d59a66776b30119439d74f7d08f8cea7923ade976ec350687366",
+      "categories": {
+        "useful_resource": 201,
+        "nearby_threat": 187,
+        "reachable_red_key_contrast": 128,
+        "continue_route": 205,
+        "exit": 25,
+        "post_yellow_continue_route": 70,
+        "loaded_weapon": 79,
+        "mechanics_route_open_door": 6,
+        "nearby_door": 55,
+        "mechanics_route_use_switch": 42,
+        "continue_route_with_supplies": 1,
+        "open_door": 17,
+        "urgent_health": 47,
+        "mechanics_route_pickup": 11,
+        "nearby_enemy": 6,
+        "use_switch": 3,
+        "attack": 1,
+        "reachable_key": 2,
+        "blocking_door": 1,
+        "blocked_door_prerequisite": 7,
+        "mechanics_route_exit": 2,
+        "shells_before_route": 1
+      }
+    },
+    "train": {
+      "rows": 1241,
+      "sha256": "56a1fe822e244b3eabe5e69467fb99c17e8c977f2789c1e7269998ed5566c6bf",
+      "categories": {
+        "continue_route": 100,
+        "nearby_threat": 100,
+        "useful_resource": 100,
+        "nearby_enemy": 13,
+        "mechanics_route_pickup": 44,
+        "reachable_red_key_contrast": 254,
+        "mechanics_route_use_switch": 100,
+        "open_door": 11,
+        "nearby_door": 100,
+        "post_yellow_continue_route": 220,
+        "mechanics_route_exit": 15,
+        "blocked_door_prerequisite": 12,
+        "exit": 59,
+        "urgent_health": 43,
+        "explore": 4,
+        "loaded_weapon": 16,
+        "mechanics_route_open_door": 31,
+        "use_switch": 3,
+        "shells_before_route": 4,
+        "blocking_door": 2,
+        "continue_route_with_supplies": 6,
+        "loaded_weapon_before_route": 1,
+        "attack": 3
+      }
+    }
+  },
+  "removed": {
+    "train": 2
+  },
+  "builder_sha256": "b5e9cfbb4c344273e1494bc4f6e0e7c0a5f18867be1a51d80a8aec74d2babfd1"
+}

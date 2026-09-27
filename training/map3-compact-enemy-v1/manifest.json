@@ -1,0 +1,30 @@
+{
+  "question_format": "enemy-sequence-v1",
+  "input_projection": "enemy-compact-v1",
+  "note": "Same offline sequence labels and complete target question; only state projection changes to HP and inventory. Raw state retained for HTTP validation. Repeated projected inputs removed train-first. Same-map development, not live performance proof.",
+  "sources": {
+    "training/map3-enemy-sequences-v2/train.json": "b655bd7234b2fb98955a13a407bb4bb3ae7d39290682f19802753e59d5cfe78b",
+    "training/map3-enemy-sequences-v2/validation.json": "0b64d1f8a9eb34a516f9ff1ec8241119c6f368a160a4f10076f83b62195c674d"
+  },
+  "splits": {
+    "train": {
+      "rows": 1206,
+      "sha256": "9c9d5bb47062da419ba293b01edc628ed852501c6d3a5bf47f4b04c59c1cf928",
+      "categories": {
+        "full_3": 634,
+        "full_2": 572
+      }
+    },
+    "validation": {
+      "rows": 272,
+      "sha256": "cc7853e8aa370199c23a6103a812c3ac26d110aa1701abf5044dd2d6bc743c1e",
+      "categories": {
+        "full_2": 152,
+        "full_3": 120
+      }
+    }
+  },
+  "removed": {},
+  "builder_sha256": "3754bcf984cddf6dc019daae410eacdbca874e179a98237b745e82f7f874f918",
+  "projection_sha256": "d21598478ab88807c9677d56fd68774f6f0b959a1dd3cca7b723b21d0aae8190"
+}

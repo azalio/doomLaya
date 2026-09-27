@@ -8,6 +8,18 @@ Laya и Jev играют в FreeDoom. Модель выбирает действ
 [Обучение](docs/TRAINING.md) · [MAP02](docs/MAP02.md) · [Результаты](docs/COMPARISON.md) ·
 [Веса и публикация](docs/PUBLISHING.md) · [Контракт управления](docs/DOOM.md)
 
+## v0.3.0: MAP03 → MAP04
+
+Laya прошла MAP03 за 819,914 с: seed 54, skill 3, четыре смерти.
+После выхода записаны три секунды MAP04. Аудит управления и записи пройден.
+Общая проверка качества не пройдена: неподвижность достигала 141,83 с.
+Это один успешный прогон; MAP01/MAP02 с новым комплектом не проверены.
+
+[Веса](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.0) ·
+[Запуск и обучение](docs/MAP03.md) ·
+[Видео с телеметрией](https://github.com/azalio/doomLaya/releases/download/v0.3.0/laya-map03.mp4) ·
+[Отчёт](reports/map03-success.json).
+
 ## Обновление v0.2.0: MAP01 и MAP02
 
 Один комплект весов прошёл обе карты с тем же исполнителем:

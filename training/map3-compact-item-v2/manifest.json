@@ -1,0 +1,78 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "input_projection": "item-compact-v1",
+    "note": "Observed health, armor, inventory, keys, reachability; original item choices. New labels use the existing offline resource teacher. Training and held-out runs are disjoint. Previous source split allocations retained. New rows take precedence over conflicting old examples within each split; train/validation duplicates removed train-first and counted. Same-map development, not independent generalization or gameplay proof.",
+    "sources": {
+      "runs/20260927_100238_953801_map03-compact-weapon54/decisions.jsonl": "d7df9be905fdd37d05033e5f9d2aa210c77685ea96b71fb3b55bc9a1434dbd0c",
+      "runs/20260927_101225_836195_map03-compact-weapon-repeat54/decisions.jsonl": "e1dc0eabeac5c8536bd593d6818f9241e3d93d0ed20dc3ad6fbb63d23e8b36ef",
+      "training/map3-item-world-v2/train.json": "94ed8496b940bf346d676c9a230ea03fd738144d7b655cece93d7a9e41ad34ba",
+      "runs/20260927_102900_109647_map03-delay16-54/decisions.jsonl": "dbe0433aa11a582d73f17dd6f7cbe3495031a715314d51f97b19d2bf61afca49",
+      "training/map3-item-world-v2/validation.json": "65af3be75c63932a9a0e4fa80ea654f26f6ae6465d5f4a1e41b9004ae8813e3a"
+    },
+    "train_runs": [
+      "runs/20260927_100238_953801_map03-compact-weapon54",
+      "runs/20260927_101225_836195_map03-compact-weapon-repeat54"
+    ],
+    "heldout_runs": [
+      "runs/20260927_102900_109647_map03-delay16-54"
+    ],
+    "removed": {
+      "train_duplicate": 333,
+      "validation_duplicate": 173
+    },
+    "splits": {
+      "train": {
+        "rows": 2345,
+        "sha256": "febd3fe16f736dc8ee00b813d055cbda381da5eec89fb40beca8652a3c186450",
+        "categories": {
+          "recorded_weapon": 259,
+          "recorded_ammo": 364,
+          "recorded_key": 340,
+          "recorded_health": 329,
+          "recorded_armor": 23,
+          "health": 236,
+          "pickup": 77,
+          "key": 243,
+          "ammo": 247,
+          "weapon": 227
+        }
+      },
+      "validation": {
+        "rows": 1581,
+        "sha256": "63fba88b53154f352768bda7852d8aabe1f28d169c6487bef74bb33aa80f26f6",
+        "categories": {
+          "recorded_weapon": 162,
+          "recorded_ammo": 393,
+          "recorded_key": 300,
+          "recorded_health": 200,
+          "recorded_armor": 146,
+          "weapon": 80,
+          "key": 87,
+          "ammo": 90,
+          "health": 89,
+          "pickup": 34
+        }
+      }
+    },
+    "builder_sha256": "2e1442290fc86ab23aa211eaa8829e61a218b12fb59632d7eab91c2ca49c76e2",
+    "projection_sha256": "91fe0e78ab42582818d03248a3c2b463d258c89b5589cefbf0f1e262a5db99a8"
+  },
+  "sources": {
+    "training/map3-compact-item-v1/train.json": "febd3fe16f736dc8ee00b813d055cbda381da5eec89fb40beca8652a3c186450",
+    "training/map3-compact-item-v1/validation.json": "63fba88b53154f352768bda7852d8aabe1f28d169c6487bef74bb33aa80f26f6"
+  },
+  "checkpoint_config_sha256": "502234fa7865bf7a2480a644716bd73bfdd16c0c2b23eae2948084018df092d1",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 2345,
+      "sha256": "febd3fe16f736dc8ee00b813d055cbda381da5eec89fb40beca8652a3c186450"
+    },
+    "validation": {
+      "rows": 1581,
+      "sha256": "63fba88b53154f352768bda7852d8aabe1f28d169c6487bef74bb33aa80f26f6"
+    }
+  }
+}

@@ -23,9 +23,10 @@ def request(s, memory, mission):
         lines.insert(0,'Paths to items with the current keys and floors: '+ '; '.join(f"{i['name']} #{i['id']} {'reachable' if i.get('reachable') else 'unreachable'}" for i in items)+'.')
     if 'keys' in s:lines.append('Collected keys: '+(', '.join(s['keys']) or 'none')+'.')
     if s.get('command_failures'):lines.append('Route blocked: '+ '; '.join(s['command_failures'].values())+'. Explore accessible areas for keys and another route.')
+    window='two' if s.get('enemy_memory_ticks',70)==70 else f"{s['enemy_memory_ticks']/35:g}"
     if enemies:
-        lines.append('Hostile enemies currently visible or seen in the last two seconds: '+ '; '.join(f"{e['name']} #{e['id']} at {e['distance']:.1f} meters ({'visible' if e.get('visible',True) else 'last seen'})" for e in enemies)+'.')
-    else:lines.append('No enemies visible or seen in the last two seconds.')
+        lines.append(f'Hostile enemies currently visible or seen in the last {window} seconds: '+ '; '.join(f"{e['name']} #{e['id']} at {e['distance']:.1f} meters ({'visible' if e.get('visible',True) else 'last seen'})" for e in enemies)+'.')
+    else:lines.append(f'No enemies visible or seen in the last {window} seconds.')
     if items:lines.append('Known ground items: '+ '; '.join(f"{i['name']} #{i['id']} ({i['category']}) at {i['distance']:.1f} meters" for i in items)+'.')
     if failures:lines.append('Unreachable targets in the current area: '+', '.join('#'+key for key in failures)+'. Those commands are unavailable until the position or doors change.')
     commands={}
@@ -50,7 +51,9 @@ def request(s, memory, mission):
         if switch['activated'] or switch['locked'] or str(switch['id']) in failures:continue
         description=(f"Call, board and ride lift #{switch['id']} to the upper floor. Phase: {switch.get('phase','call')}." if switch.get('kind')=='lift'
                      else f"Activate door switch #{switch['id']} to open a closed passage.")
+        if switch.get('kind')=='floor':description=f"Activate floor switch #{switch['id']} to lower the floor and open a route."
         description+=f" Distance {switch['distance']:.1f}m."
+        if switch.get('route_exit'):description+=' Exit platform.'
         if switch.get('route_keys'):
             description+=' Upper route keys: '+', '.join(color+(' (collected)' if color in s.get('keys',()) else ' (missing)') for color in switch['route_keys'])+'.'
         add(f"switch_{switch['id']}",description,'use_switch',dict(switch))

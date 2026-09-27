@@ -1,0 +1,22 @@
+{
+  "note": "Synthetic combinations of recent HP loss, known enemy count and completed/current look status. No attacker coordinates, map route, hidden actors or live action rule. Entire loss magnitudes 9 and 30 held out; zero-loss enemy-count 3 held out. Tests this compact observation domain, not gameplay survival or new-map generalization. Category weighting separates no_recent_hit states to prevent rare zero-loss states being ignored; all source rows/splits unchanged.",
+  "splits": {
+    "train": {
+      "rows": 609,
+      "sha256": "c6ec873578e9f07db6e1d3bfc218135fcb2ad926735e609996188c45a4fa82e3",
+      "labels": {
+        "normal": 533,
+        "look_back": 76
+      }
+    },
+    "validation": {
+      "rows": 243,
+      "sha256": "17364043c2e15f66d1d577c6ce322a9801f1afa8fa301de63c3954bcb7af6a6d",
+      "labels": {
+        "look_back": 30,
+        "normal": 213
+      }
+    }
+  },
+  "builder_sha256": "55eca3558319b2f845bc9ebbd4a67257d5d51425b55c025cb06d093118cf9c86"
+}

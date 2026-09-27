@@ -1,0 +1,55 @@
+{
+  "note": "Offline corrections: prefer visible threats except an enemy within 2m; give visible hitscanners a distance weight of 0.65. Prefer loaded plasma, super shotgun, shotgun, chaingun, pistol, rocket launcher, chainsaw, fists. These rules are labels, never a live fallback. Same-map development validation; not a claim that this priority is universally optimal.",
+  "sources": {
+    "runs/20260926_223006_612146_map03-survival54/decisions.jsonl": "d1fb3f57b2b2c26c27bade58e3ba5f632dbe720f312e64f60e4565f6031ca7b6",
+    "runs/20260926_225957_051691_map03-route-recovery54/decisions.jsonl": "918f7c34d2ee51772b62a7357c9de9fef5a4b5a3431275df8bf64172ff9f2c21",
+    "runs/20260926_232534_715856_map03-shared-door54/decisions.jsonl": "503806bc02f6ee38894a7f4a5701cfaf062279d6d9489646c6dea078ddf77923",
+    "training/map2-explicit-v2/train.json": "5889a214483c96017dec5a1b0205f095df23af10b45e2ac87b4e635a4fa4b23a",
+    "training/map2-explicit-v2/validation.json": "d0f8b91805e4261c3c937b075b1bad9ffb946fbdc12d5d4c53668e7b02b3db02"
+  },
+  "splits": {
+    "train": {
+      "rows": 1406,
+      "sha256": "3f842ae03a38b05676ee90e1c9f88d202e05f93345c0d1fbbee88a76559188f5",
+      "kinds": {
+        "weapon": 812,
+        "enemy": 594
+      },
+      "categories": {
+        "pickup": 93,
+        "shotgun_over_chaingun": 260,
+        "visible_priority": 260,
+        "shotgun": 257,
+        "attack": 155,
+        "pistol": 54,
+        "chaingun": 41,
+        "visible_threat": 260,
+        "use_switch": 15,
+        "exit": 4,
+        "open_door": 5,
+        "super_shotgun": 2
+      }
+    },
+    "validation": {
+      "rows": 514,
+      "sha256": "06d846552b2b97a4ea378bfb09a5c7a2727f69998ea294dcdd0329b6d17a353b",
+      "kinds": {
+        "enemy": 220,
+        "weapon": 294
+      },
+      "categories": {
+        "visible_threat": 99,
+        "attack": 53,
+        "visible_priority": 100,
+        "shotgun": 100,
+        "shotgun_over_chaingun": 100,
+        "pistol": 14,
+        "pickup": 41,
+        "use_switch": 4,
+        "exit": 1,
+        "open_door": 2
+      }
+    }
+  },
+  "builder_sha256": "8a690cdb252ea71e6c6e4d81d1c803358f9d373cd1bdec5179d1276f1c85074d"
+}

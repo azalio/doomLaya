@@ -1,0 +1,37 @@
+{
+  "question_format": "movement-compact-v1",
+  "note": "Same MAP03 observed states and offline retreat labels, projected to combat geometry only. MAP02 replay excluded. Numeric distances and factual threshold comparisons are provided; every explicit movement remains available. Repeated projected inputs removed train-first; ambiguous rounded 12m boundary rows excluded. Held-out source run is same-map development, not gameplay proof.",
+  "sources": {
+    "training/map3-retreat-v2/train.json": "ff86029a2a719069751545081d422b1a4a34caf77deebf787c011c21da733d88",
+    "training/map3-retreat-v2/validation.json": "7582522b9018bc930cc2f9c6453bbdd0040f06cffd5f8a611689400a7e8adb65"
+  },
+  "splits": {
+    "train": {
+      "rows": 958,
+      "sha256": "5d827f08b25221d6f88c060d8f0d89856150db7cea06f89d735ca4479597aa10",
+      "categories": {
+        "focused_backward": 328,
+        "focused_strafe_left": 272,
+        "focused_strafe_right": 283,
+        "focused_stationary": 75
+      }
+    },
+    "validation": {
+      "rows": 289,
+      "sha256": "7d4c419bdf53e6adb775c4b2334f1ff29fe8cf3223d98a3a7db93f97eff818bb",
+      "categories": {
+        "focused_strafe_left": 88,
+        "focused_strafe_right": 81,
+        "focused_backward": 102,
+        "focused_stationary": 18
+      }
+    }
+  },
+  "removed": {
+    "train": 4,
+    "rounded_distance_boundary": 1,
+    "validation": 6
+  },
+  "builder_sha256": "9f22e946bac1d9318a4850721c329bdfc96e2c98b7189847fff08d615075c54a",
+  "projection_sha256": "17056fae4a9dedbffe8672aa4094368ea8ef12d18fddd26ec407b16a4178d48f"
+}

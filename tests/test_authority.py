@@ -13,6 +13,8 @@ import vizdoom
 SAMPLE=json.loads((Path(__file__).resolve().parents[1]/'fixtures/authority-state.json').read_text())
 
 class Motor:
+    def update_geometry(self,*args):return []
+    def update_floors(self,*args):return []
     def observe(self,*args):pass
     def steer(self,*args,**kwargs):return [1,0,0,0,0,0,0],['waypoint']
     def state(self,*args):return {}
@@ -102,7 +104,7 @@ class AuthorityTest(unittest.TestCase):
         self.assertEqual(c.act(s,1)[0],[0]*14)
 
     def test_graph_changes_allow_failed_routes_to_be_retried(self):
-        for change in ('key','remote_door','floor','component'):
+        for change in ('key','remote_door','floor','geometry','component'):
             with self.subTest(change=change):
                 c,s=self.setup_state();item=s['items'][0]
                 c.failures[str(item['id'])]='Unreachable from the current area'
@@ -112,6 +114,8 @@ class AuthorityTest(unittest.TestCase):
                 elif change=='remote_door':
                     c.previous_keys=(tuple(s.get('keys',())),(122,))
                     s['closed_remote_doors']=[]
+                elif change=='geometry':
+                    c.navigator.update_geometry=lambda _: [132];sectors=[]
                 elif change=='floor':
                     c.navigator.update_floors=lambda _: [159];sectors=[]
                 else:

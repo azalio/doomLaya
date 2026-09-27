@@ -19,6 +19,7 @@ class Navigator:
         self.sector_cells={}
         self.body_sectors={}
         self.sector_heights=[]
+        self.closed_unmapped=None
         self.doors=doors
         self.key_blocks={}
         self.sector_blocks={}
@@ -46,6 +47,11 @@ class Navigator:
         if sectors is not None:self.configure(sectors)
 
     def configure(self,sectors):
+        # Rebuilding geometry must not accumulate old body/door memberships.
+        self.sector_cells={};self.body_sectors={};self.sector_blocks={};self.key_blocks={}
+        self.portal_edges={}
+        mapped_doors={d['sector'] for d in self.doors}
+        self.closed_unmapped={i for i,s in enumerate(sectors) if i not in mapped_doors and s.ceiling_height-s.floor_height<56}
         areas=[]
         records=[]
         walls=[]
@@ -143,6 +149,16 @@ class Navigator:
             diff=self.floors[nxt]-self.floors[node]
             if diff>24:continue
             yield nxt,math.hypot(dx,dy)*STEP
+
+    def update_geometry(self,sectors):
+        """Refresh walkable areas when automatic sectors open or close."""
+        mapped_doors={d['sector'] for d in self.doors}
+        closed={i for i,s in enumerate(sectors) if i not in mapped_doors and s.ceiling_height-s.floor_height<56}
+        if self.closed_unmapped is None or closed==self.closed_unmapped:return []
+        changed=sorted(closed^self.closed_unmapped)
+        self.configure(sectors)
+        self.path=[];self.failed_request=None;self.blocked.clear();self.keys=None
+        return changed
 
     def update_floors(self,sectors):
         changed=[]

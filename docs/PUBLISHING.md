@@ -10,6 +10,25 @@ Hugging Face — модель; GitHub Releases — видео и при жела
 Адреса проекта: [код](https://github.com/azalio/doomLaya), [модель](https://huggingface.co/azalio/laya-doom-v3),
 [релиз v0.1.0](https://github.com/azalio/doomLaya/releases/tag/v0.1.0). Чтобы скачать готовые веса, перейдите к шагу 5.
 
+## Комплект v0.3.0 для MAP03
+
+[Модель MAP03](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.0)
+содержит восемь checkpoint из успешного прогона. Подготовка проверяет каждый
+файл весов по [манифесту](../reports/map03-model.json):
+
+```bash
+.venv/bin/python scripts/package_question_heads.py \
+  --routing reports/map03-model.json --card model-card/MAP03.md \
+  --output dist/laya-doom-map03
+.venv/bin/hf upload azalio/laya-doom-map03 dist/laya-doom-map03 .
+```
+
+Для упаковки нужно около 12,6 GiB свободного места. На macOS/APFS можно
+добавить `--clone-weights`: копии независимы, но используют общие дисковые
+блоки до изменения файла. Их SHA-256 проверяется так же.
+Видео и архив телеметрии опубликованы в [релизе v0.3.0](https://github.com/azalio/doomLaya/releases/tag/v0.3.0).
+Запуск — в [MAP03.md](MAP03.md), карточка — [model-card/MAP03.md](../model-card/MAP03.md).
+
 ## Комплект v0.2.0 для MAP01 и MAP02
 
 [Новый комплект](https://huggingface.co/azalio/laya-doom-map02) содержит пять

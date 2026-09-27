@@ -1,0 +1,39 @@
+{
+  "question_format": "movement-compact-v1",
+  "note": "Offline supervision only: preserve the current side/backward direction when at least 2m remain clear; backward continuation requires threat within 12m. Otherwise use the earlier retreat/side rule. Same recorded MAP03 states; no runtime action rule. Rounded textual facts define labels. MAP02 replay excluded; projected duplicates removed train-first. Same-map development, not gameplay proof.",
+  "sources": {
+    "training/map3-retreat-v2/train.json": "ff86029a2a719069751545081d422b1a4a34caf77deebf787c011c21da733d88",
+    "training/map3-retreat-v2/validation.json": "7582522b9018bc930cc2f9c6453bbdd0040f06cffd5f8a611689400a7e8adb65"
+  },
+  "splits": {
+    "train": {
+      "rows": 959,
+      "sha256": "d02842d2cbe2bcf03db2e2fdcb7c70b57a7b8d6998bf187867d570db28500986",
+      "categories": {
+        "retained_backward": 226,
+        "retained_strafe_left": 305,
+        "retained_strafe_right": 353,
+        "retained_stationary": 75
+      }
+    },
+    "validation": {
+      "rows": 289,
+      "sha256": "85dbeb067eddd4e18c4b58fa639abfe3227ca10c15f8905ffeadc1c6612670ae",
+      "categories": {
+        "retained_strafe_left": 100,
+        "retained_strafe_right": 96,
+        "retained_backward": 75,
+        "retained_stationary": 18
+      }
+    }
+  },
+  "changed_labels": {
+    "train": 162,
+    "validation": 42
+  },
+  "removed": {
+    "train": 4,
+    "validation": 6
+  },
+  "builder_sha256": "535e8ceb23994ff9fee65348a16d60cad77ef96bde8fe7ba1917a7a52ff0d493"
+}

@@ -10,6 +10,19 @@ the controller builds the route, aims and presses buttons on its command.
 (Russian originals: [TRAINING](docs/TRAINING.md), [COMPARISON](docs/COMPARISON.md),
 [PUBLISHING](docs/PUBLISHING.md), [DOOM](docs/DOOM.md))
 
+## v0.3.0: MAP03 → MAP04
+
+Laya completed MAP03 in 819.914 s: seed 54, skill 3, four deaths.
+The recording includes three seconds on MAP04. Model-authority and recording
+checks passed. The overall quality gate failed: stationary time reached
+141.83 s. This is one successful development run; this checkpoint set has
+not been revalidated on MAP01/MAP02 or compared with Jev on MAP03.
+
+[Weights](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.0) ·
+[Setup and training (Russian)](docs/MAP03.md) ·
+[Video with telemetry](https://github.com/azalio/doomLaya/releases/download/v0.3.0/laya-map03.mp4) ·
+[Verification report](reports/map03-success.json).
+
 ## v0.2.0: MAP01 and MAP02
 
 The same checkpoint set and executor completed MAP01 in 174.914 s (seed 48,

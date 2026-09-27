@@ -1,0 +1,20 @@
+{
+  "kind": "enemy",
+  "note": "Training inputs for the explicit server projection. Only Current command: lines removed; physical world facts, choices and labels unchanged. Exact projected duplicates removed globally, retaining original split allocations. Development fitting, not independent generalization.",
+  "sources": {
+    "training/map3-enemy-commitment-v1/train.json": "cb92dad310a35ad3b64bad6a7de5dda4d68fcdc8252613587c519760d7ab2508",
+    "training/map3-enemy-commitment-v1/validation.json": "b7111908962be6b6c7c270a95f26cdf9f4c355850d91a8db3699cd90bb6a8441"
+  },
+  "splits": {
+    "train": {
+      "rows": 912,
+      "sha256": "2d97080a0f17c2f8e487f8557f02368dc01b4fea7ab4f8a7177945679e003fb3"
+    },
+    "validation": {
+      "rows": 448,
+      "sha256": "ee3e8a723877d17ad1a82bfddae4d0e52b02cb63dae256c71d2c7e05da1fb5cf"
+    }
+  },
+  "duplicates_removed": {},
+  "builder_sha256": "358a6281a37cbf8e734ed999f25e3b41372083efb1334c942f9baea21b23b360"
+}

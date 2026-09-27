@@ -20,17 +20,20 @@ def variant(row,name):
         from doomlib.movement_questions import describe_movement
         current=re.search(r'Movement: ([^.]+)',state)
         q=describe_movement(q,clearance,current[1] if current else None)
+    if name=='obstacle_labels':
+        from doomlib.movement_questions import with_movement_obstacle_facts
+        q=with_movement_obstacle_facts({'questions':{'movement':q},'movement_clearance':clearance})['questions']['movement']
     return state,q
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('fixture',type=Path);p.add_argument('--output',type=Path,required=True);p.add_argument('--require-clearance',action='store_true');p.add_argument('--explicit-movement',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--endpoint',default='http://127.0.0.1:8001/predict');p.add_argument('--variants',nargs='+',choices=['original','physical_state','question_facts','obstacle_labels'],default=['original','physical_state','question_facts']);p.add_argument('fixture',type=Path);p.add_argument('--output',type=Path,required=True);p.add_argument('--require-clearance',action='store_true');p.add_argument('--explicit-movement',action='store_true');a=p.parse_args()
     if a.output.exists():p.error('output exists')
-    rows=json.loads(a.fixture.read_text())['cases'];client=LayaClient('http://127.0.0.1:8001/predict','doom-adapted');routing=client.health();results=[]
+    rows=json.loads(a.fixture.read_text())['cases'];client=LayaClient(a.endpoint,'doom-adapted');routing=client.health();results=[]
     try:
         for row in rows:
             answers={}
-            for name in ('original','physical_state','question_facts'):
+            for name in a.variants:
                 state,q=variant(row,name)
                 if a.explicit_movement:q['criteria'].pop('continue',None)
                 r=client.predict(state,{'movement':q});choice=r['answers']['movement']['choice']
@@ -42,10 +45,10 @@ def main():
                 answers[name]=dict(choice=choice,movement=movement,clearance=free,has_escape_space=free>=1.5,probabilities=r['answers']['movement']['probabilities'])
             results.append(dict(tick=row['tick'],answers=answers))
     finally:client.session.close()
-    counts={name:sum(r['answers'][name]['has_escape_space'] for r in results) for name in ('original','physical_state','question_facts')}
+    counts={name:sum(r['answers'][name]['has_escape_space'] for r in results) for name in a.variants}
     report=dict(note='Development input ablation, not live gameplay. Geometry comes from the fixture; criterion is at least 1.5m of measured space in the selected direction.',routing=routing,explicit_movement=a.explicit_movement,cases=len(rows),has_escape_space=counts,results=results)
     a.output.write_text(json.dumps(report,indent=2));print(json.dumps(dict(cases=len(rows),has_escape_space=counts),indent=2))
-    if a.require_clearance and counts['question_facts']!=len(rows):raise SystemExit(1)
+    if a.require_clearance and counts.get('question_facts',counts[a.variants[-1]])!=len(rows):raise SystemExit(1)
 
 
 if __name__=='__main__':main()

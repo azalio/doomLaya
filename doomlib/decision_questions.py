@@ -57,8 +57,9 @@ def compact_state(state):
             lines[i]='Reachable items: '+(', '.join(name+'#'+oid for name,oid,reachable in entries if reachable=='reachable') or 'none')+'.'
     state='\n'.join(lines)
     state=re.sub(r'switch_(\d+): Activate door switch #\d+ to open a closed passage\. Distance ([0-9.]+)m\.',r'door switch #\1 \2m',state)
+    state=re.sub(r'switch_(\d+): Activate floor switch #\d+ to lower the floor and open a route\. Distance ([0-9.]+)m\.',r'floor switch #\1 \2m (lowers floor)',state)
     state=re.sub(r'switch_(\d+): Call, board and ride lift #\d+ to the upper floor\. Phase: (\w+)\. Distance ([0-9.]+)m\.',r'lift #\1 phase \2 \3m',state)
-    state=state.replace('Hostile enemies currently visible or seen in the last two seconds:','Enemies:').replace('Known ground items:','Items:')
+    state=re.sub(r'Hostile enemies currently visible or seen in the last (?:two|[0-9.]+) seconds:','Enemies:',state).replace('Known ground items:','Items:')
     state=re.sub(r'(\w+) #(\S+) \((\w+)\) at ([0-9.]+) meters',r'\1#\2 [\3] \4m',state)
     state=re.sub(r'(\w+) #(\S+) at ([0-9.]+) meters',r'\1#\2 \3m',state)
     state=state.replace('Unreachable targets in the current area:','Unreachable:').replace(' Those commands are unavailable until the position or doors change.','')
@@ -92,10 +93,14 @@ def decode(result,packet,decision_id):
     command=dict(packet['commands'][action])
     if action in TARGET_TYPES:
         kind=TARGET_TYPES[action]
-        command['target']=packet['targets'][kind][result['answers'][kind]['choice']]
+        if kind=='enemy':
+            from doomlib.enemy_sequences import decode_enemy
+            command.update(decode_enemy(packet,result['answers'][kind]['choice']))
+        else:command['target']=packet['targets'][kind][result['answers'][kind]['choice']]
     if command['action']=='attack':
         if packet.get('refresh_attack_target'):
-            command['target']=packet['targets']['enemy'][result['answers']['enemy']['choice']]
+            from doomlib.enemy_sequences import decode_enemy
+            command.update(decode_enemy(packet,result['answers']['enemy']['choice']))
         movement=result['answers']['movement']['choice']
         if movement=='continue':movement=packet['current_movement']
         if movement!='stationary':command['movement']=movement
@@ -240,4 +245,18 @@ def dependencies(packet):
             if 'movement' in packet['questions']:names.append('movement')
         if action in packet.get('combat_actions',('pickup',)) and packet.get('pickup_combat'):names.append('combat')
         result[key]=names
+    return result
+
+
+def with_enemy_visibility_facts(packet):
+    """Describe observed visibility beside each enemy; retain every model choice."""
+    import copy
+    if 'enemy' not in packet['questions']:
+        return packet
+    result=copy.deepcopy(packet)
+    criteria=result['questions']['enemy']['criteria']
+    for key in criteria:
+        enemy=result['targets']['enemy'][key]
+        prefix='Visible now. ' if enemy.get('visible',True) else 'Not visible now; last seen. '
+        criteria[key]=prefix+criteria[key]
     return result

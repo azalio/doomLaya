@@ -1,0 +1,88 @@
+{
+  "note": "Offline teacher-style resource scores and physical door/lift prerequisites on recorded Laya questions. MAP03 episode modulo 3 split; goal-removed variants stay with their source. Replay retains its old allocation; duplicates removed globally with new labels preferred within each split. Previous models saw overlapping map/run distributions: development fitting only, not independent generalization or proof of optimal labels. No runtime import.",
+  "kind": "command",
+  "sources": {
+    "runs/20260926_223006_612146_map03-survival54/decisions.jsonl": "d1fb3f57b2b2c26c27bade58e3ba5f632dbe720f312e64f60e4565f6031ca7b6",
+    "runs/20260926_225957_051691_map03-route-recovery54/decisions.jsonl": "918f7c34d2ee51772b62a7357c9de9fef5a4b5a3431275df8bf64172ff9f2c21",
+    "runs/20260926_232534_715856_map03-shared-door54/decisions.jsonl": "503806bc02f6ee38894a7f4a5701cfaf062279d6d9489646c6dea078ddf77923",
+    "runs/20260927_000319_899402_map03-composite54/decisions.jsonl": "40561db386dd64f84dc28760861215eb8ae1190ef21329f2ca5acae01f8d1471",
+    "training/map3-route-recovery-v1/train.json": "7d3958e2e34114317961efb60750c68960bcd94d723a464704a82846e8513063",
+    "training/map3-route-recovery-v1/validation.json": "eee0642cc7f037e0969921a0edaf0683b72ccdb4adaaaa0dcbf7ed07f572a7e8"
+  },
+  "splits": {
+    "train": {
+      "rows": 1854,
+      "sha256": "4e6e6d9fce3a928e955da907a6b1fa9495ef98bb3781d966ba8a212e33bddf68",
+      "categories": {
+        "urgent_health": 49,
+        "useful_resource": 500,
+        "nearby_threat": 250,
+        "continue_route": 468,
+        "loaded_weapon": 51,
+        "pickup": 7,
+        "nearby_door": 179,
+        "nearby_enemy": 60,
+        "exit": 80,
+        "health_before_route": 10,
+        "continue_route_with_supplies": 54,
+        "use_switch": 24,
+        "attack": 14,
+        "blocked_door_prerequisite": 9,
+        "open_door": 41,
+        "shells_before_route": 40,
+        "loaded_weapon_before_route": 7,
+        "reachable_key": 5,
+        "explore": 4,
+        "blocking_door": 2
+      }
+    },
+    "validation": {
+      "rows": 635,
+      "sha256": "8a4952f4dedd46782e0859fc056ba4cdaa7952bdf236bc5a0c77a36df60ceeff",
+      "categories": {
+        "continue_route": 135,
+        "nearby_door": 26,
+        "health_before_route": 4,
+        "nearby_threat": 88,
+        "useful_resource": 176,
+        "exit": 35,
+        "nearby_enemy": 26,
+        "shells_before_route": 9,
+        "use_switch": 15,
+        "urgent_health": 32,
+        "continue_route_with_supplies": 18,
+        "blocking_door": 1,
+        "loaded_weapon": 26,
+        "open_door": 30,
+        "loaded_weapon_before_route": 6,
+        "attack": 5,
+        "blocked_door_prerequisite": 1,
+        "reachable_key": 2
+      }
+    }
+  },
+  "dropped": {
+    "duplicate": 252,
+    "conflicting_duplicate": 2
+  },
+  "action_pairs": {
+    "pickup -> pickup": 1702,
+    "open_door -> use_switch": 99,
+    "open_door -> open_door": 233,
+    "use_switch -> use_switch": 516,
+    "pickup -> attack": 104,
+    "attack -> attack": 1570,
+    "attack -> pickup": 81,
+    "pickup -> use_switch": 655,
+    "use_switch -> pickup": 515,
+    "attack -> use_switch": 10,
+    "open_door -> pickup": 39,
+    "open_door -> attack": 6,
+    "pickup -> open_door": 2,
+    "exit -> use_switch": 1,
+    "wait -> use_switch": 2,
+    "explore -> use_switch": 2,
+    "use_switch -> attack": 1
+  },
+  "builder_sha256": "50fe020c4c353893ec1919460ba44c8159d56d1a4ba3767baf29db113f78cf1e"
+}

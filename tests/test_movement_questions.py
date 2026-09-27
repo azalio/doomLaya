@@ -57,3 +57,20 @@ class MovementFactsTest(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class MovementObstacleFactsTest(unittest.TestCase):
+    def test_facts_preserve_all_choices_state_and_other_questions(self):
+        from doomlib.movement_questions import with_movement_obstacle_facts
+        options={'stationary':'Stand','strafe_left':'Left','strafe_right':'Right','backward':'Back'}
+        original=dict(type='choice',criteria=options)
+        packet=dict(state='HP 30; world unchanged.',questions={'movement':original,'weapon':{'criteria':{'keep':'Keep'}}},movement_clearance=dict(left=.75,right=8.,back=3.))
+        result=with_movement_obstacle_facts(packet)
+        self.assertEqual(result['state'],'HP 30; world unchanged.')
+        self.assertEqual(result['questions']['weapon'],{'criteria':{'keep':'Keep'}})
+        self.assertEqual(list(result['questions']['movement']['criteria']),list(options))
+        self.assertEqual(original['criteria'],options)
+        self.assertIn('Geometry blocks',result['questions']['movement']['criteria']['strafe_left'])
+        self.assertIn('six meters',result['questions']['movement']['criteria']['strafe_right'])
+        self.assertEqual(result['questions']['movement']['criteria']['backward'],'Back')
+        self.assertNotIn('choice',result['questions']['movement'])

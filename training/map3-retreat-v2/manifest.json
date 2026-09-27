@@ -1,0 +1,63 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "note": "Offline labels: retreat from threats within 12m when at least 4m body clearance exists, otherwise retain a safe strafe or choose a clear side. Teacher examples from a complete offline run; runtime teacher is not used. Different recorded runs held out, same-map development only. MAP02 replay retained; no live survival claim.",
+    "sources": {
+      "runs/20260927_052202_009419_map03-look-gate54/decisions.jsonl": "4da4d32ba3606088f06edbb609a49138d3219afa78148e431f647c2541b964b5",
+      "runs/20260927_055033_785988_map03-enemy-commitment54/decisions.jsonl": "7774479fa11f09a50360ff987808540546e627637cebb446b21dd94db0910664",
+      "runs/map03-focused-queue-floor-geometry54-delay16/examples.jsonl": "9b6659e89d39bebf0adbf3a4141cb346fb5181351997e419955be7d18c293ff0",
+      "training/map2-explicit-movement-v1/train.json": "37a5cab6a1e5240e29d89d0f0bf586ed533746b0da5dd28cc7b3e1626ece3dba",
+      "runs/20260927_061142_146264_map03-aim18-54/decisions.jsonl": "c51bcf778f0c75e47c364d6259126a49783b5234b1dd734084b0b09e05b58f8c",
+      "training/map2-explicit-movement-v1/validation.json": "54551e881d165e93c7f7062f67cf91908b66d99ed8d985b2351d50a3d265b252"
+    },
+    "splits": {
+      "train": {
+        "rows": 1163,
+        "sha256": "ff86029a2a719069751545081d422b1a4a34caf77deebf787c011c21da733d88",
+        "categories": {
+          "focused_backward": 332,
+          "focused_strafe_left": 272,
+          "map02_replay": 200,
+          "focused_strafe_right": 283,
+          "focused_stationary": 76
+        }
+      },
+      "validation": {
+        "rows": 376,
+        "sha256": "0e30f20627fe53ff3389b0621817ff70668f47a373eac1eb79d59ac51f170c56",
+        "categories": {
+          "focused_strafe_left": 90,
+          "focused_strafe_right": 81,
+          "focused_backward": 105,
+          "map02_replay": 80,
+          "focused_stationary": 20
+        }
+      }
+    },
+    "builder_sha256": "5cc9cf57bca6043bd137dcab9b51b257eb2f88b5171b333e469fb286ac111ec9"
+  },
+  "sources": {
+    "training/map3-retreat-v1/train.json": "ff86029a2a719069751545081d422b1a4a34caf77deebf787c011c21da733d88",
+    "training/map3-retreat-v1/validation.json": "0e30f20627fe53ff3389b0621817ff70668f47a373eac1eb79d59ac51f170c56"
+  },
+  "checkpoint_config_sha256": "fe118f98bf918e0bafd721c8a24373d4ad941369c43f622102019071c7d22e9d",
+  "filter_sha256": "9dc39f7b321a9746ce02b5eab7cc664c9ac906963728ab3fa653154682d55892",
+  "removed": [
+    {
+      "split": "validation",
+      "index": 27,
+      "reason": "effective_duplicate",
+      "original_split": "train"
+    }
+  ],
+  "splits": {
+    "train": {
+      "rows": 1163,
+      "sha256": "ff86029a2a719069751545081d422b1a4a34caf77deebf787c011c21da733d88"
+    },
+    "validation": {
+      "rows": 375,
+      "sha256": "7582522b9018bc930cc2f9c6453bbdd0040f06cffd5f8a611689400a7e8adb65"
+    }
+  }
+}

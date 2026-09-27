@@ -1,0 +1,99 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "note": "Offline command corrections on known threats, preserving nearby emergency health/weapon pickups. Includes a complete scripted teacher run and no-enemy route replay. Different live runs held out for development; older replay was used by the base checkpoint and is a retention check. No runtime rule or gameplay success claim.",
+    "sources": {
+      "runs/20260927_065910_131003_map03-geometry-floor54/decisions.jsonl": "af6259d724bff1def9732ec4844c102b658e14464a3588fbc1219b5ade921d3c",
+      "runs/20260927_072337_446048_map03-retreat54/decisions.jsonl": "b383432c5b44062aa989079e6e807f3ba685d64c802399fc3a945ddaffb8bb95",
+      "runs/map03-focused-queue-floor-geometry54-delay16/examples.jsonl": "9b6659e89d39bebf0adbf3a4141cb346fb5181351997e419955be7d18c293ff0",
+      "training/map3-command-key-v2/train.json": "56a1fe822e244b3eabe5e69467fb99c17e8c977f2789c1e7269998ed5566c6bf",
+      "runs/20260927_075157_082974_map03-enemy-sequences54/decisions.jsonl": "ed12b9951500cbfc7cab1172482923e6cb85077cb8af21bd68dbfe2ce7194432",
+      "training/map3-command-key-v2/validation.json": "cdf5ba4fd3f8d59a66776b30119439d74f7d08f8cea7923ade976ec350687366"
+    },
+    "splits": {
+      "train": {
+        "rows": 1698,
+        "sha256": "6470eb46603a55ce89516b7de797f4401767f9098be28659c77408709c180e0f",
+        "categories": {
+          "reachable_red_key_contrast": 254,
+          "mechanics_route_open_door": 31,
+          "teacher_use_switch": 98,
+          "continue_route": 99,
+          "finish_fight": 348,
+          "teacher_pickup": 100,
+          "open_door": 9,
+          "post_yellow_continue_route": 100,
+          "mechanics_route_use_switch": 100,
+          "useful_resource": 94,
+          "teacher_attack": 100,
+          "mechanics_route_pickup": 44,
+          "teacher_exit": 25,
+          "exit": 44,
+          "nearby_door": 100,
+          "use_switch": 3,
+          "urgent_health": 33,
+          "teacher_open_door": 52,
+          "loaded_weapon": 12,
+          "mechanics_route_exit": 15,
+          "blocked_door_prerequisite": 12,
+          "fight_near_door": 9,
+          "shells_before_route": 3,
+          "loaded_weapon_before_route": 1,
+          "continue_route_with_supplies": 6,
+          "explore": 4,
+          "blocking_door": 1,
+          "close_weapon_near_threat": 1
+        }
+      },
+      "validation": {
+        "rows": 779,
+        "sha256": "566ed338ac82c77947ac8addbc4314f885e362b5984e43d8a51d92322e60ee5e",
+        "categories": {
+          "loaded_weapon": 69,
+          "finish_fight": 100,
+          "urgent_health": 35,
+          "mechanics_route_use_switch": 42,
+          "reachable_red_key_contrast": 128,
+          "mechanics_route_pickup": 10,
+          "nearby_door": 55,
+          "post_yellow_continue_route": 70,
+          "continue_route": 100,
+          "useful_resource": 100,
+          "exit": 23,
+          "fight_near_door": 9,
+          "open_door": 16,
+          "blocked_door_prerequisite": 7,
+          "use_switch": 2,
+          "continue_route_with_supplies": 1,
+          "mechanics_route_open_door": 6,
+          "mechanics_route_exit": 2,
+          "reachable_key": 2,
+          "shells_before_route": 1,
+          "blocking_door": 1
+        }
+      }
+    },
+    "removed": {
+      "train": 7,
+      "validation": 3
+    },
+    "builder_sha256": "47098785c524c0a37848123bc87e113c715c8595bded21b223153c6c92c8924c"
+  },
+  "sources": {
+    "training/map3-combat-priority-v1/train.json": "6470eb46603a55ce89516b7de797f4401767f9098be28659c77408709c180e0f",
+    "training/map3-combat-priority-v1/validation.json": "566ed338ac82c77947ac8addbc4314f885e362b5984e43d8a51d92322e60ee5e"
+  },
+  "checkpoint_config_sha256": "8bf2f855d1d4e7a1b2c90c0fc24b1eade776e564b7ce74ac1b22ff3bd64031ac",
+  "filter_sha256": "9dc39f7b321a9746ce02b5eab7cc664c9ac906963728ab3fa653154682d55892",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1698,
+      "sha256": "6470eb46603a55ce89516b7de797f4401767f9098be28659c77408709c180e0f"
+    },
+    "validation": {
+      "rows": 779,
+      "sha256": "566ed338ac82c77947ac8addbc4314f885e362b5984e43d8a51d92322e60ee5e"
+    }
+  }
+}

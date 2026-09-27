@@ -1,0 +1,42 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "note": "Item-only training inputs for the explicit server projection. Only Current command: lines removed; physical world facts, choices and labels unchanged. Exact projected duplicates removed globally, retaining original split allocations. Development fitting, not independent generalization.",
+    "sources": {
+      "training/map3-useful-items-v2/train.json": "0753411a574868e3f50207e8b067e99bd70736292e58be445db7083e7cd33579",
+      "training/map3-useful-items-v2/validation.json": "65c167024186d6398ece121a83a2fa435ee3bbe9a1b5f1e96ddf59ddfe50b1ef"
+    },
+    "splits": {
+      "train": {
+        "rows": 1288,
+        "sha256": "94ed8496b940bf346d676c9a230ea03fd738144d7b655cece93d7a9e41ad34ba"
+      },
+      "validation": {
+        "rows": 477,
+        "sha256": "65af3be75c63932a9a0e4fa80ea654f26f6ae6465d5f4a1e41b9004ae8813e3a"
+      }
+    },
+    "duplicates_removed": {
+      "train": 760,
+      "validation": 263
+    },
+    "builder_sha256": "f4dd714880af4a87daf8bc3743cac487688f26a18d829cb8bc1bf5c2f4474f1b"
+  },
+  "sources": {
+    "training/map3-item-world-v1/train.json": "94ed8496b940bf346d676c9a230ea03fd738144d7b655cece93d7a9e41ad34ba",
+    "training/map3-item-world-v1/validation.json": "65af3be75c63932a9a0e4fa80ea654f26f6ae6465d5f4a1e41b9004ae8813e3a"
+  },
+  "checkpoint_config_sha256": "004e20c0de50ff575d6b22c76bdda243689d6ec12ec413f1849ca11356c64004",
+  "filter_sha256": "9dc39f7b321a9746ce02b5eab7cc664c9ac906963728ab3fa653154682d55892",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1288,
+      "sha256": "94ed8496b940bf346d676c9a230ea03fd738144d7b655cece93d7a9e41ad34ba"
+    },
+    "validation": {
+      "rows": 477,
+      "sha256": "65af3be75c63932a9a0e4fa80ea654f26f6ae6465d5f4a1e41b9004ae8813e3a"
+    }
+  }
+}

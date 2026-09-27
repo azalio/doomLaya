@@ -41,3 +41,18 @@ def explicit_example(row):
         result['label']=match[1]
     without_movement_continuation({'questions':{'movement':result['question']}})
     return result
+
+
+def with_movement_obstacle_facts(packet):
+    """Verbalize measured geometry without masking or selecting any movement."""
+    if 'movement' not in packet['questions']:return packet
+    clearance=packet['movement_clearance']
+    question=copy.deepcopy(packet['questions']['movement'])
+    for choice in question['criteria']:
+        movement=packet.get('current_movement') if choice=='continue' else choice
+        side={'strafe_left':'left','strafe_right':'right','backward':'back'}.get(movement)
+        if side is None:continue
+        if clearance[side]<1:question['criteria'][choice]+=' Geometry blocks this direction within one meter.'
+        elif clearance[side]>=6:question['criteria'][choice]+=' At least six meters of clear body space in this direction.'
+    packet['questions']['movement']=question
+    return packet

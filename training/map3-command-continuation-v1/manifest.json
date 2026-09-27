@@ -1,0 +1,62 @@
+{
+  "note": "Recorded model states labeled offline with build_map3_resources.labels; controller unchanged. Only Current command line removed, matching server projection. All previous replay rows retained unless duplicate. Existing episode-modulo split before yellow; after yellow, 20-second blocks with floor(seconds/20)%4==0 held out. Nearby states share one attempt: development fitting, not independent generalization.",
+  "sources": {
+    "runs/20260927_021804_634568_map03-world-rapid54/decisions.jsonl": "188cfbc4dbb9ca7918c34ecb300e077824eec08a5cf22f2009dde6a5930a9f9a",
+    "training/map3-command-world-v2/train.json": "1f46c1a4bdb8ff455a5b4eb553e1cc38933ddc0909e32ea8b4f0e076ec4b71ed",
+    "training/map3-command-world-v2/validation.json": "e94d4ee5086cc66c7116e3de5359c93372d2dd582b1ded4de5474f91c8e4efb0"
+  },
+  "splits": {
+    "validation": {
+      "rows": 909,
+      "sha256": "05e68dc091518b5d4c71418e3fbc59521dc0ff0a43ce2904ed305068979b6cab",
+      "categories": {
+        "nearby_door": 55,
+        "useful_resource": 201,
+        "nearby_threat": 187,
+        "loaded_weapon": 80,
+        "continue_route": 205,
+        "exit": 25,
+        "post_yellow_continue_route": 70,
+        "reachable_key": 2,
+        "urgent_health": 47,
+        "nearby_enemy": 6,
+        "shells_before_route": 1,
+        "blocked_door_prerequisite": 7,
+        "continue_route_with_supplies": 1,
+        "open_door": 17,
+        "use_switch": 3,
+        "blocking_door": 1,
+        "attack": 1
+      }
+    },
+    "train": {
+      "rows": 2268,
+      "sha256": "f80e21f8ab4fdb5bb300991c29a5805ae4fdea7ce58a9a07bdb973aa88f7e552",
+      "categories": {
+        "useful_resource": 595,
+        "nearby_threat": 534,
+        "post_yellow_continue_route": 220,
+        "nearby_door": 176,
+        "continue_route": 566,
+        "blocked_door_prerequisite": 12,
+        "urgent_health": 43,
+        "explore": 4,
+        "exit": 59,
+        "use_switch": 3,
+        "blocking_door": 2,
+        "loaded_weapon": 16,
+        "open_door": 11,
+        "loaded_weapon_before_route": 1,
+        "nearby_enemy": 13,
+        "continue_route_with_supplies": 6,
+        "shells_before_route": 4,
+        "attack": 3
+      }
+    }
+  },
+  "removed": {
+    "validation": 6,
+    "train": 35
+  },
+  "builder_sha256": "4b42f76f8a81fa7f18b08024b1b9b4cea23ff904a028eaaa4c4135aebd308235"
+}

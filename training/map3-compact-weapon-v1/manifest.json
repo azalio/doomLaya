@@ -1,0 +1,57 @@
+{
+  "input_projection": "weapon-compact-v1",
+  "note": "Same existing offline weapon priorities and labels; all original weapon choices retained. State contains only observed health, inventory and enemies. Synthetic ownership/ammunition contrasts use separate nonzero ammo values and HP values for validation; zero ammunition is shared as a concept. Optional first life of a complete later run is validation only. Same-map development, not gameplay proof.",
+  "sources": {
+    "training/map3-combat-rapid-v2/train.json": "486acd92a1ac31ff368f04f4ad1d99e25b3520a71ff5c96991e6e8f0b8b11056",
+    "training/map3-combat-rapid-v2/validation.json": "80b23fa39ab4ee85a8ededb2505b5dde51acc3619bf2c97527c5f8eed5abbbdf",
+    "runs/20260927_093815_029132_map03-ranked-enemy54/decisions.jsonl": "928a4a4e685d1abf33021c3b7813a8cd7cabc7e7cb3d85d278c0aa6eafe4a6c1"
+  },
+  "splits": {
+    "train": {
+      "rows": 769,
+      "sha256": "cdf429a43954843646e5fbacd8f5ade7b907ce3fffee9220998b985963183f38",
+      "categories": {
+        "shotgun": 291,
+        "chaingun_over_shotgun": 137,
+        "open_door": 1,
+        "pistol": 26,
+        "attack": 27,
+        "chaingun": 24,
+        "use_switch": 9,
+        "pickup": 34,
+        "exit": 2,
+        "ammo_contrast_melee": 23,
+        "ammo_contrast_pistol": 48,
+        "ammo_contrast_rocket_launcher": 8,
+        "ammo_contrast_chaingun": 81,
+        "ammo_contrast_shotgun": 58
+      }
+    },
+    "validation": {
+      "rows": 604,
+      "sha256": "9ded83828e33aed2c860109b16a4d67b5b9ead2c034ce4781a4df6a800cdd5fd",
+      "categories": {
+        "pistol": 15,
+        "chaingun_over_shotgun": 61,
+        "shotgun": 101,
+        "chaingun": 12,
+        "pickup": 15,
+        "attack": 15,
+        "use_switch": 3,
+        "ammo_contrast_melee": 23,
+        "ammo_contrast_pistol": 52,
+        "ammo_contrast_rocket_launcher": 9,
+        "ammo_contrast_chaingun": 84,
+        "ammo_contrast_shotgun": 58,
+        "live_first_life_shotgun": 69,
+        "live_first_life_chaingun": 87
+      }
+    }
+  },
+  "removed": {
+    "train": 286,
+    "validation": 306
+  },
+  "builder_sha256": "aed94a7ef9a5e94016972ed66e9f5be8c2a37dce7d6528bf72f127caf4b179d2",
+  "projection_sha256": "07b72cc1e13285e041e18e2244e78e0a04ec7a0c911de9bab109787f7950044e"
+}

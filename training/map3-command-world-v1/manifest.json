@@ -1,0 +1,23 @@
+{
+  "kind": "command",
+  "note": "Training inputs for the explicit server projection. Only Current command: lines removed; physical world facts, choices and labels unchanged. Exact projected duplicates removed globally, retaining original split allocations. Development fitting, not independent generalization.",
+  "sources": {
+    "training/map3-resource-commands-v3/train.json": "95e2f740b7e4656d5d4eef5e72fac471f3c514d3d40511c1abf28f812300fe85",
+    "training/map3-resource-commands-v3/validation.json": "d64d2c694032ce848c4b987e23ff2b2cfa172652ead969d063c66056d72f8859"
+  },
+  "splits": {
+    "train": {
+      "rows": 1317,
+      "sha256": "1f46c1a4bdb8ff455a5b4eb553e1cc38933ddc0909e32ea8b4f0e076ec4b71ed"
+    },
+    "validation": {
+      "rows": 599,
+      "sha256": "e94d4ee5086cc66c7116e3de5359c93372d2dd582b1ded4de5474f91c8e4efb0"
+    }
+  },
+  "duplicates_removed": {
+    "train": 409,
+    "validation": 148
+  },
+  "builder_sha256": "bd8514e0227c7e3e588fac83236847db0c4e7d0da0c6b8d24e8a0d4a0a6e1e61"
+}

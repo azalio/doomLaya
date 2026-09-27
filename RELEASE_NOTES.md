@@ -1,35 +1,29 @@
-# doomLaya v0.2.0 — MAP01 and MAP02 completion
+# doomLaya v0.3.0 — MAP03 completion
 
-A five-head Laya checkpoint set with a shared encoder is now available. The model
-chooses actions, targets, weapons and combat movement; the executor applies them.
+Laya completed FreeDoom MAP03 in 819.914 s (seed 54, skill 3), after four deaths.
+The full 822.943 s recording includes 106 frames on MAP04. Model-authority,
+video completeness and real-time checks passed: 28,803 frames and 1,595 accepted
+decisions. The overall quality gate remains false: stationary time reached
+141.83 s, and time without a new region reached 159.29 s.
 
-| Map | Seed, skill | Exit | Deaths | Full decision p50 |
-|---|---|---:|---:|---:|
-| MAP01 → MAP02 | 48, 3 | 174.914 s | 0 | 384.72 ms |
-| MAP02 → MAP03 | 54, 3 | 835.600 s | 2 | 430.47 ms |
+This is one successful development run, not a robustness estimate. MAP01 and
+MAP02 have not been revalidated with these MAP03 weights. Jev was not tested
+on MAP03. HTTP latency including RTT: p50 342.52 ms, p90 406.70 ms; minimum
+application delay 16 ticks, observed p50 457.143 ms. External API cost was $0;
+local training and compute cost were not estimated.
 
-Each recording includes three seconds on the next map. Model-authority, video
-and real-time checks passed. The overall `passed=false` is retained because
-movement limits, and on MAP02 the weapon-switch limit, were exceeded. These are
-single runs on development maps, not evidence of robustness across seeds.
-
-- [Weights on Hugging Face](https://huggingface.co/azalio/laya-doom-map02/tree/v0.2.0).
-- [Setup, frozen data and training instructions (Russian)](https://github.com/azalio/doomLaya/blob/v0.2.0/docs/MAP02.md).
-- Full recordings: `laya-map01.mp4`, `laya-map02.mp4`; last 65 seconds: `laya-map02-finish.mp4`.
-- `map01-evidence.tar.gz` and `map02-evidence.tar.gz` contain telemetry,
-  model requests/responses, events and the exact run source snapshots. To audit,
-  extract an archive, put the matching recording inside as `video.mp4`, and run
+- [Exact eight-checkpoint bundle](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.0).
+- [Setup, frozen datasets and training commands](https://github.com/azalio/doomLaya/blob/v0.3.0/docs/MAP03.md).
+- Full video: `laya-map03.mp4`; last 65 seconds: `laya-map03-finish.mp4`.
+- `map03-evidence.tar.gz` contains telemetry, model requests/responses, events,
+  verification results and the exact gameplay source snapshot. Extract it,
+  put `laya-map03.mp4` inside as `video.mp4`, and run
   `.venv/bin/python -m tools.verify_run <run-directory>`.
-- Verify release assets using `SHA256SUMS`.
+- Check all assets against `SHA256SUMS`. An exit code of 1 from `verify_run`
+  is expected for this recording: the mission passed, but navigation quality failed.
 
-A further run from a clean checkout completed MAP01 in 163.257 s with one
-death and passed every quality gate. Its recording is `laya-map01-clean.mp4`
-and its telemetry is `map01-clean-evidence.tar.gz`. The package matched all
-200 recorded reference choices and probabilities; 109 tests passed locally
-and in the clean checkout.
-
-The code follows the merged `doomlib/`, `tools/`, `tests/` and `docs/` layout and
-preserves Windows UTF-8 fixes. A pinned ViZDoom patch fixes the sector-line
-buffer overflow when loading MAP03 without changing the WAD or game rules.
-The v0.1.0 weights and recordings remain available. Its Jev comparison used
-the previous model and executor configuration.
+The new heads were trained using supervised imitation learning from recorded
+states, offline expert labels and synthetic contrasts. The encoder was frozen;
+there was no reward-based RL. The live controller executed model choices.
+The code also handles MAP03 mechanisms and changing floor geometry, and records
+decision application delay. Earlier v0.1.0 and v0.2.0 releases remain available.

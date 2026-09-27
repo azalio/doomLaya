@@ -37,3 +37,10 @@ jobs:
       - run: python training/finetune.py --data training/map2-resources-v1 --validate-only
       - run: python training/build_goal_invariant_items.py --replay training/map2-explicit-v2 --output "$RUNNER_TEMP/goal-invariant-items"
       - run: python training/finetune.py --data "$RUNNER_TEMP/goal-invariant-items" --validate-only
+      - run: python training/finetune.py --data training/map3-combat-priority-v2 --validate-only
+      - run: python training/finetune.py --data training/map3-item-category-v4 --validate-only
+      - run: python training/finetune.py --data training/map3-ranked-enemy-v3 --validate-only
+      - run: python training/finetune.py --data training/map3-compact-weapon-v2 --validate-only
+      - run: python training/finetune.py --data training/map3-compact-movement-v2 --validate-only
+      - run: python training/finetune.py --data training/map3-look-floor-v1 --validate-only
+      - run: python training/finetune.py --data training/map3-switch-route-v1 --validate-only

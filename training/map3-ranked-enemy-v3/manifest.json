@@ -1,0 +1,43 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "question_format": "enemy-sequence-v1",
+    "input_projection": "enemy-ranking-v1",
+    "training_objective": "nonempty-listwise-v1",
+    "note": "Same observed targets and offline sequence labels. The neural head scores individual targets plus an end-of-sequence option. A Plackett-Luce decoder maps those scores to probabilities of all original nonempty firing sequences. No distance ranking or live teacher rule in decoding. Different recorded source runs held out; same-map development only.",
+    "sources": {
+      "training/map3-compact-enemy-v2/train.json": "9c9d5bb47062da419ba293b01edc628ed852501c6d3a5bf47f4b04c59c1cf928",
+      "training/map3-compact-enemy-v2/validation.json": "cc7853e8aa370199c23a6103a812c3ac26d110aa1701abf5044dd2d6bc743c1e"
+    },
+    "splits": {
+      "train": {
+        "rows": 1206,
+        "sha256": "c262d7ec7d71d54f8922df4a4206664337ed57e21f5e3403250486f45d0c3ee0"
+      },
+      "validation": {
+        "rows": 272,
+        "sha256": "fccc202233ad61bebe91a74c75fe4de565e37e26dd738d2f5f9a9211376fee8a"
+      }
+    },
+    "removed": {},
+    "builder_sha256": "4529496b5801e1f4cfb79d4271088826d685934b12b6fd1d44bfcd879e48202d",
+    "projection_sha256": "c6c21ab51f4934cc937d58a5b6f2dba677373af16509a25150b9eb30a3a36b08"
+  },
+  "sources": {
+    "training/map3-ranked-enemy-v2/train.json": "c262d7ec7d71d54f8922df4a4206664337ed57e21f5e3403250486f45d0c3ee0",
+    "training/map3-ranked-enemy-v2/validation.json": "fccc202233ad61bebe91a74c75fe4de565e37e26dd738d2f5f9a9211376fee8a"
+  },
+  "checkpoint_config_sha256": "786363b01b41a3bfbe6d6c4074dab8955f729909d3ff38b45c57ac6f435ae4de",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1206,
+      "sha256": "c262d7ec7d71d54f8922df4a4206664337ed57e21f5e3403250486f45d0c3ee0"
+    },
+    "validation": {
+      "rows": 272,
+      "sha256": "fccc202233ad61bebe91a74c75fe4de565e37e26dd738d2f5f9a9211376fee8a"
+    }
+  }
+}

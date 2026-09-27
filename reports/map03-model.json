@@ -1,0 +1,59 @@
+{
+  "weights_sha256": "88f90e1bee336ee8f188cc5d62cf691746212fa7e8c81b85a1a0e2db1cf359d5",
+  "weights_sha256_kind": "question_heads_manifest",
+  "question_heads": {
+    "default": {
+      "checkpoint": "laya-map2-explicit-v2",
+      "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+    },
+    "command": {
+      "checkpoint": "laya-map3-combat-priority-v1",
+      "weights_sha256": "305ff84528f5e1ac5c7607d76b0ae906dba7586bdd43f25d796fcd91ec4a4f00",
+      "state_projection": "without-current-command-v1"
+    },
+    "enemy": {
+      "checkpoint": "laya-map3-ranked-enemy-v1",
+      "weights_sha256": "a3caf393e5846a1005c2d5547178bd002389d840b50aed21bfaf331db6e5ec6f",
+      "question_format": "enemy-sequence-v1",
+      "input_projection": "enemy-ranking-v1",
+      "state_projection": "enemy-ranking-v1",
+      "composition": "plackett-luce-nonempty-v1"
+    },
+    "item": {
+      "checkpoint": "laya-map3-item-category-v1",
+      "weights_sha256": "a1daf915b374529beabc1531ab3031945694a333a5a6d54f027a8e30e54bcf29",
+      "input_projection": "item-category-v2",
+      "state_projection": "item-category-v2"
+    },
+    "look_gate": {
+      "checkpoint": "laya-map3-look-floor-v2",
+      "weights_sha256": "221ca2c80d3a105826097f0590fe22f78630c965bb6c50810e41fe12a578d10c",
+      "composition": "probability-mixture-v1",
+      "input_projection": "observed-look-facts-v2-optional-floor"
+    },
+    "movement": {
+      "checkpoint": "laya-map3-compact-movement-v1",
+      "weights_sha256": "437f49e66cd5393cf2654ce2dbb51fd1902b3ce1b19df62120709c7441d012fc",
+      "question_format": "movement-compact-v1",
+      "input_projection": "movement-compact-v1"
+    },
+    "switch": {
+      "checkpoint": "laya-map3-switch-route-v1",
+      "weights_sha256": "3705977ee38d8452f52915a47b95e9d1e190751ceec77ddc79bc49480129123b"
+    },
+    "weapon": {
+      "checkpoint": "laya-map3-compact-weapon-v1",
+      "weights_sha256": "10208e228fda3806049dbe3c88e65ff8be94f036e92e92038fbbf75fbf02f38a",
+      "input_projection": "weapon-compact-v1",
+      "state_projection": "weapon-compact-v1"
+    },
+    "shared_encoder_verified": true
+  },
+  "laya_source_commit": "42626c348753fbb17572a813127df2278a1ec527",
+  "decoding": {
+    "method": "argmax",
+    "temperature": 0.0,
+    "seed": 0,
+    "questions": null
+  }
+}

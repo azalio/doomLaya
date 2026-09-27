@@ -1,0 +1,82 @@
+{
+  "note": "Offline local resource/combat labels plus missing-key mechanisms when no useful nearby resource or enemy takes priority. Exact recorded root questions. MAP03 odd episodes train, even episodes validation; counterfactual sufficient-ammo states and goal variants remain in the parent split. Previous dataset retains its train/validation allocation. Same-map development validation, not generalization. No runtime import.",
+  "sources": {
+    "runs/20260926_223006_612146_map03-survival54/config.json": "c676b1bc19dc39092ff7449b484eda53f6eaf195c3b5baeb29af15266c4342c1",
+    "runs/20260926_223006_612146_map03-survival54/decisions.jsonl": "d1fb3f57b2b2c26c27bade58e3ba5f632dbe720f312e64f60e4565f6031ca7b6",
+    "runs/20260926_223006_612146_map03-survival54/summary.json": "b1df13c2f6f7b6f1224f30e3147b4aa44f82a6495c040b57d6067f883f7aa353",
+    "training/map3-survival-v1/train.json": "a250fb1eca5199251a8ce37e9c6acf511ad85808320d5b65d780b128af31c976",
+    "training/map3-survival-v1/validation.json": "1c5cfbec90bed458c2fd42a97354e4fe545bde4a17876560404ee754ca5fa73c"
+  },
+  "action_pairs": {
+    "pickup -> pickup": 335,
+    "open_door -> use_switch": 47,
+    "open_door -> open_door": 82,
+    "use_switch -> use_switch": 240,
+    "pickup -> attack": 78,
+    "attack -> attack": 419,
+    "attack -> use_switch": 9,
+    "pickup -> use_switch": 769,
+    "attack -> pickup": 21,
+    "use_switch -> pickup": 9,
+    "open_door -> attack": 2,
+    "pickup -> open_door": 2,
+    "open_door -> pickup": 1
+  },
+  "splits": {
+    "train": {
+      "rows": 996,
+      "labels": {
+        "pickup": 279,
+        "exit": 80,
+        "attack": 240,
+        "use_switch": 238,
+        "open_door": 155,
+        "explore": 4
+      },
+      "categories": {
+        "reachable_key": 29,
+        "exit": 80,
+        "attack": 37,
+        "continue_route_with_supplies": 158,
+        "blocking_door": 81,
+        "explore": 4,
+        "loaded_weapon_before_route": 36,
+        "shells_before_route": 139,
+        "open_door": 74,
+        "use_switch": 80,
+        "nearby_enemy": 203,
+        "urgent_health": 20,
+        "pickup": 18,
+        "health_before_route": 37
+      },
+      "sha256": "7d3958e2e34114317961efb60750c68960bcd94d723a464704a82846e8513063"
+    },
+    "validation": {
+      "rows": 452,
+      "labels": {
+        "attack": 100,
+        "exit": 40,
+        "pickup": 168,
+        "use_switch": 100,
+        "open_door": 44
+      },
+      "categories": {
+        "attack": 17,
+        "exit": 40,
+        "nearby_enemy": 83,
+        "shells_before_route": 63,
+        "urgent_health": 17,
+        "pickup": 8,
+        "use_switch": 40,
+        "continue_route_with_supplies": 60,
+        "loaded_weapon_before_route": 36,
+        "open_door": 39,
+        "health_before_route": 25,
+        "blocking_door": 5,
+        "reachable_key": 19
+      },
+      "sha256": "eee0642cc7f037e0969921a0edaf0683b72ccdb4adaaaa0dcbf7ed07f572a7e8"
+    }
+  },
+  "builder_sha256": "995f155340c3328f302340dc6c2dc5577d820443e067e71c8ddf6b4097a0b679"
+}

@@ -1,0 +1,30 @@
+{
+  "note": "Each original look-gate row remains in its original split, together with safe-floor and damaging-floor variants. Damaging-floor labels choose normal command selection. No action is forced at inference. Synthetic observation-domain validation only; no gameplay/generalization claim.",
+  "sources": {
+    "training/map3-look-gate-balanced-v1/train.json": "c6ec873578e9f07db6e1d3bfc218135fcb2ad926735e609996188c45a4fa82e3",
+    "training/map3-look-gate-balanced-v1/validation.json": "17364043c2e15f66d1d577c6ce322a9801f1afa8fa301de63c3954bcb7af6a6d"
+  },
+  "splits": {
+    "train": {
+      "rows": 1827,
+      "sha256": "f7b11529f66044171dbce11b05fe34a02fd4cff3c8e91e7024e25ce92e5dd01d",
+      "categories": {
+        "floor_damage": 609,
+        "look_back": 150,
+        "normal": 1050,
+        "no_recent_hit": 18
+      }
+    },
+    "validation": {
+      "rows": 729,
+      "sha256": "ae1792bd0d42adfbdd10dd98621dec7e3a17bcc23e9f5d842da5efe1011f3adc",
+      "categories": {
+        "normal": 420,
+        "floor_damage": 243,
+        "look_back": 60,
+        "no_recent_hit": 6
+      }
+    }
+  },
+  "builder_sha256": "ae8e1d5110b54efc66b1ec58b45c7917f9ee5a4c49d435edd2e38ae0caf26693"
+}

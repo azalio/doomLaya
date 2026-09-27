@@ -15,3 +15,8 @@ def request_reason(tick,last_request,interval_ticks,signature,last_signature,inv
     if tick-last_request>=interval_ticks:return 'interval'
     if inventory_events and signature!=last_signature:return 'inventory_changed'
     return None
+
+
+def response_ready(future,request_tick,tick,minimum_delay_ticks=0):
+    """Never apply before both the real response and an optional tick deadline."""
+    return future.done() and tick-request_tick>=minimum_delay_ticks

@@ -1,0 +1,20 @@
+{
+  "source_run": "20260927_113829_722635_map03-item-category54",
+  "metadata_sanitized": true,
+  "source_hashes_preserved": true,
+  "video_in_archive": false,
+  "assets": {
+    "laya-map03.mp4": {
+      "sha256": "3994f49eb5934394f3c35f09ddd487c36d40935d0339483b715a53f661864450",
+      "bytes": 1014672299
+    },
+    "laya-map03-finish.mp4": {
+      "sha256": "75a9723aaacc206844c1fea690651b9db7a7a8c7a6d0197e3d2bcfee493e9abc",
+      "bytes": 55711517
+    },
+    "map03-evidence.tar.gz": {
+      "sha256": "8fc3fbf3c144d0d3a30444b35f7ea3ffffd491fdd90676eb1525adbb5b945869",
+      "bytes": 10356780
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "question_format": "enemy-sequence-v1",
+  "input_projection": "enemy-ranking-v1",
+  "training_objective": "nonempty-listwise-v1",
+  "note": "Same observed targets and offline sequence labels. The neural head scores individual targets plus an end-of-sequence option. A Plackett-Luce decoder maps those scores to probabilities of all original nonempty firing sequences. No distance ranking or live teacher rule in decoding. Different recorded source runs held out; same-map development only.",
+  "sources": {
+    "training/map3-compact-enemy-v2/train.json": "9c9d5bb47062da419ba293b01edc628ed852501c6d3a5bf47f4b04c59c1cf928",
+    "training/map3-compact-enemy-v2/validation.json": "cc7853e8aa370199c23a6103a812c3ac26d110aa1701abf5044dd2d6bc743c1e"
+  },
+  "splits": {
+    "train": {
+      "rows": 603,
+      "sha256": "3d708810f02532a25cde693216f3cc31dd2a6ebb683de431f261ad421872da51"
+    },
+    "validation": {
+      "rows": 136,
+      "sha256": "39d3d136aa2d0e6d290be10e640d35160d29cf2405de5fd0a67bccbbd0ea1ff9"
+    }
+  },
+  "removed": {
+    "train": 603,
+    "validation": 136
+  },
+  "builder_sha256": "76a1eb33521e32b9aaa4383b1838350f452f3d8c9e959c3287fa94727685d806",
+  "projection_sha256": "237fc18c6fe91d4ef6d841347951a9c57bf1d4b71668e7dd6555652b183203ed"
+}

@@ -1,0 +1,58 @@
+{
+  "note": "Offline corrections: prefer visible threats except an enemy within 2m; give visible hitscanners a distance weight of 0.65. Prefer loaded plasma, super shotgun, chaingun, shotgun, pistol, rocket launcher, chainsaw, fists. These rules are labels, never a live fallback. Same-map development validation; not a claim that this priority is universally optimal.",
+  "sources": {
+    "runs/20260926_223006_612146_map03-survival54/decisions.jsonl": "d1fb3f57b2b2c26c27bade58e3ba5f632dbe720f312e64f60e4565f6031ca7b6",
+    "runs/20260926_225957_051691_map03-route-recovery54/decisions.jsonl": "918f7c34d2ee51772b62a7357c9de9fef5a4b5a3431275df8bf64172ff9f2c21",
+    "runs/20260927_000319_899402_map03-composite54/decisions.jsonl": "40561db386dd64f84dc28760861215eb8ae1190ef21329f2ca5acae01f8d1471",
+    "runs/20260927_005344_352697_map03-item-nogoal54/decisions.jsonl": "f8afcaa4d476e96fb5041a4ece27aa07ce6d0914fba0a4fdeb7b688e6543e001",
+    "runs/20260927_011001_959304_map03-item-nogoal54-full/decisions.jsonl": "0fd3b7f6e2289f477a94b9fa6969f29025c9dd27f939891002724b9ac656c488",
+    "runs/20260927_013723_483038_map03-categorical54/decisions.jsonl": "17b0673c72e23e2573c725019046dc84f5ce17d123ad0c42048cc51c83cdcdce",
+    "training/map3-combat-v1/train.json": "3f842ae03a38b05676ee90e1c9f88d202e05f93345c0d1fbbee88a76559188f5",
+    "training/map3-combat-v1/validation.json": "06d846552b2b97a4ea378bfb09a5c7a2727f69998ea294dcdd0329b6d17a353b"
+  },
+  "splits": {
+    "train": {
+      "rows": 1454,
+      "sha256": "486acd92a1ac31ff368f04f4ad1d99e25b3520a71ff5c96991e6e8f0b8b11056",
+      "kinds": {
+        "enemy": 655,
+        "weapon": 799
+      },
+      "categories": {
+        "visible_threat": 260,
+        "visible_priority": 352,
+        "shotgun": 355,
+        "chaingun_over_shotgun": 244,
+        "open_door": 1,
+        "pistol": 77,
+        "attack": 70,
+        "chaingun": 48,
+        "use_switch": 9,
+        "pickup": 35,
+        "exit": 3
+      }
+    },
+    "validation": {
+      "rows": 602,
+      "sha256": "80b23fa39ab4ee85a8ededb2505b5dde51acc3619bf2c97527c5f8eed5abbbdf",
+      "kinds": {
+        "weapon": 336,
+        "enemy": 266
+      },
+      "categories": {
+        "pistol": 53,
+        "visible_threat": 100,
+        "shotgun": 124,
+        "chaingun_over_shotgun": 100,
+        "visible_priority": 152,
+        "chaingun": 25,
+        "pickup": 16,
+        "attack": 29,
+        "use_switch": 3
+      }
+    }
+  },
+  "weapon_priority": "rapid-fire-v1",
+  "evidence": "runs/map03-yellow-weapon-window.json: keeping chaingun through the recorded encounter preserved 48HP versus 3HP with shotgun; local counterfactual, not a universal weapon ranking.",
+  "builder_sha256": "5ac5023a86f9adae105e8bde7c4586400646ab005a76b91d3d1964a4a4033453"
+}

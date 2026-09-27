@@ -1,0 +1,75 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "input_projection": "item-category-v1",
+    "note": "Adds observed category from the original Items line to each offered criterion, retaining all original IDs and choices. Original split allocations retained. Synthetic examples vary health, armor, ammunition and distances, with disjoint synthetic health values and non-bonus distance grids per item category in validation; bonus distances are sampled independently. Labels use the existing offline resource scorer. MAP03 held-out run remains validation-only. Development validation; no success or independent-map claim.",
+    "sources": {
+      "training/map3-compact-item-v2/train.json": "febd3fe16f736dc8ee00b813d055cbda381da5eec89fb40beca8652a3c186450",
+      "training/map3-compact-item-v2/validation.json": "63fba88b53154f352768bda7852d8aabe1f28d169c6487bef74bb33aa80f26f6"
+    },
+    "removed": {},
+    "splits": {
+      "train": {
+        "rows": 3113,
+        "sha256": "c00a0e91cb99a0ce9f1de2ef641e940ceb662c16774dfe6869a8e00c02c1b6d5",
+        "categories": {
+          "recorded_weapon": 259,
+          "recorded_ammo": 364,
+          "recorded_key": 340,
+          "recorded_health": 329,
+          "recorded_armor": 23,
+          "health": 236,
+          "pickup": 77,
+          "key": 243,
+          "ammo": 247,
+          "weapon": 227,
+          "synthetic_health": 187,
+          "synthetic_weapon": 95,
+          "synthetic_key": 414,
+          "synthetic_armor": 60,
+          "synthetic_ammo": 12
+        }
+      },
+      "validation": {
+        "rows": 1773,
+        "sha256": "bf67737eb9b0f93d6a0427692927fd076edf60efe2fc6f8471a5be31e5e9ffcd",
+        "categories": {
+          "recorded_weapon": 162,
+          "recorded_ammo": 393,
+          "recorded_key": 300,
+          "recorded_health": 200,
+          "recorded_armor": 146,
+          "weapon": 80,
+          "key": 87,
+          "ammo": 90,
+          "health": 89,
+          "pickup": 34,
+          "synthetic_key": 110,
+          "synthetic_health": 42,
+          "synthetic_armor": 17,
+          "synthetic_weapon": 21,
+          "synthetic_ammo": 2
+        }
+      }
+    },
+    "builder_sha256": "9d5ee67ab60fd88388ddc7dff9396ab4b0a674b74e4893b2670a4b196a74a964",
+    "projection_sha256": "f0a4c02283f528c82ae648a9dd7d1baa679af1fc248ea3689191e5e0b33d99d8"
+  },
+  "sources": {
+    "training/map3-item-category-v1/train.json": "c00a0e91cb99a0ce9f1de2ef641e940ceb662c16774dfe6869a8e00c02c1b6d5",
+    "training/map3-item-category-v1/validation.json": "bf67737eb9b0f93d6a0427692927fd076edf60efe2fc6f8471a5be31e5e9ffcd"
+  },
+  "checkpoint_config_sha256": "08b97d1a004ff8cecd7ce78637bc0d431ff7e3309e58752358b82e9fcf305545",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 3113,
+      "sha256": "c00a0e91cb99a0ce9f1de2ef641e940ceb662c16774dfe6869a8e00c02c1b6d5"
+    },
+    "validation": {
+      "rows": 1773,
+      "sha256": "bf67737eb9b0f93d6a0427692927fd076edf60efe2fc6f8471a5be31e5e9ffcd"
+    }
+  }
+}

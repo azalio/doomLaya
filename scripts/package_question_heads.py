@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import shutil
 import sys
+import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,8 +14,10 @@ sys.path.insert(0, str(ROOT))
 from scripts.package_model import REQUIRED, clean, digest
 
 
-def package(checkpoints, routing, output, card=None):
+def package(checkpoints, routing, output, card=None, clone_weights=False):
     checkpoints, output = Path(checkpoints), Path(output)
+    if clone_weights and sys.platform != "darwin":
+        raise ValueError("--clone-weights requires macOS with APFS")
     metadata = json.loads(Path(routing).read_text())
     heads = metadata['question_heads']
     expected = hashlib.sha256(json.dumps(heads, sort_keys=True).encode()).hexdigest()
@@ -45,6 +48,8 @@ def package(checkpoints, routing, output, card=None):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 if filename.endswith('.json'):
                     target.write_text(json.dumps(clean(json.loads(source.read_text())), indent=2) + '\n')
+                elif clone_weights and filename == "model.safetensors":
+                    subprocess.run(["/bin/cp", "-c", str(source), str(target)], check=True)
                 else:
                     shutil.copyfile(source, target)
         for name in ('LICENSE', 'NOTICE'):
@@ -64,5 +69,7 @@ if __name__ == '__main__':
     parser.add_argument('--checkpoints', type=Path, default=ROOT / 'checkpoints')
     parser.add_argument('--routing', type=Path, default=ROOT / 'reports/map02-model.json')
     parser.add_argument('--output', type=Path, default=ROOT / 'dist/laya-doom-map02')
+    parser.add_argument('--card', type=Path, default=ROOT / 'model-card/MAP02.md')
+    parser.add_argument('--clone-weights', action='store_true', help='Use independent APFS file clones on macOS')
     args = parser.parse_args()
-    package(args.checkpoints, args.routing, args.output)
+    package(args.checkpoints, args.routing, args.output, args.card, args.clone_weights)

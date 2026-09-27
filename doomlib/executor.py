@@ -6,7 +6,9 @@ from doomlib.combat import target_bearing,WEAPON_SLOTS,AMMO_COST
 
 
 class Executor:
-    def __init__(self,sectors=None,mission=None,map_weapons=False,mechanism_facts=False):
+    def __init__(self,sectors=None,mission=None,map_weapons=False,mechanism_facts=False,attack_turn_rate=9):
+        if attack_turn_rate not in (9,18,36):raise ValueError('Attack turn rate must be 9, 18 or 36 degrees per tick')
+        self.attack_turn_rate=attack_turn_rate
         doors=list(mission.data.get('doors',())) if mission else []
         if mission:doors.extend({'sector':i,'key':None} for switch in mission.data.get('switches',()) for i in switch['sectors'])
         self.navigator=Navigator(sectors,doors,mission.data.get('teleports',()) if mission else ())
@@ -28,14 +30,16 @@ class Executor:
         self.escape_side=1
         self.last_selection=-1000
         self.reachable_cache=None
+        self.look_goal_angle=None
 
     def observe(self,s,tick,sectors=None):
+        s['geometry_changes']=self.navigator.update_geometry(sectors) if sectors is not None else []
         s['floor_changes']=self.navigator.update_floors(sectors) if sectors is not None else []
-        if s['floor_changes']:self.reachable_cache=None
+        if s['floor_changes'] or s['geometry_changes']:self.reachable_cache=None
         self.navigator.observe(s,tick)
         keys=(tuple(s.get('keys',())),tuple(s.get('closed_remote_doors',())))
         # Normal doors are already traversable in the graph; opening one cannot repair a failed path.
-        if (self.failure_component is not None and self.navigator.nearest((s['x'],s['y'])) not in self.failure_component) or s.get('floor_changes') or keys!=self.previous_keys:
+        if (self.failure_component is not None and self.navigator.nearest((s['x'],s['y'])) not in self.failure_component) or s.get('floor_changes') or s.get('geometry_changes') or keys!=self.previous_keys:
             self.failures.clear()
             self.command_failures.clear()
             self.failure_origin=None
@@ -103,28 +107,43 @@ class Executor:
         s['motion_clearance']=self.navigator.movement_clearance(s)
 
     def accept(self,directive,tick):
+        from doomlib.enemy_sequences import validate_sequence
+        validate_sequence(directive)
+        self.sequence_index=0
         old=self.directive or {}
         changed=(old.get('action'),(old.get('target') or {}).get('id')) != (directive['action'],(directive.get('target') or {}).get('id'))
         if changed and not (old.get('action')==directive['action']=='attack'):
             self.anchor=None
             self.anchor_tick=tick
             self.escape_start=-1000
+        if old.get('action')!=directive['action'] or tick>old.get('expires_tick',float('inf')):
+            self.look_goal_angle=None
         self.directive=directive
 
     def act(self,s,tick):
         d=self.directive or {'action':'wait','target':None,'weapon':None,'decision_id':None,'command':'wait'}
         if tick>d.get('expires_tick',float('inf')):
             d={'action':'wait','target':None,'weapon':None,'decision_id':None,'command':'expired'}
-        kind,target=d['action'],d.get('target')
+        from doomlib.enemy_sequences import advance_sequence
+        kind=d['action'];target=d.get('target')
+        if kind=='attack':target,self.sequence_index=advance_sequence(d,s['enemies'],getattr(self,'sequence_index',0))
         a=[0.]*14
         refs=[]
         status='executing';detail=kind
         current=None
-        if kind=='attack':
+        if kind=='look_back':
+            if self.look_goal_angle is None:self.look_goal_angle=(s['angle']-180)%360
+            remaining=(s['angle']-self.look_goal_angle)%360
+            if remaining<.2 or remaining>180.2:
+                status,detail='arrived','Turned clockwise 180 degrees'
+            else:
+                a[4]=min(9,remaining)
+                refs=['turn_as_selected_by_model']
+        elif kind=='attack':
             current=next((e for e in s['enemies'] if e['id']==target['id']),None) if target else None
             if current:
                 b=current.get('aim_bearing',current['bearing'])
-                a[4]=max(-9,min(9,b))
+                a[4]=max(-self.attack_turn_rate,min(self.attack_turn_rate,b))
                 melee=AMMO_COST[s['weapon']]==0
                 usable=s['ammo']>=AMMO_COST[s['weapon']]
                 a[5]=float(current.get('visible',True) and abs(b)<5 and usable and (not melee or current['distance']<=1.5))
@@ -137,10 +156,12 @@ class Executor:
                         refs+=motor_refs+['approach_selected_enemy']
                     elif melee:
                         status,detail='blocked','Selected melee weapon is out of range and there is no path to the enemy'
-                if d.get('movement')=='strafe_left':a[2]=1
-                elif d.get('movement')=='strafe_right':a[3]=1
-                elif d.get('movement')=='backward':a[1]=1
             else:status,detail='unavailable','Selected enemy is no longer visible; select a new command'
+            # Movement has its own explicit model choice and directive expiry.
+            # Losing the target suppresses aim/fire, not the requested movement.
+            if d.get('movement')=='strafe_left':a[2]=1
+            elif d.get('movement')=='strafe_right':a[3]=1
+            elif d.get('movement')=='backward':a[1]=1
         elif kind in ('pickup','open_door','use_switch','exit','explore'):
             objective=None;available=True
             if kind=='pickup':
@@ -261,10 +282,13 @@ class Executor:
             a[5]=0
             self.last_selection=tick
             refs.append('select_model_weapon')
+        if self.mission and kind=='use_switch' and target and a[6] and target.get('kind')=='door':
+            self.mission.note_switch_use(target['id'],s.get('engine_tic',tick))
         if target:detail+=f" ({target.get('name',kind)} #{target['id']})"
         self.execution={'status':status,'detail':detail,'decision_id':d['decision_id'],'command':d['command'],'action':kind,
                         'target_id':target['id'] if target else None,'weapon':selection,'movement':d.get('movement'),
                         'combat_target_id':combat_target['id'] if combat_target else None}
+        if 'target_sequence' in d:self.execution['sequence_index']=self.sequence_index
         s['execution']=dict(self.execution)
         aimed_target=target if kind=='attack' else combat_target
         s['combat']={'mode':kind+('+fire' if combat_target else ''),'target_id':aimed_target['id'] if aimed_target else None,

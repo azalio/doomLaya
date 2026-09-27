@@ -12,7 +12,7 @@ from agent import LayaClient
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('run',type=Path);p.add_argument('--kind',choices=['item','switch']);p.add_argument('--start',type=float,default=480);p.add_argument('--end',type=float,default=580);p.add_argument('--output',type=Path,required=True);p.add_argument('--max-anti-goal',type=int);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--endpoint',default='http://127.0.0.1:8001/predict');p.add_argument('run',type=Path);p.add_argument('--kind',choices=['item','switch']);p.add_argument('--start',type=float,default=480);p.add_argument('--end',type=float,default=580);p.add_argument('--output',type=Path,required=True);p.add_argument('--max-anti-goal',type=int);a=p.parse_args()
     if a.output.exists():p.error('output exists')
     if a.max_anti_goal is not None and a.max_anti_goal<0:p.error('max-anti-goal must be nonnegative')
     if a.run.is_file():
@@ -28,7 +28,7 @@ def main():
         cases=[rows[i] for i in sorted({round(i*(len(rows)-1)/11) for i in range(12)})]
         source=dict(source_run=str(a.run),source_sha256={n:hashlib.sha256((a.run/n).read_bytes()).hexdigest() for n in ('config.json','decisions.jsonl')})
     action='pickup' if kind=='item' else 'use_switch'
-    client=LayaClient('http://127.0.0.1:8001/predict','doom-adapted');routing=client.health();records=[]
+    client=LayaClient(a.endpoint,'doom-adapted');routing=client.health();records=[]
     for index,row in enumerate(cases):
         packet=row['packet'];states={'original':packet['state'],'no_goal':'\n'.join(l for l in packet['state'].splitlines() if not l.startswith('Current command:'))}
         for oid in goals:

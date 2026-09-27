@@ -40,6 +40,21 @@ class DecisionTimingTest(unittest.TestCase):
         self.assertEqual(empty,inventory_signature(state,include_ammo=True))
         self.assertNotIn('execution',state)
 
+    def test_response_deadline_keeps_real_inference_latency(self):
+        from concurrent.futures import Future
+        from doomlib.decision_timing import response_ready
+        fast=Future();fast.set_result({'choice':'attack'})
+        self.assertTrue(response_ready(fast,100,109))
+        self.assertFalse(response_ready(fast,100,109,16))
+        self.assertFalse(response_ready(fast,100,115,16))
+        self.assertTrue(response_ready(fast,100,116,16))
+        slow=Future()
+        self.assertFalse(response_ready(slow,100,116,16))
+        self.assertFalse(response_ready(slow,100,120,16))
+        slow.set_result({'choice':'pickup'})
+        self.assertTrue(response_ready(slow,100,121,16))
+        self.assertEqual(slow.result(),{'choice':'pickup'})
+
     def test_key_and_episode_changes_are_observed(self):
         state=self.state();before=inventory_signature(state);state['keys']=['red']
         self.assertEqual(request_reason(3,0,26,inventory_signature(state),before,True),'inventory_changed')

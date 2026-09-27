@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import sys
 from scripts.package_model import REQUIRED, digest
 from scripts.package_question_heads import package
 
@@ -39,6 +40,16 @@ class QuestionHeadPackageTest(unittest.TestCase):
             for line in (output / 'SHA256SUMS').read_text().splitlines():
                 expected, name = line.split('  ', 1)
                 self.assertEqual(digest(output / name), expected)
+            if sys.platform == 'darwin':
+                cloned = root / 'cloned'
+                package(source, routing, cloned, card, clone_weights=True)
+                cloned_weight = cloned / 'checkpoint-item/model.safetensors'
+                self.assertEqual(digest(cloned_weight), heads['item']['weights_sha256'])
+                cloned_weight.write_bytes(b'changed clone')
+                self.assertEqual(digest(source / 'checkpoint-item/model.safetensors'), heads['item']['weights_sha256'])
+            else:
+                with self.assertRaisesRegex(ValueError, 'requires macOS'):
+                    package(source, routing, root / 'cloned', card, clone_weights=True)
             (source / 'checkpoint-item/model.safetensors').write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError, 'weights differ'):
                 package(source, routing, root / 'invalid', card)
