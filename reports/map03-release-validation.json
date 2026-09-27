@@ -1,0 +1,61 @@
+{
+  "source_commit_checked": "ae63323d42aa28287b98c6b62e53d04c8fe5ac8e",
+  "source_tests": {
+    "total": 214,
+    "passed": 211,
+    "torch_skipped": 3,
+    "environment": "game runtime"
+  },
+  "torch_tests": {
+    "total": 6,
+    "passed": 6
+  },
+  "clean_checkout_tests": {
+    "total": 214,
+    "passed": 211,
+    "torch_skipped": 3
+  },
+  "published_bundle_parity": "reports/map03-bundle-parity.json",
+  "runtime_source_matches_successful_run": true,
+  "runtime_source_files": [
+    "agent.py",
+    "doomlib/__init__.py",
+    "doomlib/overlay.py",
+    "doomlib/report.py",
+    "doomlib/navigation.py",
+    "doomlib/combat.py",
+    "doomlib/items.py",
+    "doomlib/mission.py",
+    "doomlib/policy.py",
+    "doomlib/executor.py",
+    "doomlib/decision_questions.py",
+    "doomlib/decision_timing.py",
+    "doomlib/look_questions.py",
+    "doomlib/floor_hazards.py",
+    "doomlib/enemy_commitment.py",
+    "doomlib/enemy_sequences.py",
+    "doomlib/compact_movement.py",
+    "doomlib/compact_enemy.py",
+    "doomlib/compact_weapon.py",
+    "doomlib/compact_item.py",
+    "doomlib/enemy_ranking.py",
+    "doomlib/ranked_inference.py",
+    "doomlib/resource_questions.py",
+    "serve_doom_laya.py",
+    "doomlib/model_decoding.py",
+    "doomlib/laya_runtime.py",
+    "doomlib/question_heads.py",
+    "doomlib/movement_questions.py",
+    "assets/weapon_sensor.acs",
+    "assets/weapon_sensor.pk3"
+  ],
+  "evidence_archive_recheck": {
+    "experiment_valid": true,
+    "level_completed": true,
+    "authority_passed": true,
+    "quality_passed": false,
+    "expected_verifier_exit": 1
+  },
+  "hf_verification": "reports/published-map03-model.json",
+  "note": "The gameplay run is the recorded development result. Clean-checkout API parity is not an additional live playthrough; navigation quality remains failed."
+}
