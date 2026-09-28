@@ -1,0 +1,78 @@
+{
+  "note": "Corrective labels on the interrupted MAP02 run plus exact normal-command behavioral replay from completed MAP01 episode 0 and MAP03 episode 4. Every fifth 20-second source block is development validation; adjacent blocks are correlated. The 23 prior passing development probes are training retention. Prior exit/key replay keeps its allocation. Not independent generalization; no runtime teacher.",
+  "input_projection": "without-current-command-v1",
+  "sources": {
+    "runs/20260927_154727_384741_v031-mixed-map01-seed48/decisions.jsonl": "6d4211d225e7b52083f3408e3bb137d1c942c056431ada00e3740fbba2b4096e",
+    "runs/20260927_113829_722635_map03-item-category54/decisions.jsonl": "849814157c09a99e081400f620ef71fefd983704a7366a390a3b3ab2b8023a0f",
+    "runs/20260927_155012_353035_v031-mixed-map02-seed54/decisions.jsonl": "e1d0a39ba1e3c0869e10954472b950510a609d0f1b361f56d1a93341182f2710",
+    "fixtures/v031-exit-regression-cases.json": "363527ecd5cb962b9342f7d73dc9dc87bbe40ec4f1802e4b19b0ab14f79ee6d5",
+    "runs/v031-mixed-api.json": "ab1c8b8f31a9b9ed600029eac036a70d90265eb5febef1056c220f1c3b0f5260",
+    "training/v031-command-exit-v2/train.json": "ee4c239249c9dd86ab67bdd8edc44ed661c112cb2141b830a0a3ce22e5af9175",
+    "training/v031-command-exit-v2/validation.json": "f3ae49e9fe3b4ad4b4b2ea970abec314ec98a90937d1c2234d24521e55e21f18"
+  },
+  "splits": {
+    "train": {
+      "rows": 1434,
+      "sha256": "fcc20de825c728240b804ca329b550a1fbab4d0b24c2881679b18e157cb1a340",
+      "categories": {
+        "completed_mechanisms_exit": 200,
+        "new_run_correction_route_fight": 120,
+        "replay_completed_map01_attack": 67,
+        "replay_completed_map01_use_switch": 100,
+        "replay_completed_map03_attack": 120,
+        "new_run_correction_route_continue_route": 120,
+        "replay_completed_map03_use_switch": 97,
+        "replay_completed_map03_pickup": 78,
+        "near_lift_regression": 74,
+        "replay_completed_map03_open_door": 53,
+        "new_run_correction_route_needed_supply": 120,
+        "correction_route_missing_key": 36,
+        "new_run_correction_route_nearby_door": 40,
+        "replay_map3-combat-priority-v2_reachable_red_key_contrast": 40,
+        "retention_regression_cases": 23,
+        "new_run_correction_route_urgent_health": 23,
+        "replay_completed_map03_exit": 6,
+        "new_run_correction_route_close_weapon": 46,
+        "replay_completed_map01_pickup": 43,
+        "new_run_correction_route_blocked_door": 3,
+        "replay_completed_map01_open_door": 22,
+        "replay_completed_map03_explore": 1,
+        "replay_completed_map01_exit": 2
+      }
+    },
+    "validation": {
+      "rows": 491,
+      "sha256": "8862b3f619c9cfa67d2cae11af1d9a414e58372b615306ca40d1ddbce5d3e124",
+      "categories": {
+        "replay_completed_map01_open_door": 9,
+        "completed_mechanisms_exit": 70,
+        "replay_completed_map03_attack": 38,
+        "new_run_correction_route_fight": 49,
+        "new_run_correction_route_nearby_door": 8,
+        "replay_completed_map03_use_switch": 26,
+        "new_run_correction_route_needed_supply": 50,
+        "new_run_correction_route_continue_route": 50,
+        "replay_completed_map01_attack": 31,
+        "replay_completed_map03_open_door": 9,
+        "replay_completed_map03_pickup": 24,
+        "correction_route_missing_key": 20,
+        "replay_completed_map01_pickup": 10,
+        "replay_map3-combat-priority-v2_reachable_red_key_contrast": 20,
+        "replay_completed_map03_exit": 11,
+        "new_run_correction_route_blocked_door": 4,
+        "replay_completed_map01_use_switch": 25,
+        "new_run_correction_route_close_weapon": 22,
+        "near_lift_regression": 10,
+        "new_run_correction_route_urgent_health": 3,
+        "replay_completed_map01_exit": 2
+      }
+    }
+  },
+  "removed": {
+    "train_duplicate": 71,
+    "train_conflict": 1,
+    "validation_duplicate": 55
+  },
+  "builder_sha256": "b8c7db8fae0e745eb0704beae6f0a5c91afc10b339143bfa0bf9b09a0f1dc360",
+  "labeler_sha256": "63ae8f3f5754351e3bad662577ad9950f7e5adb6eb5eacd2d5952e6141400c46"
+}

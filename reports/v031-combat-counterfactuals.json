@@ -1,0 +1,404 @@
+{
+  "note": "Diagnostic engine branches, not model inference or full-level completion. Recorded and recomputed baselines matched the original trace before any alternatives.",
+  "experiments": [
+    {
+      "name": "yellow-weapons",
+      "source_run": "runs/20260928_011020_615337_v031-movement-switch-map03-seed54",
+      "start": 37661,
+      "end": 37761,
+      "result_sha256": "55e429b5e8cb82f3b04ca04cc86d0ff972bf140d28e3363d4fab614888577561",
+      "trials": [
+        {
+          "variant": "recorded",
+          "weapon": null,
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0,
+            "weapon": 4.0
+          },
+          "final": {
+            "x": 2431.7613525390625,
+            "y": 287.5487365722656,
+            "z": 0.0,
+            "hp": 5.0,
+            "kills": 52.0,
+            "weapon": 4.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 43
+        },
+        {
+          "variant": "recomputed",
+          "weapon": null,
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0,
+            "weapon": 4.0
+          },
+          "final": {
+            "x": 2431.7613525390625,
+            "y": 287.5487365722656,
+            "z": 0.0,
+            "hp": 5.0,
+            "kills": 52.0,
+            "weapon": 4.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 43
+        },
+        {
+          "variant": "shotgun",
+          "weapon": 3,
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0,
+            "weapon": 4.0
+          },
+          "final": {
+            "x": 2358.831787109375,
+            "y": 242.58319091796875,
+            "z": 0.0,
+            "hp": -1.0,
+            "kills": 50.0,
+            "weapon": 3.0
+          },
+          "dead": true,
+          "ticks": 36,
+          "fire_ticks": 19
+        },
+        {
+          "variant": "rocket_launcher",
+          "weapon": 5,
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0,
+            "weapon": 4.0
+          },
+          "final": {
+            "x": 2359.194122314453,
+            "y": 242.60089111328125,
+            "z": 0.0,
+            "hp": -1.0,
+            "kills": 49.0,
+            "weapon": 5.0
+          },
+          "dead": true,
+          "ticks": 36,
+          "fire_ticks": 20
+        }
+      ]
+    },
+    {
+      "name": "yellow-movement",
+      "source_run": "runs/20260928_011020_615337_v031-movement-switch-map03-seed54",
+      "start": 37661,
+      "end": 37761,
+      "result_sha256": "8a8be91f1cb5be5f0466feb08d022dbb9719d55f5c7bb90857ae79f944877105",
+      "trials": [
+        {
+          "variant": "recorded",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2431.7613525390625,
+            "y": 287.5487365722656,
+            "z": 0.0,
+            "hp": 5.0,
+            "kills": 52.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 43
+        },
+        {
+          "variant": "recomputed",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2431.7613525390625,
+            "y": 287.5487365722656,
+            "z": 0.0,
+            "hp": 5.0,
+            "kills": 52.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 43
+        },
+        {
+          "variant": "stationary",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2364.120086669922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 51.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 55
+        },
+        {
+          "variant": "backward",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2431.7613525390625,
+            "y": 287.5487365722656,
+            "z": 0.0,
+            "hp": 5.0,
+            "kills": 52.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 43
+        },
+        {
+          "variant": "strafe_left",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2294.816146850586,
+            "y": -226.0724639892578,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 52.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 39
+        },
+        {
+          "variant": "strafe_right",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2336.0203857421875,
+            "y": 47.99150085449219,
+            "z": 0.0,
+            "hp": 29.0,
+            "kills": 52.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 45
+        },
+        {
+          "variant": "retained_recorded_facts",
+          "initial": {
+            "x": 2366.098602294922,
+            "y": 53.694366455078125,
+            "z": 0.0,
+            "hp": 50.0,
+            "kills": 49.0
+          },
+          "final": {
+            "x": 2431.7613525390625,
+            "y": 287.5487365722656,
+            "z": 0.0,
+            "hp": 5.0,
+            "kills": 52.0
+          },
+          "dead": false,
+          "ticks": 100,
+          "fire_ticks": 43
+        }
+      ]
+    },
+    {
+      "name": "second-movement",
+      "source_run": "runs/20260928_011020_615337_v031-movement-switch-map03-seed54",
+      "start": 19305,
+      "end": 19555,
+      "result_sha256": "492c6a72126189220e996aea726ddb8ee6f9cb6aa413b5e010d0e70bcc83438f",
+      "trials": [
+        {
+          "variant": "recorded",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2479.9842224121094,
+            "y": -624.8939208984375,
+            "z": 0.0,
+            "hp": 17.0,
+            "kills": 41.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 38
+        },
+        {
+          "variant": "recomputed",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2479.9842224121094,
+            "y": -624.8939208984375,
+            "z": 0.0,
+            "hp": 17.0,
+            "kills": 41.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 38
+        },
+        {
+          "variant": "stationary",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2372.1215209960938,
+            "y": -464.0244140625,
+            "z": 0.0,
+            "hp": 37.0,
+            "kills": 40.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 17
+        },
+        {
+          "variant": "backward",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2476.9691772460938,
+            "y": -599.46826171875,
+            "z": 0.0,
+            "hp": 17.0,
+            "kills": 41.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 38
+        },
+        {
+          "variant": "strafe_left",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2320.168228149414,
+            "y": -464.0067443847656,
+            "z": 0.0,
+            "hp": 37.0,
+            "kills": 40.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 17
+        },
+        {
+          "variant": "strafe_right",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2413.3213806152344,
+            "y": -440.01307678222656,
+            "z": 0.0,
+            "hp": 37.0,
+            "kills": 40.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 17
+        },
+        {
+          "variant": "retained_recorded_facts",
+          "initial": {
+            "x": 1893.0966339111328,
+            "y": -802.4859161376953,
+            "z": -33.0,
+            "hp": 37.0,
+            "kills": 39.0
+          },
+          "final": {
+            "x": 2479.9842224121094,
+            "y": -624.8939208984375,
+            "z": 0.0,
+            "hp": 17.0,
+            "kills": 41.0
+          },
+          "dead": false,
+          "ticks": 250,
+          "fire_ticks": 38
+        }
+      ]
+    }
+  ]
+}

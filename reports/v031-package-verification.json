@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "weights_sha256": "74eea1043aa584bf825fe25ac40be5fc7affc555c63dea8712b9b807ae9cafb6",
+  "api_loaded_from": "dist/laya-doom-v031",
+  "command_finish_route": {
+    "correct": 16,
+    "total": 16
+  },
+  "archive_files_verified": {
+    "MAP01": 45,
+    "MAP02": 45,
+    "MAP03": 45
+  },
+  "training_cache_identity": {
+    "weights_and_datasets": "4/4 match",
+    "parent_config": "3/3 match for trainers requiring exact config identity; command retention checks semantic weights and dataset identity"
+  },
+  "source_tests": {
+    "count": 336,
+    "skipped": 20,
+    "passed": true
+  },
+  "scope": "Package reload and diagnostic replay; gameplay evidence is the unchanged-weight series in v031-regression.json. Torch-dependent tests were checked separately in the model environment."
+}

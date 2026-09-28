@@ -25,7 +25,7 @@ def packet_for(s,controller):
     return packet
 
 
-def labels(packet,s,controller,attack_range=20,visible_threats=False):
+def labels(packet,s,controller,attack_range=20,visible_threats=False,all_labels=False):
     inventory=s['inventory'];questions=packet['questions'];targets=packet.get('targets',{})
     usable={int(k) for k,v in inventory.items() if v['owned'] and v['ammo']>=AMMO_COST[int(k)]}
     slot=next(k for k in (6,8,3,4,2,9,1) if k in usable)
@@ -113,7 +113,7 @@ def labels(packet,s,controller,attack_range=20,visible_threats=False):
     if action in packet.get('combat_actions',()) and 'combat' in questions:required.append('combat')
     for kind in required:
         if gold[kind] not in questions[kind]['criteria']:raise ValueError((kind,gold[kind],questions[kind]))
-    return {k:gold[k] for k in required}
+    return gold if all_labels else {k:gold[k] for k in required}
 
 
 def collect(output,seed,seconds,latency_ticks,attack_range=20,enemy_memory_ticks=70,visible_threats=False,no_monsters=False,combat_style='original',attack_turn_rate=9,max_deaths=None,attack_queue=False,floor_facts=False):

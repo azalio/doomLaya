@@ -1,4 +1,4 @@
-"""Request scheduling from elapsed time and observed inventory changes."""
+"""Request scheduling from elapsed time and observed changes; no action selection."""
 
 def inventory_signature(state,episode=0,include_ammo=False):
     from doomlib.combat import AMMO_COST
@@ -11,9 +11,15 @@ def inventory_signature(state,episode=0,include_ammo=False):
     return signature
 
 
-def request_reason(tick,last_request,interval_ticks,signature,last_signature,inventory_events=False):
+def visible_enemy_signature(state):
+    return frozenset(enemy['id'] for enemy in state['enemies'] if enemy.get('visible',True))
+
+
+def request_reason(tick,last_request,interval_ticks,signature,last_signature,inventory_events=False,
+                   *,visible_enemies=None,last_visible_enemies=None):
     if tick-last_request>=interval_ticks:return 'interval'
     if inventory_events and signature!=last_signature:return 'inventory_changed'
+    if visible_enemies is not None and visible_enemies-(last_visible_enemies or frozenset()):return 'enemy_appeared'
     return None
 
 

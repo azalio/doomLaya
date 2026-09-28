@@ -32,7 +32,10 @@ def main():
         total += size
         # Registered datasets retain raw observations and questions for API replay.
         dataset = name in registry and name.startswith("training/") and name.endswith(("/train.json", "/validation.json"))
-        limit_mib = 12 if dataset else 10
+        # Recorded command corrections retain full raw observations for replay.
+        # The finish-route training split is 13.2 MB; all datasets remain hashed
+        # in the registry, and ordinary source files retain the 10 MiB limit.
+        limit_mib = 16 if dataset else 10
         if size > limit_mib * 1024 * 1024:
             errors.append(f"file exceeds source budget of {limit_mib} MiB: {name}")
             continue

@@ -1,4 +1,4 @@
-"""Check command predictions against offline labels and retain category counts."""
+"""Check head predictions against offline labels and retain category counts."""
 import argparse, collections, hashlib, json, sys, time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -8,6 +8,7 @@ from agent import LayaClient
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('data', type=Path)
+    parser.add_argument('--kind', choices=('command','switch','movement','weapon'), default='command')
     parser.add_argument('--endpoint', default='http://127.0.0.1:8002/predict')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
@@ -25,10 +26,10 @@ def main():
     rows = json.loads(args.data.read_text())
     cases = []
     for index, row in enumerate(rows):
-        assert row['kind'] == 'command'
-        answer = client.predict(row['state'], {'command': row['question']})
+        assert row['kind'] == args.kind
+        answer = client.predict(row.get('raw_state', row['state']), {args.kind: row['question']})
         assert answer['routing']['weights_sha256'] == health['weights_sha256']
-        choice = answer['answers']['command']['choice']
+        choice = answer['answers'][args.kind]['choice']
         cases.append(dict(index=index, choice=choice, expected=row['label'], category=row['category'], correct=choice == row['label']))
         if index % 100 == 0:
             print(index, len(rows), flush=True)

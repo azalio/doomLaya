@@ -22,6 +22,8 @@ def main():
     parser.add_argument("--item-head-checkpoint", help="Use a separately trained item head with the identical frozen encoder")
     parser.add_argument("--head-checkpoint", action="append", default=[], metavar="QUESTION=PATH", help="Use a fixed question-specific head; repeat for multiple questions")
     parser.add_argument("--item-without-goal", action="store_true", help="Omit only the previous command line for the item head; preserves all physical facts and choices")
+    parser.add_argument("--command-compact-facts", action="store_true", help="Use compact observed combat, inventory, resources and mechanism facts for the trained command head")
+    parser.add_argument("--command-key-facts", action="store_true", help="Expose the observed reachable keys to a command head trained on this input")
     parser.add_argument("--command-without-goal", action="store_true", help="Omit only the previous command line for the command head; preserves execution results, facts and choices")
     parser.add_argument("--enemy-without-goal", action="store_true", help="Omit only the previous command line for the enemy head; preserves enemy facts and all target choices")
     parser.add_argument("--enemy-compact-facts", action="store_true", help="Use the trained sequence head with compact health/inventory state; retain all target facts and orders")
@@ -51,6 +53,12 @@ def main():
         parser.error("Question-specific heads require doom-adapted")
     if args.item_without_goal and "item" not in head_specs:
         parser.error("--item-without-goal requires an explicit item head")
+    if args.command_compact_facts and "command" not in head_specs:
+        parser.error("--command-compact-facts requires an explicit command head")
+    if args.command_compact_facts and (args.command_key_facts or args.command_without_goal):
+        parser.error("Choose one command input projection")
+    if args.command_key_facts and "command" not in head_specs:
+        parser.error("--command-key-facts requires an explicit command head")
     if args.command_without_goal and "command" not in head_specs:
         parser.error("--command-without-goal requires an explicit command head")
     if args.enemy_without_goal and "enemy" not in head_specs:
@@ -104,11 +112,17 @@ def main():
                 loaded[head_root] = load_head(model, root, head_root)
             overrides[question] = loaded[head_root]
             head_metadata[question] = {"checkpoint": head_root.name, "weights_sha256": digest(head_root / "model.safetensors")}
+            if loaded[head_root].numeric_residual_metadata:
+                if question != loaded[head_root].numeric_residual_question: raise ValueError("Numeric residual routed to the wrong question")
+                head_metadata[question].update(loaded[head_root].numeric_residual_metadata)
+                if question == 'switch':
+                    head_metadata[question].update(input_projection=loaded[head_root].cfg['doom_adaptation']['input_projection'],
+                                                   state_projection='full')
         for question in ("enemy","movement"):
             if question in overrides:
                 question_format=overrides[question].cfg.get("doom_adaptation",{}).get("question_format")
                 if question_format:head_metadata[question]["question_format"]=question_format
-        if 'movement' in overrides and head_metadata['movement'].get('question_format')=='movement-compact-v1' and not args.movement_compact_facts:
+        if 'movement' in overrides and head_metadata['movement'].get('question_format') in ('movement-compact-v1','movement-compact-v2-enemy-type') and not args.movement_compact_facts:
             raise ValueError('Compact movement head requires --movement-compact-facts')
         if 'enemy' in overrides and overrides['enemy'].cfg.get('doom_adaptation',{}).get('input_projection')=='enemy-compact-v1' and not args.enemy_compact_facts:
             raise ValueError('Compact enemy head requires --enemy-compact-facts')
@@ -117,11 +131,18 @@ def main():
         if args.enemy_rank_facts:
             from doomlib.enemy_ranking import FORMAT
             if overrides['enemy'].cfg.get('doom_adaptation',{}).get('input_projection')!=FORMAT:raise ValueError('Enemy head was not trained for target ranking')
-            head_metadata['enemy'].update(input_projection=FORMAT,state_projection=FORMAT,composition='plackett-luce-nonempty-v1')
+            head_metadata['enemy'].update(input_projection=FORMAT,state_projection=FORMAT)
+            if overrides['enemy'].numeric_residual_metadata:
+                head_metadata['enemy']['sequence_composition']='plackett-luce-nonempty-v1'
+            else:
+                head_metadata['enemy']['composition']='plackett-luce-nonempty-v1'
         if args.movement_compact_facts:
             from doomlib.compact_movement import FORMAT
-            if head_metadata["movement"].get("question_format")!=FORMAT:raise ValueError("Movement head was not trained on compact inputs")
-            head_metadata["movement"]["input_projection"]=FORMAT
+            from doomlib.typed_movement import PROJECTION as TYPED_FORMAT
+            trained_format=overrides['movement'].cfg.get('doom_adaptation',{}).get('input_projection')
+            projection=trained_format if trained_format==TYPED_FORMAT else FORMAT
+            if head_metadata['movement'].get('question_format')!=projection:raise ValueError('Movement head was not trained on compact inputs')
+            head_metadata['movement']['input_projection']=projection
         if args.enemy_compact_facts:
             from doomlib.compact_enemy import FORMAT
             if overrides['enemy'].cfg.get('doom_adaptation',{}).get('input_projection')!=FORMAT:raise ValueError('Enemy head was not trained on compact inputs')
@@ -149,13 +170,23 @@ def main():
             head_metadata["look_gate"].update(composition="probability-mixture-v1",input_projection="observed-look-facts-v2-optional-floor")
         if args.item_without_goal and not (args.item_compact_facts or args.item_category_facts):
             head_metadata["item"]["state_projection"] = "without-current-command-v1"
-        if args.command_without_goal:
+        if args.command_without_goal and not args.command_key_facts:
             head_metadata["command"]["state_projection"] = "without-current-command-v1"
+        if "command" in overrides:
+            from doomlib.command_keys import FORMAT
+            trained=overrides["command"].cfg.get("doom_adaptation",{}).get("input_projection")==FORMAT
+            if trained!=args.command_key_facts:raise ValueError("Command head and --command-key-facts format differ")
+            if trained:head_metadata["command"].update(input_projection=FORMAT,state_projection=FORMAT)
+            from doomlib.command_facts import FORMAT as COMPACT_COMMAND_FORMAT, STABLE_FORMAT as STABLE_COMMAND_FORMAT, BINNED_FORMAT as BINNED_COMMAND_FORMAT
+            compact_format=overrides["command"].cfg.get("doom_adaptation",{}).get("input_projection")
+            compact_trained=compact_format in (COMPACT_COMMAND_FORMAT, STABLE_COMMAND_FORMAT, BINNED_COMMAND_FORMAT)
+            if compact_trained!=args.command_compact_facts:raise ValueError("Command head and --command-compact-facts format differ")
+            if compact_trained:head_metadata["command"].update(input_projection=compact_format,state_projection=compact_format)
         if args.enemy_compact_facts:
             head_metadata["enemy"]["state_projection"] = "enemy-compact-v1"
         elif args.enemy_without_goal and not args.enemy_rank_facts:
             head_metadata["enemy"]["state_projection"] = "without-current-command-v1"
-        inference = QuestionHeads(model, overrides, item_without_goal=args.item_without_goal, command_without_goal=args.command_without_goal, enemy_without_goal=args.enemy_without_goal, movement_compact_facts=args.movement_compact_facts, enemy_compact_facts=args.enemy_compact_facts, enemy_rank_facts=args.enemy_rank_facts, weapon_compact_facts=args.weapon_compact_facts, item_compact_facts=args.item_compact_facts, item_category_facts=args.item_category_facts)
+        inference = QuestionHeads(model, overrides, item_without_goal=args.item_without_goal, command_without_goal=args.command_without_goal, enemy_without_goal=args.enemy_without_goal, movement_compact_facts=args.movement_compact_facts, enemy_compact_facts=args.enemy_compact_facts, enemy_rank_facts=args.enemy_rank_facts, weapon_compact_facts=args.weapon_compact_facts, item_compact_facts=args.item_compact_facts, item_category_facts=args.item_category_facts,command_key_facts=args.command_key_facts,command_compact_facts=args.command_compact_facts)
         warmup_questions={question: {"type": "choice", "instructions": "Choose the available option.", "criteria": {"ready": "Ready"}} for question in overrides}
         warmup_state="Inference warmup"
         if args.movement_compact_facts:
@@ -176,6 +207,17 @@ def main():
         if args.item_category_facts:
             warmup_state+='\nItems: Stimpack#1 [Health] 2.0m.'
             warmup_questions['item']=dict(type='choice',instructions='Choose item',criteria={'1':'Stimpack; reachable; 2.0m.'})
+        if args.command_key_facts or args.command_compact_facts:warmup_state+="\nReachable items: none."
+        if args.command_compact_facts:
+            if not any(line.startswith("HP ") for line in warmup_state.splitlines()):warmup_state+="\nHP 100; armor 0.\nInventory: pistol 50 ammo."
+            warmup_state+="\nCollected keys: none."
+        if "command" in overrides and overrides["command"].numeric_residual_metadata:
+            warmup_questions["command"] = dict(type="choice", instructions="Choose a command.", criteria={"wait":"Wait", "explore":"Explore"})
+        if "switch" in overrides and overrides["switch"].numeric_residual_metadata:
+            if not any(line.startswith("Collected keys:") for line in warmup_state.splitlines()):
+                warmup_state += "\nCollected keys: none."
+            warmup_questions["switch"] = dict(type="choice", instructions="Choose a mechanism.", criteria={
+                "1": "Activate door switch #1 to open a closed passage. Distance 5.0m."})
         inference.predict(warmup_state,warmup_questions)
         print("QUESTION_HEADS", json.dumps(head_metadata), flush=True)
     if args.precision == "encoder-bfloat16":

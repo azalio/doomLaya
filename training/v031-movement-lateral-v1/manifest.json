@@ -1,0 +1,38 @@
+{
+  "input_projection": "movement-compact-v1",
+  "sources": {
+    "training/v031-movement-numeric-v1/train.json": "feee27417292ef02ed2b19bd42ff65145433b0b2ca8e8656ef3fb98d599fc2af",
+    "training/v031-movement-numeric-v1/validation.json": "1fbdc1caadffa3e33e2abbaf735048ab98c49ebaaaf3682fd64796cb1e36a5f0"
+  },
+  "note": "Same inputs, ordering and splits; offline lateral-first labels replace retreat-first labels. Retain a lateral direction while 2m are clear. Backward remains available when both sides are blocked and a threat is near. Evidence from two replayed MAP03 combat windows; this is not independent gameplay proof.",
+  "evidence": [
+    "runs/v031-map03-yellow-movement.json",
+    "runs/v031-map03-second-movement.json"
+  ],
+  "labeler_sha256": "8cd20869fd8d3e594828df9e7735576ea7383d504668092ce75a9d96ec8c809d",
+  "builder_sha256": "3731179eedc051edc7f2bba3bddf3cdf04289a7dae1dd3b18be1c3ce08181465",
+  "splits": {
+    "train": {
+      "rows": 1132,
+      "changed": 307,
+      "sha256": "a3c74cdb3540c8dfd4ad057a96e8d7113778e2c39fa7a04147aac0909e210857",
+      "categories": {
+        "lateral_strafe_left": 488,
+        "lateral_strafe_right": 496,
+        "lateral_stationary": 117,
+        "lateral_backward": 31
+      }
+    },
+    "validation": {
+      "rows": 740,
+      "changed": 270,
+      "sha256": "8986510f2c2a4aa2305f9ba83cb8e7a1fac6b71e524ddb56195034be94afa990",
+      "categories": {
+        "lateral_strafe_left": 317,
+        "lateral_backward": 16,
+        "lateral_strafe_right": 338,
+        "lateral_stationary": 69
+      }
+    }
+  }
+}

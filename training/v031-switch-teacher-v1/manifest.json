@@ -1,0 +1,27 @@
+{
+  "input_projection": "full-switch-observations-v1",
+  "sources": {
+    "runs/v031-retreat-key-teacher-questions.json": "7f21967297febc7703cdd8cba63ebec2523e779437d92001601ba95412194e13",
+    "training/v031-switch-collected-v3/train.json": "ec797a7bb1753e3808354d9abc4446cf5a9240de3d75855decaa9ca7c314d24f",
+    "training/v031-switch-collected-v3/validation.json": "71d289d4739a8c88960333132e67e94795f6fd9358c4a9fbdc353aabbcd4140d"
+  },
+  "added": {
+    "validation": 36,
+    "train": 78
+  },
+  "duplicates": {
+    "teacher": 1
+  },
+  "splits": {
+    "train": {
+      "rows": 951,
+      "sha256": "fe755cde2ab3d98402488ca03db0520437bdd1b5cc0786b3a80f4801534d9ab3"
+    },
+    "validation": {
+      "rows": 305,
+      "sha256": "288e307b5b034e724e14cf29eed01a72a6947d8b3670f2a35230b4b0d42020ae"
+    }
+  },
+  "builder_sha256": "bdae86886a9a2690661a29a9bf89185ac937bb4d70eb5298e3b2c1e891e3ea7a",
+  "note": "Original splits and labels retained. New teacher observations use every fifth 20-second block for validation. Same-map development, no held-out map or seed claim. IDs remain in frozen text but are excluded from numeric features."
+}

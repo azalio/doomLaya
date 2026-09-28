@@ -1,0 +1,251 @@
+[
+  {
+    "note": "Offline target-continuation counterfactual; never used by the live controller.\n\nKeep recorded movement, use and weapon buttons. Recompute only aim and fire.\nThe alternative retains one initially observed target while it remains known;\nit prepends that target to each recorded firing plan, with at most three members.\nEvery branch starts from the same replayed prefix. This is not model inference.\n",
+    "source_run": "runs/20260928_020554_834079_v031-lateral-weapons-map03-seed54",
+    "start": 1940,
+    "end": 2068,
+    "first_target": {
+      "name": "ShotgunGuy",
+      "id": 97,
+      "x": -753.7745361328125,
+      "y": 222.2254638671875,
+      "z": -4.0,
+      "distance": 9.29,
+      "bearing": -1.3,
+      "aim_bearing": -1.1636604977663605,
+      "visible": true
+    },
+    "results": [
+      {
+        "variant": "recorded",
+        "initial": {
+          "x": -463.70416259765625,
+          "y": 287.6199188232422,
+          "z": 24.0,
+          "hp": 74.0,
+          "kills": 15.0
+        },
+        "final": {
+          "x": -657.0425720214844,
+          "y": 430.6384735107422,
+          "z": 0.0,
+          "hp": 6.0,
+          "kills": 19.0
+        },
+        "dead": false,
+        "ticks": 128,
+        "first_target_removed": 2063,
+        "fire_ticks": 93
+      },
+      {
+        "variant": "recomputed",
+        "initial": {
+          "x": -463.70416259765625,
+          "y": 287.6199188232422,
+          "z": 24.0,
+          "hp": 74.0,
+          "kills": 15.0
+        },
+        "final": {
+          "x": -657.0425720214844,
+          "y": 430.6384735107422,
+          "z": 0.0,
+          "hp": 6.0,
+          "kills": 19.0
+        },
+        "dead": false,
+        "ticks": 128,
+        "first_target_removed": 2063,
+        "fire_ticks": 93
+      },
+      {
+        "variant": "continue_observed_target",
+        "initial": {
+          "x": -463.70416259765625,
+          "y": 287.6199188232422,
+          "z": 24.0,
+          "hp": 74.0,
+          "kills": 15.0
+        },
+        "final": {
+          "x": -657.8726196289062,
+          "y": 343.9189453125,
+          "z": -4.0,
+          "hp": 57.0,
+          "kills": 19.0
+        },
+        "dead": false,
+        "ticks": 128,
+        "first_target_removed": 1952,
+        "fire_ticks": 79
+      }
+    ],
+    "report_sha256": "ec4bd0ee0ef5d3d1c1d153ddd9a4debb5cd5ae15002b9c5f4a882b90ca278349"
+  },
+  {
+    "note": "Offline target-continuation counterfactual; never used by the live controller.\n\nKeep recorded movement, use and weapon buttons. Recompute only aim and fire.\nThe alternative retains one initially observed target while it remains known;\nit prepends that target to each recorded firing plan, with at most three members.\nEvery branch starts from the same replayed prefix. This is not model inference.\n",
+    "source_run": "runs/20260928_020554_834079_v031-lateral-weapons-map03-seed54",
+    "start": 12238,
+    "end": 12495,
+    "first_target": {
+      "name": "Demon",
+      "id": 144,
+      "x": -512.9043121337891,
+      "y": -311.39964294433594,
+      "z": 0.0,
+      "distance": 2.65,
+      "bearing": 11.9,
+      "aim_bearing": 12.595144175804332,
+      "visible": true
+    },
+    "results": [
+      {
+        "variant": "recorded",
+        "initial": {
+          "x": -594.8906707763672,
+          "y": -333.05328369140625,
+          "z": -4.0,
+          "hp": 77.0,
+          "kills": 23.0
+        },
+        "final": {
+          "x": -695.1184387207031,
+          "y": -273.5690460205078,
+          "z": -4.0,
+          "hp": 1.0,
+          "kills": 25.0
+        },
+        "dead": false,
+        "ticks": 257,
+        "first_target_removed": 12492,
+        "fire_ticks": 95
+      },
+      {
+        "variant": "recomputed",
+        "initial": {
+          "x": -594.8906707763672,
+          "y": -333.05328369140625,
+          "z": -4.0,
+          "hp": 77.0,
+          "kills": 23.0
+        },
+        "final": {
+          "x": -695.1184387207031,
+          "y": -273.5690460205078,
+          "z": -4.0,
+          "hp": 1.0,
+          "kills": 25.0
+        },
+        "dead": false,
+        "ticks": 257,
+        "first_target_removed": 12492,
+        "fire_ticks": 95
+      },
+      {
+        "variant": "continue_observed_target",
+        "initial": {
+          "x": -594.8906707763672,
+          "y": -333.05328369140625,
+          "z": -4.0,
+          "hp": 77.0,
+          "kills": 23.0
+        },
+        "final": {
+          "x": -613.384033203125,
+          "y": -262.4117126464844,
+          "z": -4.0,
+          "hp": -11.0,
+          "kills": 23.0
+        },
+        "dead": true,
+        "ticks": 169,
+        "first_target_removed": null,
+        "fire_ticks": 78
+      }
+    ],
+    "report_sha256": "e1f362d41e33a60c8a649e780a5867fad1df2f511c932ce765deb6946b61c377"
+  },
+  {
+    "note": "Offline target-continuation counterfactual; never used by the live controller.\n\nKeep recorded movement, use and weapon buttons. Recompute only aim and fire.\nThe alternative retains one initially observed target while it remains known;\nit prepends that target to each recorded firing plan, with at most three members.\nEvery branch starts from the same replayed prefix. This is not model inference.\n",
+    "source_run": "runs/20260928_020554_834079_v031-lateral-weapons-map03-seed54",
+    "start": 1940,
+    "end": 2068,
+    "first_target": {
+      "name": "Zombieman",
+      "id": 95,
+      "x": -736.803955078125,
+      "y": 299.313720703125,
+      "z": -6.0,
+      "distance": 8.54,
+      "bearing": 13.8,
+      "aim_bearing": 14.12047094053258,
+      "visible": true
+    },
+    "results": [
+      {
+        "variant": "recorded",
+        "initial": {
+          "x": -463.70416259765625,
+          "y": 287.6199188232422,
+          "z": 24.0,
+          "hp": 74.0,
+          "kills": 15.0
+        },
+        "final": {
+          "x": -657.0425720214844,
+          "y": 430.6384735107422,
+          "z": 0.0,
+          "hp": 6.0,
+          "kills": 19.0
+        },
+        "dead": false,
+        "ticks": 128,
+        "first_target_removed": null,
+        "fire_ticks": 93
+      },
+      {
+        "variant": "recomputed",
+        "initial": {
+          "x": -463.70416259765625,
+          "y": 287.6199188232422,
+          "z": 24.0,
+          "hp": 74.0,
+          "kills": 15.0
+        },
+        "final": {
+          "x": -657.0425720214844,
+          "y": 430.6384735107422,
+          "z": 0.0,
+          "hp": 6.0,
+          "kills": 19.0
+        },
+        "dead": false,
+        "ticks": 128,
+        "first_target_removed": null,
+        "fire_ticks": 93
+      },
+      {
+        "variant": "continue_observed_target",
+        "initial": {
+          "x": -463.70416259765625,
+          "y": 287.6199188232422,
+          "z": 24.0,
+          "hp": 74.0,
+          "kills": 15.0
+        },
+        "final": {
+          "x": -676.8354339599609,
+          "y": 292.2266845703125,
+          "z": -4.0,
+          "hp": 51.0,
+          "kills": 19.0
+        },
+        "dead": false,
+        "ticks": 128,
+        "first_target_removed": 1952,
+        "fire_ticks": 91
+      }
+    ],
+    "report_sha256": "1917393494bd69e0f5530a98a0c5c77e0d70f78ae51fd7e61d5c2368336f94ea"
+  }
+]

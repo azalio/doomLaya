@@ -81,7 +81,7 @@ class Recorder:
         self.process = subprocess.Popen([
             'ffmpeg', '-hide_banner', '-loglevel', 'error', '-n',
             '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', '1920x1080', '-r', str(fps),
-            '-i', '-', '-an', '-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '24',
+            '-i', '-', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '24', '-threads', '2',
             '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(self.path),
         ], stdin=subprocess.PIPE)
         self.frames = 0

@@ -1,0 +1,29 @@
+{
+  "note": "Offline teacher only, no neural decisions. Current executor and identical MAP03 seed 54 skill 3. The typed movement variant stopped at its predeclared one-death limit; this is not a full-budget failure. Unchanged focused-retreat completed without dying.",
+  "runs": [
+    {
+      "run": "runs/v031-teacher-ceiling-focused",
+      "summary_sha256": "67cdfa90f08d0a671348f780d389e24c9da6dcd4c59e664d3bd3a25599bfff60",
+      "map_completed": true,
+      "game_seconds": 374.7142857142857,
+      "deaths": 0,
+      "seconds": 1200,
+      "max_deaths": null,
+      "model_inference": false,
+      "latency_ticks": 16,
+      "diagnostic_policy": null
+    },
+    {
+      "run": "runs/v031-teacher-ceiling-typed",
+      "summary_sha256": "ac0d9cff5fe484de7728b18d56f091227955cd349c416719edfd608f29ba33db",
+      "map_completed": false,
+      "game_seconds": 63.57142857142857,
+      "deaths": 1,
+      "seconds": 1200,
+      "max_deaths": 1,
+      "model_inference": false,
+      "latency_ticks": 16,
+      "diagnostic_policy": "offline-teacher-movement-typed"
+    }
+  ]
+}

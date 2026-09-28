@@ -1,0 +1,54 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "builder_sha256": "5fb7b7da334e854c371e4368c070ffbfaaefaf39b85a169431fc98769988de00",
+    "sources": {
+      "runs/20260928_002124_130927_v031-close-health-map02-seed54/decisions.jsonl": "4d50bad9a32433e90a44aaf4248b6d2b105b90861fa58c3350624ca0666c60c2",
+      "training/v031-switch-regression-v2/manifest.json": "7eedfa33ad7323d850b2ec34f0df7b057ccf24056b7d844a7c23f74c955c78de"
+    },
+    "added": {
+      "train": 116,
+      "validation": 23
+    },
+    "splits": {
+      "train": {
+        "rows": 873,
+        "sha256": "0cce73263a160a2b303eb6b782b73642951243fd7e36e130239081a259b9eb90",
+        "categories": {
+          "use_switch": 400,
+          "map03_route": 277,
+          "map2_switch_loop": 80,
+          "collected_key_route": 116
+        }
+      },
+      "validation": {
+        "rows": 269,
+        "sha256": "82794d952cc452f630cff8db46ddc5b89872cee43a15f03588e57acccb8949a0",
+        "categories": {
+          "use_switch": 150,
+          "map03_route": 80,
+          "map2_switch_loop": 16,
+          "collected_key_route": 23
+        }
+      }
+    },
+    "note": "Offline correction of completed-key routes; in-progress nearby lifts are retained. Four-second blocks, every fifth block for validation; goal variants stay together. Same-map development, no runtime rule and no held-out claim."
+  },
+  "sources": {
+    "training/v031-switch-collected-v2/train.json": "0cce73263a160a2b303eb6b782b73642951243fd7e36e130239081a259b9eb90",
+    "training/v031-switch-collected-v2/validation.json": "82794d952cc452f630cff8db46ddc5b89872cee43a15f03588e57acccb8949a0"
+  },
+  "checkpoint_config_sha256": "f262ad823ea7ec029ae11e18743fe515776e4e4b92362028c82a7c857931d9c2",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 873,
+      "sha256": "ec797a7bb1753e3808354d9abc4446cf5a9240de3d75855decaa9ca7c314d24f"
+    },
+    "validation": {
+      "rows": 269,
+      "sha256": "71d289d4739a8c88960333132e67e94795f6fd9358c4a9fbdc353aabbcd4140d"
+    }
+  }
+}

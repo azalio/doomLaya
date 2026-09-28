@@ -10,13 +10,31 @@ the controller builds the route, aims and presses buttons on its command.
 (Russian originals: [TRAINING](docs/TRAINING.md), [COMPARISON](docs/COMPARISON.md),
 [PUBLISHING](docs/PUBLISHING.md), [DOOM](docs/DOOM.md))
 
+## v0.3.1: MAP01–MAP03 regression fix
+
+One fixed checkpoint bundle completed MAP01 in 168.400 s, MAP02 in
+420.400 s and MAP03 in 347.114 s, with no deaths. Each recording includes
+three seconds of the next map. The controller executes model decisions.
+Responses are applied when received; actual RTT remains measured.
+MAP01 retains a navigation warning: 32.23 s without a new region against
+a 25 s limit. This is one final series on the development seeds.
+[Reproduction and training (Russian)](docs/REGRESSION-FIX.md) ·
+[Verification and recording hashes](reports/v031-regression.json).
+
+[v0.3.1 weights](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.1) ·
+[MAP01 video](https://github.com/azalio/doomLaya/releases/download/v0.3.1/laya-map01.mp4) ·
+[MAP02 video](https://github.com/azalio/doomLaya/releases/download/v0.3.1/laya-map02.mp4) ·
+[MAP03 video](https://github.com/azalio/doomLaya/releases/download/v0.3.1/laya-map03.mp4).
+
 ## v0.3.0: MAP03 → MAP04
 
 Laya completed MAP03 in 819.914 s: seed 54, skill 3, four deaths.
 The recording includes three seconds on MAP04. Model-authority and recording
 checks passed. The overall quality gate failed: stationary time reached
-141.83 s. This is one successful development run; this checkpoint set has
-not been revalidated on MAP01/MAP02 or compared with Jev on MAP03.
+141.83 s. This is one successful development run. In the
+[regression check](docs/REGRESSION-v0.3.0.md), this checkpoint set failed to
+complete MAP01 within 180 s and MAP02 within 1800 s on the previous seeds.
+Jev has not been tested on MAP03.
 
 [Weights](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.0) ·
 [Setup and training (Russian)](docs/MAP03.md) ·

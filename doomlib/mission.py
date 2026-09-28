@@ -144,6 +144,12 @@ class Mission:
         if not self.exit:return None
         center=self.exit['center']
         if math.dist((s['x'],s['y']),center)>60:return None
+        if self.exit['use']:
+            # USE specials only respond from the linedef front side. Keep
+            # navigating to the mapped approach when close from behind.
+            approach=self.exit['approach']
+            side=(s['x']-center[0])*(approach[0]-center[0])+(s['y']-center[1])*(approach[1]-center[1])
+            if side<=0:return None
         angle=math.degrees(math.atan2(center[1]-s['y'],center[0]-s['x']))
         turn=-((angle-s['angle']+180)%360-180)
         return [float(not self.exit['use'] and abs(turn)<15),0,0,0,

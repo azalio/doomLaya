@@ -1,0 +1,662 @@
+{
+  "started_at": "2026-09-28T04:45:37.907929+00:00",
+  "model": {
+    "weights_sha256": "74eea1043aa584bf825fe25ac40be5fc7affc555c63dea8712b9b807ae9cafb6",
+    "question_heads": {
+      "default": {
+        "checkpoint": "laya-map2-explicit-v2",
+        "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+      },
+      "command": {
+        "checkpoint": "laya-v031-command-key-retained-v1",
+        "weights_sha256": "8abaf91af970d4494e4504bd47f32b820130ea58a527076903e1b6ecccc825c6",
+        "composition": "laya-command-numeric-residual-v2",
+        "numeric_residual_weights_sha256": "072b09627912b03cc6783cb0ecb893c8a40db2ff8841b1d73666138a567e4d00",
+        "numeric_residual_spec_sha256": "aebd31e851352f5ec34ac4a4fb68dd8fbe2f81408b9d5dfa532788b7e5fee89d",
+        "input_projection": "command-observed-facts-v2-lift-context",
+        "state_projection": "command-observed-facts-v2-lift-context"
+      },
+      "enemy": {
+        "checkpoint": "laya-v031-enemy-visibility-v2",
+        "weights_sha256": "2dadaa4e56a3d5a7251971b7131be582d6ed0032e3348280ce7b64dae672a1b0",
+        "question_format": "enemy-sequence-v1",
+        "input_projection": "enemy-ranking-v1",
+        "state_projection": "enemy-ranking-v1",
+        "composition": "plackett-luce-nonempty-v1"
+      },
+      "item": {
+        "checkpoint": "laya-v031-item-balanced-v1",
+        "weights_sha256": "a157ac527a19aed507d4108a0533edcf8882f977d7e5af683ee633eb6302e674",
+        "composition": "laya-item-numeric-residual-v1",
+        "numeric_residual_weights_sha256": "66941a690626cd8611e4915679d4fac16173d643d383ed2517d32a4678054296",
+        "numeric_residual_spec_sha256": "806bcb73b6d2af2c55ae0a74c1be3a79cbbf2480f5d6351bef5a024536cf0267",
+        "input_projection": "item-category-v2",
+        "state_projection": "item-category-v2"
+      },
+      "look_gate": {
+        "checkpoint": "laya-map3-look-floor-v2",
+        "weights_sha256": "221ca2c80d3a105826097f0590fe22f78630c965bb6c50810e41fe12a578d10c",
+        "composition": "probability-mixture-v1",
+        "input_projection": "observed-look-facts-v2-optional-floor"
+      },
+      "movement": {
+        "checkpoint": "laya-v031-movement-numeric-v1",
+        "weights_sha256": "437f49e66cd5393cf2654ce2dbb51fd1902b3ce1b19df62120709c7441d012fc",
+        "composition": "laya-movement-numeric-residual-v1",
+        "numeric_residual_weights_sha256": "0eecf2e3ba12fa2f9b7e1849e5e7dc77dcf611d5f1f82d3aee0b5bb55415ed31",
+        "numeric_residual_spec_sha256": "02fd8b2fb327e840f9d99916c5d3a1c7236e6ff640e113454bec822c252cfa3a",
+        "question_format": "movement-compact-v1",
+        "input_projection": "movement-compact-v1"
+      },
+      "switch": {
+        "checkpoint": "laya-v031-switch-numeric-v1",
+        "weights_sha256": "9a76f29220c7f40995218b4c59fcfb33ae9e2f0590bb1f1b0f0bd2f646323685",
+        "composition": "laya-switch-numeric-residual-v1",
+        "numeric_residual_weights_sha256": "6f6d2eebd82748b6d57960ab8ca4a3c40046eb80161571a95c9a8c37f9216638",
+        "numeric_residual_spec_sha256": "cd1692dcee0ce6825c63f75871ffb17d151c671bbf8c9483e9da4a58271e9239",
+        "input_projection": "full-switch-observations-v1",
+        "state_projection": "full"
+      },
+      "weapon": {
+        "checkpoint": "laya-v031-weapon-boundary-v2",
+        "weights_sha256": "7c8d3f2abc37bfad7edf1a5cf6c4ddb10495311bf7bb5df15d41f35556a56785",
+        "input_projection": "weapon-compact-v1",
+        "state_projection": "weapon-compact-v1"
+      },
+      "shared_encoder_verified": true
+    },
+    "inference_precision": "float32",
+    "laya_source_commit": "42626c348753fbb17572a813127df2278a1ec527",
+    "decoding": {
+      "method": "argmax",
+      "temperature": 0.0,
+      "seed": 0,
+      "questions": null
+    }
+  },
+  "cases": [
+    {
+      "map": "MAP03",
+      "seed": 54,
+      "seconds": 1200,
+      "skill": 3
+    },
+    {
+      "map": "MAP01",
+      "seed": 48,
+      "seconds": 180,
+      "skill": 3
+    },
+    {
+      "map": "MAP02",
+      "seed": 54,
+      "seconds": 1800,
+      "skill": 3
+    }
+  ],
+  "common_flags": [
+    "--decision-format",
+    "committed",
+    "--question-schedule",
+    "conditional",
+    "--interval",
+    "0.5",
+    "--minimum-decision-delay-ticks",
+    "0",
+    "--explicit-actions",
+    "--explicit-movement",
+    "--movement-facts",
+    "--movement-obstacle-facts",
+    "--refresh-attack-target",
+    "--enemy-visibility-facts",
+    "--enemy-commitment-facts",
+    "--enemy-sequences",
+    "--look-gate",
+    "--floor-hazard-facts",
+    "--attack-turn-rate",
+    "9",
+    "--weapon-sensor",
+    "--map-weapons",
+    "--reachable-items",
+    "--mechanism-facts",
+    "--combat-during-navigation",
+    "--pickup-recent-targets",
+    "--inventory-events",
+    "--ammo-events",
+    "--mask-unreachable-items",
+    "--skill",
+    "3",
+    "--record",
+    "auto",
+    "--stop-after-level"
+  ],
+  "minimum_next_map_ticks": 105,
+  "results": [
+    {
+      "map": "MAP03",
+      "run": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54",
+      "passed": true,
+      "verifier_exit": 0,
+      "verification": {
+        "experiment_valid": true,
+        "passed": true,
+        "errors": [],
+        "level_completed": true,
+        "acceptance_errors": [],
+        "authority": {
+          "pass": true,
+          "frames": 12255,
+          "accepted_decisions": 684,
+          "errors": [],
+          "level_completed": true,
+          "final_map": "MAP04"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 4.6,
+          "max_stationary_seconds": 3.06,
+          "max_stationary_turn_reversals_per_second": 2,
+          "max_no_new_cell_seconds": 14.29,
+          "max_no_new_region_seconds": 24.86,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 8
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 1.086,
+          "max_model_upgrade_choice_delay_seconds": 0.629,
+          "worst_upgrade_delay": {
+            "tick": 75,
+            "seconds": 2.143,
+            "episode": 0,
+            "equipped": 2,
+            "available_upgrade": 3,
+            "model_selected": 3
+          }
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "12255"
+            }
+          ],
+          "format": {
+            "duration": "350.142857"
+          }
+        },
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 347.114,
+            "map": "MAP03",
+            "alive": true,
+            "engine_finished": true
+          }
+        ]
+      },
+      "summary": {
+        "kills": 73,
+        "deaths": 0,
+        "decisions": 684,
+        "errors": 0,
+        "pickups": 6,
+        "levels_completed": 1,
+        "doors_opened": 21,
+        "stuck_recoveries": 1,
+        "bumps": 0,
+        "damage": 199.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP04",
+        "game_seconds": 350.143,
+        "wall_seconds": 350.133,
+        "latency_ms_median": 309.47,
+        "latency_ms_p90": 367.67,
+        "minimum_decision_delay_ticks": 0,
+        "decision_application_ms_median": 342.857,
+        "decision_application_ms_p90": 400.0,
+        "input_tokens_total": 1049818,
+        "input_tokens_avg": 1534.82,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.2346,
+        "video_frames": 12255
+      },
+      "artifacts": {
+        "video.mp4": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/video.mp4",
+          "bytes": 170767605,
+          "sha256": "f47dda156c3f4f1572e09153754c124685bf9e2d82b31eb67eb2b606e265f1e6"
+        },
+        "telemetry.jsonl": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/telemetry.jsonl",
+          "bytes": 89278025,
+          "sha256": "6c342565187200a74f70ee34082cfa31910ee677f44bf75ea19c01befaf79c06"
+        },
+        "decisions.jsonl": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/decisions.jsonl",
+          "bytes": 23227008,
+          "sha256": "e9a701d5a86a5627264de885aa32f59aad774a23b209b036d99911288695d7a8"
+        },
+        "config.json": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/config.json",
+          "bytes": 12795,
+          "sha256": "3f7f35f4ee504e623cbb55806b6530fbbfb8b9a37eeb81e18f3da2ab371ed6fb"
+        },
+        "summary.json": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/summary.json",
+          "bytes": 8890,
+          "sha256": "bd8a4456d8ad33d328b92ca7533763667b532fc2fa5ae1c1a439782536c1b64a"
+        },
+        "verification.json": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/verification.json",
+          "bytes": 10906,
+          "sha256": "7d07cfbe33f5676285b933931033973dd61a28f4856735ab80841a28f18288d5"
+        },
+        "authority-verification.json": {
+          "path": "runs/20260928_074538_046119_v031-native-rtt-map03-seed54/authority-verification.json",
+          "bytes": 133,
+          "sha256": "70ed0dd2db5c58d2b1f7ecf41fc90b37fe27e2be04ec9448a35a9ecda22ea70a"
+        }
+      },
+      "source_sha256": {
+        "agent.py": "8c81501bbddaeccd428705327494ca6c2011936cf10d35c9bb629deb313f0df1",
+        "doomlib/__init__.py": "5d2c60ed48c5e074d2bc6eee5596fe78936ec892f4e8a5290927c0be48a667fe",
+        "doomlib/overlay.py": "becc09eb87e73b66e5976597e5a07b14178dd6514c7039220a4e5c896efbad1c",
+        "doomlib/report.py": "49598f6e47db989c5a9530773dcac007ed7f0199b9bed71c6777f7cab7898089",
+        "doomlib/navigation.py": "49b24b5b6fdd0889f35dadcf3cf5991d27144856a80709a5fbbafd40dea8bb17",
+        "doomlib/combat.py": "dad5cfc9bfe950e128580291da631f6432141b2a3b5803c1f5bc6ddc41cf23b0",
+        "doomlib/items.py": "9f4f42c9f37d987dbb3bb5e24f978b078095501427e78db1cfc0a11f4d1eabea",
+        "doomlib/mission.py": "a5a300b7816a2428ffc80c51a82648fadc5c5318ef595d29843015e383def6e5",
+        "doomlib/policy.py": "266d786a8d4d1e38e1d12ceb15913f9a2a767ef3a9578c991430e551847cae6a",
+        "doomlib/executor.py": "926a070e6671aa820db18d97ce00143892317236eea7f2b4228d8f19c1db0301",
+        "doomlib/decision_questions.py": "820e0fedf2bf7ac107b5e16b1607646e0a3ccde4004ffd25c3527d6a0e78ebec",
+        "doomlib/decision_timing.py": "d053e0337d140724487c157424ea126eebf70185d2149229f3dee68d29f81f03",
+        "doomlib/look_questions.py": "e9fc0440acb599459f909d88564492100975c4553a54c6c14178fc634cf5d3ad",
+        "doomlib/floor_hazards.py": "a199640d8fb287f4b31fef2ffad14f742252b23586e39aed64c8b6a3cc94f009",
+        "doomlib/enemy_commitment.py": "7d94347e8fc608d073f49e0f64c328f8e3b58b9b1c078bf6eaf918cef0dfc5b8",
+        "doomlib/enemy_sequences.py": "6b46b9fa0f7cc0131266d192c15e7dd7495e5eca78898b384efb0250c29e98f8",
+        "doomlib/compact_movement.py": "17056fae4a9dedbffe8672aa4094368ea8ef12d18fddd26ec407b16a4178d48f",
+        "doomlib/compact_enemy.py": "d21598478ab88807c9677d56fd68774f6f0b959a1dd3cca7b723b21d0aae8190",
+        "doomlib/compact_weapon.py": "07b72cc1e13285e041e18e2244e78e0a04ec7a0c911de9bab109787f7950044e",
+        "doomlib/compact_item.py": "63dd57ce09ee639a791f9c901645bf96c09c64753cbc343190b2e208c7141b0d",
+        "doomlib/enemy_ranking.py": "26e54b34f31e3b11941b196a94e6b11a95a2d91114c1875e375ddb1c65e6ca26",
+        "doomlib/ranked_inference.py": "5080d5fb5fd46debae2d95ee27eba664a6ae5d2993363f3b639c17e900dbc285",
+        "doomlib/resource_questions.py": "921b6572c17ff353be7d3ba8d5d32225b593220f201d761dc8b113d31b170fdc",
+        "serve_doom_laya.py": "734e080d04066e5d0ac94b32f4dee018c11dd8c3d6431b1eefeebb4bd7da9186",
+        "doomlib/model_decoding.py": "9614ba6be859b00acc953cde70c757460b844a485f81e02ff9ce9a6afceef906",
+        "doomlib/laya_runtime.py": "20f467c5d2f2b46b0459bec156b5a0e3e3e82487002c6f8719948bd12a617adc",
+        "doomlib/question_heads.py": "1bd5d9fa63c73712324d6020a4ad61ec4cd40eed1a9c658e5cb413e7ed63da31",
+        "doomlib/command_keys.py": "3d9e454b21084317ffdbff5510d3dca441e81283c0d1b7db7a1e88c341ebd4ce",
+        "doomlib/command_facts.py": "533ce0d2c68e221c1ada1592db94acca7776045e361e032959b721651cdee0fa",
+        "doomlib/numeric_command.py": "985c92bfa3bb5bdfc5f803d8c7641d7df8c1e73efc47ffd3681a60996e3677fb",
+        "doomlib/numeric_item.py": "af0f27a810335aa034654efd28055b1fb898638ea92f049e2249b045b736ee4c",
+        "doomlib/numeric_movement.py": "14ad4c7c7169a1ab0a24ee6dc1caff737d1efd4716f90591ae5ed0d71273e8d1",
+        "doomlib/movement_questions.py": "db49ee9055cd472968214e129c4331ab4af07df7f58b704ff649386321728d42",
+        "doomlib/typed_movement.py": "ab1c71d43e2108aa532598b5fd615aefed8f24692cfa796a0ef8de18ed25828d",
+        "doomlib/numeric_switch.py": "4b88abf91269e21d7202866faf116c912c6153476b9ccdbe8177d8fda556b286",
+        "doomlib/numeric_enemy.py": "b77c8ca2cda6366bf79693659ac235ae99a8274c4afa3f30f6da6613878fee48",
+        "assets/weapon_sensor.acs": "de539383738d96e86540d242e296eca521d4183f09e5f08402867bb5975137e3",
+        "assets/weapon_sensor.pk3": "f942db23e83bde0a4655b869d02c7ec50ffd25a759185a0d50eb184c779646cf"
+      }
+    },
+    {
+      "map": "MAP01",
+      "run": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48",
+      "passed": true,
+      "verifier_exit": 1,
+      "verification": {
+        "experiment_valid": true,
+        "passed": false,
+        "errors": [],
+        "level_completed": true,
+        "acceptance_errors": [
+          "max_no_new_region_seconds exceeds 25"
+        ],
+        "authority": {
+          "pass": true,
+          "frames": 6000,
+          "accepted_decisions": 334,
+          "errors": [],
+          "level_completed": true,
+          "final_map": "MAP02"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 18.91,
+          "max_stationary_seconds": 2.43,
+          "max_stationary_turn_reversals_per_second": 2,
+          "max_no_new_cell_seconds": 18.91,
+          "max_no_new_region_seconds": 32.23,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 6
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 0.943,
+          "max_model_upgrade_choice_delay_seconds": 0.286,
+          "worst_upgrade_delay": {
+            "tick": 839,
+            "seconds": 23.971,
+            "episode": 0,
+            "equipped": 2,
+            "available_upgrade": 3,
+            "model_selected": 3
+          }
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "6000"
+            }
+          ],
+          "format": {
+            "duration": "171.428571"
+          }
+        },
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 168.4,
+            "map": "MAP01",
+            "alive": true,
+            "engine_finished": true
+          }
+        ]
+      },
+      "summary": {
+        "kills": 15,
+        "deaths": 0,
+        "decisions": 334,
+        "errors": 0,
+        "pickups": 7,
+        "levels_completed": 1,
+        "doors_opened": 7,
+        "stuck_recoveries": 13,
+        "bumps": 0,
+        "damage": 53.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP02",
+        "game_seconds": 171.429,
+        "wall_seconds": 171.419,
+        "latency_ms_median": 266.01,
+        "latency_ms_p90": 288.46,
+        "minimum_decision_delay_ticks": 0,
+        "decision_application_ms_median": 285.714,
+        "decision_application_ms_p90": 314.286,
+        "input_tokens_total": 414148,
+        "input_tokens_avg": 1239.96,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.1397,
+        "video_frames": 6000
+      },
+      "artifacts": {
+        "video.mp4": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/video.mp4",
+          "bytes": 103954572,
+          "sha256": "4ea49ac8efeab3d6aa39341bc063d4f252b77170b93d75187a25b3fcb6e38aa9"
+        },
+        "telemetry.jsonl": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/telemetry.jsonl",
+          "bytes": 23732859,
+          "sha256": "2c98a59f6e639b12753d533e2626ed56523cc188e2fb8825b5c23ebe83bfe45f"
+        },
+        "decisions.jsonl": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/decisions.jsonl",
+          "bytes": 9253343,
+          "sha256": "a925aa928032f1914be0b9e21bc8b5ece17f026182dec039305bab65cfd9be20"
+        },
+        "config.json": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/config.json",
+          "bytes": 12794,
+          "sha256": "60ab52cb5d0f6cf55f29b45310767b3179ce6b7e3ce067487ea312b1235a3825"
+        },
+        "summary.json": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/summary.json",
+          "bytes": 8767,
+          "sha256": "290876f12e5badf9c72a3eca98f7ec36bd7574b863ba56caf3121d16fdd612dd"
+        },
+        "verification.json": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/verification.json",
+          "bytes": 10820,
+          "sha256": "d5e01cb2712cda25f07926d9343dd807e09542e4bafb06014a223309407b436c"
+        },
+        "authority-verification.json": {
+          "path": "runs/20260928_075245_171450_v031-native-rtt-map01-seed48/authority-verification.json",
+          "bytes": 132,
+          "sha256": "006f2e601333be83828cf4436098f0acebbe3cc3e41ff3a419eff86893371a23"
+        }
+      },
+      "source_sha256": {
+        "agent.py": "8c81501bbddaeccd428705327494ca6c2011936cf10d35c9bb629deb313f0df1",
+        "doomlib/__init__.py": "5d2c60ed48c5e074d2bc6eee5596fe78936ec892f4e8a5290927c0be48a667fe",
+        "doomlib/overlay.py": "becc09eb87e73b66e5976597e5a07b14178dd6514c7039220a4e5c896efbad1c",
+        "doomlib/report.py": "49598f6e47db989c5a9530773dcac007ed7f0199b9bed71c6777f7cab7898089",
+        "doomlib/navigation.py": "49b24b5b6fdd0889f35dadcf3cf5991d27144856a80709a5fbbafd40dea8bb17",
+        "doomlib/combat.py": "dad5cfc9bfe950e128580291da631f6432141b2a3b5803c1f5bc6ddc41cf23b0",
+        "doomlib/items.py": "9f4f42c9f37d987dbb3bb5e24f978b078095501427e78db1cfc0a11f4d1eabea",
+        "doomlib/mission.py": "a5a300b7816a2428ffc80c51a82648fadc5c5318ef595d29843015e383def6e5",
+        "doomlib/policy.py": "266d786a8d4d1e38e1d12ceb15913f9a2a767ef3a9578c991430e551847cae6a",
+        "doomlib/executor.py": "926a070e6671aa820db18d97ce00143892317236eea7f2b4228d8f19c1db0301",
+        "doomlib/decision_questions.py": "820e0fedf2bf7ac107b5e16b1607646e0a3ccde4004ffd25c3527d6a0e78ebec",
+        "doomlib/decision_timing.py": "d053e0337d140724487c157424ea126eebf70185d2149229f3dee68d29f81f03",
+        "doomlib/look_questions.py": "e9fc0440acb599459f909d88564492100975c4553a54c6c14178fc634cf5d3ad",
+        "doomlib/floor_hazards.py": "a199640d8fb287f4b31fef2ffad14f742252b23586e39aed64c8b6a3cc94f009",
+        "doomlib/enemy_commitment.py": "7d94347e8fc608d073f49e0f64c328f8e3b58b9b1c078bf6eaf918cef0dfc5b8",
+        "doomlib/enemy_sequences.py": "6b46b9fa0f7cc0131266d192c15e7dd7495e5eca78898b384efb0250c29e98f8",
+        "doomlib/compact_movement.py": "17056fae4a9dedbffe8672aa4094368ea8ef12d18fddd26ec407b16a4178d48f",
+        "doomlib/compact_enemy.py": "d21598478ab88807c9677d56fd68774f6f0b959a1dd3cca7b723b21d0aae8190",
+        "doomlib/compact_weapon.py": "07b72cc1e13285e041e18e2244e78e0a04ec7a0c911de9bab109787f7950044e",
+        "doomlib/compact_item.py": "63dd57ce09ee639a791f9c901645bf96c09c64753cbc343190b2e208c7141b0d",
+        "doomlib/enemy_ranking.py": "26e54b34f31e3b11941b196a94e6b11a95a2d91114c1875e375ddb1c65e6ca26",
+        "doomlib/ranked_inference.py": "5080d5fb5fd46debae2d95ee27eba664a6ae5d2993363f3b639c17e900dbc285",
+        "doomlib/resource_questions.py": "921b6572c17ff353be7d3ba8d5d32225b593220f201d761dc8b113d31b170fdc",
+        "serve_doom_laya.py": "734e080d04066e5d0ac94b32f4dee018c11dd8c3d6431b1eefeebb4bd7da9186",
+        "doomlib/model_decoding.py": "9614ba6be859b00acc953cde70c757460b844a485f81e02ff9ce9a6afceef906",
+        "doomlib/laya_runtime.py": "20f467c5d2f2b46b0459bec156b5a0e3e3e82487002c6f8719948bd12a617adc",
+        "doomlib/question_heads.py": "1bd5d9fa63c73712324d6020a4ad61ec4cd40eed1a9c658e5cb413e7ed63da31",
+        "doomlib/command_keys.py": "3d9e454b21084317ffdbff5510d3dca441e81283c0d1b7db7a1e88c341ebd4ce",
+        "doomlib/command_facts.py": "533ce0d2c68e221c1ada1592db94acca7776045e361e032959b721651cdee0fa",
+        "doomlib/numeric_command.py": "985c92bfa3bb5bdfc5f803d8c7641d7df8c1e73efc47ffd3681a60996e3677fb",
+        "doomlib/numeric_item.py": "af0f27a810335aa034654efd28055b1fb898638ea92f049e2249b045b736ee4c",
+        "doomlib/numeric_movement.py": "14ad4c7c7169a1ab0a24ee6dc1caff737d1efd4716f90591ae5ed0d71273e8d1",
+        "doomlib/movement_questions.py": "db49ee9055cd472968214e129c4331ab4af07df7f58b704ff649386321728d42",
+        "doomlib/typed_movement.py": "ab1c71d43e2108aa532598b5fd615aefed8f24692cfa796a0ef8de18ed25828d",
+        "doomlib/numeric_switch.py": "4b88abf91269e21d7202866faf116c912c6153476b9ccdbe8177d8fda556b286",
+        "doomlib/numeric_enemy.py": "b77c8ca2cda6366bf79693659ac235ae99a8274c4afa3f30f6da6613878fee48",
+        "assets/weapon_sensor.acs": "de539383738d96e86540d242e296eca521d4183f09e5f08402867bb5975137e3",
+        "assets/weapon_sensor.pk3": "f942db23e83bde0a4655b869d02c7ec50ffd25a759185a0d50eb184c779646cf"
+      }
+    },
+    {
+      "map": "MAP02",
+      "run": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54",
+      "passed": true,
+      "verifier_exit": 0,
+      "verification": {
+        "experiment_valid": true,
+        "passed": true,
+        "errors": [],
+        "level_completed": true,
+        "acceptance_errors": [],
+        "authority": {
+          "pass": true,
+          "frames": 14820,
+          "accepted_decisions": 828,
+          "errors": [],
+          "level_completed": true,
+          "final_map": "MAP03"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 7.14,
+          "max_stationary_seconds": 3.4,
+          "max_stationary_turn_reversals_per_second": 2,
+          "max_no_new_cell_seconds": 7.14,
+          "max_no_new_region_seconds": 20.86,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 6
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 1.4,
+          "max_model_upgrade_choice_delay_seconds": 0.886,
+          "worst_upgrade_delay": {
+            "tick": 10641,
+            "seconds": 304.029,
+            "episode": 0,
+            "equipped": 2,
+            "available_upgrade": 8,
+            "model_selected": 8
+          }
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "14820"
+            }
+          ],
+          "format": {
+            "duration": "423.428571"
+          }
+        },
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 420.4,
+            "map": "MAP02",
+            "alive": true,
+            "engine_finished": true
+          }
+        ]
+      },
+      "summary": {
+        "kills": 56,
+        "deaths": 0,
+        "decisions": 830,
+        "errors": 0,
+        "pickups": 18,
+        "levels_completed": 1,
+        "doors_opened": 19,
+        "stuck_recoveries": 0,
+        "bumps": 0,
+        "damage": 130.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP03",
+        "game_seconds": 423.429,
+        "wall_seconds": 423.582,
+        "latency_ms_median": 295.81,
+        "latency_ms_p90": 337.32,
+        "minimum_decision_delay_ticks": 0,
+        "decision_application_ms_median": 328.572,
+        "decision_application_ms_p90": 371.429,
+        "input_tokens_total": 1148913,
+        "input_tokens_avg": 1384.23,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.3115,
+        "video_frames": 14820
+      },
+      "artifacts": {
+        "video.mp4": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/video.mp4",
+          "bytes": 156877111,
+          "sha256": "5301051d8d738a406e29dbf8f019a085c514900374d9578450ddd1e9956ca423"
+        },
+        "telemetry.jsonl": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/telemetry.jsonl",
+          "bytes": 77341338,
+          "sha256": "133afe0ae59e9a075b56e80a98645d503a1bf208ee496b9d005778672b92663f"
+        },
+        "decisions.jsonl": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/decisions.jsonl",
+          "bytes": 26082471,
+          "sha256": "44a7447afc75bf5d30c8032252e6042975b2518518b2c232a284ed5ea7870dd5"
+        },
+        "config.json": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/config.json",
+          "bytes": 12795,
+          "sha256": "4a38b4ea7a2f1e257bc4e6ac26aefa84e1b38bc1f40a7063d5150a8cbb075a4e"
+        },
+        "summary.json": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/summary.json",
+          "bytes": 8890,
+          "sha256": "32152c9dccf1fe90253a16836769697631a559841d1de301574a1b9fec7930ab"
+        },
+        "verification.json": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/verification.json",
+          "bytes": 10902,
+          "sha256": "db05383d3cc0be831800fcbec9bf824599f79fe63aafb32a9bb305ad2c0de4b2"
+        },
+        "authority-verification.json": {
+          "path": "runs/20260928_075642_813490_v031-native-rtt-map02-seed54/authority-verification.json",
+          "bytes": 133,
+          "sha256": "76d1b55e2a0aaccc58154a2ba7c1239501312df6550bb1b811f928fc72d861cf"
+        }
+      },
+      "source_sha256": {
+        "agent.py": "8c81501bbddaeccd428705327494ca6c2011936cf10d35c9bb629deb313f0df1",
+        "doomlib/__init__.py": "5d2c60ed48c5e074d2bc6eee5596fe78936ec892f4e8a5290927c0be48a667fe",
+        "doomlib/overlay.py": "becc09eb87e73b66e5976597e5a07b14178dd6514c7039220a4e5c896efbad1c",
+        "doomlib/report.py": "49598f6e47db989c5a9530773dcac007ed7f0199b9bed71c6777f7cab7898089",
+        "doomlib/navigation.py": "49b24b5b6fdd0889f35dadcf3cf5991d27144856a80709a5fbbafd40dea8bb17",
+        "doomlib/combat.py": "dad5cfc9bfe950e128580291da631f6432141b2a3b5803c1f5bc6ddc41cf23b0",
+        "doomlib/items.py": "9f4f42c9f37d987dbb3bb5e24f978b078095501427e78db1cfc0a11f4d1eabea",
+        "doomlib/mission.py": "a5a300b7816a2428ffc80c51a82648fadc5c5318ef595d29843015e383def6e5",
+        "doomlib/policy.py": "266d786a8d4d1e38e1d12ceb15913f9a2a767ef3a9578c991430e551847cae6a",
+        "doomlib/executor.py": "926a070e6671aa820db18d97ce00143892317236eea7f2b4228d8f19c1db0301",
+        "doomlib/decision_questions.py": "820e0fedf2bf7ac107b5e16b1607646e0a3ccde4004ffd25c3527d6a0e78ebec",
+        "doomlib/decision_timing.py": "d053e0337d140724487c157424ea126eebf70185d2149229f3dee68d29f81f03",
+        "doomlib/look_questions.py": "e9fc0440acb599459f909d88564492100975c4553a54c6c14178fc634cf5d3ad",
+        "doomlib/floor_hazards.py": "a199640d8fb287f4b31fef2ffad14f742252b23586e39aed64c8b6a3cc94f009",
+        "doomlib/enemy_commitment.py": "7d94347e8fc608d073f49e0f64c328f8e3b58b9b1c078bf6eaf918cef0dfc5b8",
+        "doomlib/enemy_sequences.py": "6b46b9fa0f7cc0131266d192c15e7dd7495e5eca78898b384efb0250c29e98f8",
+        "doomlib/compact_movement.py": "17056fae4a9dedbffe8672aa4094368ea8ef12d18fddd26ec407b16a4178d48f",
+        "doomlib/compact_enemy.py": "d21598478ab88807c9677d56fd68774f6f0b959a1dd3cca7b723b21d0aae8190",
+        "doomlib/compact_weapon.py": "07b72cc1e13285e041e18e2244e78e0a04ec7a0c911de9bab109787f7950044e",
+        "doomlib/compact_item.py": "63dd57ce09ee639a791f9c901645bf96c09c64753cbc343190b2e208c7141b0d",
+        "doomlib/enemy_ranking.py": "26e54b34f31e3b11941b196a94e6b11a95a2d91114c1875e375ddb1c65e6ca26",
+        "doomlib/ranked_inference.py": "5080d5fb5fd46debae2d95ee27eba664a6ae5d2993363f3b639c17e900dbc285",
+        "doomlib/resource_questions.py": "921b6572c17ff353be7d3ba8d5d32225b593220f201d761dc8b113d31b170fdc",
+        "serve_doom_laya.py": "734e080d04066e5d0ac94b32f4dee018c11dd8c3d6431b1eefeebb4bd7da9186",
+        "doomlib/model_decoding.py": "9614ba6be859b00acc953cde70c757460b844a485f81e02ff9ce9a6afceef906",
+        "doomlib/laya_runtime.py": "20f467c5d2f2b46b0459bec156b5a0e3e3e82487002c6f8719948bd12a617adc",
+        "doomlib/question_heads.py": "1bd5d9fa63c73712324d6020a4ad61ec4cd40eed1a9c658e5cb413e7ed63da31",
+        "doomlib/command_keys.py": "3d9e454b21084317ffdbff5510d3dca441e81283c0d1b7db7a1e88c341ebd4ce",
+        "doomlib/command_facts.py": "533ce0d2c68e221c1ada1592db94acca7776045e361e032959b721651cdee0fa",
+        "doomlib/numeric_command.py": "985c92bfa3bb5bdfc5f803d8c7641d7df8c1e73efc47ffd3681a60996e3677fb",
+        "doomlib/numeric_item.py": "af0f27a810335aa034654efd28055b1fb898638ea92f049e2249b045b736ee4c",
+        "doomlib/numeric_movement.py": "14ad4c7c7169a1ab0a24ee6dc1caff737d1efd4716f90591ae5ed0d71273e8d1",
+        "doomlib/movement_questions.py": "db49ee9055cd472968214e129c4331ab4af07df7f58b704ff649386321728d42",
+        "doomlib/typed_movement.py": "ab1c71d43e2108aa532598b5fd615aefed8f24692cfa796a0ef8de18ed25828d",
+        "doomlib/numeric_switch.py": "4b88abf91269e21d7202866faf116c912c6153476b9ccdbe8177d8fda556b286",
+        "doomlib/numeric_enemy.py": "b77c8ca2cda6366bf79693659ac235ae99a8274c4afa3f30f6da6613878fee48",
+        "assets/weapon_sensor.acs": "de539383738d96e86540d242e296eca521d4183f09e5f08402867bb5975137e3",
+        "assets/weapon_sensor.pk3": "f942db23e83bde0a4655b869d02c7ec50ffd25a759185a0d50eb184c779646cf"
+      }
+    }
+  ],
+  "status": "completed",
+  "passed": true,
+  "source_suite": "runs/20260928_074537_900045_v031-native-rtt_suite/suite.json",
+  "note": "One sequential real-time series with one unchanged model manifest. Completion passes on all three maps. MAP01 retains a separate navigation quality warning. Same-map development; one accepted run per map, not unseen-map generalization or reliability evidence. Older failed attempts are retained in the development journal.",
+  "all_quality_gates_passed": false
+}

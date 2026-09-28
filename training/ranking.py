@@ -25,3 +25,29 @@ def ranking_match(row,probabilities):
     from doomlib.enemy_ranking import sequence_probabilities
     distribution=sequence_probabilities(dict(zip(row['question']['criteria'],probabilities)),row['enemy_sequences'])
     return max(distribution,key=distribution.get)==row['sequence_label']
+
+
+def visible_first_loss(logits, rows, categories):
+    """Offline auxiliary supervision over the visible subset, excluding STOP."""
+    import re
+    import torch
+    from doomlib.enemy_ranking import STOP
+    losses = []
+    for scores, row in zip(logits, rows):
+        if row.get('category') not in categories:
+            losses.append(scores.sum() * 0)
+            continue
+        candidates, visible = [], []
+        for index, (key, text) in enumerate(row['question']['criteria'].items()):
+            if key == STOP:
+                continue
+            match = re.fullmatch(r'\w+; distance [0-9.]+m; bearing [+-]?[0-9]+ degrees; (visible|last seen); latest accepted target: (yes|no)\.', text)
+            if not match:
+                raise ValueError('Visibility supervision requires observed ranking facts')
+            candidates.append(index)
+            if match[1] == 'visible':
+                visible.append(index)
+        if not visible or len(visible) == len(candidates):
+            raise ValueError('Visibility correction must contain both visible and remembered targets')
+        losses.append(torch.logsumexp(scores[candidates], dim=0) - torch.logsumexp(scores[visible], dim=0))
+    return torch.stack(losses).mean()

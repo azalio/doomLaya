@@ -18,10 +18,13 @@ def parse_head_specs(specs,item_checkpoint=None):
 
 
 class QuestionHeads:
-    def __init__(self,base,overrides,item_without_goal=False,command_without_goal=False,enemy_without_goal=False,movement_compact_facts=False,enemy_compact_facts=False,enemy_rank_facts=False,weapon_compact_facts=False,item_compact_facts=False,item_category_facts=False):
+    def __init__(self,base,overrides,item_without_goal=False,command_without_goal=False,enemy_without_goal=False,movement_compact_facts=False,enemy_compact_facts=False,enemy_rank_facts=False,weapon_compact_facts=False,item_compact_facts=False,item_category_facts=False,command_key_facts=False,command_compact_facts=False):
         self.base=base;self.overrides=dict(overrides)
         self.item_without_goal=item_without_goal
         self.command_without_goal=command_without_goal
+        self.command_key_facts=command_key_facts
+        self.command_compact_facts=command_compact_facts
+        if command_compact_facts and (command_key_facts or command_without_goal):raise ValueError("Choose one command input projection")
         self.enemy_without_goal=enemy_without_goal
         self.movement_compact_facts=movement_compact_facts
         self.enemy_compact_facts=enemy_compact_facts
@@ -45,9 +48,22 @@ class QuestionHeads:
             project=(self.item_without_goal and name=='item') or (self.command_without_goal and name=='command') or (self.enemy_without_goal and name=='enemy')
             selected_state='\n'.join(line for line in state.splitlines() if not line.startswith('Current command:')) if project else state
             projection='without-current-command-v1' if project else 'full'
+            if self.command_key_facts and name=='command':
+                from doomlib.command_keys import command_key_input,FORMAT
+                selected_state,question=command_key_input(state,question);projection=FORMAT
+            if self.command_compact_facts and name=='command':
+                from doomlib.command_facts import command_facts_input, stable_command_facts_input, binned_command_facts_input, FORMAT, STABLE_FORMAT, BINNED_FORMAT
+                trained_format=getattr(agent,'cfg',{}).get('doom_adaptation',{}).get('input_projection')
+                projectors={FORMAT:command_facts_input, STABLE_FORMAT:stable_command_facts_input, BINNED_FORMAT:binned_command_facts_input}
+                projection=trained_format if trained_format in projectors else FORMAT
+                selected_state,question=projectors[projection](state,question)
             if self.movement_compact_facts and name=='movement':
                 from doomlib.compact_movement import compact_movement_input,FORMAT
-                selected_state,question=compact_movement_input(state,question);projection=FORMAT
+                from doomlib.typed_movement import typed_movement_input,PROJECTION as TYPED_FORMAT
+                trained_format=getattr(agent,'cfg',{}).get('doom_adaptation',{}).get('input_projection')
+                projector=typed_movement_input if trained_format==TYPED_FORMAT else compact_movement_input
+                selected_state,question=projector(state,question)
+                projection=TYPED_FORMAT if trained_format==TYPED_FORMAT else FORMAT
             if self.enemy_compact_facts and name=='enemy':
                 from doomlib.compact_enemy import compact_enemy_input,FORMAT
                 selected_state,question=compact_enemy_input(state,question);projection=FORMAT
@@ -113,4 +129,6 @@ def load_head(base,base_path,head_path):
         from types import MethodType
         from doomlib.ranked_inference import predict_precise
         agent.predict=MethodType(predict_precise,agent)
+    from doomlib.numeric_command import attach_numeric_residual
+    agent.numeric_residual_metadata = attach_numeric_residual(agent, head_path)
     return agent

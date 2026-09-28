@@ -20,7 +20,7 @@ def probe(run,start,end,output):
     decisions={r['directive']['decision_id']:r for r in map(json.loads,(run/'decisions.jsonl').read_text().splitlines())}
     directives={key:row['directive'] for key,row in decisions.items()}
     results=[]
-    for variant in ('recorded','recomputed','stationary','backward','strafe_left','strafe_right','retained_recorded_facts'):
+    for variant in ('recorded','recomputed','stationary','backward','strafe_left','strafe_right','retained_recorded_facts','typed_recorded_facts'):
         game=make_game(SimpleNamespace(**config));sensors=Sensors(weapon_sensor=True);history=[]
         def values():return {k:float(game.get_game_variable(getattr(vizdoom.GameVariable,v))) for k,v in [('x','POSITION_X'),('y','POSITION_Y'),('z','POSITION_Z'),('hp','HEALTH'),('kills','KILLCOUNT')]}
         try:
@@ -46,11 +46,17 @@ def probe(run,start,end,output):
                             packet=decisions[d['decision_id']]['packet']
                             facts=movement_facts(packet['state'],packet['questions']['movement'])
                             d['movement']=choose_retained([dict(distance=facts['nearest'])],facts['clearance'],facts['current'])
+                        if variant=='typed_recorded_facts':
+                            from doomlib.typed_movement import typed_movement_input
+                            from training.typed_movement import projected_label
+                            packet=decisions[d['decision_id']]['packet']
+                            projected,_=typed_movement_input(packet['state'],packet['questions']['movement'])
+                            d['movement']=projected_label(projected)
                         if accepted_id!=d['decision_id']:
                             executor.accept(d,tick);accepted_id=d['decision_id']
                         computed,_=executor.act(s,tick)
                         buttons[4:6]=computed[4:6]
-                        if variant=='retained_recorded_facts':buttons[:4]=computed[:4]
+                        if variant in ('retained_recorded_facts','typed_recorded_facts'):buttons[:4]=computed[:4]
                         if variant=='stationary':buttons[:4]=[0.,0.,0.,0.]
                         if variant=='backward':buttons[:4]=[0.,1.,0.,0.]
                         if variant=='strafe_left':buttons[:4]=[0.,0.,1.,0.]

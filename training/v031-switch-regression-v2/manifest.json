@@ -1,0 +1,221 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "builder_sha256": "1a0e3439b253622f0f5d12901a31128feac6f5d755b9bfdd8ff9eb9c547d7743",
+    "sources": {
+      "runs/20260927_225029_975621_v031-compact-movement-map02-seed54/decisions.jsonl": "056898c0083a946b6a8b067e7ee42e7d5128a9c30a37c25b1cb55dbd8a42dce1",
+      "training/map3-switch-route-v1/manifest.json": "14c80c6e0c137a9befd5e9efce6c64eb960228e2a19ebba18d06a4fd7a906fe6"
+    },
+    "added": {
+      "train": 80,
+      "validation": 16
+    },
+    "splits": {
+      "train": {
+        "rows": 776,
+        "sha256": "1082fcccc12a276751427084ad3378cfeaab508338970e88ec2d033973299ad8",
+        "categories": {
+          "use_switch": 400,
+          "map03_route": 296,
+          "map2_switch_loop": 80
+        }
+      },
+      "validation": {
+        "rows": 248,
+        "sha256": "87324d3e97e10abc34533de45363f6a26040820550e00e564fa256d22a9668f7",
+        "categories": {
+          "use_switch": 150,
+          "map03_route": 82,
+          "map2_switch_loop": 16
+        }
+      }
+    },
+    "note": "Same-map development corrections; four-second temporal blocks with every fifth block for validation. Goal variants remain in the same split. Original MAP03 route and MAP02 replay retained. No runtime rule, no held-out-map claim."
+  },
+  "sources": {
+    "training/v031-switch-regression-v1/train.json": "1082fcccc12a276751427084ad3378cfeaab508338970e88ec2d033973299ad8",
+    "training/v031-switch-regression-v1/validation.json": "87324d3e97e10abc34533de45363f6a26040820550e00e564fa256d22a9668f7"
+  },
+  "checkpoint_config_sha256": "5c4f9eac424b515aa66836eae5708c3c064e8aa91ff5b638c713553e647abc8e",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [
+    {
+      "split": "train",
+      "index": 12,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 40,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 49,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 105,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 107,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 116,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 122,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 206,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 217,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 223,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 295,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 381,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 442,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 490,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 522,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 633,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 700,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 730,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "train",
+      "index": 775,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "validation",
+      "index": 117,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    },
+    {
+      "split": "validation",
+      "index": 230,
+      "reason": "critical_fact_truncated",
+      "facts": [
+        "Collected keys:"
+      ]
+    }
+  ],
+  "splits": {
+    "train": {
+      "rows": 757,
+      "sha256": "bb38d4eeb15f6a6a64e611bf707c9582e120abac2c0d259e6da59ccae2f589c1"
+    },
+    "validation": {
+      "rows": 246,
+      "sha256": "7e55df537e5913d9f9e992087567ff63271c711de97686517a654d85cacf8618"
+    }
+  }
+}

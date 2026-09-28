@@ -1,0 +1,371 @@
+{
+  "started_at": "2026-09-28T03:08:38.779103+00:00",
+  "model": {
+    "weights_sha256": "a6ecfb5a1860a8995c9a8b226f78f5f029a60541dac66b9201d2acc8740ed857",
+    "question_heads": {
+      "default": {
+        "checkpoint": "laya-map2-explicit-v2",
+        "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+      },
+      "command": {
+        "checkpoint": "laya-v031-command-finish-retained-v1",
+        "weights_sha256": "8abaf91af970d4494e4504bd47f32b820130ea58a527076903e1b6ecccc825c6",
+        "composition": "laya-command-numeric-residual-v2",
+        "numeric_residual_weights_sha256": "3524815d86c8e0051d04ab6f02b9754565954690dc7cc8ccfcdbc813818322ac",
+        "numeric_residual_spec_sha256": "aebd31e851352f5ec34ac4a4fb68dd8fbe2f81408b9d5dfa532788b7e5fee89d",
+        "input_projection": "command-observed-facts-v2-lift-context",
+        "state_projection": "command-observed-facts-v2-lift-context"
+      },
+      "enemy": {
+        "checkpoint": "laya-v031-enemy-visibility-v2",
+        "weights_sha256": "2dadaa4e56a3d5a7251971b7131be582d6ed0032e3348280ce7b64dae672a1b0",
+        "question_format": "enemy-sequence-v1",
+        "input_projection": "enemy-ranking-v1",
+        "state_projection": "enemy-ranking-v1",
+        "composition": "plackett-luce-nonempty-v1"
+      },
+      "item": {
+        "checkpoint": "laya-v031-item-balanced-v1",
+        "weights_sha256": "a157ac527a19aed507d4108a0533edcf8882f977d7e5af683ee633eb6302e674",
+        "composition": "laya-item-numeric-residual-v1",
+        "numeric_residual_weights_sha256": "66941a690626cd8611e4915679d4fac16173d643d383ed2517d32a4678054296",
+        "numeric_residual_spec_sha256": "806bcb73b6d2af2c55ae0a74c1be3a79cbbf2480f5d6351bef5a024536cf0267",
+        "input_projection": "item-category-v2",
+        "state_projection": "item-category-v2"
+      },
+      "look_gate": {
+        "checkpoint": "laya-map3-look-floor-v2",
+        "weights_sha256": "221ca2c80d3a105826097f0590fe22f78630c965bb6c50810e41fe12a578d10c",
+        "composition": "probability-mixture-v1",
+        "input_projection": "observed-look-facts-v2-optional-floor"
+      },
+      "movement": {
+        "checkpoint": "laya-v031-movement-numeric-v1",
+        "weights_sha256": "437f49e66cd5393cf2654ce2dbb51fd1902b3ce1b19df62120709c7441d012fc",
+        "composition": "laya-movement-numeric-residual-v1",
+        "numeric_residual_weights_sha256": "0eecf2e3ba12fa2f9b7e1849e5e7dc77dcf611d5f1f82d3aee0b5bb55415ed31",
+        "numeric_residual_spec_sha256": "02fd8b2fb327e840f9d99916c5d3a1c7236e6ff640e113454bec822c252cfa3a",
+        "question_format": "movement-compact-v1",
+        "input_projection": "movement-compact-v1"
+      },
+      "switch": {
+        "checkpoint": "laya-v031-switch-numeric-v1",
+        "weights_sha256": "9a76f29220c7f40995218b4c59fcfb33ae9e2f0590bb1f1b0f0bd2f646323685",
+        "composition": "laya-switch-numeric-residual-v1",
+        "numeric_residual_weights_sha256": "6f6d2eebd82748b6d57960ab8ca4a3c40046eb80161571a95c9a8c37f9216638",
+        "numeric_residual_spec_sha256": "cd1692dcee0ce6825c63f75871ffb17d151c671bbf8c9483e9da4a58271e9239",
+        "input_projection": "full-switch-observations-v1",
+        "state_projection": "full"
+      },
+      "weapon": {
+        "checkpoint": "laya-v031-weapon-boundary-v2",
+        "weights_sha256": "7c8d3f2abc37bfad7edf1a5cf6c4ddb10495311bf7bb5df15d41f35556a56785",
+        "input_projection": "weapon-compact-v1",
+        "state_projection": "weapon-compact-v1"
+      },
+      "shared_encoder_verified": true
+    },
+    "inference_precision": "float32",
+    "laya_source_commit": "42626c348753fbb17572a813127df2278a1ec527",
+    "decoding": {
+      "method": "argmax",
+      "temperature": 0.0,
+      "seed": 0,
+      "questions": null
+    }
+  },
+  "cases": [
+    {
+      "map": "MAP03",
+      "seed": 54,
+      "seconds": 1200,
+      "skill": 3
+    },
+    {
+      "map": "MAP01",
+      "seed": 48,
+      "seconds": 180,
+      "skill": 3
+    },
+    {
+      "map": "MAP02",
+      "seed": 54,
+      "seconds": 1800,
+      "skill": 3
+    }
+  ],
+  "common_flags": [
+    "--decision-format",
+    "committed",
+    "--question-schedule",
+    "conditional",
+    "--interval",
+    "0.5",
+    "--minimum-decision-delay-ticks",
+    "16",
+    "--explicit-actions",
+    "--explicit-movement",
+    "--movement-facts",
+    "--movement-obstacle-facts",
+    "--refresh-attack-target",
+    "--enemy-visibility-facts",
+    "--enemy-commitment-facts",
+    "--enemy-sequences",
+    "--look-gate",
+    "--floor-hazard-facts",
+    "--attack-turn-rate",
+    "9",
+    "--weapon-sensor",
+    "--map-weapons",
+    "--reachable-items",
+    "--mechanism-facts",
+    "--combat-during-navigation",
+    "--pickup-recent-targets",
+    "--inventory-events",
+    "--ammo-events",
+    "--mask-unreachable-items",
+    "--skill",
+    "3",
+    "--record",
+    "auto",
+    "--stop-after-level"
+  ],
+  "minimum_next_map_ticks": 105,
+  "results": [
+    {
+      "map": "MAP03",
+      "run": "runs/20260928_060838_897203_v031-finish-retained-map03-seed54",
+      "passed": true,
+      "verifier_exit": 1,
+      "verification": {
+        "experiment_valid": true,
+        "passed": false,
+        "errors": [],
+        "level_completed": true,
+        "acceptance_errors": [
+          "max_no_new_region_seconds exceeds 25"
+        ],
+        "authority": {
+          "pass": true,
+          "frames": 13795,
+          "accepted_decisions": 765,
+          "errors": [],
+          "level_completed": true,
+          "final_map": "MAP04"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 7.8,
+          "max_stationary_seconds": 3.17,
+          "max_stationary_turn_reversals_per_second": 3,
+          "max_no_new_cell_seconds": 11.94,
+          "max_no_new_region_seconds": 30.06,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 7
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 1.257,
+          "max_model_upgrade_choice_delay_seconds": 0.771,
+          "worst_upgrade_delay": {
+            "tick": 13772,
+            "seconds": 393.486,
+            "episode": 1,
+            "equipped": 2,
+            "available_upgrade": 3,
+            "model_selected": 3
+          }
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "13795"
+            }
+          ],
+          "format": {
+            "duration": "394.142857"
+          }
+        },
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 391.114,
+            "map": "MAP03",
+            "alive": true,
+            "engine_finished": true
+          }
+        ]
+      },
+      "summary": {
+        "kills": 72,
+        "deaths": 0,
+        "decisions": 767,
+        "errors": 0,
+        "pickups": 14,
+        "levels_completed": 1,
+        "doors_opened": 20,
+        "stuck_recoveries": 2,
+        "bumps": 0,
+        "damage": 225.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP04",
+        "game_seconds": 394.143,
+        "wall_seconds": 394.137,
+        "latency_ms_median": 298.6,
+        "latency_ms_p90": 370.84,
+        "minimum_decision_delay_ticks": 16,
+        "decision_application_ms_median": 457.143,
+        "decision_application_ms_p90": 457.143,
+        "input_tokens_total": 1152590,
+        "input_tokens_avg": 1502.72,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.2212,
+        "video_frames": 13795
+      }
+    },
+    {
+      "map": "MAP01",
+      "run": "runs/20260928_061517_586603_v031-finish-retained-map01-seed48",
+      "passed": true,
+      "verifier_exit": 1,
+      "verification": {
+        "experiment_valid": true,
+        "passed": false,
+        "errors": [],
+        "level_completed": true,
+        "acceptance_errors": [
+          "max_no_new_cell_seconds exceeds 25",
+          "max_no_new_region_seconds exceeds 25"
+        ],
+        "authority": {
+          "pass": true,
+          "frames": 5904,
+          "accepted_decisions": 327,
+          "errors": [],
+          "level_completed": true,
+          "final_map": "MAP02"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 25.06,
+          "max_stationary_seconds": 2.4,
+          "max_stationary_turn_reversals_per_second": 3,
+          "max_no_new_cell_seconds": 25.06,
+          "max_no_new_region_seconds": 36.2,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 6
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 1.086,
+          "max_model_upgrade_choice_delay_seconds": 0.514,
+          "worst_upgrade_delay": {
+            "tick": 1185,
+            "seconds": 33.857,
+            "episode": 0,
+            "equipped": 2,
+            "available_upgrade": 3,
+            "model_selected": 3
+          }
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "5904"
+            }
+          ],
+          "format": {
+            "duration": "168.685714"
+          }
+        },
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 165.657,
+            "map": "MAP01",
+            "alive": true,
+            "engine_finished": true
+          }
+        ]
+      },
+      "summary": {
+        "kills": 14,
+        "deaths": 0,
+        "decisions": 329,
+        "errors": 0,
+        "pickups": 10,
+        "levels_completed": 1,
+        "doors_opened": 7,
+        "stuck_recoveries": 14,
+        "bumps": 0,
+        "damage": 12.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP02",
+        "game_seconds": 168.686,
+        "wall_seconds": 168.681,
+        "latency_ms_median": 262.75,
+        "latency_ms_p90": 294.66,
+        "minimum_decision_delay_ticks": 16,
+        "decision_application_ms_median": 457.143,
+        "decision_application_ms_p90": 457.143,
+        "input_tokens_total": 402134,
+        "input_tokens_avg": 1222.29,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.1648,
+        "video_frames": 5904
+      }
+    },
+    {
+      "map": "MAP02",
+      "run": "runs/20260928_061807_802402_v031-finish-retained-map02-seed54",
+      "passed": false,
+      "status": "interrupted",
+      "summary": {
+        "kills": 52,
+        "deaths": 0,
+        "decisions": 1053,
+        "errors": 0,
+        "pickups": 16,
+        "levels_completed": 0,
+        "doors_opened": 29,
+        "stuck_recoveries": 1,
+        "bumps": 0,
+        "damage": 85.0,
+        "status": "interrupted",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP02",
+        "game_seconds": 540.771,
+        "wall_seconds": 540.79,
+        "latency_ms_median": 317.71,
+        "latency_ms_p90": 335.16,
+        "minimum_decision_delay_ticks": 16,
+        "decision_application_ms_median": 457.143,
+        "decision_application_ms_p90": 457.143,
+        "input_tokens_total": 1559198,
+        "input_tokens_avg": 1480.72,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.1968,
+        "video_frames": 18928
+      }
+    }
+  ],
+  "status": "interrupted",
+  "error": "",
+  "note": "MAP03 and MAP01 completed. MAP02 interrupted at 540.771 s after a repeated 19-second loop; original 1800 s budget not exhausted. No three-map pass."
+}

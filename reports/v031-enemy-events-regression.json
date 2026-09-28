@@ -1,0 +1,14 @@
+{
+  "status": "interrupted",
+  "passed": false,
+  "reason": "Repeated deaths; stopped before the 1200-second budget.",
+  "run": "runs/20260928_073729_731569_v031-enemy-events-map03-seed54",
+  "model_manifest": "74eea1043aa584bf825fe25ac40be5fc7affc555c63dea8712b9b807ae9cafb6",
+  "summary": {
+    "game_seconds": 405.086,
+    "deaths": 3,
+    "kills": 105,
+    "levels_completed": 0,
+    "errors": 0
+  }
+}

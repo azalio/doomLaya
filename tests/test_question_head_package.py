@@ -54,3 +54,23 @@ class QuestionHeadPackageTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'weights differ'):
                 package(source, routing, root / 'invalid', card)
             self.assertFalse((root / 'invalid').exists())
+
+    def test_numeric_auxiliary_bytes_are_preserved_and_verified(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);source=root/'checkpoints';checkpoint=source/'numeric'
+            for filename in REQUIRED:
+                path=checkpoint/filename;path.parent.mkdir(parents=True,exist_ok=True)
+                path.write_text('{}' if filename.endswith('.json') else 'semantic')
+            (checkpoint/'numeric-residual.json').write_bytes(b'{ "schema": 1 }\n')
+            (checkpoint/'numeric-residual.safetensors').write_bytes(b'learned weights')
+            spec=digest(checkpoint/'numeric-residual.json');weights=digest(checkpoint/'numeric-residual.safetensors')
+            (checkpoint/'rl_agent_config.json').write_text(json.dumps({'doom_adaptation':{'numeric_residual':{'format':'test-residual','spec_sha256':spec,'weights_sha256':weights}}}))
+            heads={'command':dict(checkpoint='numeric',weights_sha256=digest(checkpoint/'model.safetensors'),composition='test-residual',numeric_residual_spec_sha256=spec,numeric_residual_weights_sha256=weights),'shared_encoder_verified':True}
+            routing=root/'routing.json';routing.write_text(json.dumps(dict(question_heads=heads,weights_sha256=hashlib.sha256(json.dumps(heads,sort_keys=True).encode()).hexdigest())))
+            card=root/'card.md';card.write_text('Fixture')
+            package(source,routing,root/'bundle',card)
+            self.assertEqual((root/'bundle/numeric/numeric-residual.json').read_bytes(),(checkpoint/'numeric-residual.json').read_bytes())
+            (checkpoint/'numeric-residual.safetensors').write_bytes(b'changed')
+            with self.assertRaisesRegex(ValueError,'Numeric residual differs'):
+                package(source,routing,root/'bad',card)
+            self.assertFalse((root/'bad').exists())

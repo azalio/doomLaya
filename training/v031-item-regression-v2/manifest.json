@@ -1,0 +1,110 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "kind": "item",
+    "input_projection": "item-category-v2",
+    "note": "Offline resource labels on failed MAP01/MAP02 runs, with distinct successful runs reserved for development validation. Existing MAP02/MAP03 replay keeps its split allocation. Original checkpoints have seen some replay and maps: this is retention/development fitting, not independent generalization. Synthetic examples include full health with a nearby medikit and useful distant alternatives, vary inventory/armor, and do not always offer keys. Corrections precede replay; global duplicate/conflict removal is train-first and counted. Runtime choices and controller are unchanged.",
+    "sources": {
+      "runs/20260927_124122_585216_v030-regression-map01-seed48/decisions.jsonl": "bd51ee410d6d3ab0448b2f099ab1cb70853040becafd4ad3978c76bddd8e4426",
+      "runs/20260927_124546_011663_v030-regression-map02-seed54/decisions.jsonl": "6741fd82425db5987707ba7cc15625c52a06710babd35515fe7901853451c596",
+      "training/map3-item-category-v4/train.json": "9b564722973c2ef9dab58fc023024b7d58c95ec4d5d115b51e243b1d00c53d76",
+      "runs/20260926_204707_880341_map01-root-goals48/decisions.jsonl": "8b1a087888d023eebed8d71c0ba6918d8cd334bfa5bcb952e047bc13f9a2edb0",
+      "runs/20260926_201638_873591_map02-root-goals54/decisions.jsonl": "880b8d3c65fabc72d3c919b0057ce10a208826b09c7528057e8f800b2dc7e63d",
+      "training/map3-item-category-v4/validation.json": "8e60eb19c590c7eba3166a00c84a979b2c2deb899a3c8723bf0551813e1f0841"
+    },
+    "train_runs": [
+      "runs/20260927_124122_585216_v030-regression-map01-seed48",
+      "runs/20260927_124546_011663_v030-regression-map02-seed54"
+    ],
+    "validation_runs": [
+      "runs/20260926_204707_880341_map01-root-goals48",
+      "runs/20260926_201638_873591_map02-root-goals54"
+    ],
+    "removed": {
+      "train_duplicate": 47,
+      "validation_duplicate": 11
+    },
+    "splits": {
+      "train": {
+        "rows": 4380,
+        "sha256": "9eb446536d8d273f666dbb61c63016bab3354c32a5299a4192c3481d9f892380",
+        "categories": {
+          "replay_map3-item-category-v4_recorded_key": 340,
+          "replay_map3-item-category-v4_recorded_ammo": 364,
+          "synthetic_weapon": 156,
+          "replay_map3-item-category-v4_recorded_weapon": 259,
+          "synthetic_health": 212,
+          "replay_map3-item-category-v4_synthetic_key": 414,
+          "replay_map3-item-category-v4_recorded_health": 329,
+          "correction_key": 153,
+          "replay_map3-item-category-v4_key": 243,
+          "correction_health": 53,
+          "correction_weapon": 336,
+          "replay_map3-item-category-v4_synthetic_ammo": 12,
+          "replay_map3-item-category-v4_ammo": 247,
+          "synthetic_key": 61,
+          "replay_map3-item-category-v4_health": 236,
+          "replay_map3-item-category-v4_synthetic_armor": 60,
+          "replay_map3-item-category-v4_synthetic_weapon": 95,
+          "replay_map3-item-category-v4_weapon": 227,
+          "replay_map3-item-category-v4_pickup": 77,
+          "correction_armor": 23,
+          "replay_map3-item-category-v4_synthetic_health": 187,
+          "correction_ammo": 192,
+          "synthetic_ammo": 22,
+          "synthetic_armor": 59,
+          "replay_map3-item-category-v4_recorded_armor": 23
+        }
+      },
+      "validation": {
+        "rows": 2336,
+        "sha256": "691640602a6aa203b23cfacc56ce11e3b11f418cb901753899af267916097468",
+        "categories": {
+          "synthetic_health": 54,
+          "synthetic_key": 12,
+          "replay_map3-item-category-v4_recorded_key": 300,
+          "replay_map3-item-category-v4_pickup": 34,
+          "replay_map3-item-category-v4_recorded_weapon": 162,
+          "replay_map3-item-category-v4_recorded_ammo": 300,
+          "correction_weapon": 176,
+          "replay_map3-item-category-v4_recorded_health": 200,
+          "correction_ammo": 100,
+          "replay_map3-item-category-v4_weapon": 80,
+          "correction_armor": 93,
+          "replay_map3-item-category-v4_key": 87,
+          "replay_map3-item-category-v4_synthetic_key": 110,
+          "replay_map3-item-category-v4_recorded_armor": 146,
+          "replay_map3-item-category-v4_synthetic_weapon": 21,
+          "correction_health": 89,
+          "synthetic_ammo": 11,
+          "replay_map3-item-category-v4_synthetic_health": 42,
+          "replay_map3-item-category-v4_health": 89,
+          "replay_map3-item-category-v4_synthetic_armor": 17,
+          "replay_map3-item-category-v4_ammo": 90,
+          "correction_key": 70,
+          "synthetic_weapon": 40,
+          "synthetic_armor": 11,
+          "replay_map3-item-category-v4_synthetic_ammo": 2
+        }
+      }
+    },
+    "builder_sha256": "8dcd68949016f271c03829e04839bafabd2aadf79d3a4415a3bef8f9e829bdd9"
+  },
+  "sources": {
+    "training/v031-item-regression-v1/train.json": "9eb446536d8d273f666dbb61c63016bab3354c32a5299a4192c3481d9f892380",
+    "training/v031-item-regression-v1/validation.json": "691640602a6aa203b23cfacc56ce11e3b11f418cb901753899af267916097468"
+  },
+  "checkpoint_config_sha256": "75b6ed185367c0e41f838205642b29825b495efad4cfe5bc138889831cacfced",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 4380,
+      "sha256": "9eb446536d8d273f666dbb61c63016bab3354c32a5299a4192c3481d9f892380"
+    },
+    "validation": {
+      "rows": 2336,
+      "sha256": "691640602a6aa203b23cfacc56ce11e3b11f418cb901753899af267916097468"
+    }
+  }
+}

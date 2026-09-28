@@ -1,5 +1,19 @@
 # Publishing code, weights and video
 
+## v0.3.1: MAP01–MAP03
+
+[Weights and training dependencies](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.1) ·
+[Three videos and telemetry](https://github.com/azalio/doomLaya/releases/tag/v0.3.1) ·
+[Run and train (Russian)](REGRESSION-FIX.md).
+
+Source and datasets are in the GitHub `v0.3.1` tag. The optional HF
+`training-assets/` directory contains six parent models, four semantic caches
+and two retention traces. Inference does not need it. The packaging commands
+are in the [Russian guide](PUBLISHING.md#v031-map01map03).
+Older weights remain available at HF tag `v0.3.0`.
+
+The sections below describe previous releases.
+
 The v0.2.0 five-head model is published separately at
 [azalio/laya-doom-map02](https://huggingface.co/azalio/laya-doom-map02).
 Use [MAP02.md (Russian)](MAP02.md) for its download and launch commands.

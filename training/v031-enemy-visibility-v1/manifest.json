@@ -1,0 +1,39 @@
+{
+  "input_projection": "enemy-ranking-v1",
+  "question_format": "enemy-sequence-v1",
+  "training_objective": "nonempty-listwise-v1",
+  "sources": {
+    "training/map3-ranked-enemy-v3/train.json": "c262d7ec7d71d54f8922df4a4206664337ed57e21f5e3403250486f45d0c3ee0",
+    "training/map3-ranked-enemy-v3/validation.json": "fccc202233ad61bebe91a74c75fe4de565e37e26dd738d2f5f9a9211376fee8a",
+    "runs/20260928_020554_834079_v031-lateral-weapons-map03-seed54/decisions.jsonl": "4b885576800374c66fcc8eb51568a9812c7dd2efe6698437fd32f1579f6811e4"
+  },
+  "builder_sha256": "421bd03c602b2fce22523fb06ffe55d860f635226cb9d1c559422cf0ef1e753d",
+  "labeler_sha256": "e9eccab8a4314d4ad213b58d7301b5239a94a6293d4abcbbeb7e50983721ff11",
+  "added_recorded": {
+    "validation": 13,
+    "train": 30
+  },
+  "splits": {
+    "train": {
+      "rows": 1492,
+      "sha256": "e10e4531535cfb4ca9e274cd536849a839723d0878f7feef7218be21ddc5b4a0",
+      "categories": {
+        "full_3": 634,
+        "full_2": 572,
+        "mixed_visibility_synthetic": 256,
+        "recorded_invisible_first": 30
+      }
+    },
+    "validation": {
+      "rows": 381,
+      "sha256": "1265de221902127b192a3f91ad340c7dea4499a4f106aedf62bfe79ae5be1c2d",
+      "categories": {
+        "full_3": 120,
+        "mixed_visibility_synthetic": 96,
+        "full_2": 152,
+        "recorded_invisible_first": 13
+      }
+    }
+  },
+  "note": "Original replay labels and allocation retained. New recorded corrections only when the model chose a remembered enemy while a visible enemy was offered. Episode modulo 3=0 held out; same-map development, not independent gameplay validation. Synthetic mixed-visibility examples use separate seeds. No live teacher."
+}

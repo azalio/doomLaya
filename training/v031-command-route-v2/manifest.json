@@ -1,0 +1,168 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "kind": "command",
+    "offline_labeler": "route-priority-v1",
+    "input_projection": "without-current-command-v1",
+    "note": "Offline resource labels on failed MAP01/MAP02 runs, with distinct successful runs reserved for development validation. Existing MAP02/MAP03 replay keeps its split allocation. Original checkpoints have seen some replay and maps: this is retention/development fitting, not independent generalization. Synthetic examples include full health with a nearby medikit and useful distant alternatives, vary inventory/armor, and do not always offer keys. Corrections precede replay; global duplicate/conflict removal is train-first and counted. Runtime choices and controller are unchanged. With --route-priority, corrected mission-priority labels replace the resource labeler and replay is capped at 80 per category. Labeler identity is recorded separately.",
+    "sources": {
+      "runs/20260927_144552_874207_v031-regression-map01-seed48/decisions.jsonl": "d3fe123bab32cb769c490249109248a9f1b0ab7049bd8e7e25f4a81682188a17",
+      "runs/20260927_124122_585216_v030-regression-map01-seed48/decisions.jsonl": "bd51ee410d6d3ab0448b2f099ab1cb70853040becafd4ad3978c76bddd8e4426",
+      "runs/20260927_124546_011663_v030-regression-map02-seed54/decisions.jsonl": "6741fd82425db5987707ba7cc15625c52a06710babd35515fe7901853451c596",
+      "runs/20260927_113829_722635_map03-item-category54/decisions.jsonl": "849814157c09a99e081400f620ef71fefd983704a7366a390a3b3ab2b8023a0f",
+      "training/map3-combat-priority-v2/train.json": "6470eb46603a55ce89516b7de797f4401767f9098be28659c77408709c180e0f",
+      "training/map2-root-goals-v1/train.json": "650851a3d5f9c3402866ea6891db75433f759e35370fdd0a1ef3ec3a7bd6523d",
+      "runs/20260926_204707_880341_map01-root-goals48/decisions.jsonl": "8b1a087888d023eebed8d71c0ba6918d8cd334bfa5bcb952e047bc13f9a2edb0",
+      "runs/20260926_201638_873591_map02-root-goals54/decisions.jsonl": "880b8d3c65fabc72d3c919b0057ce10a208826b09c7528057e8f800b2dc7e63d",
+      "runs/20260927_091349_219964_map03-compact-enemy54/decisions.jsonl": "42011ebadfd4d10d60e3a8fe66a1c06b2b7aa865bdea85201070416961124def",
+      "training/map3-combat-priority-v2/validation.json": "566ed338ac82c77947ac8addbc4314f885e362b5984e43d8a51d92322e60ee5e",
+      "training/map2-root-goals-v1/validation.json": "0357db31d2b803441b5d67018dd6d1b1e2e2eee4fbfb1f454c23ce2998f1ec63"
+    },
+    "train_runs": [
+      "runs/20260927_144552_874207_v031-regression-map01-seed48",
+      "runs/20260927_124122_585216_v030-regression-map01-seed48",
+      "runs/20260927_124546_011663_v030-regression-map02-seed54",
+      "runs/20260927_113829_722635_map03-item-category54"
+    ],
+    "validation_runs": [
+      "runs/20260926_204707_880341_map01-root-goals48",
+      "runs/20260926_201638_873591_map02-root-goals54",
+      "runs/20260927_091349_219964_map03-compact-enemy54"
+    ],
+    "removed": {
+      "train_duplicate": 277,
+      "validation_duplicate": 194
+    },
+    "splits": {
+      "train": {
+        "rows": 3966,
+        "sha256": "3b5151d91be4a84f04cc99c0b8a012642f41fa927975d37fb7cb83ddad2abe29",
+        "categories": {
+          "replay_map2-root-goals-v1_open_door": 41,
+          "correction_route_fight": 455,
+          "correction_route_continue_route": 645,
+          "correction_route_exit_platform": 179,
+          "replay_map3-combat-priority-v2_post_yellow_continue_route": 80,
+          "correction_route_missing_key": 315,
+          "synthetic_route_urgent_health": 204,
+          "replay_map3-combat-priority-v2_teacher_attack": 80,
+          "replay_map2-root-goals-v1_exit": 25,
+          "replay_map3-combat-priority-v2_mechanics_route_open_door": 31,
+          "replay_map3-combat-priority-v2_teacher_pickup": 80,
+          "replay_map3-combat-priority-v2_nearby_door": 80,
+          "correction_route_needed_supply": 102,
+          "replay_map2-root-goals-v1_pickup": 73,
+          "replay_map3-combat-priority-v2_teacher_use_switch": 80,
+          "synthetic_route_missing_key": 95,
+          "synthetic_route_other_route": 106,
+          "replay_map3-combat-priority-v2_exit": 44,
+          "correction_route_nearby_door": 203,
+          "replay_map3-combat-priority-v2_finish_fight": 80,
+          "replay_map3-combat-priority-v2_reachable_red_key_contrast": 80,
+          "replay_map3-combat-priority-v2_teacher_exit": 25,
+          "replay_map3-combat-priority-v2_mechanics_route_use_switch": 80,
+          "replay_map3-combat-priority-v2_blocking_door": 1,
+          "replay_map2-root-goals-v1_attack": 70,
+          "synthetic_route_needed_supply": 62,
+          "replay_map3-combat-priority-v2_continue_route": 80,
+          "correction_route_close_weapon": 65,
+          "synthetic_route_close_weapon": 45,
+          "correction_route_continue_lift": 56,
+          "replay_map3-combat-priority-v2_useful_resource": 80,
+          "replay_map3-combat-priority-v2_teacher_open_door": 52,
+          "replay_map3-combat-priority-v2_explore": 4,
+          "replay_map3-combat-priority-v2_fight_near_door": 9,
+          "replay_map3-combat-priority-v2_urgent_health": 33,
+          "replay_map3-combat-priority-v2_continue_route_with_supplies": 6,
+          "correction_route_urgent_health": 17,
+          "replay_map2-root-goals-v1_use_switch": 74,
+          "correction_route_blocked_door": 25,
+          "correction_route_all_keys_exit": 4,
+          "replay_map3-combat-priority-v2_mechanics_route_exit": 15,
+          "replay_map3-combat-priority-v2_mechanics_route_pickup": 44,
+          "replay_map3-combat-priority-v2_blocked_door_prerequisite": 12,
+          "replay_map3-combat-priority-v2_loaded_weapon": 12,
+          "replay_map3-combat-priority-v2_loaded_weapon_before_route": 1,
+          "replay_map3-combat-priority-v2_shells_before_route": 3,
+          "replay_map3-combat-priority-v2_open_door": 9,
+          "replay_map3-combat-priority-v2_close_weapon_near_threat": 1,
+          "replay_map3-combat-priority-v2_use_switch": 3
+        }
+      },
+      "validation": {
+        "rows": 2193,
+        "sha256": "f263296f45d1c5a853b9eaacb71fbd1b504d08f3305856227becec0c9b29a187",
+        "categories": {
+          "correction_route_missing_key": 138,
+          "replay_map2-root-goals-v1_exit": 13,
+          "correction_route_nearby_door": 94,
+          "replay_map3-combat-priority-v2_nearby_door": 53,
+          "correction_route_fight": 241,
+          "synthetic_route_needed_supply": 16,
+          "replay_map3-combat-priority-v2_useful_resource": 80,
+          "synthetic_route_missing_key": 22,
+          "correction_route_all_keys_exit": 40,
+          "correction_route_continue_route": 270,
+          "correction_route_needed_supply": 96,
+          "replay_map2-root-goals-v1_attack": 70,
+          "synthetic_route_urgent_health": 51,
+          "replay_map2-root-goals-v1_use_switch": 69,
+          "correction_route_close_weapon": 108,
+          "correction_route_exit_platform": 87,
+          "replay_map2-root-goals-v1_pickup": 72,
+          "synthetic_route_close_weapon": 13,
+          "correction_route_urgent_health": 36,
+          "replay_map3-combat-priority-v2_post_yellow_continue_route": 70,
+          "replay_map3-combat-priority-v2_exit": 23,
+          "replay_map3-combat-priority-v2_finish_fight": 80,
+          "replay_map3-combat-priority-v2_loaded_weapon": 69,
+          "replay_map3-combat-priority-v2_urgent_health": 35,
+          "correction_route_blocked_door": 21,
+          "replay_map3-combat-priority-v2_reachable_red_key_contrast": 80,
+          "replay_map3-combat-priority-v2_mechanics_route_use_switch": 42,
+          "replay_map3-combat-priority-v2_open_door": 16,
+          "replay_map3-combat-priority-v2_fight_near_door": 9,
+          "replay_map3-combat-priority-v2_continue_route": 80,
+          "replay_map2-root-goals-v1_open_door": 27,
+          "correction_route_continue_lift": 14,
+          "replay_map3-combat-priority-v2_mechanics_route_pickup": 10,
+          "replay_map3-combat-priority-v2_blocking_door": 1,
+          "synthetic_route_other_route": 26,
+          "replay_map3-combat-priority-v2_reachable_key": 2,
+          "replay_map3-combat-priority-v2_blocked_door_prerequisite": 7,
+          "replay_map3-combat-priority-v2_mechanics_route_open_door": 6,
+          "replay_map3-combat-priority-v2_shells_before_route": 1,
+          "replay_map3-combat-priority-v2_mechanics_route_exit": 2,
+          "replay_map3-combat-priority-v2_use_switch": 2,
+          "replay_map3-combat-priority-v2_continue_route_with_supplies": 1
+        }
+      }
+    },
+    "builder_sha256": "1c48c6c3e0655b4d37e85ad86873180c0a421b135e4fd2103b4f7513010146b0",
+    "labeler_sha256": "63ae8f3f5754351e3bad662577ad9950f7e5adb6eb5eacd2d5952e6141400c46"
+  },
+  "sources": {
+    "training/v031-command-route-v1/train.json": "3b5151d91be4a84f04cc99c0b8a012642f41fa927975d37fb7cb83ddad2abe29",
+    "training/v031-command-route-v1/validation.json": "f263296f45d1c5a853b9eaacb71fbd1b504d08f3305856227becec0c9b29a187"
+  },
+  "checkpoint_config_sha256": "62acc1eb6c1dcb21b5143066762a72a58773643d84e92593366c951fef39fb04",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [
+    {
+      "split": "validation",
+      "index": 1647,
+      "reason": "effective_duplicate",
+      "original_split": "validation"
+    }
+  ],
+  "splits": {
+    "train": {
+      "rows": 3966,
+      "sha256": "3b5151d91be4a84f04cc99c0b8a012642f41fa927975d37fb7cb83ddad2abe29"
+    },
+    "validation": {
+      "rows": 2192,
+      "sha256": "0b1c4f6b4428ca7edae7521334a6727f2f1d9e0db4418fffdbd1f25063c14650"
+    }
+  }
+}

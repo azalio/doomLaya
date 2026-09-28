@@ -396,6 +396,7 @@ def main():
     parser.add_argument('--combat-during-navigation',action='store_true',help='Let the model select optional fire while following an item, mechanism, door, exit, or exploration route')
     parser.add_argument('--inventory-events',action='store_true',help='Request another model decision when weapon ownership, keys, or episode changes')
     parser.add_argument('--ammo-events',action='store_true',help='Also request a decision when an owned weapon gains or loses enough ammo to fire')
+    parser.add_argument('--enemy-events',action='store_true',help='Request a model decision when another enemy becomes visible; does not select an action or bypass RTT')
     parser.add_argument('--mask-unreachable-items',action='store_true',help='Offer item commands only when the observed route graph contains a path')
     parser.add_argument('--floor-hazard-facts',action='store_true',help='Describe mapped damaging floor contact to the learned look gate; do not mask or choose actions')
     parser.add_argument('--look-gate',action='store_true',help='Let a separately learned look head add a turn while preserving normal action rankings')
@@ -465,7 +466,10 @@ def main():
               'vizdoom': vzd.__version__, 'tics_per_second': TICRATE,
               'command_ttl_seconds':2, 'automatic_weapon_pickup_switch':False,
               'source_sha256': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                                for name in ['agent.py', 'doomlib/__init__.py', 'doomlib/overlay.py', 'doomlib/report.py', 'doomlib/navigation.py', 'doomlib/combat.py', 'doomlib/items.py', 'doomlib/mission.py', 'doomlib/policy.py', 'doomlib/executor.py', 'doomlib/decision_questions.py', 'doomlib/decision_timing.py', 'doomlib/look_questions.py', 'doomlib/floor_hazards.py', 'doomlib/enemy_commitment.py', 'doomlib/enemy_sequences.py', 'doomlib/compact_movement.py', 'doomlib/compact_enemy.py', 'doomlib/compact_weapon.py', 'doomlib/compact_item.py', 'doomlib/enemy_ranking.py', 'doomlib/ranked_inference.py', 'doomlib/resource_questions.py', 'serve_doom_laya.py', 'doomlib/model_decoding.py', 'doomlib/laya_runtime.py', 'doomlib/question_heads.py', 'doomlib/movement_questions.py']}}
+                                for name in ['agent.py', 'doomlib/__init__.py', 'doomlib/overlay.py', 'doomlib/report.py', 'doomlib/navigation.py', 'doomlib/combat.py', 'doomlib/items.py', 'doomlib/mission.py', 'doomlib/policy.py', 'doomlib/executor.py', 'doomlib/decision_questions.py', 'doomlib/decision_timing.py', 'doomlib/look_questions.py', 'doomlib/floor_hazards.py', 'doomlib/enemy_commitment.py', 'doomlib/enemy_sequences.py', 'doomlib/compact_movement.py', 'doomlib/compact_enemy.py', 'doomlib/compact_weapon.py', 'doomlib/compact_item.py', 'doomlib/enemy_ranking.py', 'doomlib/ranked_inference.py', 'doomlib/resource_questions.py', 'serve_doom_laya.py', 'doomlib/model_decoding.py', 'doomlib/laya_runtime.py', 'doomlib/question_heads.py', 'doomlib/command_keys.py', 'doomlib/command_facts.py', 'doomlib/numeric_command.py', 'doomlib/numeric_item.py', 'doomlib/numeric_movement.py', 'doomlib/movement_questions.py']}}
+    config['source_sha256']['doomlib/typed_movement.py'] = hashlib.sha256((ROOT / 'doomlib/typed_movement.py').read_bytes()).hexdigest()
+    config['source_sha256']['doomlib/numeric_switch.py'] = hashlib.sha256((ROOT / 'doomlib/numeric_switch.py').read_bytes()).hexdigest()
+    config['source_sha256']['doomlib/numeric_enemy.py'] = hashlib.sha256((ROOT / 'doomlib/numeric_enemy.py').read_bytes()).hexdigest()
     if health.get('laya_source_commit'):
         config['laya_source_commit'] = health['laya_source_commit']
     if args.map_weapons:config['map_knowledge'].append('weapon_markers')
@@ -499,6 +503,7 @@ def main():
     history = deque([tactic], maxlen=3)
     switched, last_request = 0, -100000
     last_inventory = None
+    last_visible_enemies = None
     total_ticks = enemy_ticks = episode = 0
     previous = None
     current_map=args.map.upper()
@@ -627,9 +632,11 @@ def main():
                 future = None
             if fatal:
                 raise RuntimeError(fatal)
-            from doomlib.decision_timing import inventory_signature,request_reason
+            from doomlib.decision_timing import inventory_signature,request_reason,visible_enemy_signature
             inventory=inventory_signature(s,episode,include_ammo=args.ammo_events)
-            trigger=request_reason(tick,last_request,interval_ticks,inventory,last_inventory,args.inventory_events)
+            visible_enemies=visible_enemy_signature(s) if args.enemy_events else None
+            trigger=request_reason(tick,last_request,interval_ticks,inventory,last_inventory,args.inventory_events,
+                                   visible_enemies=visible_enemies,last_visible_enemies=last_visible_enemies)
             if future is None and trigger is not None:
                 if args.physical_facts:controller.annotate_physical_facts(s)
                 elif args.reachable_items:controller.annotate_reachable_items(s)
@@ -691,6 +698,7 @@ def main():
                 pending={'tick':tick,'episode':episode,'request_reason':trigger,'state':text,'packet':packet,'snapshot_tactic':tactic,'hp':s['hp']}
                 last_request=tick
                 last_inventory=inventory
+                last_visible_enemies=visible_enemies
                 if args.dry:
                     result={'answers':{'command':{'choice':'wait'},'weapon':{'choice':'keep'}},
                             'choice':'wait','probabilities':{k:float(k=='wait') for k in packet['commands']},

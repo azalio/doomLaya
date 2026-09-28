@@ -60,5 +60,31 @@ class DecisionTimingTest(unittest.TestCase):
         self.assertEqual(request_reason(3,0,26,inventory_signature(state),before,True),'inventory_changed')
         self.assertNotEqual(inventory_signature(state,0),inventory_signature(state,1))
 
+    def test_new_visible_enemy_requests_replanning_without_selecting_an_action(self):
+        from doomlib.decision_timing import visible_enemy_signature
+        state=self.state();state['enemies']=[dict(id=7,visible=False)]
+        before=visible_enemy_signature(state)
+        state['enemies'][0]['visible']=True
+        after=visible_enemy_signature(state)
+        original=copy.deepcopy(state)
+        self.assertEqual(request_reason(3,0,18,None,None,visible_enemies=after,last_visible_enemies=before),'enemy_appeared')
+        self.assertIsNone(request_reason(3,0,18,None,None,visible_enemies=after,last_visible_enemies=after))
+        self.assertIsNone(request_reason(3,0,18,None,None,visible_enemies=before,last_visible_enemies=after))
+        self.assertEqual(state,original)
+        self.assertNotIn('execution',state)
+
+    def test_enemy_replanning_preserves_the_real_response_deadline(self):
+        from concurrent.futures import Future
+        from doomlib.decision_timing import response_ready
+        before=frozenset();after=frozenset({7})
+        # A request in flight completes normally. Its changed observation then
+        # triggers a new request even when the regular interval has not elapsed.
+        self.assertEqual(request_reason(16,0,18,None,None,visible_enemies=after,last_visible_enemies=before),'enemy_appeared')
+        pending=Future()
+        self.assertFalse(response_ready(pending,16,32,16))
+        pending.set_result({'choice':'use_switch'})
+        self.assertTrue(response_ready(pending,16,32,16))
+        self.assertEqual(pending.result()['choice'],'use_switch')
+
 
 if __name__=='__main__':unittest.main()

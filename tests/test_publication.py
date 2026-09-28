@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class PublicationTest(unittest.TestCase):
     def test_public_entry_points_import_without_local_diagnostics(self):
-        for name in ("agent.py", "tools/verify_run.py", "tools/run_comparison.py", "tools/render_comparison.py", "serve_doom_laya.py", "training/finetune.py"):
+        for name in ("agent.py", "tools/verify_run.py", "tools/regression_suite.py", "tools/run_comparison.py", "tools/render_comparison.py", "serve_doom_laya.py", "training/finetune.py"):
             with self.subTest(name=name), patch.object(sys, "argv", [name, "--help"]), contextlib.redirect_stdout(io.StringIO()):
                 with self.assertRaises(SystemExit) as result:
                     runpy.run_path(str(ROOT / name), run_name="__main__")
@@ -47,6 +47,8 @@ class PublicationTest(unittest.TestCase):
             )
             self.assertEqual(result.returncode, 0, result.stderr)
             config = json.loads((run / 'config.json').read_text())
+            for name in ('doomlib/command_keys.py', 'doomlib/command_facts.py', 'doomlib/numeric_command.py', 'doomlib/numeric_item.py', 'doomlib/numeric_movement.py'):
+                self.assertEqual(config['source_sha256'][name], hashlib.sha256((snapshot / name).read_bytes()).hexdigest())
             self.assertEqual(
                 config['source_sha256']['doomlib/__init__.py'],
                 hashlib.sha256((snapshot / 'doomlib/__init__.py').read_bytes()).hexdigest(),
@@ -91,10 +93,18 @@ class PublicationTest(unittest.TestCase):
             self.assertEqual(hashlib.sha256(content).hexdigest(), expected['sha256'], name)
             rows = json.loads(content)
             self.assertEqual(len(rows), expected['questions'])
-            sources[name] = {r['source_run'] for r in rows}
+            sources[name] = {r['source_run'] for r in rows if 'source_run' in r}
             for row in rows:
+                if 'source_run' not in row:
+                    self.assertTrue(row.get('synthetic'))
+                    self.assertIsInstance(row.get('generator_seed'), int)
+                    self.assertIsInstance(row.get('source_index'), int)
                 self.assertIn(row['label'], row['question']['criteria'])
-                self.assertNotIn('48', row['source_run'].rsplit('-', 1)[-1])
+                if expected.get('evaluation_scope') == 'same_map_development':
+                    self.assertTrue(name.startswith('training/v031-'))
+                    self.assertIn('no held-out', expected['note'])
+                else:
+                    self.assertNotIn('48', row['source_run'].rsplit('-', 1)[-1])
         for base in ('training', 'training/v3'):
             self.assertFalse(sources[base + '/train.json'] & sources[base + '/validation.json'])
 

@@ -1,0 +1,89 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "input_projection": "weapon-compact-v1",
+    "sources": {
+      "training/map3-compact-weapon-v2/train.json": "cdf429a43954843646e5fbacd8f5ade7b907ce3fffee9220998b985963183f38",
+      "training/map3-compact-weapon-v2/validation.json": "9ded83828e33aed2c860109b16a4d67b5b9ead2c034ce4781a4df6a800cdd5fd",
+      "runs/20260928_010252_723378_v031-movement-switch-map02-seed54/decisions.jsonl": "9ba6821648f21778c734b3e1985f50a0ea8314cdd6ea07c99e54ddc2cafc1be6"
+    },
+    "removed": {
+      "train": 12,
+      "validation": 1
+    },
+    "builder_sha256": "5d44ab7ffac165a085959d0dd62b620401f32002a279423e1ce512e06adedfc1",
+    "note": "Retains existing compact weapon examples and offline rapid-fire priorities. Adds 0/1/2 shell boundaries with distinct state combinations per split. Same-map development, not an unseen map or seed. No runtime fallback.",
+    "original_error_count": 135,
+    "splits": {
+      "train": {
+        "rows": 1025,
+        "sha256": "74b1756954c08a73624b10ee16fb9b550f1187b016dbcd45345ef3e56b8593e9",
+        "categories": {
+          "shotgun": 291,
+          "chaingun_over_shotgun": 137,
+          "open_door": 1,
+          "pistol": 26,
+          "attack": 27,
+          "chaingun": 24,
+          "use_switch": 8,
+          "pickup": 31,
+          "exit": 1,
+          "ammo_contrast_melee": 23,
+          "ammo_contrast_pistol": 48,
+          "ammo_contrast_rocket_launcher": 8,
+          "ammo_contrast_chaingun": 81,
+          "ammo_contrast_shotgun": 58,
+          "ssg_ammo_0": 48,
+          "ssg_ammo_1": 48,
+          "ssg_ammo_2": 48,
+          "ssg_ammo_3": 48,
+          "ssg_ammo_8": 48,
+          "recorded_ssg_one_shell": 21
+        }
+      },
+      "validation": {
+        "rows": 849,
+        "sha256": "244787c3d65138b942f8c1c10c735fe4ca7b734e2f2d6ea8b5e2163e6906377a",
+        "categories": {
+          "pistol": 15,
+          "chaingun_over_shotgun": 61,
+          "shotgun": 101,
+          "chaingun": 12,
+          "pickup": 15,
+          "attack": 15,
+          "use_switch": 3,
+          "ammo_contrast_melee": 23,
+          "ammo_contrast_pistol": 52,
+          "ammo_contrast_rocket_launcher": 9,
+          "ammo_contrast_chaingun": 84,
+          "ammo_contrast_shotgun": 58,
+          "live_first_life_shotgun": 69,
+          "live_first_life_chaingun": 87,
+          "ssg_ammo_0": 48,
+          "ssg_ammo_1": 48,
+          "ssg_ammo_2": 48,
+          "ssg_ammo_4": 48,
+          "ssg_ammo_9": 48,
+          "recorded_ssg_one_shell": 5
+        }
+      }
+    }
+  },
+  "sources": {
+    "training/v031-weapon-boundary-v1/train.json": "74b1756954c08a73624b10ee16fb9b550f1187b016dbcd45345ef3e56b8593e9",
+    "training/v031-weapon-boundary-v1/validation.json": "244787c3d65138b942f8c1c10c735fe4ca7b734e2f2d6ea8b5e2163e6906377a"
+  },
+  "checkpoint_config_sha256": "1445c72f4d89669d541ab53f0717932ea0fbf9330929e17ac18772fd922b5291",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1025,
+      "sha256": "2c81c091a8d50715f27cc562ce107823e2350f55d0e4e4fddc9922bd6f97c818"
+    },
+    "validation": {
+      "rows": 849,
+      "sha256": "56bd025d25d417a9425e8e3e7aec7677fa94f4b0aa1a47d5ed6d71f34f28942a"
+    }
+  }
+}

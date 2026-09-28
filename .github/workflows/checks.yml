@@ -44,3 +44,9 @@ jobs:
       - run: python training/finetune.py --data training/map3-compact-movement-v2 --validate-only
       - run: python training/finetune.py --data training/map3-look-floor-v1 --validate-only
       - run: python training/finetune.py --data training/map3-switch-route-v1 --validate-only
+      - run: python training/finetune.py --data training/v031-command-key-return-v1 --validate-only
+      - run: python training/finetune.py --data training/v031-item-balanced-v2 --validate-only
+      - run: python training/finetune.py --data training/v031-movement-numeric-v1 --validate-only
+      - run: python training/finetune.py --data training/v031-switch-teacher-v1 --validate-only
+      - run: python training/finetune.py --data training/v031-enemy-visibility-v2 --validate-only
+      - run: python training/finetune.py --data training/v031-weapon-boundary-v2 --validate-only

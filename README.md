@@ -8,12 +8,29 @@ Laya и Jev играют в FreeDoom. Модель выбирает действ
 [Обучение](docs/TRAINING.md) · [MAP02](docs/MAP02.md) · [Результаты](docs/COMPARISON.md) ·
 [Веса и публикация](docs/PUBLISHING.md) · [Контракт управления](docs/DOOM.md)
 
+## v0.3.1: исправление регрессии MAP01–MAP03
+
+Один комплект весов прошёл MAP01 за 168,400 с, MAP02 за 420,400 с и MAP03
+за 347,114 с, все без смертей. После каждой карты подтверждены три секунды
+следующей. Контроллер исполняет решения модели; дополнительное ожидание
+готового ответа отключено, реальный RTT измерен.
+На MAP01 остаётся замечание к навигации: 32,23 с без новой области при
+пороге 25 с. Это одна итоговая серия на seed разработки.
+[Воспроизведение и обучение](docs/REGRESSION-FIX.md) ·
+[Проверки и SHA записей](reports/v031-regression.json).
+
+[Веса v0.3.1](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.1) ·
+[Видео MAP01](https://github.com/azalio/doomLaya/releases/download/v0.3.1/laya-map01.mp4) ·
+[Видео MAP02](https://github.com/azalio/doomLaya/releases/download/v0.3.1/laya-map02.mp4) ·
+[Видео MAP03](https://github.com/azalio/doomLaya/releases/download/v0.3.1/laya-map03.mp4).
+
 ## v0.3.0: MAP03 → MAP04
 
 Laya прошла MAP03 за 819,914 с: seed 54, skill 3, четыре смерти.
 После выхода записаны три секунды MAP04. Аудит управления и записи пройден.
 Общая проверка качества не пройдена: неподвижность достигала 141,83 с.
-Это один успешный прогон; MAP01/MAP02 с новым комплектом не проверены.
+Это один успешный прогон. В [проверке регрессии](docs/REGRESSION-v0.3.0.md)
+этот комплект не прошёл MAP01 за 180 с и MAP02 за 1800 с на прежних seed.
 
 [Веса](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.0) ·
 [Запуск и обучение](docs/MAP03.md) ·

@@ -24,6 +24,7 @@ def package(checkpoints, routing, output, card=None, clone_weights=False):
     if metadata['weights_sha256'] != expected:
         raise ValueError('Question-head manifest hash mismatch')
     names = set()
+    auxiliary = {}
     for question, entry in heads.items():
         if question == 'shared_encoder_verified':
             continue
@@ -35,6 +36,18 @@ def package(checkpoints, routing, output, card=None, clone_weights=False):
                 raise FileNotFoundError(checkpoints / name / filename)
         if digest(checkpoints / name / 'model.safetensors') != entry['weights_sha256']:
             raise ValueError('Checkpoint weights differ from verified run: ' + question)
+        config=json.loads((checkpoints/name/'rl_agent_config.json').read_text())
+        residual=config.get('doom_adaptation',{}).get('numeric_residual')
+        if residual:
+            if entry.get('composition') != residual['format']:
+                raise ValueError('Missing numeric residual composition')
+            files={'numeric-residual.json':('numeric_residual_spec_sha256','spec_sha256'),
+                   'numeric-residual.safetensors':('numeric_residual_weights_sha256','weights_sha256')}
+            for filename,(manifest_key,config_key) in files.items():
+                actual=digest(checkpoints/name/filename)
+                if actual!=residual[config_key] or actual!=entry.get(manifest_key):
+                    raise ValueError('Numeric residual differs from verified run: '+filename)
+            auxiliary[name]=list(files)
         names.add(name)
     if output.exists():
         raise FileExistsError(output)
@@ -43,10 +56,12 @@ def package(checkpoints, routing, output, card=None, clone_weights=False):
         staged = Path(tmp) / output.name
         staged.mkdir()
         for name in sorted(names):
-            for filename in REQUIRED:
+            for filename in (*REQUIRED, *auxiliary.get(name, [])):
                 source, target = checkpoints / name / filename, staged / name / filename
                 target.parent.mkdir(parents=True, exist_ok=True)
-                if filename.endswith('.json'):
+                if filename in auxiliary.get(name, []):
+                    shutil.copyfile(source, target)
+                elif filename.endswith('.json'):
                     target.write_text(json.dumps(clean(json.loads(source.read_text())), indent=2) + '\n')
                 elif clone_weights and filename == "model.safetensors":
                     subprocess.run(["/bin/cp", "-c", str(source), str(target)], check=True)

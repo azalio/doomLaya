@@ -21,14 +21,15 @@ def probe(run,start,end,output,target_id=None):
         rows.append(row)
     window=[r for r in rows if r['tick']>=start]
     if len(window)!=end-start or len({r['episode'] for r in window})!=1:raise ValueError('Incomplete window or episode boundary')
-    directives={r['directive']['decision_id']:r['directive'] for r in map(json.loads,(run/'decisions.jsonl').open())}
+    decisions={r['directive']['decision_id']:r for r in map(json.loads,(run/'decisions.jsonl').open())}
+    directives={key:row['directive'] for key,row in decisions.items()}
     original=directives[window[0]['execution']['decision_id']]
     if original['action']!='attack':raise ValueError('Start with an explicit attack')
     target_id=original['target']['id'] if target_id is None else target_id
     first=next((e for e in window[0]['enemies'] if e['id']==target_id),None)
     if first is None:raise ValueError('The retained target must be observed at window start')
     results=[]
-    for variant in ('recorded','recomputed','continue_observed_target'):
+    for variant in ('recorded','recomputed','continue_observed_target','relabeled_recorded_targets'):
         game=make_game(SimpleNamespace(**config));sensors=Sensors(weapon_sensor=True);history=[];target_removed=None
         def values():return {k:float(game.get_game_variable(getattr(vizdoom.GameVariable,v))) for k,v in [('x','POSITION_X'),('y','POSITION_Y'),('z','POSITION_Z'),('hp','HEALTH'),('kills','KILLCOUNT')]}
         try:
@@ -47,14 +48,20 @@ def probe(run,start,end,output,target_id=None):
                 if target_removed is None and target_id not in {e['id'] for e in s['enemies']}:target_removed=tick
                 if variant!='recorded':
                     directive=copy.deepcopy(directives[row['execution']['decision_id']])
-                    if directive['action']!='attack':raise ValueError('Probe window must contain only attacks')
-                    if accepted_id!=directive['decision_id']:
+                    if directive['action']=='attack' and accepted_id!=directive['decision_id']:
+                        if variant=='relabeled_recorded_targets':
+                            from training.build_map3_enemy_sequences import order_for
+                            packet=decisions[directive['decision_id']]['packet']
+                            order=order_for(packet)
+                            directive['target_sequence']=[copy.deepcopy(packet['targets']['enemy'][key]) for key in order]
+                            directive['target']=directive['target_sequence'][0]
                         if variant=='continue_observed_target' and target_removed is None:
                             current=next(e for e in s['enemies'] if e['id']==target_id)
                             sequence=[current]+[e for e in directive.get('target_sequence',[directive['target']]) if e['id']!=target_id]
                             directive['target_sequence']=sequence[:3];directive['target']=sequence[0]
                         executor.accept(directive,tick);accepted_id=directive['decision_id']
-                    computed,_=executor.act(s,tick);buttons[4:6]=computed[4:6]
+                    if directive['action']=='attack':
+                        computed,_=executor.act(s,tick);buttons[4:6]=computed[4:6]
                 if variant in ('recorded','recomputed'):
                     if max(abs(s[k]-row[k]) for k in initial)>.01:raise RuntimeError(variant+' baseline state diverged')
                     if max(abs(a-b) for a,b in zip(buttons,row['buttons']))>.00001:raise RuntimeError(variant+' baseline buttons differ')

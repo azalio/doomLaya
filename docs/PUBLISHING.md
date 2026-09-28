@@ -1,5 +1,34 @@
 # Публикация кода, весов и видео
 
+## v0.3.1: MAP01–MAP03
+
+[Веса и зависимости обучения](https://huggingface.co/azalio/laya-doom-map03/tree/v0.3.1) ·
+[Три видео и телеметрия](https://github.com/azalio/doomLaya/releases/tag/v0.3.1) ·
+[Запуск и обучение](REGRESSION-FIX.md).
+
+Исходники и наборы данных входят в GitHub-тег `v0.3.1`. Каталог HF
+`training-assets/` содержит шесть родительских моделей, четыре кеша и два
+журнала для сохранения прежних решений. Для игры он не нужен.
+
+Подготовка из сохранённых локальных результатов:
+
+```bash
+.venv/bin/python scripts/package_question_heads.py \
+  --routing reports/v031-candidate-model.json --card model-card/REGRESSION.md \
+  --output dist/laya-doom-v031
+.venv/bin/python scripts/package_training_assets.py \
+  --output dist/laya-doom-v031/training-assets
+.venv/bin/python scripts/package_regression_evidence.py \
+  --output dist/v0.3.1-assets
+```
+
+Выходные каталоги не должны существовать. На APFS добавьте `--clone-weights`
+к первым двум командам и `--clone-videos` к третьей, чтобы не дублировать
+дисковые блоки больших файлов. Подготовка сверяет SHA и проверяет тексты
+перед публикацией. Старые веса сохранены в HF-теге `v0.3.0`.
+
+Разделы ниже относятся к предыдущим релизам.
+
 [English](PUBLISHING.en.md) · Русский
 
 Рекомендуемая схема: **GitHub — код, данные обучения и отчёт;

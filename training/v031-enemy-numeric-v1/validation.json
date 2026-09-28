@@ -1,0 +1,3959 @@
+[
+  {
+    "kind": "enemy",
+    "state": "HP 73; armor 0.\nInventory: melee 0 ammo; pistol 127 ammo; shotgun 25 ammo; chaingun 127 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "67": "ShotgunGuy; distance 6.7m; bearing -73 degrees; last seen; latest accepted target: no.",
+        "63": "DoomImp; distance 9.8m; bearing +13 degrees; visible; latest accepted target: no.",
+        "69": "ShotgunGuy; distance 10.7m; bearing -94 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "63",
+    "target_ranking": [
+      "63",
+      "67",
+      "69",
+      "__stop__"
+    ],
+    "sequence_label": "11",
+    "enemy_sequences": {
+      "0": [
+        "67"
+      ],
+      "1": [
+        "63"
+      ],
+      "2": [
+        "69"
+      ],
+      "3": [
+        "67",
+        "63"
+      ],
+      "4": [
+        "67",
+        "69"
+      ],
+      "5": [
+        "63",
+        "67"
+      ],
+      "6": [
+        "63",
+        "69"
+      ],
+      "7": [
+        "69",
+        "67"
+      ],
+      "8": [
+        "69",
+        "63"
+      ],
+      "9": [
+        "67",
+        "63",
+        "69"
+      ],
+      "10": [
+        "67",
+        "69",
+        "63"
+      ],
+      "11": [
+        "63",
+        "67",
+        "69"
+      ],
+      "12": [
+        "63",
+        "69",
+        "67"
+      ],
+      "13": [
+        "69",
+        "67",
+        "63"
+      ],
+      "14": [
+        "69",
+        "63",
+        "67"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6676,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 73; armor 0.\nInventory: melee 0 ammo; pistol 127 ammo; shotgun 25 ammo; chaingun 127 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "67": "ShotgunGuy; distance 6.7m; bearing -86 degrees; last seen; latest accepted target: no.",
+        "63": "DoomImp; distance 9.8m; bearing +0 degrees; last seen; latest accepted target: yes.",
+        "69": "ShotgunGuy; distance 10.7m; bearing -107 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "67",
+    "target_ranking": [
+      "67",
+      "69",
+      "63",
+      "__stop__"
+    ],
+    "sequence_label": "10",
+    "enemy_sequences": {
+      "0": [
+        "67"
+      ],
+      "1": [
+        "63"
+      ],
+      "2": [
+        "69"
+      ],
+      "3": [
+        "67",
+        "63"
+      ],
+      "4": [
+        "67",
+        "69"
+      ],
+      "5": [
+        "63",
+        "67"
+      ],
+      "6": [
+        "63",
+        "69"
+      ],
+      "7": [
+        "69",
+        "67"
+      ],
+      "8": [
+        "69",
+        "63"
+      ],
+      "9": [
+        "67",
+        "63",
+        "69"
+      ],
+      "10": [
+        "67",
+        "69",
+        "63"
+      ],
+      "11": [
+        "63",
+        "67",
+        "69"
+      ],
+      "12": [
+        "63",
+        "69",
+        "67"
+      ],
+      "13": [
+        "69",
+        "67",
+        "63"
+      ],
+      "14": [
+        "69",
+        "63",
+        "67"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6694,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 73; armor 0.\nInventory: melee 0 ammo; pistol 123 ammo; shotgun 25 ammo; chaingun 123 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "67": "ShotgunGuy; distance 6.6m; bearing -89 degrees; last seen; latest accepted target: no.",
+        "63": "DoomImp; distance 9.3m; bearing -4 degrees; visible; latest accepted target: yes.",
+        "69": "ShotgunGuy; distance 10.6m; bearing -111 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "63",
+    "target_ranking": [
+      "63",
+      "67",
+      "69",
+      "__stop__"
+    ],
+    "sequence_label": "11",
+    "enemy_sequences": {
+      "0": [
+        "67"
+      ],
+      "1": [
+        "63"
+      ],
+      "2": [
+        "69"
+      ],
+      "3": [
+        "67",
+        "63"
+      ],
+      "4": [
+        "67",
+        "69"
+      ],
+      "5": [
+        "63",
+        "67"
+      ],
+      "6": [
+        "63",
+        "69"
+      ],
+      "7": [
+        "69",
+        "67"
+      ],
+      "8": [
+        "69",
+        "63"
+      ],
+      "9": [
+        "67",
+        "63",
+        "69"
+      ],
+      "10": [
+        "67",
+        "69",
+        "63"
+      ],
+      "11": [
+        "63",
+        "67",
+        "69"
+      ],
+      "12": [
+        "63",
+        "69",
+        "67"
+      ],
+      "13": [
+        "69",
+        "67",
+        "63"
+      ],
+      "14": [
+        "69",
+        "63",
+        "67"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6712,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 123 ammo; shotgun 25 ammo; chaingun 123 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "67": "ShotgunGuy; distance 3.8m; bearing -101 degrees; last seen; latest accepted target: no.",
+        "69": "ShotgunGuy; distance 8.0m; bearing -130 degrees; last seen; latest accepted target: no.",
+        "63": "DoomImp; distance 9.5m; bearing +1 degrees; last seen; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "67",
+    "target_ranking": [
+      "67",
+      "69",
+      "63",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "67"
+      ],
+      "1": [
+        "69"
+      ],
+      "2": [
+        "63"
+      ],
+      "3": [
+        "67",
+        "69"
+      ],
+      "4": [
+        "67",
+        "63"
+      ],
+      "5": [
+        "69",
+        "67"
+      ],
+      "6": [
+        "69",
+        "63"
+      ],
+      "7": [
+        "63",
+        "67"
+      ],
+      "8": [
+        "63",
+        "69"
+      ],
+      "9": [
+        "67",
+        "69",
+        "63"
+      ],
+      "10": [
+        "67",
+        "63",
+        "69"
+      ],
+      "11": [
+        "69",
+        "67",
+        "63"
+      ],
+      "12": [
+        "69",
+        "63",
+        "67"
+      ],
+      "13": [
+        "63",
+        "67",
+        "69"
+      ],
+      "14": [
+        "63",
+        "69",
+        "67"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6730,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 123 ammo; shotgun 25 ammo; chaingun 123 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "63": "DoomImp; distance 9.9m; bearing +0 degrees; last seen; latest accepted target: no.",
+        "65": "DoomImp; distance 15.1m; bearing +40 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "65",
+    "target_ranking": [
+      "65",
+      "63",
+      "__stop__"
+    ],
+    "sequence_label": "3",
+    "enemy_sequences": {
+      "0": [
+        "63"
+      ],
+      "1": [
+        "65"
+      ],
+      "2": [
+        "63",
+        "65"
+      ],
+      "3": [
+        "65",
+        "63"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6748,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 121 ammo; shotgun 25 ammo; chaingun 121 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "67": "ShotgunGuy; distance 1.6m; bearing +31 degrees; visible; latest accepted target: no.",
+        "63": "DoomImp; distance 9.2m; bearing -14 degrees; visible; latest accepted target: no.",
+        "66": "DoomImp; distance 9.6m; bearing +4 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "67",
+    "target_ranking": [
+      "67",
+      "63",
+      "66",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "67"
+      ],
+      "1": [
+        "63"
+      ],
+      "2": [
+        "66"
+      ],
+      "3": [
+        "67",
+        "63"
+      ],
+      "4": [
+        "67",
+        "66"
+      ],
+      "5": [
+        "63",
+        "67"
+      ],
+      "6": [
+        "63",
+        "66"
+      ],
+      "7": [
+        "66",
+        "67"
+      ],
+      "8": [
+        "66",
+        "63"
+      ],
+      "9": [
+        "67",
+        "63",
+        "66"
+      ],
+      "10": [
+        "67",
+        "66",
+        "63"
+      ],
+      "11": [
+        "63",
+        "67",
+        "66"
+      ],
+      "12": [
+        "63",
+        "66",
+        "67"
+      ],
+      "13": [
+        "66",
+        "67",
+        "63"
+      ],
+      "14": [
+        "66",
+        "63",
+        "67"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6766,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 117 ammo; shotgun 25 ammo; chaingun 117 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "63": "DoomImp; distance 9.2m; bearing -0 degrees; visible; latest accepted target: no.",
+        "66": "DoomImp; distance 10.0m; bearing +8 degrees; visible; latest accepted target: no.",
+        "65": "DoomImp; distance 14.6m; bearing +8 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "63",
+    "target_ranking": [
+      "63",
+      "66",
+      "65",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "63"
+      ],
+      "1": [
+        "66"
+      ],
+      "2": [
+        "65"
+      ],
+      "3": [
+        "63",
+        "66"
+      ],
+      "4": [
+        "63",
+        "65"
+      ],
+      "5": [
+        "66",
+        "63"
+      ],
+      "6": [
+        "66",
+        "65"
+      ],
+      "7": [
+        "65",
+        "63"
+      ],
+      "8": [
+        "65",
+        "66"
+      ],
+      "9": [
+        "63",
+        "66",
+        "65"
+      ],
+      "10": [
+        "63",
+        "65",
+        "66"
+      ],
+      "11": [
+        "66",
+        "63",
+        "65"
+      ],
+      "12": [
+        "66",
+        "65",
+        "63"
+      ],
+      "13": [
+        "65",
+        "63",
+        "66"
+      ],
+      "14": [
+        "65",
+        "66",
+        "63"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6784,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 112 ammo; shotgun 25 ammo; chaingun 112 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "69": "ShotgunGuy; distance 1.6m; bearing +36 degrees; visible; latest accepted target: no.",
+        "66": "DoomImp; distance 10.1m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "65": "DoomImp; distance 14.3m; bearing +0 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "66",
+    "target_ranking": [
+      "66",
+      "69",
+      "65",
+      "__stop__"
+    ],
+    "sequence_label": "11",
+    "enemy_sequences": {
+      "0": [
+        "69"
+      ],
+      "1": [
+        "66"
+      ],
+      "2": [
+        "65"
+      ],
+      "3": [
+        "69",
+        "66"
+      ],
+      "4": [
+        "69",
+        "65"
+      ],
+      "5": [
+        "66",
+        "69"
+      ],
+      "6": [
+        "66",
+        "65"
+      ],
+      "7": [
+        "65",
+        "69"
+      ],
+      "8": [
+        "65",
+        "66"
+      ],
+      "9": [
+        "69",
+        "66",
+        "65"
+      ],
+      "10": [
+        "69",
+        "65",
+        "66"
+      ],
+      "11": [
+        "66",
+        "69",
+        "65"
+      ],
+      "12": [
+        "66",
+        "65",
+        "69"
+      ],
+      "13": [
+        "65",
+        "69",
+        "66"
+      ],
+      "14": [
+        "65",
+        "66",
+        "69"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6802,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 108 ammo; shotgun 25 ammo; chaingun 108 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "64": "DoomImp; distance 16.0m; bearing -7 degrees; visible; latest accepted target: no.",
+        "65": "DoomImp; distance 17.1m; bearing +0 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "64",
+    "target_ranking": [
+      "64",
+      "65",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "64"
+      ],
+      "1": [
+        "65"
+      ],
+      "2": [
+        "64",
+        "65"
+      ],
+      "3": [
+        "65",
+        "64"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6820,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 103 ammo; shotgun 25 ammo; chaingun 103 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "64": "DoomImp; distance 16.6m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "65": "DoomImp; distance 19.1m; bearing +7 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "64",
+    "target_ranking": [
+      "64",
+      "65",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "64"
+      ],
+      "1": [
+        "65"
+      ],
+      "2": [
+        "64",
+        "65"
+      ],
+      "3": [
+        "65",
+        "64"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6838,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 99 ammo; shotgun 25 ammo; chaingun 99 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "64": "DoomImp; distance 16.4m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "65": "DoomImp; distance 18.9m; bearing +4 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "64",
+    "target_ranking": [
+      "64",
+      "65",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "64"
+      ],
+      "1": [
+        "65"
+      ],
+      "2": [
+        "64",
+        "65"
+      ],
+      "3": [
+        "65",
+        "64"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6856,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 61; armor 0.\nInventory: melee 0 ammo; pistol 94 ammo; shotgun 25 ammo; chaingun 94 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "65": "DoomImp; distance 19.2m; bearing +0 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "65",
+    "target_ranking": [
+      "65",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "65"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 6874,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 89 ammo; shotgun 41 ammo; chaingun 89 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "44": "ShotgunGuy; distance 11.7m; bearing +37 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "44",
+    "target_ranking": [
+      "44",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "44"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 7702,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 89 ammo; shotgun 41 ammo; chaingun 89 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "44": "ShotgunGuy; distance 11.8m; bearing +19 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "44",
+    "target_ranking": [
+      "44",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "44"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 7720,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 135 ammo; shotgun 50 ammo; chaingun 135 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "56": "DoomImp; distance 5.3m; bearing +13 degrees; visible; latest accepted target: no.",
+        "55": "DoomImp; distance 5.5m; bearing -6 degrees; visible; latest accepted target: no.",
+        "142": "Spectre; distance 23.8m; bearing +20 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "55",
+    "target_ranking": [
+      "55",
+      "56",
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "11",
+    "enemy_sequences": {
+      "0": [
+        "56"
+      ],
+      "1": [
+        "55"
+      ],
+      "2": [
+        "142"
+      ],
+      "3": [
+        "56",
+        "55"
+      ],
+      "4": [
+        "56",
+        "142"
+      ],
+      "5": [
+        "55",
+        "56"
+      ],
+      "6": [
+        "55",
+        "142"
+      ],
+      "7": [
+        "142",
+        "56"
+      ],
+      "8": [
+        "142",
+        "55"
+      ],
+      "9": [
+        "56",
+        "55",
+        "142"
+      ],
+      "10": [
+        "56",
+        "142",
+        "55"
+      ],
+      "11": [
+        "55",
+        "56",
+        "142"
+      ],
+      "12": [
+        "55",
+        "142",
+        "56"
+      ],
+      "13": [
+        "142",
+        "56",
+        "55"
+      ],
+      "14": [
+        "142",
+        "55",
+        "56"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 7954,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 134 ammo; shotgun 50 ammo; chaingun 134 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "56": "DoomImp; distance 2.2m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "55": "DoomImp; distance 2.6m; bearing -30 degrees; visible; latest accepted target: no.",
+        "142": "Spectre; distance 20.9m; bearing +1 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "56",
+    "target_ranking": [
+      "56",
+      "55",
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "56"
+      ],
+      "1": [
+        "55"
+      ],
+      "2": [
+        "142"
+      ],
+      "3": [
+        "56",
+        "55"
+      ],
+      "4": [
+        "56",
+        "142"
+      ],
+      "5": [
+        "55",
+        "56"
+      ],
+      "6": [
+        "55",
+        "142"
+      ],
+      "7": [
+        "142",
+        "56"
+      ],
+      "8": [
+        "142",
+        "55"
+      ],
+      "9": [
+        "56",
+        "55",
+        "142"
+      ],
+      "10": [
+        "56",
+        "142",
+        "55"
+      ],
+      "11": [
+        "55",
+        "56",
+        "142"
+      ],
+      "12": [
+        "55",
+        "142",
+        "56"
+      ],
+      "13": [
+        "142",
+        "56",
+        "55"
+      ],
+      "14": [
+        "142",
+        "55",
+        "56"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 7972,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 130 ammo; shotgun 50 ammo; chaingun 130 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "55": "DoomImp; distance 3.8m; bearing +2 degrees; visible; latest accepted target: no.",
+        "142": "Spectre; distance 22.4m; bearing +17 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "55",
+    "target_ranking": [
+      "55",
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "55"
+      ],
+      "1": [
+        "142"
+      ],
+      "2": [
+        "55",
+        "142"
+      ],
+      "3": [
+        "142",
+        "55"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 7990,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 125 ammo; shotgun 50 ammo; chaingun 125 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "55": "DoomImp; distance 9.0m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "142": "Spectre; distance 26.3m; bearing +9 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "55",
+    "target_ranking": [
+      "55",
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "55"
+      ],
+      "1": [
+        "142"
+      ],
+      "2": [
+        "55",
+        "142"
+      ],
+      "3": [
+        "142",
+        "55"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8008,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 114 ammo; shotgun 50 ammo; chaingun 114 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "142": "Spectre; distance 19.8m; bearing +1 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "142",
+    "target_ranking": [
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "142"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8098,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 109 ammo; shotgun 50 ammo; chaingun 109 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "142": "Spectre; distance 14.5m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "142",
+    "target_ranking": [
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "142"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8116,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 105 ammo; shotgun 50 ammo; chaingun 105 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "142": "Spectre; distance 11.7m; bearing +0 degrees; last seen; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "142",
+    "target_ranking": [
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "142"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8134,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 101 ammo; shotgun 50 ammo; chaingun 101 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "142": "Spectre; distance 9.4m; bearing -1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "142",
+    "target_ranking": [
+      "142",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "142"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8152,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 96 ammo; shotgun 50 ammo; chaingun 96 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 13.2m; bearing +39 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8170,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 95 ammo; shotgun 50 ammo; chaingun 95 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "141": "Spectre; distance 3.6m; bearing -36 degrees; visible; latest accepted target: no.",
+        "143": "Spectre; distance 14.8m; bearing +8 degrees; last seen; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "141",
+    "target_ranking": [
+      "141",
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "141"
+      ],
+      "1": [
+        "143"
+      ],
+      "2": [
+        "141",
+        "143"
+      ],
+      "3": [
+        "143",
+        "141"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8188,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 95 ammo; shotgun 50 ammo; chaingun 95 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "141": "Spectre; distance 3.0m; bearing -55 degrees; visible; latest accepted target: yes.",
+        "143": "Spectre; distance 15.5m; bearing +18 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "141",
+    "target_ranking": [
+      "141",
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "141"
+      ],
+      "1": [
+        "143"
+      ],
+      "2": [
+        "141",
+        "143"
+      ],
+      "3": [
+        "143",
+        "141"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8206,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 92 ammo; shotgun 50 ammo; chaingun 92 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "141": "Spectre; distance 1.6m; bearing -6 degrees; visible; latest accepted target: yes.",
+        "143": "Spectre; distance 15.5m; bearing +65 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "141",
+    "target_ranking": [
+      "141",
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "141"
+      ],
+      "1": [
+        "143"
+      ],
+      "2": [
+        "141",
+        "143"
+      ],
+      "3": [
+        "143",
+        "141"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8224,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 88 ammo; shotgun 50 ammo; chaingun 88 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "141": "Spectre; distance 3.1m; bearing +2 degrees; visible; latest accepted target: yes.",
+        "143": "Spectre; distance 15.5m; bearing +63 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "141",
+    "target_ranking": [
+      "141",
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "141"
+      ],
+      "1": [
+        "143"
+      ],
+      "2": [
+        "141",
+        "143"
+      ],
+      "3": [
+        "143",
+        "141"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8242,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 52; armor 0.\nInventory: melee 0 ammo; pistol 83 ammo; shotgun 50 ammo; chaingun 83 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "141": "Spectre; distance 5.1m; bearing -1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "141",
+    "target_ranking": [
+      "141",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "141"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8260,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 81 ammo; shotgun 50 ammo; chaingun 81 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 2.2m; bearing +3 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8584,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 81 ammo; shotgun 50 ammo; chaingun 81 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 1.5m; bearing +2 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8602,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 77 ammo; shotgun 50 ammo; chaingun 77 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 2.2m; bearing +1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8620,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 73 ammo; shotgun 50 ammo; chaingun 73 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 5.1m; bearing -0 degrees; last seen; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8638,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 73 ammo; shotgun 50 ammo; chaingun 73 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 5.1m; bearing +0 degrees; last seen; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8656,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 71 ammo; shotgun 50 ammo; chaingun 71 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 3.7m; bearing +5 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8674,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 0.\nInventory: melee 0 ammo; pistol 67 ammo; shotgun 50 ammo; chaingun 67 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "143": "Spectre; distance 2.8m; bearing -9 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "143",
+    "target_ranking": [
+      "143",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "143"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 8692,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 65 ammo; shotgun 50 ammo; chaingun 65 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "17": "Zombieman; distance 14.3m; bearing +41 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "17",
+    "target_ranking": [
+      "17",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "17"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9682,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 65 ammo; shotgun 50 ammo; chaingun 65 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "17": "Zombieman; distance 10.7m; bearing +20 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "17",
+    "target_ranking": [
+      "17",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "17"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9700,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 61 ammo; shotgun 50 ammo; chaingun 61 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "116": "DoomImp; distance 9.8m; bearing -25 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "116",
+    "target_ranking": [
+      "116",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "116"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9736,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 60 ammo; shotgun 50 ammo; chaingun 60 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "116": "DoomImp; distance 8.2m; bearing -2 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "116",
+    "target_ranking": [
+      "116",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "116"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9754,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 56 ammo; shotgun 50 ammo; chaingun 56 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "116": "DoomImp; distance 8.2m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "117": "DoomImp; distance 8.3m; bearing -20 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "116",
+    "target_ranking": [
+      "116",
+      "117",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "116"
+      ],
+      "1": [
+        "117"
+      ],
+      "2": [
+        "116",
+        "117"
+      ],
+      "3": [
+        "117",
+        "116"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9772,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 52 ammo; shotgun 50 ammo; chaingun 52 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "117": "DoomImp; distance 9.8m; bearing -0 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "117",
+    "target_ranking": [
+      "117",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "117"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9790,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 58; armor 100.\nInventory: melee 0 ammo; pistol 48 ammo; shotgun 50 ammo; chaingun 48 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "113": "DoomImp; distance 3.9m; bearing -44 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "113",
+    "target_ranking": [
+      "113",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "113"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9808,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 54; armor 98.\nInventory: melee 0 ammo; pistol 46 ammo; shotgun 50 ammo; chaingun 46 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "18": "Zombieman; distance 1.5m; bearing -30 degrees; visible; latest accepted target: no.",
+        "113": "DoomImp; distance 4.5m; bearing +1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "113",
+    "target_ranking": [
+      "113",
+      "18",
+      "__stop__"
+    ],
+    "sequence_label": "3",
+    "enemy_sequences": {
+      "0": [
+        "18"
+      ],
+      "1": [
+        "113"
+      ],
+      "2": [
+        "18",
+        "113"
+      ],
+      "3": [
+        "113",
+        "18"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9826,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 54; armor 98.\nInventory: melee 0 ammo; pistol 42 ammo; shotgun 50 ammo; chaingun 42 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "113": "DoomImp; distance 6.0m; bearing +2 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "113",
+    "target_ranking": [
+      "113",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "113"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 9844,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 54; armor 98.\nInventory: melee 0 ammo; pistol 49 ammo; shotgun 50 ammo; chaingun 49 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "114": "DoomImp; distance 12.9m; bearing -28 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "114",
+    "target_ranking": [
+      "114",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "114"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 10150,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 50; armor 96.\nInventory: melee 0 ammo; pistol 49 ammo; shotgun 50 ammo; chaingun 49 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "114": "DoomImp; distance 8.8m; bearing -20 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "114",
+    "target_ranking": [
+      "114",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "114"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 10168,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 50; armor 96.\nInventory: melee 0 ammo; pistol 45 ammo; shotgun 50 ammo; chaingun 45 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "114": "DoomImp; distance 8.5m; bearing -1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "114",
+    "target_ranking": [
+      "114",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "114"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 10186,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 50; armor 96.\nInventory: melee 0 ammo; pistol 43 ammo; shotgun 50 ammo; chaingun 43 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "54": "ShotgunGuy; distance 1.7m; bearing +1 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "54",
+    "target_ranking": [
+      "54",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "54"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 10564,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 50; armor 96.\nInventory: melee 0 ammo; pistol 43 ammo; shotgun 50 ammo; chaingun 43 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "54": "ShotgunGuy; distance 1.5m; bearing +6 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "54",
+    "target_ranking": [
+      "54",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "54"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 10582,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 44 ammo; shotgun 50 ammo; chaingun 44 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "81": "DoomImp; distance 8.5m; bearing -7 degrees; visible; latest accepted target: no.",
+        "80": "DoomImp; distance 9.3m; bearing -16 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 13.2m; bearing -11 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "81",
+    "target_ranking": [
+      "81",
+      "80",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "81"
+      ],
+      "1": [
+        "80"
+      ],
+      "2": [
+        "79"
+      ],
+      "3": [
+        "81",
+        "80"
+      ],
+      "4": [
+        "81",
+        "79"
+      ],
+      "5": [
+        "80",
+        "81"
+      ],
+      "6": [
+        "80",
+        "79"
+      ],
+      "7": [
+        "79",
+        "81"
+      ],
+      "8": [
+        "79",
+        "80"
+      ],
+      "9": [
+        "81",
+        "80",
+        "79"
+      ],
+      "10": [
+        "81",
+        "79",
+        "80"
+      ],
+      "11": [
+        "80",
+        "81",
+        "79"
+      ],
+      "12": [
+        "80",
+        "79",
+        "81"
+      ],
+      "13": [
+        "79",
+        "81",
+        "80"
+      ],
+      "14": [
+        "79",
+        "80",
+        "81"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12312,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 44 ammo; shotgun 50 ammo; chaingun 44 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "81": "DoomImp; distance 5.4m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "80": "DoomImp; distance 6.2m; bearing -15 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 10.5m; bearing -14 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "81",
+    "target_ranking": [
+      "81",
+      "80",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "81"
+      ],
+      "1": [
+        "80"
+      ],
+      "2": [
+        "79"
+      ],
+      "3": [
+        "81",
+        "80"
+      ],
+      "4": [
+        "81",
+        "79"
+      ],
+      "5": [
+        "80",
+        "81"
+      ],
+      "6": [
+        "80",
+        "79"
+      ],
+      "7": [
+        "79",
+        "81"
+      ],
+      "8": [
+        "79",
+        "80"
+      ],
+      "9": [
+        "81",
+        "80",
+        "79"
+      ],
+      "10": [
+        "81",
+        "79",
+        "80"
+      ],
+      "11": [
+        "80",
+        "81",
+        "79"
+      ],
+      "12": [
+        "80",
+        "79",
+        "81"
+      ],
+      "13": [
+        "79",
+        "81",
+        "80"
+      ],
+      "14": [
+        "79",
+        "80",
+        "81"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12330,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 39 ammo; shotgun 50 ammo; chaingun 39 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "81": "DoomImp; distance 7.0m; bearing -0 degrees; visible; latest accepted target: yes.",
+        "80": "DoomImp; distance 7.6m; bearing -14 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 11.7m; bearing -18 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "81",
+    "target_ranking": [
+      "81",
+      "80",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "81"
+      ],
+      "1": [
+        "80"
+      ],
+      "2": [
+        "79"
+      ],
+      "3": [
+        "81",
+        "80"
+      ],
+      "4": [
+        "81",
+        "79"
+      ],
+      "5": [
+        "80",
+        "81"
+      ],
+      "6": [
+        "80",
+        "79"
+      ],
+      "7": [
+        "79",
+        "81"
+      ],
+      "8": [
+        "79",
+        "80"
+      ],
+      "9": [
+        "81",
+        "80",
+        "79"
+      ],
+      "10": [
+        "81",
+        "79",
+        "80"
+      ],
+      "11": [
+        "80",
+        "81",
+        "79"
+      ],
+      "12": [
+        "80",
+        "79",
+        "81"
+      ],
+      "13": [
+        "79",
+        "81",
+        "80"
+      ],
+      "14": [
+        "79",
+        "80",
+        "81"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12348,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 35 ammo; shotgun 50 ammo; chaingun 35 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "80": "DoomImp; distance 11.1m; bearing -1 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 15.7m; bearing -3 degrees; last seen; latest accepted target: no.",
+        "78": "DoomImp; distance 17.9m; bearing -5 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "80",
+    "target_ranking": [
+      "80",
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "80"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78"
+      ],
+      "3": [
+        "80",
+        "79"
+      ],
+      "4": [
+        "80",
+        "78"
+      ],
+      "5": [
+        "79",
+        "80"
+      ],
+      "6": [
+        "79",
+        "78"
+      ],
+      "7": [
+        "78",
+        "80"
+      ],
+      "8": [
+        "78",
+        "79"
+      ],
+      "9": [
+        "80",
+        "79",
+        "78"
+      ],
+      "10": [
+        "80",
+        "78",
+        "79"
+      ],
+      "11": [
+        "79",
+        "80",
+        "78"
+      ],
+      "12": [
+        "79",
+        "78",
+        "80"
+      ],
+      "13": [
+        "78",
+        "80",
+        "79"
+      ],
+      "14": [
+        "78",
+        "79",
+        "80"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12366,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 34 ammo; shotgun 50 ammo; chaingun 34 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "80": "DoomImp; distance 15.1m; bearing -0 degrees; last seen; latest accepted target: yes.",
+        "79": "DoomImp; distance 19.6m; bearing -1 degrees; last seen; latest accepted target: no.",
+        "78": "DoomImp; distance 21.9m; bearing -3 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "80",
+    "target_ranking": [
+      "80",
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "80"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78"
+      ],
+      "3": [
+        "80",
+        "79"
+      ],
+      "4": [
+        "80",
+        "78"
+      ],
+      "5": [
+        "79",
+        "80"
+      ],
+      "6": [
+        "79",
+        "78"
+      ],
+      "7": [
+        "78",
+        "80"
+      ],
+      "8": [
+        "78",
+        "79"
+      ],
+      "9": [
+        "80",
+        "79",
+        "78"
+      ],
+      "10": [
+        "80",
+        "78",
+        "79"
+      ],
+      "11": [
+        "79",
+        "80",
+        "78"
+      ],
+      "12": [
+        "79",
+        "78",
+        "80"
+      ],
+      "13": [
+        "78",
+        "80",
+        "79"
+      ],
+      "14": [
+        "78",
+        "79",
+        "80"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12384,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 34 ammo; shotgun 50 ammo; chaingun 34 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "101": "DoomImp; distance 7.2m; bearing -34 degrees; visible; latest accepted target: no.",
+        "80": "DoomImp; distance 18.5m; bearing -0 degrees; last seen; latest accepted target: yes.",
+        "79": "DoomImp; distance 23.0m; bearing -1 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "101",
+    "target_ranking": [
+      "101",
+      "80",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "101"
+      ],
+      "1": [
+        "80"
+      ],
+      "2": [
+        "79"
+      ],
+      "3": [
+        "101",
+        "80"
+      ],
+      "4": [
+        "101",
+        "79"
+      ],
+      "5": [
+        "80",
+        "101"
+      ],
+      "6": [
+        "80",
+        "79"
+      ],
+      "7": [
+        "79",
+        "101"
+      ],
+      "8": [
+        "79",
+        "80"
+      ],
+      "9": [
+        "101",
+        "80",
+        "79"
+      ],
+      "10": [
+        "101",
+        "79",
+        "80"
+      ],
+      "11": [
+        "80",
+        "101",
+        "79"
+      ],
+      "12": [
+        "80",
+        "79",
+        "101"
+      ],
+      "13": [
+        "79",
+        "101",
+        "80"
+      ],
+      "14": [
+        "79",
+        "80",
+        "101"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12402,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 98.\nInventory: melee 0 ammo; pistol 34 ammo; shotgun 50 ammo; chaingun 34 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "101": "DoomImp; distance 9.9m; bearing -19 degrees; visible; latest accepted target: yes.",
+        "99": "DoomImp; distance 11.9m; bearing +61 degrees; last seen; latest accepted target: no.",
+        "80": "DoomImp; distance 20.1m; bearing +16 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "101",
+    "target_ranking": [
+      "101",
+      "99",
+      "80",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "101"
+      ],
+      "1": [
+        "99"
+      ],
+      "2": [
+        "80"
+      ],
+      "3": [
+        "101",
+        "99"
+      ],
+      "4": [
+        "101",
+        "80"
+      ],
+      "5": [
+        "99",
+        "101"
+      ],
+      "6": [
+        "99",
+        "80"
+      ],
+      "7": [
+        "80",
+        "101"
+      ],
+      "8": [
+        "80",
+        "99"
+      ],
+      "9": [
+        "101",
+        "99",
+        "80"
+      ],
+      "10": [
+        "101",
+        "80",
+        "99"
+      ],
+      "11": [
+        "99",
+        "101",
+        "80"
+      ],
+      "12": [
+        "99",
+        "80",
+        "101"
+      ],
+      "13": [
+        "80",
+        "101",
+        "99"
+      ],
+      "14": [
+        "80",
+        "99",
+        "101"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12420,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 30 ammo; shotgun 50 ammo; chaingun 30 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "99": "DoomImp; distance 8.7m; bearing +83 degrees; last seen; latest accepted target: no.",
+        "101": "DoomImp; distance 11.8m; bearing -2 degrees; visible; latest accepted target: yes.",
+        "80": "DoomImp; distance 15.8m; bearing +32 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "101",
+    "target_ranking": [
+      "101",
+      "99",
+      "80",
+      "__stop__"
+    ],
+    "sequence_label": "11",
+    "enemy_sequences": {
+      "0": [
+        "99"
+      ],
+      "1": [
+        "101"
+      ],
+      "2": [
+        "80"
+      ],
+      "3": [
+        "99",
+        "101"
+      ],
+      "4": [
+        "99",
+        "80"
+      ],
+      "5": [
+        "101",
+        "99"
+      ],
+      "6": [
+        "101",
+        "80"
+      ],
+      "7": [
+        "80",
+        "99"
+      ],
+      "8": [
+        "80",
+        "101"
+      ],
+      "9": [
+        "99",
+        "101",
+        "80"
+      ],
+      "10": [
+        "99",
+        "80",
+        "101"
+      ],
+      "11": [
+        "101",
+        "99",
+        "80"
+      ],
+      "12": [
+        "101",
+        "80",
+        "99"
+      ],
+      "13": [
+        "80",
+        "99",
+        "101"
+      ],
+      "14": [
+        "80",
+        "101",
+        "99"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12438,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 26 ammo; shotgun 50 ammo; chaingun 26 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "99": "DoomImp; distance 8.9m; bearing -1 degrees; visible; latest accepted target: no.",
+        "80": "DoomImp; distance 17.6m; bearing -34 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 19.8m; bearing -34 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "99",
+    "target_ranking": [
+      "99",
+      "80",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "99"
+      ],
+      "1": [
+        "80"
+      ],
+      "2": [
+        "79"
+      ],
+      "3": [
+        "99",
+        "80"
+      ],
+      "4": [
+        "99",
+        "79"
+      ],
+      "5": [
+        "80",
+        "99"
+      ],
+      "6": [
+        "80",
+        "79"
+      ],
+      "7": [
+        "79",
+        "99"
+      ],
+      "8": [
+        "79",
+        "80"
+      ],
+      "9": [
+        "99",
+        "80",
+        "79"
+      ],
+      "10": [
+        "99",
+        "79",
+        "80"
+      ],
+      "11": [
+        "80",
+        "99",
+        "79"
+      ],
+      "12": [
+        "80",
+        "79",
+        "99"
+      ],
+      "13": [
+        "79",
+        "99",
+        "80"
+      ],
+      "14": [
+        "79",
+        "80",
+        "99"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12456,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 22 ammo; shotgun 50 ammo; chaingun 22 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "99": "DoomImp; distance 8.7m; bearing +5 degrees; visible; latest accepted target: yes.",
+        "80": "DoomImp; distance 15.9m; bearing -39 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 17.2m; bearing -39 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "99",
+    "target_ranking": [
+      "99",
+      "80",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "99"
+      ],
+      "1": [
+        "80"
+      ],
+      "2": [
+        "79"
+      ],
+      "3": [
+        "99",
+        "80"
+      ],
+      "4": [
+        "99",
+        "79"
+      ],
+      "5": [
+        "80",
+        "99"
+      ],
+      "6": [
+        "80",
+        "79"
+      ],
+      "7": [
+        "79",
+        "99"
+      ],
+      "8": [
+        "79",
+        "80"
+      ],
+      "9": [
+        "99",
+        "80",
+        "79"
+      ],
+      "10": [
+        "99",
+        "79",
+        "80"
+      ],
+      "11": [
+        "80",
+        "99",
+        "79"
+      ],
+      "12": [
+        "80",
+        "79",
+        "99"
+      ],
+      "13": [
+        "79",
+        "99",
+        "80"
+      ],
+      "14": [
+        "79",
+        "80",
+        "99"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12474,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 17 ammo; shotgun 50 ammo; chaingun 17 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "80": "DoomImp; distance 14.4m; bearing +1 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 15.7m; bearing +2 degrees; visible; latest accepted target: no.",
+        "78": "DoomImp; distance 17.9m; bearing +3 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "80",
+    "target_ranking": [
+      "80",
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "9",
+    "enemy_sequences": {
+      "0": [
+        "80"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78"
+      ],
+      "3": [
+        "80",
+        "79"
+      ],
+      "4": [
+        "80",
+        "78"
+      ],
+      "5": [
+        "79",
+        "80"
+      ],
+      "6": [
+        "79",
+        "78"
+      ],
+      "7": [
+        "78",
+        "80"
+      ],
+      "8": [
+        "78",
+        "79"
+      ],
+      "9": [
+        "80",
+        "79",
+        "78"
+      ],
+      "10": [
+        "80",
+        "78",
+        "79"
+      ],
+      "11": [
+        "79",
+        "80",
+        "78"
+      ],
+      "12": [
+        "79",
+        "78",
+        "80"
+      ],
+      "13": [
+        "78",
+        "80",
+        "79"
+      ],
+      "14": [
+        "78",
+        "79",
+        "80"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12492,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 13 ammo; shotgun 50 ammo; chaingun 13 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "79": "DoomImp; distance 18.9m; bearing +1 degrees; visible; latest accepted target: no.",
+        "78": "DoomImp; distance 20.1m; bearing -5 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "79"
+      ],
+      "1": [
+        "78"
+      ],
+      "2": [
+        "79",
+        "78"
+      ],
+      "3": [
+        "78",
+        "79"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12510,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 12 ammo; shotgun 50 ammo; chaingun 12 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "79": "DoomImp; distance 18.8m; bearing -0 degrees; last seen; latest accepted target: yes.",
+        "78": "DoomImp; distance 19.8m; bearing -6 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "79"
+      ],
+      "1": [
+        "78"
+      ],
+      "2": [
+        "79",
+        "78"
+      ],
+      "3": [
+        "78",
+        "79"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12528,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 12 ammo; shotgun 50 ammo; chaingun 12 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "79": "DoomImp; distance 18.7m; bearing -1 degrees; last seen; latest accepted target: yes.",
+        "78": "DoomImp; distance 19.9m; bearing -6 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "79"
+      ],
+      "1": [
+        "78"
+      ],
+      "2": [
+        "79",
+        "78"
+      ],
+      "3": [
+        "78",
+        "79"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12546,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 12 ammo; shotgun 50 ammo; chaingun 12 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "79": "DoomImp; distance 19.0m; bearing -1 degrees; last seen; latest accepted target: yes.",
+        "78": "DoomImp; distance 20.6m; bearing -5 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "79"
+      ],
+      "1": [
+        "78"
+      ],
+      "2": [
+        "79",
+        "78"
+      ],
+      "3": [
+        "78",
+        "79"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12564,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 12 ammo; shotgun 50 ammo; chaingun 12 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "79": "DoomImp; distance 18.8m; bearing +0 degrees; last seen; latest accepted target: yes.",
+        "78": "DoomImp; distance 20.4m; bearing -4 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "79"
+      ],
+      "1": [
+        "78"
+      ],
+      "2": [
+        "79",
+        "78"
+      ],
+      "3": [
+        "78",
+        "79"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12582,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 12 ammo; shotgun 50 ammo; chaingun 12 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "78": "DoomImp; distance 3.5m; bearing -16 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 6.4m; bearing +8 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "78",
+    "target_ranking": [
+      "78",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "78"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78",
+        "79"
+      ],
+      "3": [
+        "79",
+        "78"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12798,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 60; armor 99.\nInventory: melee 0 ammo; pistol 12 ammo; shotgun 50 ammo; chaingun 12 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "78": "DoomImp; distance 1.4m; bearing -88 degrees; last seen; latest accepted target: yes.",
+        "79": "DoomImp; distance 5.1m; bearing +19 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "3",
+    "enemy_sequences": {
+      "0": [
+        "78"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78",
+        "79"
+      ],
+      "3": [
+        "79",
+        "78"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12816,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 88.\nInventory: melee 0 ammo; pistol 10 ammo; shotgun 50 ammo; chaingun 10 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "78": "DoomImp; distance 2.9m; bearing -19 degrees; visible; latest accepted target: no.",
+        "79": "DoomImp; distance 5.0m; bearing +74 degrees; last seen; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "78",
+    "target_ranking": [
+      "78",
+      "79",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "78"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78",
+        "79"
+      ],
+      "3": [
+        "79",
+        "78"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12834,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 38; armor 88.\nInventory: melee 0 ammo; pistol 8 ammo; shotgun 50 ammo; chaingun 8 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "78": "DoomImp; distance 3.9m; bearing -65 degrees; last seen; latest accepted target: yes.",
+        "79": "DoomImp; distance 7.0m; bearing +19 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "78",
+      "__stop__"
+    ],
+    "sequence_label": "3",
+    "enemy_sequences": {
+      "0": [
+        "78"
+      ],
+      "1": [
+        "79"
+      ],
+      "2": [
+        "78",
+        "79"
+      ],
+      "3": [
+        "79",
+        "78"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12852,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 36; armor 87.\nInventory: melee 0 ammo; pistol 5 ammo; shotgun 50 ammo; chaingun 5 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "79": "DoomImp; distance 5.1m; bearing +72 degrees; last seen; latest accepted target: yes.",
+        "102": "DoomImp; distance 24.0m; bearing -52 degrees; last seen; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "79",
+    "target_ranking": [
+      "79",
+      "102",
+      "__stop__"
+    ],
+    "sequence_label": "2",
+    "enemy_sequences": {
+      "0": [
+        "79"
+      ],
+      "1": [
+        "102"
+      ],
+      "2": [
+        "79",
+        "102"
+      ],
+      "3": [
+        "102",
+        "79"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12870,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 22; armor 80.\nInventory: melee 0 ammo; pistol 0 ammo; shotgun 50 ammo; chaingun 0 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "102": "DoomImp; distance 26.9m; bearing -0 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "102",
+    "target_ranking": [
+      "102",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "102"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12905,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 22; armor 80.\nInventory: melee 0 ammo; pistol 0 ammo; shotgun 50 ammo; chaingun 0 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "102": "DoomImp; distance 30.0m; bearing -1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "102",
+    "target_ranking": [
+      "102",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "102"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12923,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 22; armor 80.\nInventory: melee 0 ammo; pistol 0 ammo; shotgun 50 ammo; chaingun 0 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "102": "DoomImp; distance 32.7m; bearing -0 degrees; last seen; latest accepted target: no.",
+        "100": "DoomImp; distance 34.3m; bearing -23 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "100",
+    "target_ranking": [
+      "100",
+      "102",
+      "__stop__"
+    ],
+    "sequence_label": "3",
+    "enemy_sequences": {
+      "0": [
+        "102"
+      ],
+      "1": [
+        "100"
+      ],
+      "2": [
+        "102",
+        "100"
+      ],
+      "3": [
+        "100",
+        "102"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 12959,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 47; armor 80.\nInventory: melee 0 ammo; pistol 50 ammo; shotgun 50 ammo; chaingun 50 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "148": "DoomImp; distance 21.2m; bearing -42 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "148",
+    "target_ranking": [
+      "148",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "148"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13281,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 47; armor 80.\nInventory: melee 0 ammo; pistol 49 ammo; shotgun 50 ammo; chaingun 49 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "148": "DoomImp; distance 21.0m; bearing +1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "148",
+    "target_ranking": [
+      "148",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "148"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13299,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 47; armor 80.\nInventory: melee 0 ammo; pistol 45 ammo; shotgun 50 ammo; chaingun 45 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "148": "DoomImp; distance 21.7m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "148",
+    "target_ranking": [
+      "148",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "148"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13317,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 47; armor 80.\nInventory: melee 0 ammo; pistol 42 ammo; shotgun 50 ammo; chaingun 42 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "150": "Zombieman; distance 12.4m; bearing +2 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "150",
+    "target_ranking": [
+      "150",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "150"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13479,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 47; armor 80.\nInventory: melee 0 ammo; pistol 41 ammo; shotgun 50 ammo; chaingun 41 ammo; rocket_launcher 2 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "150": "Zombieman; distance 7.8m; bearing -1 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "150",
+    "target_ranking": [
+      "150",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "150"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13497,
+    "source_episode": 0,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 100; armor 100.\nInventory: melee 0 ammo; pistol 48 ammo; shotgun 8 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "3": "LostSoul; distance 9.2m; bearing -0 degrees; visible; latest accepted target: no.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "3",
+    "target_ranking": [
+      "3",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "3"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13729,
+    "source_episode": 1,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 100; armor 100.\nInventory: melee 0 ammo; pistol 47 ammo; shotgun 8 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "3": "LostSoul; distance 8.1m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "3",
+    "target_ranking": [
+      "3",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "3"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13747,
+    "source_episode": 1,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 82; armor 91.\nInventory: melee 0 ammo; pistol 47 ammo; shotgun 8 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "3": "LostSoul; distance 9.8m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "3",
+    "target_ranking": [
+      "3",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "3"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13765,
+    "source_episode": 1,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  },
+  {
+    "kind": "enemy",
+    "state": "HP 82; armor 91.\nInventory: melee 0 ammo; pistol 47 ammo; shotgun 8 ammo.",
+    "question": {
+      "type": "choice",
+      "instructions": "Rank the known targets for a firing sequence. Higher scores mean earlier targets. Rank ending the sequence before targets that should be omitted. At least one target is required. A new decision may replace the sequence.",
+      "criteria": {
+        "3": "LostSoul; distance 5.5m; bearing +0 degrees; visible; latest accepted target: yes.",
+        "__stop__": "End the firing sequence before any remaining targets."
+      }
+    },
+    "label": "3",
+    "target_ranking": [
+      "3",
+      "__stop__"
+    ],
+    "sequence_label": "0",
+    "enemy_sequences": {
+      "0": [
+        "3"
+      ]
+    },
+    "category": "observed_target_order",
+    "source_run": "20260928_060838_897203_v031-finish-retained-map03-seed54",
+    "source_tick": 13783,
+    "source_episode": 1,
+    "synthetic": false,
+    "source_type": "offline_target_order_correction"
+  }
+]

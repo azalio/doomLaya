@@ -1,0 +1,170 @@
+{
+  "note": "Diagnostic replay, not neural gameplay. Recorded targets and weapons are preserved; aiming and firing are recomputed. Both baseline branches exactly reproduce the source. Typed movement labels use recorded observation facts, not a live teacher or a trained policy.",
+  "source_run": "runs/20260928_025547_320902_v031-enemy-visibility-v2-map02-seed54",
+  "start": 7800,
+  "end": 8027,
+  "results": [
+    {
+      "variant": "recorded",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1611.2028350830078,
+        "y": -1074.5499877929688,
+        "z": -96.0,
+        "hp": -2.0,
+        "kills": 41.0
+      },
+      "dead": true,
+      "ticks": 227,
+      "fire_ticks": 119
+    },
+    {
+      "variant": "recomputed",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1611.2028350830078,
+        "y": -1074.5499877929688,
+        "z": -96.0,
+        "hp": -2.0,
+        "kills": 41.0
+      },
+      "dead": true,
+      "ticks": 227,
+      "fire_ticks": 119
+    },
+    {
+      "variant": "stationary",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1496.7032623291016,
+        "y": -852.7279510498047,
+        "z": -88.0,
+        "hp": 81.0,
+        "kills": 40.0
+      },
+      "dead": false,
+      "ticks": 227,
+      "fire_ticks": 90
+    },
+    {
+      "variant": "backward",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1597.7885131835938,
+        "y": -456.1227722167969,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 40.0
+      },
+      "dead": false,
+      "ticks": 227,
+      "fire_ticks": 154
+    },
+    {
+      "variant": "strafe_left",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1611.2028350830078,
+        "y": -1074.5499877929688,
+        "z": -96.0,
+        "hp": -2.0,
+        "kills": 41.0
+      },
+      "dead": true,
+      "ticks": 227,
+      "fire_ticks": 119
+    },
+    {
+      "variant": "strafe_right",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1488.0215911865234,
+        "y": -941.1153717041016,
+        "z": -88.0,
+        "hp": 38.0,
+        "kills": 41.0
+      },
+      "dead": false,
+      "ticks": 227,
+      "fire_ticks": 133
+    },
+    {
+      "variant": "retained_recorded_facts",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1629.2455596923828,
+        "y": -456.0003356933594,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 41.0
+      },
+      "dead": false,
+      "ticks": 227,
+      "fire_ticks": 154
+    },
+    {
+      "variant": "typed_recorded_facts",
+      "initial": {
+        "x": 1361.7607116699219,
+        "y": -744.1938018798828,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 37.0
+      },
+      "final": {
+        "x": 1629.2455596923828,
+        "y": -456.0003356933594,
+        "z": -88.0,
+        "hp": 97.0,
+        "kills": 41.0
+      },
+      "dead": false,
+      "ticks": 227,
+      "fire_ticks": 154
+    }
+  ],
+  "source_report": "runs/v031-map02-demons-typed-movement.json",
+  "source_report_sha256": "11eec02fdf3268e028010ea82560279f7e75ead60f173dc50ea1b1c5c645ec6a"
+}

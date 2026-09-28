@@ -1,0 +1,39 @@
+{
+  "builder_sha256": "9ee145e8d728e9ae1bd271b006d30e5b7b290bf6e8c9d45430b06a20f99fe330",
+  "labeler_sha256": "5cc9cf57bca6043bd137dcab9b51b257eb2f88b5171b333e469fb286ac111ec9",
+  "projection_sha256": "17056fae4a9dedbffe8672aa4094368ea8ef12d18fddd26ec407b16a4178d48f",
+  "sources": {
+    "runs/20260927_234151_133101_v031-observed-map01-seed48/decisions.jsonl": "0ca4a346507046606a1a8d6d1ad3aa4257ab857736425184dc5c5b0981fd8a2c",
+    "runs/20260927_234440_957618_v031-observed-map02-seed54/decisions.jsonl": "23de689f5e8cdf8ef5c1de207c87d3146d317ebde5b9ecce69643b24043ce30d",
+    "runs/20260927_235309_007428_v031-observed-map03-seed54/decisions.jsonl": "58ccbfef80287df08616ebdd2dc68a25dae6f84317a12dba816d4dc95744c2af",
+    "runs/20260927_230020_026083_v031-compact-movement-map03-seed54/decisions.jsonl": "454687fecf02cdd0551e0952cfc85b7b91f5b3825c12e658ebd3bb6bbbe1476a"
+  },
+  "input_projection": "movement-compact-v1",
+  "counts": {
+    "duplicates_train": 16,
+    "duplicates_validation": 29
+  },
+  "splits": {
+    "train": {
+      "rows": 1132,
+      "sha256": "feee27417292ef02ed2b19bd42ff65145433b0b2ca8e8656ef3fb98d599fc2af",
+      "categories": {
+        "observed_strafe_left": 348,
+        "observed_backward": 320,
+        "observed_strafe_right": 347,
+        "observed_stationary": 117
+      }
+    },
+    "validation": {
+      "rows": 740,
+      "sha256": "1fbdc1caadffa3e33e2abbaf735048ab98c49ebaaaf3682fd64796cb1e36a5f0",
+      "categories": {
+        "observed_backward": 266,
+        "observed_strafe_right": 213,
+        "observed_strafe_left": 192,
+        "observed_stationary": 69
+      }
+    }
+  },
+  "note": "Offline retreat labels use exactly the rounded observed geometry available to the model. Validation source runs differ from training, with projected duplicates removed train-first. Same-map development only; no held-out-map claim. Frozen semantic answers come from recorded model responses."
+}

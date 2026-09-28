@@ -1,0 +1,436 @@
+{
+  "plan": {
+    "release": "v0.3.0",
+    "source_commit": "411c9e559bdc3523d697a7a888a2c9d65168b234",
+    "weights_sha256": "88f90e1bee336ee8f188cc5d62cf691746212fa7e8c81b85a1a0e2db1cf359d5",
+    "question_heads": {
+      "default": {
+        "checkpoint": "laya-map2-explicit-v2",
+        "weights_sha256": "1f2bdb292929f3b0464503274ebed8aa053880f2348f7b005bfbd7d8376c9641"
+      },
+      "command": {
+        "checkpoint": "laya-map3-combat-priority-v1",
+        "weights_sha256": "305ff84528f5e1ac5c7607d76b0ae906dba7586bdd43f25d796fcd91ec4a4f00",
+        "state_projection": "without-current-command-v1"
+      },
+      "enemy": {
+        "checkpoint": "laya-map3-ranked-enemy-v1",
+        "weights_sha256": "a3caf393e5846a1005c2d5547178bd002389d840b50aed21bfaf331db6e5ec6f",
+        "question_format": "enemy-sequence-v1",
+        "input_projection": "enemy-ranking-v1",
+        "state_projection": "enemy-ranking-v1",
+        "composition": "plackett-luce-nonempty-v1"
+      },
+      "item": {
+        "checkpoint": "laya-map3-item-category-v1",
+        "weights_sha256": "a1daf915b374529beabc1531ab3031945694a333a5a6d54f027a8e30e54bcf29",
+        "input_projection": "item-category-v2",
+        "state_projection": "item-category-v2"
+      },
+      "look_gate": {
+        "checkpoint": "laya-map3-look-floor-v2",
+        "weights_sha256": "221ca2c80d3a105826097f0590fe22f78630c965bb6c50810e41fe12a578d10c",
+        "composition": "probability-mixture-v1",
+        "input_projection": "observed-look-facts-v2-optional-floor"
+      },
+      "movement": {
+        "checkpoint": "laya-map3-compact-movement-v1",
+        "weights_sha256": "437f49e66cd5393cf2654ce2dbb51fd1902b3ce1b19df62120709c7441d012fc",
+        "question_format": "movement-compact-v1",
+        "input_projection": "movement-compact-v1"
+      },
+      "switch": {
+        "checkpoint": "laya-map3-switch-route-v1",
+        "weights_sha256": "3705977ee38d8452f52915a47b95e9d1e190751ceec77ddc79bc49480129123b"
+      },
+      "weapon": {
+        "checkpoint": "laya-map3-compact-weapon-v1",
+        "weights_sha256": "10208e228fda3806049dbe3c88e65ff8be94f036e92e92038fbbf75fbf02f38a",
+        "input_projection": "weapon-compact-v1",
+        "state_projection": "weapon-compact-v1"
+      },
+      "shared_encoder_verified": true
+    },
+    "tests": [
+      {
+        "map": "MAP01",
+        "seed": 48,
+        "skill": 3,
+        "seconds": 180,
+        "expected_next_map": "MAP02"
+      },
+      {
+        "map": "MAP02",
+        "seed": 54,
+        "skill": 3,
+        "seconds": 1800,
+        "expected_next_map": "MAP03"
+      }
+    ],
+    "minimum_next_map_ticks": 105,
+    "minimum_decision_delay_ticks": 16,
+    "note": "Sequential real-time gameplay with the unchanged published MAP03 checkpoint set and v0.3.0 executor flags. No training, parallel gameplay or diagnostic inference during either recording. Prior seeds, skill and time limits retained. Tests assess the full v0.3.0 configuration; they do not isolate weight changes from executor/request-format changes."
+  },
+  "checked_at": "2026-09-27T10:18:34.296710+00:00",
+  "status": "regression_confirmed_both_maps_failed",
+  "results": [
+    {
+      "map": "MAP01",
+      "run": "runs/20260927_124122_585216_v030-regression-map01-seed48",
+      "summary": {
+        "kills": 7,
+        "deaths": 0,
+        "decisions": 350,
+        "errors": 0,
+        "pickups": 1,
+        "levels_completed": 0,
+        "doors_opened": 5,
+        "stuck_recoveries": 0,
+        "bumps": 0,
+        "damage": 18.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP01",
+        "game_seconds": 180.0,
+        "wall_seconds": 180.0,
+        "latency_ms_median": 330.31,
+        "latency_ms_p90": 341.54,
+        "minimum_decision_delay_ticks": 16,
+        "decision_application_ms_median": 457.143,
+        "decision_application_ms_p90": 457.143,
+        "input_tokens_total": 504109,
+        "input_tokens_avg": 1440.31,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.077,
+        "video_frames": 6300
+      },
+      "verification": {
+        "experiment_valid": true,
+        "passed": false,
+        "errors": [],
+        "level_completed": false,
+        "acceptance_errors": [
+          "MAP01 was not completed and MAP02 was not played for three seconds",
+          "max_no_new_cell_seconds exceeds 25",
+          "max_no_new_region_seconds exceeds 25"
+        ],
+        "authority": {
+          "pass": true,
+          "frames": 6300,
+          "accepted_decisions": 349,
+          "errors": [],
+          "level_completed": false,
+          "final_map": "MAP01"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 120.43,
+          "max_stationary_seconds": 1.83,
+          "max_stationary_turn_reversals_per_second": 2,
+          "max_no_new_cell_seconds": 120.43,
+          "max_no_new_region_seconds": 121.4,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 71
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 0.0,
+          "max_model_upgrade_choice_delay_seconds": 0.0,
+          "worst_upgrade_delay": null
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "6300"
+            }
+          ],
+          "format": {
+            "duration": "180.000000"
+          }
+        },
+        "levels": []
+      },
+      "final_state": {
+        "seconds": 179.971,
+        "map": "MAP01",
+        "hp": 100.0,
+        "armor": 0.0,
+        "kills": 7,
+        "keys": [],
+        "execution": {
+          "status": "executing",
+          "detail": "pickup (Medikit #30)",
+          "decision_id": 349,
+          "command": "pickup",
+          "action": "pickup",
+          "target_id": 30,
+          "weapon": 2,
+          "movement": null,
+          "combat_target_id": null
+        }
+      },
+      "key_pickups": [],
+      "last_60_seconds": {
+        "accepted_decisions": 116,
+        "target_counts": {
+          "pickup Medikit #30": 116
+        },
+        "hp_min": 100.0,
+        "hp_max": 100.0
+      },
+      "model_identity": {
+        "all_decisions_match_published_manifest": true,
+        "checked_decisions": 350
+      },
+      "baseline": {
+        "release": "v0.2.0",
+        "verification": "reports/map01-current-verification.json",
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 174.914,
+            "map": "MAP01",
+            "alive": true,
+            "engine_finished": true
+          }
+        ],
+        "level_completed": true
+      },
+      "video": "runs/20260927_124122_585216_v030-regression-map01-seed48/video.mp4",
+      "artifacts": {
+        "config.json": {
+          "bytes": 10665,
+          "sha256": "4c5a8cea89259042138293289b6ce979eb459c000a1119b810445e2e700a6e8d"
+        },
+        "summary.json": {
+          "bytes": 7097,
+          "sha256": "39e2998aa967417f569535f36347be5cfbfc347641e3af74ccaacc6aa73c104a"
+        },
+        "verification.json": {
+          "bytes": 8917,
+          "sha256": "98f3d49086c7231ccf717962e2350cf55b743eff7946a08e49641b27c78ecf68"
+        },
+        "authority-verification.json": {
+          "bytes": 133,
+          "sha256": "b918774df1623422081590c70ebd114ab630108352bb0cb8b79396bace425058"
+        },
+        "decisions.jsonl": {
+          "bytes": 6999100,
+          "sha256": "bd51ee410d6d3ab0448b2f099ab1cb70853040becafd4ad3978c76bddd8e4426"
+        },
+        "events.jsonl": {
+          "bytes": 4933,
+          "sha256": "ff8ab435e5b280db9fe85865eeff4a6db06198f622b5782f2c1f741d6da81385"
+        },
+        "telemetry.jsonl": {
+          "bytes": 24822360,
+          "sha256": "57df7905699f1a85ac4f4ea10073aff2192cdb9923488409efe2fcb3aa96a96f"
+        },
+        "video.mp4": {
+          "bytes": 322460449,
+          "sha256": "7cf9b237397406eedea21e0a7d60c933584a6add141076f846a8828a55286eba"
+        }
+      }
+    },
+    {
+      "map": "MAP02",
+      "run": "runs/20260927_124546_011663_v030-regression-map02-seed54",
+      "summary": {
+        "kills": 52,
+        "deaths": 0,
+        "decisions": 3321,
+        "errors": 0,
+        "pickups": 29,
+        "levels_completed": 0,
+        "doors_opened": 34,
+        "stuck_recoveries": 0,
+        "bumps": 0,
+        "damage": 130.0,
+        "status": "completed",
+        "error": null,
+        "model": "doom-adapted",
+        "final_map": "MAP02",
+        "game_seconds": 1800.0,
+        "wall_seconds": 1800.825,
+        "latency_ms_median": 384.55,
+        "latency_ms_p90": 461.25,
+        "minimum_decision_delay_ticks": 16,
+        "decision_application_ms_median": 457.143,
+        "decision_application_ms_p90": 628.571,
+        "input_tokens_total": 5924127,
+        "input_tokens_avg": 1783.84,
+        "external_api_cost_usd": 0,
+        "local_compute_cost_usd": null,
+        "enemy_in_view_share": 0.0573,
+        "video_frames": 63000
+      },
+      "verification": {
+        "experiment_valid": true,
+        "passed": false,
+        "errors": [],
+        "level_completed": false,
+        "acceptance_errors": [
+          "MAP02 was not completed and MAP03 was not played for three seconds",
+          "max_stationary_seconds exceeds 4",
+          "max_no_new_cell_seconds exceeds 25",
+          "max_no_new_region_seconds exceeds 25",
+          "max_stationary_turn_reversals_per_second exceeds 5"
+        ],
+        "authority": {
+          "pass": true,
+          "frames": 63000,
+          "accepted_decisions": 3320,
+          "errors": [],
+          "level_completed": false,
+          "final_map": "MAP02"
+        },
+        "navigation": {
+          "max_no_objective_progress_seconds": 661.77,
+          "max_stationary_seconds": 5.17,
+          "max_stationary_turn_reversals_per_second": 6,
+          "max_no_new_cell_seconds": 667.97,
+          "max_no_new_region_seconds": 1270.74,
+          "aim_overridden_ticks": 0,
+          "unique_cells_last_episode": 523
+        },
+        "weapon_use": {
+          "scope": "Loaded shotgun over pistol/melee; loaded super shotgun over ordinary shotgun/pistol/melee. Engine equip delay includes inference and weapon animation.",
+          "max_upgrade_delay_seconds": 1.457,
+          "max_model_upgrade_choice_delay_seconds": 1.0,
+          "worst_upgrade_delay": {
+            "tick": 1109,
+            "seconds": 31.686,
+            "episode": 0,
+            "equipped": 2,
+            "available_upgrade": 3,
+            "model_selected": 3
+          }
+        },
+        "video": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "width": 1920,
+              "height": 1080,
+              "r_frame_rate": "35/1",
+              "nb_frames": "63000"
+            }
+          ],
+          "format": {
+            "duration": "1800.000000"
+          }
+        },
+        "levels": []
+      },
+      "final_state": {
+        "seconds": 1799.971,
+        "map": "MAP02",
+        "hp": 86.0,
+        "armor": 90.0,
+        "kills": 52,
+        "keys": [
+          "blue",
+          "red"
+        ],
+        "execution": {
+          "status": "executing",
+          "detail": "use_switch (Lift #728)",
+          "decision_id": 3320,
+          "command": "use_switch",
+          "action": "use_switch",
+          "target_id": 728,
+          "weapon": 8,
+          "movement": null,
+          "combat_target_id": null
+        }
+      },
+      "key_pickups": [
+        {
+          "event": "key_pickup",
+          "game_seconds": 311.171,
+          "id": 5,
+          "color": "red",
+          "name": "RedCard"
+        },
+        {
+          "event": "key_pickup",
+          "game_seconds": 384.914,
+          "id": 27,
+          "color": "blue",
+          "name": "BlueCard"
+        }
+      ],
+      "last_60_seconds": {
+        "accepted_decisions": 112,
+        "target_counts": {
+          "open_door None #162": 4,
+          "use_switch Lift #805": 59,
+          "use_switch Lift #728": 16,
+          "pickup YellowCard #key_21": 33
+        },
+        "hp_min": 86.0,
+        "hp_max": 86.0
+      },
+      "model_identity": {
+        "all_decisions_match_published_manifest": true,
+        "checked_decisions": 3321
+      },
+      "baseline": {
+        "release": "v0.2.0",
+        "verification": "reports/map02-verification.json",
+        "levels": [
+          {
+            "event": "level_finished",
+            "game_seconds": 835.6,
+            "map": "MAP02",
+            "alive": true,
+            "engine_finished": true
+          }
+        ],
+        "level_completed": true
+      },
+      "video": "runs/20260927_124546_011663_v030-regression-map02-seed54/video.mp4",
+      "artifacts": {
+        "config.json": {
+          "bytes": 10666,
+          "sha256": "5288b2f46a0d73fcc2c0cc828759a985633e3dfcb5876fe59e05a95731c5e79d"
+        },
+        "summary.json": {
+          "bytes": 7500,
+          "sha256": "bcbdae30996390b1443589a4771aa9600b7699ce53da10da54b13b5c5d1470d4"
+        },
+        "verification.json": {
+          "bytes": 9598,
+          "sha256": "00fb1d5886e5ff6a8cbe0ab29db6818c1bfd640fc5a711490972fd3f5da53b82"
+        },
+        "authority-verification.json": {
+          "bytes": 135,
+          "sha256": "e92a4747f93f705c23a8180deee8f1734da6c6ddb80bbb528b37315e2a9a2223"
+        },
+        "decisions.jsonl": {
+          "bytes": 73427114,
+          "sha256": "6741fd82425db5987707ba7cc15625c52a06710babd35515fe7901853451c596"
+        },
+        "events.jsonl": {
+          "bytes": 84368,
+          "sha256": "4e5587027508c21cf13fbaae96253689106d4a6fe0efc1843708c931a79005f7"
+        },
+        "telemetry.jsonl": {
+          "bytes": 326764329,
+          "sha256": "5e5f316ce2fcb800ec6a0e6eccfa2377d2aa395b9dec1d65cfcc2a4bdf6a2b4e"
+        },
+        "video.mp4": {
+          "bytes": 2024078600,
+          "sha256": "f27b0681f2409bf80251113baa6a11b5b6081a3f3710e2fabf28eb88066dfa7a"
+        }
+      }
+    }
+  ]
+}

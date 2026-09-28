@@ -1,0 +1,143 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "input_projection": "command-key-facts-v1",
+    "sources": {
+      "training/v031-command-keys-v2/train.json": "53dbe1395af14537fb3566af24889bb085da41049b4f94af9976c8ceadad29db",
+      "training/v031-command-keys-v2/validation.json": "67ebe8aabf73228db0f3cd58198776cb5251b4de1271b7a5a0c8923a71438f71",
+      "runs/20260927_170502_698556_v031-keys-map02-seed54/decisions.jsonl": "c2a1108e30b07d2a1cf84c1eb53c15895c2ae79a6227f271876e3b3f9e860cb2",
+      "runs/20260927_170318_396226_v031-keys-map01-seed48/summary.json": "3a69d4e64cac586a40e690478bd6fa3ee2f23d93f3dea74e6d09fb39a12fbfb4",
+      "runs/20260927_170318_396226_v031-keys-map01-seed48/decisions.jsonl": "e135e40af59061f022bff04a6067b6b0d504bb8f072fb387133613e5960f0ccb",
+      "fixtures/v031-key-regression-cases.json": "f62fdfe52a2aebb3e3fa69a0854f0c9ba405d2749576dce771da4e5cc00a93e8",
+      "runs/v031-key-api.json": "40b775c1b8f0f4004fc3334ff9a47baf5301f3936819596a2632b60862f2f9bc"
+    },
+    "splits": {
+      "train": {
+        "rows": 2713,
+        "sha256": "bc975c8a326d34f65be0b1afaf7bf9c325737e880e56d0b0df8b23832bafe868",
+        "categories": {
+          "new_agreement_route_continue_route": 143,
+          "replay_completed_map03_pickup": 78,
+          "new_error_route_continue_route": 319,
+          "replay_completed_map03_attack": 120,
+          "replay_completed_map03_use_switch": 97,
+          "latest_map01_use_switch": 69,
+          "key_color_contrast_pickup": 134,
+          "new_agreement_route_fight": 179,
+          "completed_latest_use_switch": 67,
+          "new_run_correction_route_needed_supply": 120,
+          "new_agreement_route_nearby_door": 8,
+          "new_agreement_route_needed_supply": 38,
+          "completed_mechanisms_exit": 180,
+          "new_run_correction_route_fight": 120,
+          "replay_map3-combat-priority-v2_reachable_red_key_contrast": 40,
+          "key_observed_pickup": 65,
+          "near_lift_regression": 69,
+          "new_run_correction_route_close_weapon": 46,
+          "new_run_correction_route_continue_route": 120,
+          "new_run_correction_route_urgent_health": 23,
+          "replay_completed_map01_attack": 67,
+          "replay_completed_map03_open_door": 53,
+          "replay_completed_map01_use_switch": 100,
+          "latest_map01_attack": 65,
+          "completed_latest_open_door": 13,
+          "completed_latest_attack": 64,
+          "regression_retention": 31,
+          "latest_map01_pickup": 7,
+          "new_agreement_route_close_weapon": 9,
+          "new_run_correction_route_nearby_door": 40,
+          "correction_route_missing_key": 36,
+          "new_error_route_needed_supply": 6,
+          "key_color_contrast_attack": 12,
+          "replay_completed_map01_pickup": 43,
+          "new_error_route_fight": 36,
+          "key_observed_open_door": 2,
+          "new_error_route_close_weapon": 14,
+          "new_agreement_route_urgent_health": 6,
+          "completed_latest_pickup": 3,
+          "replay_completed_map03_exit": 6,
+          "key_observed_attack": 6,
+          "replay_completed_map01_open_door": 22,
+          "completed_latest_exit": 9,
+          "latest_map01_open_door": 15,
+          "key_color_contrast_open_door": 4,
+          "replay_completed_map01_exit": 2,
+          "new_agreement_route_blocked_door": 1,
+          "new_error_route_urgent_health": 2,
+          "new_run_correction_route_blocked_door": 3,
+          "replay_completed_map03_explore": 1
+        }
+      },
+      "validation": {
+        "rows": 793,
+        "sha256": "7bc99cea8de9bcaf4d4e09b47c727ba35203e9107c1ee29e9222b8c324312e0d",
+        "categories": {
+          "replay_completed_map03_use_switch": 26,
+          "new_run_correction_route_continue_route": 50,
+          "replay_completed_map03_pickup": 24,
+          "completed_mechanisms_exit": 70,
+          "replay_completed_map03_attack": 38,
+          "completed_latest_attack": 8,
+          "new_error_route_continue_route": 98,
+          "latest_map01_use_switch": 26,
+          "new_agreement_route_fight": 60,
+          "latest_map01_attack": 17,
+          "replay_completed_map01_use_switch": 25,
+          "latest_map01_pickup": 2,
+          "new_agreement_route_continue_route": 31,
+          "replay_map3-combat-priority-v2_reachable_red_key_contrast": 20,
+          "new_run_correction_route_fight": 49,
+          "new_run_correction_route_needed_supply": 50,
+          "new_run_correction_route_close_weapon": 17,
+          "replay_completed_map01_attack": 31,
+          "replay_completed_map01_open_door": 9,
+          "completed_latest_use_switch": 7,
+          "new_error_route_close_weapon": 16,
+          "key_color_contrast_pickup": 12,
+          "latest_map01_exit": 12,
+          "new_run_correction_route_nearby_door": 8,
+          "new_error_route_fight": 2,
+          "correction_route_missing_key": 20,
+          "new_run_correction_route_urgent_health": 3,
+          "replay_completed_map03_exit": 11,
+          "replay_completed_map01_pickup": 10,
+          "replay_completed_map03_open_door": 9,
+          "completed_latest_open_door": 4,
+          "replay_completed_map01_exit": 2,
+          "near_lift_regression": 9,
+          "new_run_correction_route_blocked_door": 4,
+          "latest_map01_open_door": 3,
+          "key_observed_pickup": 6,
+          "completed_latest_exit": 1,
+          "new_agreement_route_needed_supply": 3
+        }
+      }
+    },
+    "note": "Offline route-label corrections on failed rollouts; normal-command behavioral replay from completed death-free runs; earlier replay and passing development probes retained. Every fifth 20-second source block is correlated development validation, not independent generalization. Live controller and action choices are unchanged.",
+    "builder_sha256": "6097796e224d26e89ddefb1b362079cad36fc0ac4cf5abf06ed1f8cbd2521ee2",
+    "labeler_sha256": "63ae8f3f5754351e3bad662577ad9950f7e5adb6eb5eacd2d5952e6141400c46",
+    "projection_sha256": "3d9e454b21084317ffdbff5510d3dca441e81283c0d1b7db7a1e88c341ebd4ce",
+    "removed": {
+      "train_duplicate": 37,
+      "validation_duplicate": 32,
+      "validation_conflict": 2
+    }
+  },
+  "sources": {
+    "training/v031-command-goals-v1/train.json": "bc975c8a326d34f65be0b1afaf7bf9c325737e880e56d0b0df8b23832bafe868",
+    "training/v031-command-goals-v1/validation.json": "7bc99cea8de9bcaf4d4e09b47c727ba35203e9107c1ee29e9222b8c324312e0d"
+  },
+  "checkpoint_config_sha256": "323f52ca98d1a3a82b4bf96048f3425b0562874d0f7422d6193910969416684d",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 2713,
+      "sha256": "bc975c8a326d34f65be0b1afaf7bf9c325737e880e56d0b0df8b23832bafe868"
+    },
+    "validation": {
+      "rows": 793,
+      "sha256": "7bc99cea8de9bcaf4d4e09b47c727ba35203e9107c1ee29e9222b8c324312e0d"
+    }
+  }
+}

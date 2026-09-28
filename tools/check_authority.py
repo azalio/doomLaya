@@ -19,6 +19,7 @@ def check(run):
  def require(condition,message):
   if not condition and len(errors)<30:errors.append(message)
  require(cfg.get('protocol')=='model-authority-v1','Wrong protocol')
+ require(not (cfg.get('diagnostic_policy') or cfg.get('laya_health',{}).get('diagnostic_policy')),'Diagnostic reference policy is not model authority')
  require(not cfg['args']['dry'],'Dry run has no model authority')
  require(not cfg['args']['give'],'Nonstandard inventory')
  require(summary['errors']==0,'API errors occurred')
@@ -26,6 +27,7 @@ def check(run):
  for name,digest in cfg['source_sha256'].items():
   require(hashlib.sha256((run/'source'/name).read_bytes()).hexdigest()==digest,'Source snapshot changed: '+name)
  for d in decisions:
+  require(not d.get('routing',{}).get('diagnostic_policy'),'Diagnostic reference response is not a model decision')
   if cfg['args'].get('enemy_commitment_facts'):
    require(d['packet'].get('enemy_commitment')==enemy_facts[d['directive']['decision_id']],'Enemy acceptance facts differ from recorded model decisions')
   p=d['packet'];directive=d['directive'];key=d['answers']['command']['choice']

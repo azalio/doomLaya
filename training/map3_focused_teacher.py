@@ -2,7 +2,7 @@
 from doomlib.combat import AMMO_COST,WEAPON_NAMES
 
 
-def focused_labels(packet,state,controller,base,style):
+def focused_labels(packet,state,controller,base,style,all_labels=False):
     gold=dict(base);enemies=packet.get('targets',{}).get('enemy',{})
     visible={k:e for k,e in enemies.items() if e.get('visible',True)}
     candidates=visible or enemies
@@ -51,7 +51,7 @@ def focused_labels(packet,state,controller,base,style):
         gold['combat']=target or 'hold';required.append('combat')
     for kind in required:
         if gold.get(kind) not in packet['questions'][kind]['criteria']:raise ValueError((kind,gold.get(kind)))
-    return {k:gold[k] for k in required}
+    return gold if all_labels else {k:gold[k] for k in required}
 
 
 from doomlib.executor import Executor

@@ -1,0 +1,3273 @@
+{
+  "note": "Four development cases copied while source gameplay was running. The source run is now complete; its final trace SHA is recorded. Same-map development, not independent validation.",
+  "cases": [
+    {
+      "source_run": "20260927_235309_007428_v031-observed-map03-seed54",
+      "tick": 18660,
+      "hp": 18.0,
+      "check": "expected_command",
+      "expected_command": "attack",
+      "recorded_choice": "pickup",
+      "packet": {
+        "state": "Current command: pickup #122 Stimpack 4.8m; status executing.\nEnemy range: close; health: critical; space: left open, right open.\nReachable items: Stimpack#122, GreenArmor#140.\nAvailable mechanisms: lift #294 phase call 12.6m Upper route keys: blue (collected).; lift #295 phase call 13.8m Upper route keys: blue (collected).; lift #332 phase call 26.5m Upper route keys: red (missing).; lift #359 phase call 137.5m; door switch #702 11.7m; lift #1943 phase call 137.0m; lift #2365 phase call 98.2m; floor switch #2839 102.4m (lowers floor) Exit platform.\nHP 18; armor 0.\nInventory: melee 0 ammo; pistol 43 ammo; shotgun 50 ammo; chaingun 43 ammo; rocket_launcher 2 ammo.\nClearance: left 2.8m, right 1.5m. Movement: stationary.\nCollected keys: blue, yellow.\nEnemies: Spectre#141 2.9m (visible); Spectre#143 4.5m (last seen).\nItems: Stimpack#122 [Health] 4.8m; GreenArmor#140 [Armor] 13.0m; Shotgun#631 [Weapon] 25.2m; Shotgun#448 [Weapon] 31.3m; Shotgun#468 [Weapon] 32.8m; RedCard#key_25 [Key] 32.8m; Shotgun#545 [Weapon] 69.2m; Shotgun#533 [Weapon] 70.4m; Shotgun#537 [Weapon] 70.8m; Chainsaw#weapon_211 [Weapon] 71.1m; ArmorBonus#36 [Armor] 17.7m; ArmorBonus#37 [Armor] 18.2m; Clip#385 [Ammo] 19.7m; HealthBonus#34 [Health] 21.0m; HealthBonus#35 [Health] 21.7m; Clip#376 [Ammo] 22.5m; Clip#435 [Ammo] 32.6m; Clip#215 [Ammo] 43.5m; Clip#213 [Ammo] 45.2m; HealthBonus#26 [Health] 45.6m.",
+        "questions": {
+          "command": {
+            "type": "choice",
+            "instructions": "Finish the level alive. Fight immediate threats, collect useful supplies and keys, open doors, activate mechanisms, and reach the exit. Continue the current goal while it remains appropriate. Change it for urgent threats, supplies, or a blocked route.",
+            "criteria": {
+              "attack": "Fight a visible or recently seen enemy.",
+              "pickup": "Collect a useful item such as a weapon, ammunition, health, armor, or key.",
+              "use_switch": "Use a switch or call, board and ride a lift to unlock the route.",
+              "exit": "Go to the exit and finish the level.",
+              "retreat": "Retreat from enemies without firing.",
+              "explore": "Explore accessible areas for another route.",
+              "wait": "Wait without moving or firing.",
+              "look_back": "Turn clockwise 180 degrees to inspect behind you. Do not walk or fire. Stop after the half turn."
+            },
+            "look_observation": {
+              "hp_loss": 0,
+              "latest_age_seconds": null,
+              "looked_after_hit": false,
+              "standing_on_damaging_floor": false,
+              "status": "inactive",
+              "known_enemy_count": 2
+            }
+          },
+          "enemy": {
+            "type": "choice",
+            "instructions": "Choose a firing sequence. You may select one target or several in order. Keep each target until it disappears from known enemies, then advance to the next listed target. A new decision may replace this plan. Latest accepted target: none. Targets: #141 Spectre 2.9m bearing +12 degrees visible; #143 Spectre 4.5m bearing -87 degrees last seen.",
+            "criteria": {
+              "0": "Shoot #141.",
+              "1": "Shoot #143.",
+              "2": "Shoot #141, then #143.",
+              "3": "Shoot #143, then #141."
+            }
+          },
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "122": "Stimpack; reachable; 4.8m.",
+              "140": "GreenArmor; reachable; 13.0m."
+            }
+          },
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "294": "Call, board and ride lift #294 to the upper floor. Phase: call. Distance 12.6m. Upper route keys: blue (collected).",
+              "295": "Call, board and ride lift #295 to the upper floor. Phase: call. Distance 13.8m. Upper route keys: blue (collected).",
+              "332": "Call, board and ride lift #332 to the upper floor. Phase: call. Distance 26.5m. Upper route keys: red (missing).",
+              "359": "Call, board and ride lift #359 to the upper floor. Phase: call. Distance 137.5m.",
+              "702": "Activate door switch #702 to open a closed passage. Distance 11.7m.",
+              "1943": "Call, board and ride lift #1943 to the upper floor. Phase: call. Distance 137.0m.",
+              "2365": "Call, board and ride lift #2365 to the upper floor. Phase: call. Distance 98.2m.",
+              "2839": "Activate floor switch #2839 to lower the floor and open a route. Distance 102.4m. Exit platform."
+            }
+          },
+          "movement": {
+            "type": "choice",
+            "instructions": "Choose movement while fighting. Back away from enemies closer than 5 meters; otherwise use clear space and keep the current safe strafe direction. Use body clearance to avoid blocked directions, including when continuing the previous movement.",
+            "criteria": {
+              "stationary": "Stand still while aiming and firing.",
+              "strafe_left": "Move left while aiming and firing. Prefer free space on the left. Body clearance in this direction: 7.00m. At least six meters of clear body space in this direction.",
+              "strafe_right": "Move right while aiming and firing. Prefer free space on the right. Body clearance in this direction: 0.25m. Geometry blocks this direction within one meter.",
+              "backward": "Move backward while aiming and firing. Keep close enemies away. Body clearance in this direction: 1.00m."
+            }
+          },
+          "weapon": {
+            "type": "choice",
+            "instructions": "Choose an effective weapon. Use a loaded gun for ranged enemies. Prefer shotgun to pistol when both are loaded. Use melee when there is no usable gun. Prefer a loaded super shotgun to the ordinary shotgun.",
+            "criteria": {
+              "melee": "Melee only, range 1.5m. Loaded: yes. Can hit visible enemies from here: no. Ammo: 0.",
+              "pistol": "Basic ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 43.",
+              "shotgun": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 50.",
+              "chaingun": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 43.",
+              "rocket_launcher": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 2.",
+              "keep": "Keep the current weapon."
+            }
+          },
+          "combat": {
+            "type": "choice",
+            "instructions": "Choose an enemy to aim at while executing the selected navigation command, or hold. Recently seen enemies may be aimed at; fire only when they are visible. Keep following the selected route.",
+            "criteria": {
+              "hold": "Do not fire while executing the selected navigation command.",
+              "141": "Fire at Spectre #141, 2.9m away.",
+              "143": "Aim at Spectre #143, 4.5m away (last seen). Fire only when visible."
+            }
+          }
+        },
+        "commands": {
+          "attack": {
+            "action": "attack",
+            "target": null
+          },
+          "pickup": {
+            "action": "pickup",
+            "target": null
+          },
+          "use_switch": {
+            "action": "use_switch",
+            "target": null
+          },
+          "exit": {
+            "action": "exit",
+            "target": null
+          },
+          "retreat": {
+            "action": "retreat",
+            "target": null
+          },
+          "explore": {
+            "action": "explore",
+            "target": null
+          },
+          "wait": {
+            "action": "wait",
+            "target": null
+          },
+          "look_back": {
+            "action": "look_back",
+            "target": null
+          }
+        },
+        "weapons": {
+          "melee": 1,
+          "pistol": 2,
+          "shotgun": 3,
+          "chaingun": 4,
+          "rocket_launcher": 5
+        },
+        "observation": {
+          "hp": 18.0,
+          "armor": 0.0,
+          "inventory": {
+            "1": {
+              "owned": 1,
+              "ammo": 0
+            },
+            "2": {
+              "owned": 1,
+              "ammo": 43
+            },
+            "3": {
+              "owned": 1,
+              "ammo": 50
+            },
+            "4": {
+              "owned": 1,
+              "ammo": 43
+            },
+            "5": {
+              "owned": 1,
+              "ammo": 2
+            },
+            "6": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "7": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "8": {
+              "owned": 0,
+              "ammo": 50
+            },
+            "9": {
+              "owned": 0,
+              "ammo": 0
+            }
+          },
+          "walls": {
+            "left": 2.78,
+            "ahead": 7.09,
+            "right": 1.52
+          },
+          "execution": {
+            "status": "executing",
+            "detail": "pickup (Stimpack #122)",
+            "decision_id": 1037,
+            "command": "pickup",
+            "action": "pickup",
+            "target_id": 122,
+            "weapon": 4,
+            "movement": null,
+            "combat_target_id": 143
+          },
+          "motion_clearance": null,
+          "reachable_items": {
+            "2": false,
+            "3": false,
+            "4": false,
+            "5": false,
+            "key_25": false,
+            "weapon_211": false,
+            "136": false,
+            "139": false,
+            "137": false,
+            "138": false,
+            "91": false,
+            "90": false,
+            "89": false,
+            "26": false,
+            "171": false,
+            "62": false,
+            "61": false,
+            "60": false,
+            "59": false,
+            "213": false,
+            "215": false,
+            "36": false,
+            "37": false,
+            "34": false,
+            "35": false,
+            "376": false,
+            "385": false,
+            "92": false,
+            "435": false,
+            "448": false,
+            "103": false,
+            "104": false,
+            "105": false,
+            "529": false,
+            "533": false,
+            "537": false,
+            "545": false,
+            "468": false,
+            "631": false,
+            "140": true,
+            "122": true
+          }
+        },
+        "decision_format": "committed",
+        "targets": {
+          "enemy": {
+            "141": {
+              "name": "Spectre",
+              "id": 141,
+              "x": 521.9338684082031,
+              "y": -699.2033386230469,
+              "z": -72.0,
+              "distance": 2.91,
+              "bearing": 11.9,
+              "aim_bearing": 13.614182744829353,
+              "visible": true
+            },
+            "143": {
+              "name": "Spectre",
+              "id": 143,
+              "x": 387.7156982421875,
+              "y": -572.8529052734375,
+              "z": -72.0,
+              "distance": 4.54,
+              "bearing": -87.10574145604244,
+              "aim_bearing": -87.10574145604244,
+              "visible": false,
+              "last_seen_tick": 18645
+            }
+          },
+          "item": {
+            "122": {
+              "name": "Stimpack",
+              "id": 122,
+              "x": 573.0,
+              "y": -768.0,
+              "z": -72.0,
+              "distance": 4.805500899182593,
+              "bearing": -40.2,
+              "category": "Health",
+              "reachable": true
+            },
+            "140": {
+              "name": "GreenArmor",
+              "id": 140,
+              "x": 16.0,
+              "y": -752.0,
+              "z": -72.0,
+              "distance": 12.992877359581,
+              "bearing": -42.0,
+              "category": "Armor",
+              "reachable": true
+            }
+          },
+          "switch": {
+            "294": {
+              "id": 294,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 832.0,
+              "y": -704.0,
+              "board": [
+                864.0,
+                -704.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                792.0,
+                -704.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 12.570175324599054,
+              "locked": false
+            },
+            "295": {
+              "id": 295,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 864.0,
+              "y": -640.0,
+              "board": [
+                864.0,
+                -672.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                864.0,
+                -600.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 13.75243237643543,
+              "locked": false
+            },
+            "332": {
+              "id": 332,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 320.0,
+              "y": 128.0,
+              "board": [
+                320.0,
+                160.0
+              ],
+              "upper_floor": 96,
+              "approach": [
+                320.0,
+                88.0
+              ],
+              "sectors": [
+                64
+              ],
+              "key": null,
+              "route_keys": [
+                "red"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 26.469606636922745,
+              "locked": false
+            },
+            "359": {
+              "id": 359,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4720.0,
+              "y": -1688.0,
+              "board": [
+                4720.0,
+                -1656.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4720.0,
+                -1728.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 137.4941859830571,
+              "locked": false
+            },
+            "702": {
+              "id": 702,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 164.0,
+              "y": -448.0,
+              "board": [
+                196.0,
+                -448.0
+              ],
+              "upper_floor": -72,
+              "approach": [
+                124.0,
+                -448.0
+              ],
+              "sectors": [
+                96
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 11.705082934954893,
+              "locked": false
+            },
+            "1943": {
+              "id": 1943,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4688.0,
+              "y": -1760.0,
+              "board": [
+                4720.0,
+                -1760.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4648.0,
+                -1760.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 137.03957647629767,
+              "locked": false
+            },
+            "2365": {
+              "id": 2365,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 3568.0,
+              "y": -896.0,
+              "board": [
+                3536.0,
+                -896.0
+              ],
+              "upper_floor": 33,
+              "approach": [
+                3608.0,
+                -896.0
+              ],
+              "sectors": [
+                282
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 98.23641630634641,
+              "locked": false
+            },
+            "2839": {
+              "id": 2839,
+              "kind": "floor",
+              "name": "Floor switch",
+              "x": 3696.0,
+              "y": -432.0,
+              "board": [
+                3696.0,
+                -464.0
+              ],
+              "upper_floor": -256,
+              "approach": [
+                3696.0,
+                -392.0
+              ],
+              "sectors": [
+                306
+              ],
+              "key": null,
+              "initial_floors": {
+                "306": -256
+              },
+              "route_exit": true,
+              "phase": "call",
+              "activated": false,
+              "distance": 102.44180619681428,
+              "locked": false
+            }
+          }
+        },
+        "explicit_actions": true,
+        "refresh_attack_target": true,
+        "pickup_combat": true,
+        "combat_targets": {
+          "141": {
+            "name": "Spectre",
+            "id": 141,
+            "x": 521.9338684082031,
+            "y": -699.2033386230469,
+            "z": -72.0,
+            "distance": 2.91,
+            "bearing": 11.9,
+            "aim_bearing": 13.614182744829353,
+            "visible": true
+          },
+          "143": {
+            "name": "Spectre",
+            "id": 143,
+            "x": 387.7156982421875,
+            "y": -572.8529052734375,
+            "z": -72.0,
+            "distance": 4.54,
+            "bearing": -87.10574145604244,
+            "aim_bearing": -87.10574145604244,
+            "visible": false,
+            "last_seen_tick": 18645
+          }
+        },
+        "pickup_recent_targets": true,
+        "combat_actions": [
+          "pickup",
+          "open_door",
+          "use_switch",
+          "exit",
+          "explore"
+        ],
+        "enemy_commitment": {
+          "target_id": null,
+          "age_seconds": null
+        },
+        "enemy_sequences": {
+          "0": [
+            "141"
+          ],
+          "1": [
+            "143"
+          ],
+          "2": [
+            "141",
+            "143"
+          ],
+          "3": [
+            "143",
+            "141"
+          ]
+        },
+        "enemy_question_format": "enemy-sequence-v1",
+        "floor_hazard": {
+          "mapped_damaging_floor": false,
+          "damage_per_period": 0,
+          "sectors": []
+        },
+        "look_facts": {
+          "hp_loss": 0,
+          "latest_age_seconds": null,
+          "looked_after_hit": false,
+          "standing_on_damaging_floor": false,
+          "status": "inactive",
+          "known_enemy_count": 2
+        },
+        "masked_unreachable_items": [
+          {
+            "name": "Shotgun",
+            "id": 631,
+            "x": 1236.0569763183594,
+            "y": -745.1393432617188,
+            "z": -8.0,
+            "distance": 25.215979511475545,
+            "bearing": -9.3,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 448,
+            "x": 1303.7704315185547,
+            "y": -219.95896911621094,
+            "z": 24.0,
+            "distance": 31.33974701606221,
+            "bearing": 46.0,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 468,
+            "x": 1359.8202056884766,
+            "y": -226.91041564941406,
+            "z": 24.0,
+            "distance": 32.776334808172415,
+            "bearing": 51.5,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "id": "key_25",
+            "name": "RedCard",
+            "color": "red",
+            "category": "Key",
+            "x": 320,
+            "y": 332,
+            "source": "wad",
+            "distance": 32.80120393331023,
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 545,
+            "x": 2340.2638549804688,
+            "y": 409.9392852783203,
+            "z": 29.140625,
+            "distance": 69.23283796113132,
+            "bearing": -46.2,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 533,
+            "x": 2380.655487060547,
+            "y": 413.04510498046875,
+            "z": 0.0,
+            "distance": 70.3726320522366,
+            "bearing": -38.6,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 537,
+            "x": 2448.7443084716797,
+            "y": 315.4913787841797,
+            "z": 0.0,
+            "distance": 70.79000059082132,
+            "bearing": -45.0,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "id": "weapon_211",
+            "name": "Chainsaw",
+            "category": "Weapon",
+            "x": 2544,
+            "y": 128,
+            "source": "wad",
+            "distance": 71.09015011451056,
+            "reachable": false
+          },
+          {
+            "name": "ArmorBonus",
+            "id": 36,
+            "x": -80.0,
+            "y": -464.0,
+            "z": -4.0,
+            "distance": 17.715495537532014,
+            "bearing": 37.6,
+            "category": "Armor",
+            "reachable": false
+          },
+          {
+            "name": "ArmorBonus",
+            "id": 37,
+            "x": -80.0,
+            "y": -432.0,
+            "z": -4.0,
+            "distance": 18.17501199980487,
+            "bearing": 44.9,
+            "category": "Armor",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 385,
+            "x": -116.88468933105469,
+            "y": -398.1160583496094,
+            "z": 0.0,
+            "distance": 19.69851373415071,
+            "bearing": 44.0,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "HealthBonus",
+            "id": 34,
+            "x": -80.0,
+            "y": -272.0,
+            "z": -4.0,
+            "distance": 21.042634256592564,
+            "bearing": -41.6,
+            "category": "Health",
+            "reachable": false
+          },
+          {
+            "name": "HealthBonus",
+            "id": 35,
+            "x": -80.0,
+            "y": -240.0,
+            "z": -4.0,
+            "distance": 21.70909338294571,
+            "bearing": 41.6,
+            "category": "Health",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 376,
+            "x": -156.15472412109375,
+            "y": -296.27955627441406,
+            "z": -4.0,
+            "distance": 22.450045671422178,
+            "bearing": 40.2,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 435,
+            "x": 958.4525299072266,
+            "y": 188.71026611328125,
+            "z": 24.0,
+            "distance": 32.63338972694157,
+            "bearing": -42.1,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 215,
+            "x": 659.710205078125,
+            "y": 662.3338317871094,
+            "z": 24.0,
+            "distance": 43.54077373263452,
+            "bearing": 43.8,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 213,
+            "x": 557.0372009277344,
+            "y": 729.7370147705078,
+            "z": 24.0,
+            "distance": 45.225462871913564,
+            "bearing": -36.7,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "HealthBonus",
+            "id": 26,
+            "x": -424.0,
+            "y": 472.0,
+            "z": 24.0,
+            "distance": 45.614208223545084,
+            "bearing": -45.3,
+            "category": "Health",
+            "reachable": false
+          }
+        ],
+        "movement_clearance": {
+          "ahead": 16.0,
+          "left": 7.0,
+          "right": 0.25,
+          "back": 1.0
+        },
+        "question_dependencies": {
+          "attack": [
+            "enemy",
+            "movement"
+          ],
+          "pickup": [
+            "item",
+            "combat"
+          ],
+          "use_switch": [
+            "switch",
+            "combat"
+          ],
+          "exit": [
+            "combat"
+          ],
+          "retreat": [],
+          "explore": [
+            "combat"
+          ],
+          "wait": [],
+          "look_back": []
+        }
+      }
+    },
+    {
+      "source_run": "20260927_235309_007428_v031-observed-map03-seed54",
+      "tick": 18678,
+      "hp": 18.0,
+      "check": "expected_command",
+      "expected_command": "attack",
+      "recorded_choice": "pickup",
+      "packet": {
+        "state": "Current command: pickup #122 Stimpack 4.1m; status executing.\nEnemy range: melee; health: critical; space: left tight, right open.\nReachable items: Stimpack#122, GreenArmor#140.\nAvailable mechanisms: lift #294 phase call 11.8m Upper route keys: blue (collected).; lift #295 phase call 12.9m Upper route keys: blue (collected).; lift #332 phase call 26.5m Upper route keys: red (missing).; lift #359 phase call 136.7m; door switch #702 12.2m; lift #1943 phase call 136.3m; lift #2365 phase call 97.4m; floor switch #2839 101.6m (lowers floor) Exit platform.\nHP 18; armor 0.\nInventory: melee 0 ammo; pistol 41 ammo; shotgun 50 ammo; chaingun 41 ammo; rocket_launcher 2 ammo.\nClearance: left 0.2m, right 3.3m. Movement: stationary.\nCollected keys: blue, yellow.\nEnemies: Spectre#141 1.5m (last seen); Spectre#143 1.6m (visible).\nItems: Stimpack#122 [Health] 4.1m; GreenArmor#140 [Armor] 13.8m; Shotgun#631 [Weapon] 24.4m; Shotgun#448 [Weapon] 30.6m; Shotgun#468 [Weapon] 32.0m; RedCard#key_25 [Key] 32.8m; Shotgun#545 [Weapon] 68.5m; Shotgun#533 [Weapon] 69.6m; Shotgun#537 [Weapon] 70.0m; Chainsaw#weapon_211 [Weapon] 70.3m; ArmorBonus#36 [Armor] 18.4m; ArmorBonus#37 [Armor] 18.8m; Clip#385 [Ammo] 20.4m; HealthBonus#34 [Health] 21.6m; HealthBonus#35 [Health] 22.2m; Clip#376 [Ammo] 23.1m; Clip#435 [Ammo] 32.2m; Clip#215 [Ammo] 43.3m; Clip#213 [Ammo] 45.1m; HealthBonus#26 [Health] 46.0m.",
+        "questions": {
+          "command": {
+            "type": "choice",
+            "instructions": "Finish the level alive. Fight immediate threats, collect useful supplies and keys, open doors, activate mechanisms, and reach the exit. Continue the current goal while it remains appropriate. Change it for urgent threats, supplies, or a blocked route.",
+            "criteria": {
+              "attack": "Fight a visible or recently seen enemy.",
+              "pickup": "Collect a useful item such as a weapon, ammunition, health, armor, or key.",
+              "use_switch": "Use a switch or call, board and ride a lift to unlock the route.",
+              "exit": "Go to the exit and finish the level.",
+              "retreat": "Retreat from enemies without firing.",
+              "explore": "Explore accessible areas for another route.",
+              "wait": "Wait without moving or firing.",
+              "look_back": "Turn clockwise 180 degrees to inspect behind you. Do not walk or fire. Stop after the half turn."
+            },
+            "look_observation": {
+              "hp_loss": 0,
+              "latest_age_seconds": null,
+              "looked_after_hit": false,
+              "standing_on_damaging_floor": false,
+              "status": "inactive",
+              "known_enemy_count": 2
+            }
+          },
+          "enemy": {
+            "type": "choice",
+            "instructions": "Choose a firing sequence. You may select one target or several in order. Keep each target until it disappears from known enemies, then advance to the next listed target. A new decision may replace this plan. Latest accepted target: none. Targets: #141 Spectre 1.5m bearing +75 degrees last seen; #143 Spectre 1.6m bearing -24 degrees visible.",
+            "criteria": {
+              "0": "Shoot #141.",
+              "1": "Shoot #143.",
+              "2": "Shoot #141, then #143.",
+              "3": "Shoot #143, then #141."
+            }
+          },
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "122": "Stimpack; reachable; 4.1m.",
+              "140": "GreenArmor; reachable; 13.8m."
+            }
+          },
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "294": "Call, board and ride lift #294 to the upper floor. Phase: call. Distance 11.8m. Upper route keys: blue (collected).",
+              "295": "Call, board and ride lift #295 to the upper floor. Phase: call. Distance 12.9m. Upper route keys: blue (collected).",
+              "332": "Call, board and ride lift #332 to the upper floor. Phase: call. Distance 26.5m. Upper route keys: red (missing).",
+              "359": "Call, board and ride lift #359 to the upper floor. Phase: call. Distance 136.7m.",
+              "702": "Activate door switch #702 to open a closed passage. Distance 12.2m.",
+              "1943": "Call, board and ride lift #1943 to the upper floor. Phase: call. Distance 136.3m.",
+              "2365": "Call, board and ride lift #2365 to the upper floor. Phase: call. Distance 97.4m.",
+              "2839": "Activate floor switch #2839 to lower the floor and open a route. Distance 101.6m. Exit platform."
+            }
+          },
+          "movement": {
+            "type": "choice",
+            "instructions": "Choose movement while fighting. Back away from enemies closer than 5 meters; otherwise use clear space and keep the current safe strafe direction. Use body clearance to avoid blocked directions, including when continuing the previous movement.",
+            "criteria": {
+              "stationary": "Stand still while aiming and firing.",
+              "strafe_left": "Move left while aiming and firing. Prefer free space on the left. Body clearance in this direction: 12.50m. At least six meters of clear body space in this direction.",
+              "strafe_right": "Move right while aiming and firing. Prefer free space on the right. Body clearance in this direction: 7.25m. At least six meters of clear body space in this direction.",
+              "backward": "Move backward while aiming and firing. Keep close enemies away. Body clearance in this direction: 0.25m. Geometry blocks this direction within one meter."
+            }
+          },
+          "weapon": {
+            "type": "choice",
+            "instructions": "Choose an effective weapon. Use a loaded gun for ranged enemies. Prefer shotgun to pistol when both are loaded. Use melee when there is no usable gun. Prefer a loaded super shotgun to the ordinary shotgun.",
+            "criteria": {
+              "melee": "Melee only, range 1.5m. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 0.",
+              "pistol": "Basic ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 41.",
+              "shotgun": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 50.",
+              "chaingun": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 41.",
+              "rocket_launcher": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 2.",
+              "keep": "Keep the current weapon."
+            }
+          },
+          "combat": {
+            "type": "choice",
+            "instructions": "Choose an enemy to aim at while executing the selected navigation command, or hold. Recently seen enemies may be aimed at; fire only when they are visible. Keep following the selected route.",
+            "criteria": {
+              "hold": "Do not fire while executing the selected navigation command.",
+              "141": "Aim at Spectre #141, 1.5m away (last seen). Fire only when visible.",
+              "143": "Fire at Spectre #143, 1.6m away."
+            }
+          }
+        },
+        "commands": {
+          "attack": {
+            "action": "attack",
+            "target": null
+          },
+          "pickup": {
+            "action": "pickup",
+            "target": null
+          },
+          "use_switch": {
+            "action": "use_switch",
+            "target": null
+          },
+          "exit": {
+            "action": "exit",
+            "target": null
+          },
+          "retreat": {
+            "action": "retreat",
+            "target": null
+          },
+          "explore": {
+            "action": "explore",
+            "target": null
+          },
+          "wait": {
+            "action": "wait",
+            "target": null
+          },
+          "look_back": {
+            "action": "look_back",
+            "target": null
+          }
+        },
+        "weapons": {
+          "melee": 1,
+          "pistol": 2,
+          "shotgun": 3,
+          "chaingun": 4,
+          "rocket_launcher": 5
+        },
+        "observation": {
+          "hp": 18.0,
+          "armor": 0.0,
+          "inventory": {
+            "1": {
+              "owned": 1,
+              "ammo": 0
+            },
+            "2": {
+              "owned": 1,
+              "ammo": 41
+            },
+            "3": {
+              "owned": 1,
+              "ammo": 50
+            },
+            "4": {
+              "owned": 1,
+              "ammo": 41
+            },
+            "5": {
+              "owned": 1,
+              "ammo": 2
+            },
+            "6": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "7": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "8": {
+              "owned": 0,
+              "ammo": 50
+            },
+            "9": {
+              "owned": 0,
+              "ammo": 0
+            }
+          },
+          "walls": {
+            "left": 0.25,
+            "ahead": 0.25,
+            "right": 3.29
+          },
+          "execution": {
+            "status": "executing",
+            "detail": "pickup (Stimpack #122)",
+            "decision_id": 1038,
+            "command": "pickup",
+            "action": "pickup",
+            "target_id": 122,
+            "weapon": 4,
+            "movement": null,
+            "combat_target_id": 141
+          },
+          "motion_clearance": null,
+          "reachable_items": {
+            "2": false,
+            "3": false,
+            "4": false,
+            "5": false,
+            "key_25": false,
+            "weapon_211": false,
+            "136": false,
+            "139": false,
+            "137": false,
+            "138": false,
+            "91": false,
+            "90": false,
+            "89": false,
+            "26": false,
+            "171": false,
+            "62": false,
+            "61": false,
+            "60": false,
+            "59": false,
+            "213": false,
+            "215": false,
+            "36": false,
+            "37": false,
+            "34": false,
+            "35": false,
+            "376": false,
+            "385": false,
+            "92": false,
+            "435": false,
+            "448": false,
+            "103": false,
+            "104": false,
+            "105": false,
+            "529": false,
+            "533": false,
+            "537": false,
+            "545": false,
+            "468": false,
+            "631": false,
+            "140": true,
+            "122": true
+          }
+        },
+        "decision_format": "committed",
+        "targets": {
+          "enemy": {
+            "141": {
+              "name": "Spectre",
+              "id": 141,
+              "x": 501.9338684082031,
+              "y": -699.2033386230469,
+              "z": -72.0,
+              "distance": 1.49,
+              "bearing": 75.35406206717916,
+              "aim_bearing": 75.35406206717916,
+              "visible": false,
+              "last_seen_tick": 18665
+            },
+            "143": {
+              "name": "Spectre",
+              "id": 143,
+              "x": 436.68067932128906,
+              "y": -661.0013732910156,
+              "z": -72.0,
+              "distance": 1.61,
+              "bearing": -23.9,
+              "aim_bearing": -25.771831153984643,
+              "visible": true
+            }
+          },
+          "item": {
+            "122": {
+              "name": "Stimpack",
+              "id": 122,
+              "x": 573.0,
+              "y": -768.0,
+              "z": -72.0,
+              "distance": 4.109811243990143,
+              "bearing": -40.2,
+              "category": "Health",
+              "reachable": true
+            },
+            "140": {
+              "name": "GreenArmor",
+              "id": 140,
+              "x": 16.0,
+              "y": -752.0,
+              "z": -72.0,
+              "distance": 13.797050455285646,
+              "bearing": -42.0,
+              "category": "Armor",
+              "reachable": true
+            }
+          },
+          "switch": {
+            "294": {
+              "id": 294,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 832.0,
+              "y": -704.0,
+              "board": [
+                864.0,
+                -704.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                792.0,
+                -704.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 11.769330971986005,
+              "locked": false
+            },
+            "295": {
+              "id": 295,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 864.0,
+              "y": -640.0,
+              "board": [
+                864.0,
+                -672.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                864.0,
+                -600.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 12.949534202386921,
+              "locked": false
+            },
+            "332": {
+              "id": 332,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 320.0,
+              "y": 128.0,
+              "board": [
+                320.0,
+                160.0
+              ],
+              "upper_floor": 96,
+              "approach": [
+                320.0,
+                88.0
+              ],
+              "sectors": [
+                64
+              ],
+              "key": null,
+              "route_keys": [
+                "red"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 26.49926606872774,
+              "locked": false
+            },
+            "359": {
+              "id": 359,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4720.0,
+              "y": -1688.0,
+              "board": [
+                4720.0,
+                -1656.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4720.0,
+                -1728.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 136.73413988848685,
+              "locked": false
+            },
+            "702": {
+              "id": 702,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 164.0,
+              "y": -448.0,
+              "board": [
+                196.0,
+                -448.0
+              ],
+              "upper_floor": -72,
+              "approach": [
+                124.0,
+                -448.0
+              ],
+              "sectors": [
+                96
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 12.227234528551975,
+              "locked": false
+            },
+            "1943": {
+              "id": 1943,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4688.0,
+              "y": -1760.0,
+              "board": [
+                4720.0,
+                -1760.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4648.0,
+                -1760.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 136.28429707606577,
+              "locked": false
+            },
+            "2365": {
+              "id": 2365,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 3568.0,
+              "y": -896.0,
+              "board": [
+                3536.0,
+                -896.0
+              ],
+              "upper_floor": 33,
+              "approach": [
+                3608.0,
+                -896.0
+              ],
+              "sectors": [
+                282
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 97.44346209732194,
+              "locked": false
+            },
+            "2839": {
+              "id": 2839,
+              "kind": "floor",
+              "name": "Floor switch",
+              "x": 3696.0,
+              "y": -432.0,
+              "board": [
+                3696.0,
+                -464.0
+              ],
+              "upper_floor": -256,
+              "approach": [
+                3696.0,
+                -392.0
+              ],
+              "sectors": [
+                306
+              ],
+              "key": null,
+              "initial_floors": {
+                "306": -256
+              },
+              "route_exit": true,
+              "phase": "call",
+              "activated": false,
+              "distance": 101.63779299816957,
+              "locked": false
+            }
+          }
+        },
+        "explicit_actions": true,
+        "refresh_attack_target": true,
+        "pickup_combat": true,
+        "combat_targets": {
+          "141": {
+            "name": "Spectre",
+            "id": 141,
+            "x": 501.9338684082031,
+            "y": -699.2033386230469,
+            "z": -72.0,
+            "distance": 1.49,
+            "bearing": 75.35406206717916,
+            "aim_bearing": 75.35406206717916,
+            "visible": false,
+            "last_seen_tick": 18665
+          },
+          "143": {
+            "name": "Spectre",
+            "id": 143,
+            "x": 436.68067932128906,
+            "y": -661.0013732910156,
+            "z": -72.0,
+            "distance": 1.61,
+            "bearing": -23.9,
+            "aim_bearing": -25.771831153984643,
+            "visible": true
+          }
+        },
+        "pickup_recent_targets": true,
+        "combat_actions": [
+          "pickup",
+          "open_door",
+          "use_switch",
+          "exit",
+          "explore"
+        ],
+        "enemy_commitment": {
+          "target_id": null,
+          "age_seconds": null
+        },
+        "enemy_sequences": {
+          "0": [
+            "141"
+          ],
+          "1": [
+            "143"
+          ],
+          "2": [
+            "141",
+            "143"
+          ],
+          "3": [
+            "143",
+            "141"
+          ]
+        },
+        "enemy_question_format": "enemy-sequence-v1",
+        "floor_hazard": {
+          "mapped_damaging_floor": false,
+          "damage_per_period": 0,
+          "sectors": []
+        },
+        "look_facts": {
+          "hp_loss": 0,
+          "latest_age_seconds": null,
+          "looked_after_hit": false,
+          "standing_on_damaging_floor": false,
+          "status": "inactive",
+          "known_enemy_count": 2
+        },
+        "masked_unreachable_items": [
+          {
+            "name": "Shotgun",
+            "id": 631,
+            "x": 1236.0569763183594,
+            "y": -745.1393432617188,
+            "z": -8.0,
+            "distance": 24.42102624760861,
+            "bearing": -9.3,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 448,
+            "x": 1303.7704315185547,
+            "y": -219.95896911621094,
+            "z": 24.0,
+            "distance": 30.60201234750492,
+            "bearing": 46.0,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 468,
+            "x": 1359.8202056884766,
+            "y": -226.91041564941406,
+            "z": 24.0,
+            "distance": 32.028558185435536,
+            "bearing": 51.5,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "id": "key_25",
+            "name": "RedCard",
+            "color": "red",
+            "category": "Key",
+            "x": 320,
+            "y": 332,
+            "source": "wad",
+            "distance": 32.80825278168685,
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 545,
+            "x": 2340.2638549804688,
+            "y": 409.9392852783203,
+            "z": 29.140625,
+            "distance": 68.50017044403604,
+            "bearing": -46.2,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 533,
+            "x": 2380.655487060547,
+            "y": 413.04510498046875,
+            "z": 0.0,
+            "distance": 69.63734354729525,
+            "bearing": -38.6,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "name": "Shotgun",
+            "id": 537,
+            "x": 2448.7443084716797,
+            "y": 315.4913787841797,
+            "z": 0.0,
+            "distance": 70.03859089384032,
+            "bearing": -45.0,
+            "category": "Weapon",
+            "reachable": false
+          },
+          {
+            "id": "weapon_211",
+            "name": "Chainsaw",
+            "category": "Weapon",
+            "x": 2544,
+            "y": 128,
+            "source": "wad",
+            "distance": 70.31535001060423,
+            "reachable": false
+          },
+          {
+            "name": "ArmorBonus",
+            "id": 36,
+            "x": -80.0,
+            "y": -464.0,
+            "z": -4.0,
+            "distance": 18.40148275145841,
+            "bearing": 37.6,
+            "category": "Armor",
+            "reachable": false
+          },
+          {
+            "name": "ArmorBonus",
+            "id": 37,
+            "x": -80.0,
+            "y": -432.0,
+            "z": -4.0,
+            "distance": 18.83966441944895,
+            "bearing": 44.9,
+            "category": "Armor",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 385,
+            "x": -116.88468933105469,
+            "y": -398.1160583496094,
+            "z": 0.0,
+            "distance": 20.354171957322713,
+            "bearing": 44.0,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "HealthBonus",
+            "id": 34,
+            "x": -80.0,
+            "y": -272.0,
+            "z": -4.0,
+            "distance": 21.599187377389878,
+            "bearing": -41.6,
+            "category": "Health",
+            "reachable": false
+          },
+          {
+            "name": "HealthBonus",
+            "id": 35,
+            "x": -80.0,
+            "y": -240.0,
+            "z": -4.0,
+            "distance": 22.24507323765934,
+            "bearing": 41.6,
+            "category": "Health",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 376,
+            "x": -156.15472412109375,
+            "y": -296.27955627441406,
+            "z": -4.0,
+            "distance": 23.05806443544233,
+            "bearing": 40.2,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 435,
+            "x": 958.4525299072266,
+            "y": 188.71026611328125,
+            "z": 24.0,
+            "distance": 32.160163779214926,
+            "bearing": -42.1,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 215,
+            "x": 659.710205078125,
+            "y": 662.3338317871094,
+            "z": 24.0,
+            "distance": 43.330027183453495,
+            "bearing": 43.8,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "Clip",
+            "id": 213,
+            "x": 557.0372009277344,
+            "y": 729.7370147705078,
+            "z": 24.0,
+            "distance": 45.07548121855018,
+            "bearing": -36.7,
+            "category": "Ammo",
+            "reachable": false
+          },
+          {
+            "name": "HealthBonus",
+            "id": 26,
+            "x": -424.0,
+            "y": 472.0,
+            "z": 24.0,
+            "distance": 46.016681203648766,
+            "bearing": -45.3,
+            "category": "Health",
+            "reachable": false
+          }
+        ],
+        "movement_clearance": {
+          "ahead": 6.75,
+          "left": 12.5,
+          "right": 7.25,
+          "back": 0.25
+        },
+        "question_dependencies": {
+          "attack": [
+            "enemy",
+            "movement"
+          ],
+          "pickup": [
+            "item",
+            "combat"
+          ],
+          "use_switch": [
+            "switch",
+            "combat"
+          ],
+          "exit": [
+            "combat"
+          ],
+          "retreat": [],
+          "explore": [
+            "combat"
+          ],
+          "wait": [],
+          "look_back": []
+        }
+      }
+    },
+    {
+      "source_run": "20260927_235309_007428_v031-observed-map03-seed54",
+      "tick": 21001,
+      "hp": 14.0,
+      "check": "expected_command",
+      "expected_command": "attack",
+      "recorded_choice": "pickup",
+      "packet": {
+        "state": "Current command: pickup #30 Stimpack 8.2m; status executing.\nEnemy range: medium; health: critical; space: left open, right open.\nReachable items: Shotgun#303, Stimpack#29, Stimpack#30, Chaingun#weapon_198, BlueCard#40, Shell#93, Clip#311, Clip#312, HealthBonus#26, ArmorBonus#24, ArmorBonus#5, ArmorBonus#4, ArmorBonus#3, ArmorBonus#2, HealthBonus#62.\nAvailable mechanisms: lift #294 phase call 55.4m Upper route keys: blue (missing).; lift #295 phase call 55.5m Upper route keys: blue (missing).; lift #332 phase call 34.0m Upper route keys: red (missing).; lift #359 phase call 180.0m; door switch #702 33.2m; door switch #1455 100.1m; door switch #1863 95.7m; lift #1943 phase call 179.8m; lift #2365 phase call 138.7m; floor switch #2839 140.3m (lowers floor) Exit platform.\nHP 14; armor 1.\nInventory: melee 0 ammo; pistol 100 ammo; shotgun 22 ammo.\nClearance: left 5.1m, right 6.3m. Movement: stationary.\nCollected keys: none.\nEnemies: DoomImp#53 7.9m (visible); Zombieman#39 30.0m (visible).\nItems: Shotgun#303 [Weapon] 5.0m; Stimpack#29 [Health] 5.9m; Stimpack#30 [Health] 8.2m; Chaingun#weapon_198 [Weapon] 20.6m; BlueCard#40 [Key] 30.3m; RedCard#key_25 [Key] 34.9m; RocketLauncher#weapon_80 [Weapon] 100.2m; YellowCard#key_26 [Key] 100.8m; Chainsaw#weapon_211 [Weapon] 103.5m; Shell#93 [Ammo] 5.0m; Clip#311 [Ammo] 6.2m; Clip#312 [Ammo] 10.0m; HealthBonus#26 [Health] 16.6m; ArmorBonus#24 [Armor] 17.1m; ArmorBonus#5 [Armor] 38.8m; ArmorBonus#4 [Armor] 39.5m; ArmorBonus#3 [Armor] 40.2m; ArmorBonus#2 [Armor] 41.0m; HealthBonus#62 [Health] 43.3m.",
+        "questions": {
+          "command": {
+            "type": "choice",
+            "instructions": "Finish the level alive. Fight immediate threats, collect useful supplies and keys, open doors, activate mechanisms, and reach the exit. Continue the current goal while it remains appropriate. Change it for urgent threats, supplies, or a blocked route.",
+            "criteria": {
+              "attack": "Fight a visible or recently seen enemy.",
+              "pickup": "Collect a useful item such as a weapon, ammunition, health, armor, or key.",
+              "use_switch": "Use a switch or call, board and ride a lift to unlock the route.",
+              "exit": "Go to the exit and finish the level.",
+              "retreat": "Retreat from enemies without firing.",
+              "explore": "Explore accessible areas for another route.",
+              "wait": "Wait without moving or firing.",
+              "look_back": "Turn clockwise 180 degrees to inspect behind you. Do not walk or fire. Stop after the half turn."
+            },
+            "look_observation": {
+              "hp_loss": 0,
+              "latest_age_seconds": null,
+              "looked_after_hit": false,
+              "standing_on_damaging_floor": false,
+              "status": "inactive",
+              "known_enemy_count": 2
+            }
+          },
+          "enemy": {
+            "type": "choice",
+            "instructions": "Choose a firing sequence. You may select one target or several in order. Keep each target until it disappears from known enemies, then advance to the next listed target. A new decision may replace this plan. Latest accepted target: none. Targets: #53 DoomImp 7.9m bearing +13 degrees visible; #39 Zombieman 30.0m bearing +12 degrees visible.",
+            "criteria": {
+              "0": "Shoot #53.",
+              "1": "Shoot #39.",
+              "2": "Shoot #53, then #39.",
+              "3": "Shoot #39, then #53."
+            }
+          },
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "303": "Shotgun; reachable; owned; 5.0m.",
+              "29": "Stimpack; reachable; 5.9m.",
+              "30": "Stimpack; reachable; 8.2m.",
+              "weapon_198": "Chaingun; reachable; not owned; 20.6m.",
+              "40": "BlueCard; reachable; 30.3m.",
+              "93": "Shell; reachable; 5.0m.",
+              "311": "Clip; reachable; 6.2m.",
+              "312": "Clip; reachable; 10.0m.",
+              "26": "HealthBonus; reachable; 16.6m.",
+              "24": "ArmorBonus; reachable; 17.1m.",
+              "5": "ArmorBonus; reachable; 38.8m.",
+              "4": "ArmorBonus; reachable; 39.5m.",
+              "3": "ArmorBonus; reachable; 40.2m.",
+              "2": "ArmorBonus; reachable; 41.0m.",
+              "62": "HealthBonus; reachable; 43.3m."
+            }
+          },
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "294": "Call, board and ride lift #294 to the upper floor. Phase: call. Distance 55.4m. Upper route keys: blue (missing).",
+              "295": "Call, board and ride lift #295 to the upper floor. Phase: call. Distance 55.5m. Upper route keys: blue (missing).",
+              "332": "Call, board and ride lift #332 to the upper floor. Phase: call. Distance 34.0m. Upper route keys: red (missing).",
+              "359": "Call, board and ride lift #359 to the upper floor. Phase: call. Distance 180.0m.",
+              "702": "Activate door switch #702 to open a closed passage. Distance 33.2m.",
+              "1455": "Activate door switch #1455 to open a closed passage. Distance 100.1m.",
+              "1863": "Activate door switch #1863 to open a closed passage. Distance 95.7m.",
+              "1943": "Call, board and ride lift #1943 to the upper floor. Phase: call. Distance 179.8m.",
+              "2365": "Call, board and ride lift #2365 to the upper floor. Phase: call. Distance 138.7m.",
+              "2839": "Activate floor switch #2839 to lower the floor and open a route. Distance 140.3m. Exit platform."
+            }
+          },
+          "movement": {
+            "type": "choice",
+            "instructions": "Choose movement while fighting. Back away from enemies closer than 5 meters; otherwise use clear space and keep the current safe strafe direction. Use body clearance to avoid blocked directions, including when continuing the previous movement.",
+            "criteria": {
+              "stationary": "Stand still while aiming and firing.",
+              "strafe_left": "Move left while aiming and firing. Prefer free space on the left. Body clearance in this direction: 11.25m. At least six meters of clear body space in this direction.",
+              "strafe_right": "Move right while aiming and firing. Prefer free space on the right. Body clearance in this direction: 3.00m.",
+              "backward": "Move backward while aiming and firing. Keep close enemies away. Body clearance in this direction: 2.50m."
+            }
+          },
+          "weapon": {
+            "type": "choice",
+            "instructions": "Choose an effective weapon. Use a loaded gun for ranged enemies. Prefer shotgun to pistol when both are loaded. Use melee when there is no usable gun. Prefer a loaded super shotgun to the ordinary shotgun.",
+            "criteria": {
+              "melee": "Melee only, range 1.5m. Loaded: yes. Can hit visible enemies from here: no. Ammo: 0.",
+              "pistol": "Basic ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 100.",
+              "shotgun": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 22.",
+              "keep": "Keep the current weapon."
+            }
+          },
+          "combat": {
+            "type": "choice",
+            "instructions": "Choose an enemy to aim at while executing the selected navigation command, or hold. Recently seen enemies may be aimed at; fire only when they are visible. Keep following the selected route.",
+            "criteria": {
+              "hold": "Do not fire while executing the selected navigation command.",
+              "53": "Fire at DoomImp #53, 7.9m away.",
+              "39": "Fire at Zombieman #39, 30.0m away."
+            }
+          }
+        },
+        "commands": {
+          "attack": {
+            "action": "attack",
+            "target": null
+          },
+          "pickup": {
+            "action": "pickup",
+            "target": null
+          },
+          "use_switch": {
+            "action": "use_switch",
+            "target": null
+          },
+          "exit": {
+            "action": "exit",
+            "target": null
+          },
+          "retreat": {
+            "action": "retreat",
+            "target": null
+          },
+          "explore": {
+            "action": "explore",
+            "target": null
+          },
+          "wait": {
+            "action": "wait",
+            "target": null
+          },
+          "look_back": {
+            "action": "look_back",
+            "target": null
+          }
+        },
+        "weapons": {
+          "melee": 1,
+          "pistol": 2,
+          "shotgun": 3
+        },
+        "observation": {
+          "hp": 14.0,
+          "armor": 1.0,
+          "inventory": {
+            "1": {
+              "owned": 1,
+              "ammo": 0
+            },
+            "2": {
+              "owned": 1,
+              "ammo": 100
+            },
+            "3": {
+              "owned": 1,
+              "ammo": 22
+            },
+            "4": {
+              "owned": 0,
+              "ammo": 100
+            },
+            "5": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "6": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "7": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "8": {
+              "owned": 0,
+              "ammo": 22
+            },
+            "9": {
+              "owned": 0,
+              "ammo": 0
+            }
+          },
+          "walls": {
+            "left": 5.06,
+            "ahead": 8.1,
+            "right": 6.26
+          },
+          "execution": {
+            "status": "executing",
+            "detail": "pickup (Stimpack #30)",
+            "decision_id": 1167,
+            "command": "pickup",
+            "action": "pickup",
+            "target_id": 30,
+            "weapon": 3,
+            "movement": null,
+            "combat_target_id": 96
+          },
+          "motion_clearance": null,
+          "reachable_items": {
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": true,
+            "key_25": false,
+            "key_26": false,
+            "weapon_80": false,
+            "weapon_198": true,
+            "weapon_211": false,
+            "136": true,
+            "139": true,
+            "137": true,
+            "138": true,
+            "91": true,
+            "90": true,
+            "89": true,
+            "24": true,
+            "26": true,
+            "62": true,
+            "29": true,
+            "93": true,
+            "303": true,
+            "311": true,
+            "312": true,
+            "30": true,
+            "40": true
+          }
+        },
+        "decision_format": "committed",
+        "targets": {
+          "enemy": {
+            "53": {
+              "name": "DoomImp",
+              "id": 53,
+              "x": -619.1470947265625,
+              "y": -139.1470947265625,
+              "z": 0.0,
+              "distance": 7.9,
+              "bearing": 13.0,
+              "aim_bearing": 12.082528760153041,
+              "visible": true
+            },
+            "39": {
+              "name": "Zombieman",
+              "id": 39,
+              "x": -192.0,
+              "y": -704.0,
+              "z": -4.0,
+              "distance": 30.03,
+              "bearing": 11.9,
+              "aim_bearing": 12.509848153419615,
+              "visible": true
+            }
+          },
+          "item": {
+            "303": {
+              "name": "Shotgun",
+              "id": 303,
+              "x": -760.4683837890625,
+              "y": 225.9875030517578,
+              "z": -4.0,
+              "distance": 4.992395172817223,
+              "bearing": 44.8,
+              "category": "Weapon",
+              "reachable": true
+            },
+            "29": {
+              "name": "Stimpack",
+              "id": 29,
+              "x": -832.0,
+              "y": -112.0,
+              "z": 0.0,
+              "distance": 5.938388123881,
+              "bearing": 41.9,
+              "category": "Health",
+              "reachable": true
+            },
+            "30": {
+              "name": "Stimpack",
+              "id": 30,
+              "x": -576.0,
+              "y": -112.0,
+              "z": 0.0,
+              "distance": 8.152073494806933,
+              "bearing": 1.7,
+              "category": "Health",
+              "reachable": true
+            },
+            "weapon_198": {
+              "id": "weapon_198",
+              "name": "Chaingun",
+              "category": "Weapon",
+              "x": -256,
+              "y": -352,
+              "source": "wad",
+              "distance": 20.622637552233044,
+              "reachable": true
+            },
+            "40": {
+              "name": "BlueCard",
+              "id": 40,
+              "x": -192.0,
+              "y": -716.0,
+              "z": -4.0,
+              "distance": 30.32978158251699,
+              "bearing": 12.3,
+              "category": "Key",
+              "reachable": true
+            },
+            "93": {
+              "name": "Shell",
+              "id": 93,
+              "x": -800.0,
+              "y": 224.0,
+              "z": -4.0,
+              "distance": 5.037612692615604,
+              "bearing": 43.9,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "311": {
+              "name": "Clip",
+              "id": 311,
+              "x": -714.5602722167969,
+              "y": 257.0398712158203,
+              "z": -4.0,
+              "distance": 6.175489650047242,
+              "bearing": 44.6,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "312": {
+              "name": "Clip",
+              "id": 312,
+              "x": -552.9249572753906,
+              "y": 303.7748565673828,
+              "z": 16.0,
+              "distance": 9.977501595118108,
+              "bearing": 44.1,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "26": {
+              "name": "HealthBonus",
+              "id": 26,
+              "x": -424.0,
+              "y": 472.0,
+              "z": 24.0,
+              "distance": 16.588608567840147,
+              "bearing": 45.7,
+              "category": "Health",
+              "reachable": true
+            },
+            "24": {
+              "name": "ArmorBonus",
+              "id": 24,
+              "x": -400.0,
+              "y": 472.0,
+              "z": 24.0,
+              "distance": 17.081969149889886,
+              "bearing": 46.1,
+              "category": "Armor",
+              "reachable": true
+            },
+            "5": {
+              "name": "ArmorBonus",
+              "id": 5,
+              "x": 112.0,
+              "y": 944.0,
+              "z": 12.0,
+              "distance": 38.803444481421565,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "4": {
+              "name": "ArmorBonus",
+              "id": 4,
+              "x": 112.0,
+              "y": 976.0,
+              "z": 12.0,
+              "distance": 39.516591807776656,
+              "bearing": 27.6,
+              "category": "Armor",
+              "reachable": true
+            },
+            "3": {
+              "name": "ArmorBonus",
+              "id": 3,
+              "x": 112.0,
+              "y": 1008.0,
+              "z": 12.0,
+              "distance": 40.24195264375371,
+              "bearing": 39.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "2": {
+              "name": "ArmorBonus",
+              "id": 2,
+              "x": 112.0,
+              "y": 1040.0,
+              "z": 12.0,
+              "distance": 40.978878426108636,
+              "bearing": 45.0,
+              "category": "Armor",
+              "reachable": true
+            },
+            "62": {
+              "name": "HealthBonus",
+              "id": 62,
+              "x": 112.0,
+              "y": 1136.0,
+              "z": 0.0,
+              "distance": 43.253088334832434,
+              "bearing": -41.5,
+              "category": "Health",
+              "reachable": true
+            }
+          },
+          "switch": {
+            "294": {
+              "id": 294,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 832.0,
+              "y": -704.0,
+              "board": [
+                864.0,
+                -704.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                792.0,
+                -704.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 55.44788154242321,
+              "locked": false
+            },
+            "295": {
+              "id": 295,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 864.0,
+              "y": -640.0,
+              "board": [
+                864.0,
+                -672.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                864.0,
+                -600.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 55.525435591234285,
+              "locked": false
+            },
+            "332": {
+              "id": 332,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 320.0,
+              "y": 128.0,
+              "board": [
+                320.0,
+                160.0
+              ],
+              "upper_floor": 96,
+              "approach": [
+                320.0,
+                88.0
+              ],
+              "sectors": [
+                64
+              ],
+              "key": null,
+              "route_keys": [
+                "red"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 34.00412778626131,
+              "locked": false
+            },
+            "359": {
+              "id": 359,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4720.0,
+              "y": -1688.0,
+              "board": [
+                4720.0,
+                -1656.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4720.0,
+                -1728.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 180.00140066887636,
+              "locked": false
+            },
+            "702": {
+              "id": 702,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 164.0,
+              "y": -448.0,
+              "board": [
+                196.0,
+                -448.0
+              ],
+              "upper_floor": -72,
+              "approach": [
+                124.0,
+                -448.0
+              ],
+              "sectors": [
+                96
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 33.221555623348316,
+              "locked": false
+            },
+            "1455": {
+              "id": 1455,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 2400.0,
+              "y": -424.0,
+              "board": [
+                2400.0,
+                -392.0
+              ],
+              "upper_floor": 0,
+              "approach": [
+                2400.0,
+                -464.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "repeatable": true,
+              "phase": "call",
+              "activated": false,
+              "distance": 100.12891805249576,
+              "locked": false
+            },
+            "1863": {
+              "id": 1863,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 2296.0,
+              "y": 128.0,
+              "board": [
+                2264.0,
+                128.0
+              ],
+              "upper_floor": 0,
+              "approach": [
+                2336.0,
+                128.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 95.71888679399244,
+              "locked": false
+            },
+            "1943": {
+              "id": 1943,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4688.0,
+              "y": -1760.0,
+              "board": [
+                4720.0,
+                -1760.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4648.0,
+                -1760.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 179.75086058648992,
+              "locked": false
+            },
+            "2365": {
+              "id": 2365,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 3568.0,
+              "y": -896.0,
+              "board": [
+                3536.0,
+                -896.0
+              ],
+              "upper_floor": 33,
+              "approach": [
+                3608.0,
+                -896.0
+              ],
+              "sectors": [
+                282
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 138.74782198013904,
+              "locked": false
+            },
+            "2839": {
+              "id": 2839,
+              "kind": "floor",
+              "name": "Floor switch",
+              "x": 3696.0,
+              "y": -432.0,
+              "board": [
+                3696.0,
+                -464.0
+              ],
+              "upper_floor": -256,
+              "approach": [
+                3696.0,
+                -392.0
+              ],
+              "sectors": [
+                306
+              ],
+              "key": null,
+              "initial_floors": {
+                "306": -256
+              },
+              "route_exit": true,
+              "phase": "call",
+              "activated": false,
+              "distance": 140.3163676609578,
+              "locked": false
+            }
+          }
+        },
+        "explicit_actions": true,
+        "refresh_attack_target": true,
+        "pickup_combat": true,
+        "combat_targets": {
+          "53": {
+            "name": "DoomImp",
+            "id": 53,
+            "x": -619.1470947265625,
+            "y": -139.1470947265625,
+            "z": 0.0,
+            "distance": 7.9,
+            "bearing": 13.0,
+            "aim_bearing": 12.082528760153041,
+            "visible": true
+          },
+          "39": {
+            "name": "Zombieman",
+            "id": 39,
+            "x": -192.0,
+            "y": -704.0,
+            "z": -4.0,
+            "distance": 30.03,
+            "bearing": 11.9,
+            "aim_bearing": 12.509848153419615,
+            "visible": true
+          }
+        },
+        "pickup_recent_targets": true,
+        "combat_actions": [
+          "pickup",
+          "open_door",
+          "use_switch",
+          "exit",
+          "explore"
+        ],
+        "enemy_commitment": {
+          "target_id": null,
+          "age_seconds": null
+        },
+        "enemy_sequences": {
+          "0": [
+            "53"
+          ],
+          "1": [
+            "39"
+          ],
+          "2": [
+            "53",
+            "39"
+          ],
+          "3": [
+            "39",
+            "53"
+          ]
+        },
+        "enemy_question_format": "enemy-sequence-v1",
+        "floor_hazard": {
+          "mapped_damaging_floor": false,
+          "damage_per_period": 0,
+          "sectors": []
+        },
+        "look_facts": {
+          "hp_loss": 0,
+          "latest_age_seconds": null,
+          "looked_after_hit": false,
+          "standing_on_damaging_floor": false,
+          "status": "inactive",
+          "known_enemy_count": 2
+        },
+        "masked_unreachable_items": [
+          {
+            "id": "key_25",
+            "name": "RedCard",
+            "color": "red",
+            "category": "Key",
+            "x": 320,
+            "y": 332,
+            "source": "wad",
+            "distance": 34.94980436372024,
+            "reachable": false
+          },
+          {
+            "id": "weapon_80",
+            "name": "RocketLauncher",
+            "category": "Weapon",
+            "x": 2400,
+            "y": 576,
+            "source": "wad",
+            "distance": 100.22308426881138,
+            "reachable": false
+          },
+          {
+            "id": "key_26",
+            "name": "YellowCard",
+            "color": "yellow",
+            "category": "Key",
+            "x": 2400,
+            "y": 680,
+            "source": "wad",
+            "distance": 100.79064304245811,
+            "reachable": false
+          },
+          {
+            "id": "weapon_211",
+            "name": "Chainsaw",
+            "category": "Weapon",
+            "x": 2544,
+            "y": 128,
+            "source": "wad",
+            "distance": 103.46743397109272,
+            "reachable": false
+          }
+        ],
+        "movement_clearance": {
+          "ahead": 7.75,
+          "left": 11.25,
+          "right": 3.0,
+          "back": 2.5
+        },
+        "question_dependencies": {
+          "attack": [
+            "enemy",
+            "movement"
+          ],
+          "pickup": [
+            "item",
+            "combat"
+          ],
+          "use_switch": [
+            "switch",
+            "combat"
+          ],
+          "exit": [
+            "combat"
+          ],
+          "retreat": [],
+          "explore": [
+            "combat"
+          ],
+          "wait": [],
+          "look_back": []
+        }
+      }
+    },
+    {
+      "source_run": "20260927_235309_007428_v031-observed-map03-seed54",
+      "tick": 21019,
+      "hp": 14.0,
+      "check": "expected_command",
+      "expected_command": "attack",
+      "recorded_choice": "pickup",
+      "packet": {
+        "state": "Current command: pickup #29 Stimpack 5.1m; status executing.\nEnemy range: close; health: critical; space: left open, right open.\nReachable items: Stimpack#29, Shotgun#303, Stimpack#30, Chaingun#weapon_198, BlueCard#40, Clip#320, Shell#93, Clip#311, Clip#312, HealthBonus#26, ArmorBonus#24, ArmorBonus#5, ArmorBonus#4, ArmorBonus#3, ArmorBonus#2.\nAvailable mechanisms: lift #294 phase call 54.0m Upper route keys: blue (missing).; lift #295 phase call 54.1m Upper route keys: blue (missing).; lift #332 phase call 33.2m Upper route keys: red (missing).; lift #359 phase call 178.7m; door switch #702 31.7m; door switch #1455 99.0m; door switch #1863 94.8m; lift #1943 phase call 178.4m; lift #2365 phase call 137.5m; floor switch #2839 139.2m (lowers floor) Exit platform.\nHP 14; armor 1.\nInventory: melee 0 ammo; pistol 100 ammo; shotgun 22 ammo.\nClearance: left 4.3m, right 6.1m. Movement: stationary.\nCollected keys: none.\nEnemies: DoomImp#53 4.7m (visible); Zombieman#39 27.3m (visible).\nItems: Stimpack#29 [Health] 5.1m; Shotgun#303 [Weapon] 6.5m; Stimpack#30 [Health] 6.5m; Chaingun#weapon_198 [Weapon] 19.0m; BlueCard#40 [Key] 28.6m; RedCard#key_25 [Key] 34.4m; RocketLauncher#weapon_80 [Weapon] 99.5m; YellowCard#key_26 [Key] 100.2m; Chainsaw#weapon_211 [Weapon] 102.6m; Clip#320 [Ammo] 4.5m; Shell#93 [Ammo] 6.7m; Clip#311 [Ammo] 7.4m; Clip#312 [Ammo] 10.6m; HealthBonus#26 [Health] 17.2m; ArmorBonus#24 [Armor] 17.6m; ArmorBonus#5 [Armor] 39.2m; ArmorBonus#4 [Armor] 39.9m; ArmorBonus#3 [Armor] 40.7m; ArmorBonus#2 [Armor] 41.5m.",
+        "questions": {
+          "command": {
+            "type": "choice",
+            "instructions": "Finish the level alive. Fight immediate threats, collect useful supplies and keys, open doors, activate mechanisms, and reach the exit. Continue the current goal while it remains appropriate. Change it for urgent threats, supplies, or a blocked route.",
+            "criteria": {
+              "attack": "Fight a visible or recently seen enemy.",
+              "pickup": "Collect a useful item such as a weapon, ammunition, health, armor, or key.",
+              "use_switch": "Use a switch or call, board and ride a lift to unlock the route.",
+              "exit": "Go to the exit and finish the level.",
+              "retreat": "Retreat from enemies without firing.",
+              "explore": "Explore accessible areas for another route.",
+              "wait": "Wait without moving or firing.",
+              "look_back": "Turn clockwise 180 degrees to inspect behind you. Do not walk or fire. Stop after the half turn."
+            },
+            "look_observation": {
+              "hp_loss": 0,
+              "latest_age_seconds": null,
+              "looked_after_hit": false,
+              "standing_on_damaging_floor": false,
+              "status": "inactive",
+              "known_enemy_count": 2
+            }
+          },
+          "enemy": {
+            "type": "choice",
+            "instructions": "Choose a firing sequence. You may select one target or several in order. Keep each target until it disappears from known enemies, then advance to the next listed target. A new decision may replace this plan. Latest accepted target: none. Targets: #53 DoomImp 4.7m bearing +6 degrees visible; #39 Zombieman 27.3m bearing +3 degrees visible.",
+            "criteria": {
+              "0": "Shoot #53.",
+              "1": "Shoot #39.",
+              "2": "Shoot #53, then #39.",
+              "3": "Shoot #39, then #53."
+            }
+          },
+          "item": {
+            "type": "choice",
+            "instructions": "Choose a useful item. Get needed health, a stronger gun, ammunition for an empty gun, or a required key. Avoid unnecessary pickups.",
+            "criteria": {
+              "29": "Stimpack; reachable; 5.1m.",
+              "303": "Shotgun; reachable; owned; 6.5m.",
+              "30": "Stimpack; reachable; 6.5m.",
+              "weapon_198": "Chaingun; reachable; not owned; 19.0m.",
+              "40": "BlueCard; reachable; 28.6m.",
+              "320": "Clip; reachable; 4.5m.",
+              "93": "Shell; reachable; 6.7m.",
+              "311": "Clip; reachable; 7.4m.",
+              "312": "Clip; reachable; 10.6m.",
+              "26": "HealthBonus; reachable; 17.2m.",
+              "24": "ArmorBonus; reachable; 17.6m.",
+              "5": "ArmorBonus; reachable; 39.2m.",
+              "4": "ArmorBonus; reachable; 39.9m.",
+              "3": "ArmorBonus; reachable; 40.7m.",
+              "2": "ArmorBonus; reachable; 41.5m."
+            }
+          },
+          "switch": {
+            "type": "choice",
+            "instructions": "Choose the mechanism that advances the route. Continue boarding or riding the current lift. Activate unused door switches; get missing keys.",
+            "criteria": {
+              "294": "Call, board and ride lift #294 to the upper floor. Phase: call. Distance 54.0m. Upper route keys: blue (missing).",
+              "295": "Call, board and ride lift #295 to the upper floor. Phase: call. Distance 54.1m. Upper route keys: blue (missing).",
+              "332": "Call, board and ride lift #332 to the upper floor. Phase: call. Distance 33.2m. Upper route keys: red (missing).",
+              "359": "Call, board and ride lift #359 to the upper floor. Phase: call. Distance 178.7m.",
+              "702": "Activate door switch #702 to open a closed passage. Distance 31.7m.",
+              "1455": "Activate door switch #1455 to open a closed passage. Distance 99.0m.",
+              "1863": "Activate door switch #1863 to open a closed passage. Distance 94.8m.",
+              "1943": "Call, board and ride lift #1943 to the upper floor. Phase: call. Distance 178.4m.",
+              "2365": "Call, board and ride lift #2365 to the upper floor. Phase: call. Distance 137.5m.",
+              "2839": "Activate floor switch #2839 to lower the floor and open a route. Distance 139.2m. Exit platform."
+            }
+          },
+          "movement": {
+            "type": "choice",
+            "instructions": "Choose movement while fighting. Back away from enemies closer than 5 meters; otherwise use clear space and keep the current safe strafe direction. Use body clearance to avoid blocked directions, including when continuing the previous movement.",
+            "criteria": {
+              "stationary": "Stand still while aiming and firing.",
+              "strafe_left": "Move left while aiming and firing. Prefer free space on the left. Body clearance in this direction: 8.50m. At least six meters of clear body space in this direction.",
+              "strafe_right": "Move right while aiming and firing. Prefer free space on the right. Body clearance in this direction: 3.75m.",
+              "backward": "Move backward while aiming and firing. Keep close enemies away. Body clearance in this direction: 4.50m."
+            }
+          },
+          "weapon": {
+            "type": "choice",
+            "instructions": "Choose an effective weapon. Use a loaded gun for ranged enemies. Prefer shotgun to pistol when both are loaded. Use melee when there is no usable gun. Prefer a loaded super shotgun to the ordinary shotgun.",
+            "criteria": {
+              "melee": "Melee only, range 1.5m. Loaded: yes. Can hit visible enemies from here: no. Ammo: 0.",
+              "pistol": "Basic ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 100.",
+              "shotgun": "Powerful ranged gun. Loaded: yes. Can hit visible enemies from here: yes. Ammo: 22.",
+              "keep": "Keep the current weapon."
+            }
+          },
+          "combat": {
+            "type": "choice",
+            "instructions": "Choose an enemy to aim at while executing the selected navigation command, or hold. Recently seen enemies may be aimed at; fire only when they are visible. Keep following the selected route.",
+            "criteria": {
+              "hold": "Do not fire while executing the selected navigation command.",
+              "53": "Fire at DoomImp #53, 4.7m away.",
+              "39": "Fire at Zombieman #39, 27.3m away."
+            }
+          }
+        },
+        "commands": {
+          "attack": {
+            "action": "attack",
+            "target": null
+          },
+          "pickup": {
+            "action": "pickup",
+            "target": null
+          },
+          "use_switch": {
+            "action": "use_switch",
+            "target": null
+          },
+          "exit": {
+            "action": "exit",
+            "target": null
+          },
+          "retreat": {
+            "action": "retreat",
+            "target": null
+          },
+          "explore": {
+            "action": "explore",
+            "target": null
+          },
+          "wait": {
+            "action": "wait",
+            "target": null
+          },
+          "look_back": {
+            "action": "look_back",
+            "target": null
+          }
+        },
+        "weapons": {
+          "melee": 1,
+          "pistol": 2,
+          "shotgun": 3
+        },
+        "observation": {
+          "hp": 14.0,
+          "armor": 1.0,
+          "inventory": {
+            "1": {
+              "owned": 1,
+              "ammo": 0
+            },
+            "2": {
+              "owned": 1,
+              "ammo": 100
+            },
+            "3": {
+              "owned": 1,
+              "ammo": 22
+            },
+            "4": {
+              "owned": 0,
+              "ammo": 100
+            },
+            "5": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "6": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "7": {
+              "owned": 0,
+              "ammo": 0
+            },
+            "8": {
+              "owned": 0,
+              "ammo": 22
+            },
+            "9": {
+              "owned": 0,
+              "ammo": 0
+            }
+          },
+          "walls": {
+            "left": 4.3,
+            "ahead": 4.81,
+            "right": 6.07
+          },
+          "execution": {
+            "status": "executing",
+            "detail": "pickup (Stimpack #29)",
+            "decision_id": 1168,
+            "command": "pickup",
+            "action": "pickup",
+            "target_id": 29,
+            "weapon": 3,
+            "movement": null,
+            "combat_target_id": 53
+          },
+          "motion_clearance": null,
+          "reachable_items": {
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": true,
+            "key_25": false,
+            "key_26": false,
+            "weapon_80": false,
+            "weapon_198": true,
+            "weapon_211": false,
+            "136": true,
+            "139": true,
+            "137": true,
+            "138": true,
+            "91": true,
+            "90": true,
+            "89": true,
+            "24": true,
+            "26": true,
+            "62": true,
+            "29": true,
+            "93": true,
+            "303": true,
+            "311": true,
+            "312": true,
+            "30": true,
+            "40": true,
+            "320": true
+          }
+        },
+        "decision_format": "committed",
+        "targets": {
+          "enemy": {
+            "53": {
+              "name": "DoomImp",
+              "id": 53,
+              "x": -653.0882568359375,
+              "y": -105.2059326171875,
+              "z": -4.0,
+              "distance": 4.71,
+              "bearing": 6.5,
+              "aim_bearing": 6.3303656819498,
+              "visible": true
+            },
+            "39": {
+              "name": "Zombieman",
+              "id": 39,
+              "x": -214.62744140625,
+              "y": -681.37255859375,
+              "z": 0.0,
+              "distance": 27.32,
+              "bearing": 3.4,
+              "aim_bearing": 3.6655019396418407,
+              "visible": true
+            }
+          },
+          "item": {
+            "29": {
+              "name": "Stimpack",
+              "id": 29,
+              "x": -832.0,
+              "y": -112.0,
+              "z": 0.0,
+              "distance": 5.1004232473339535,
+              "bearing": 41.9,
+              "category": "Health",
+              "reachable": true
+            },
+            "303": {
+              "name": "Shotgun",
+              "id": 303,
+              "x": -760.4683837890625,
+              "y": 225.9875030517578,
+              "z": -4.0,
+              "distance": 6.473462491383071,
+              "bearing": 44.8,
+              "category": "Weapon",
+              "reachable": true
+            },
+            "30": {
+              "name": "Stimpack",
+              "id": 30,
+              "x": -576.0,
+              "y": -112.0,
+              "z": 0.0,
+              "distance": 6.495182069571725,
+              "bearing": -10.4,
+              "category": "Health",
+              "reachable": true
+            },
+            "weapon_198": {
+              "id": "weapon_198",
+              "name": "Chaingun",
+              "category": "Weapon",
+              "x": -256,
+              "y": -352,
+              "source": "wad",
+              "distance": 18.990630255812302,
+              "reachable": true
+            },
+            "40": {
+              "name": "BlueCard",
+              "id": 40,
+              "x": -192.0,
+              "y": -716.0,
+              "z": -4.0,
+              "distance": 28.613310924389406,
+              "bearing": 3.6,
+              "category": "Key",
+              "reachable": true
+            },
+            "320": {
+              "name": "Clip",
+              "id": 320,
+              "x": -593.2769470214844,
+              "y": 16.915435791015625,
+              "z": 1.6875,
+              "distance": 4.472123744107772,
+              "bearing": -37.7,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "93": {
+              "name": "Shell",
+              "id": 93,
+              "x": -800.0,
+              "y": 224.0,
+              "z": -4.0,
+              "distance": 6.670796239987927,
+              "bearing": 43.9,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "311": {
+              "name": "Clip",
+              "id": 311,
+              "x": -714.5602722167969,
+              "y": 257.0398712158203,
+              "z": -4.0,
+              "distance": 7.431061282791089,
+              "bearing": 44.6,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "312": {
+              "name": "Clip",
+              "id": 312,
+              "x": -552.9249572753906,
+              "y": 303.7748565673828,
+              "z": 16.0,
+              "distance": 10.55269294396223,
+              "bearing": 44.1,
+              "category": "Ammo",
+              "reachable": true
+            },
+            "26": {
+              "name": "HealthBonus",
+              "id": 26,
+              "x": -424.0,
+              "y": 472.0,
+              "z": 24.0,
+              "distance": 17.163102087007978,
+              "bearing": 45.7,
+              "category": "Health",
+              "reachable": true
+            },
+            "24": {
+              "name": "ArmorBonus",
+              "id": 24,
+              "x": -400.0,
+              "y": 472.0,
+              "z": 24.0,
+              "distance": 17.60044882454588,
+              "bearing": 46.1,
+              "category": "Armor",
+              "reachable": true
+            },
+            "5": {
+              "name": "ArmorBonus",
+              "id": 5,
+              "x": 112.0,
+              "y": 944.0,
+              "z": 12.0,
+              "distance": 39.19368795158773,
+              "bearing": 45.5,
+              "category": "Armor",
+              "reachable": true
+            },
+            "4": {
+              "name": "ArmorBonus",
+              "id": 4,
+              "x": 112.0,
+              "y": 976.0,
+              "z": 12.0,
+              "distance": 39.93594622721213,
+              "bearing": 27.6,
+              "category": "Armor",
+              "reachable": true
+            },
+            "3": {
+              "name": "ArmorBonus",
+              "id": 3,
+              "x": 112.0,
+              "y": 1008.0,
+              "z": 12.0,
+              "distance": 40.689242151693165,
+              "bearing": 39.7,
+              "category": "Armor",
+              "reachable": true
+            },
+            "2": {
+              "name": "ArmorBonus",
+              "id": 2,
+              "x": 112.0,
+              "y": 1040.0,
+              "z": 12.0,
+              "distance": 41.452973990963166,
+              "bearing": 45.0,
+              "category": "Armor",
+              "reachable": true
+            }
+          },
+          "switch": {
+            "294": {
+              "id": 294,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 832.0,
+              "y": -704.0,
+              "board": [
+                864.0,
+                -704.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                792.0,
+                -704.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 53.98424504424117,
+              "locked": false
+            },
+            "295": {
+              "id": 295,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 864.0,
+              "y": -640.0,
+              "board": [
+                864.0,
+                -672.0
+              ],
+              "upper_floor": -8,
+              "approach": [
+                864.0,
+                -600.0
+              ],
+              "sectors": [
+                61
+              ],
+              "key": null,
+              "route_keys": [
+                "blue"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 54.0998114482041,
+              "locked": false
+            },
+            "332": {
+              "id": 332,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 320.0,
+              "y": 128.0,
+              "board": [
+                320.0,
+                160.0
+              ],
+              "upper_floor": 96,
+              "approach": [
+                320.0,
+                88.0
+              ],
+              "sectors": [
+                64
+              ],
+              "key": null,
+              "route_keys": [
+                "red"
+              ],
+              "phase": "call",
+              "activated": false,
+              "distance": 33.182116246432656,
+              "locked": false
+            },
+            "359": {
+              "id": 359,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4720.0,
+              "y": -1688.0,
+              "board": [
+                4720.0,
+                -1656.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4720.0,
+                -1728.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 178.67190605274513,
+              "locked": false
+            },
+            "702": {
+              "id": 702,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 164.0,
+              "y": -448.0,
+              "board": [
+                196.0,
+                -448.0
+              ],
+              "upper_floor": -72,
+              "approach": [
+                124.0,
+                -448.0
+              ],
+              "sectors": [
+                96
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 31.713399891070512,
+              "locked": false
+            },
+            "1455": {
+              "id": 1455,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 2400.0,
+              "y": -424.0,
+              "board": [
+                2400.0,
+                -392.0
+              ],
+              "upper_floor": 0,
+              "approach": [
+                2400.0,
+                -464.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "repeatable": true,
+              "phase": "call",
+              "activated": false,
+              "distance": 98.98913708019286,
+              "locked": false
+            },
+            "1863": {
+              "id": 1863,
+              "kind": "door",
+              "name": "Door switch",
+              "x": 2296.0,
+              "y": 128.0,
+              "board": [
+                2264.0,
+                128.0
+              ],
+              "upper_floor": 0,
+              "approach": [
+                2336.0,
+                128.0
+              ],
+              "sectors": [
+                165
+              ],
+              "key": null,
+              "phase": "call",
+              "activated": false,
+              "distance": 94.82062668207851,
+              "locked": false
+            },
+            "1943": {
+              "id": 1943,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 4688.0,
+              "y": -1760.0,
+              "board": [
+                4720.0,
+                -1760.0
+              ],
+              "upper_floor": -320,
+              "approach": [
+                4648.0,
+                -1760.0
+              ],
+              "sectors": [
+                177
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 178.40659452590967,
+              "locked": false
+            },
+            "2365": {
+              "id": 2365,
+              "kind": "lift",
+              "name": "Lift",
+              "x": 3568.0,
+              "y": -896.0,
+              "board": [
+                3536.0,
+                -896.0
+              ],
+              "upper_floor": 33,
+              "approach": [
+                3608.0,
+                -896.0
+              ],
+              "sectors": [
+                282
+              ],
+              "key": null,
+              "route_keys": [],
+              "phase": "call",
+              "activated": false,
+              "distance": 137.52450935672627,
+              "locked": false
+            },
+            "2839": {
+              "id": 2839,
+              "kind": "floor",
+              "name": "Floor switch",
+              "x": 3696.0,
+              "y": -432.0,
+              "board": [
+                3696.0,
+                -464.0
+              ],
+              "upper_floor": -256,
+              "approach": [
+                3696.0,
+                -392.0
+              ],
+              "sectors": [
+                306
+              ],
+              "key": null,
+              "initial_floors": {
+                "306": -256
+              },
+              "route_exit": true,
+              "phase": "call",
+              "activated": false,
+              "distance": 139.2299511044688,
+              "locked": false
+            }
+          }
+        },
+        "explicit_actions": true,
+        "refresh_attack_target": true,
+        "pickup_combat": true,
+        "combat_targets": {
+          "53": {
+            "name": "DoomImp",
+            "id": 53,
+            "x": -653.0882568359375,
+            "y": -105.2059326171875,
+            "z": -4.0,
+            "distance": 4.71,
+            "bearing": 6.5,
+            "aim_bearing": 6.3303656819498,
+            "visible": true
+          },
+          "39": {
+            "name": "Zombieman",
+            "id": 39,
+            "x": -214.62744140625,
+            "y": -681.37255859375,
+            "z": 0.0,
+            "distance": 27.32,
+            "bearing": 3.4,
+            "aim_bearing": 3.6655019396418407,
+            "visible": true
+          }
+        },
+        "pickup_recent_targets": true,
+        "combat_actions": [
+          "pickup",
+          "open_door",
+          "use_switch",
+          "exit",
+          "explore"
+        ],
+        "enemy_commitment": {
+          "target_id": null,
+          "age_seconds": null
+        },
+        "enemy_sequences": {
+          "0": [
+            "53"
+          ],
+          "1": [
+            "39"
+          ],
+          "2": [
+            "53",
+            "39"
+          ],
+          "3": [
+            "39",
+            "53"
+          ]
+        },
+        "enemy_question_format": "enemy-sequence-v1",
+        "floor_hazard": {
+          "mapped_damaging_floor": false,
+          "damage_per_period": 0,
+          "sectors": []
+        },
+        "look_facts": {
+          "hp_loss": 0,
+          "latest_age_seconds": null,
+          "looked_after_hit": false,
+          "standing_on_damaging_floor": false,
+          "status": "inactive",
+          "known_enemy_count": 2
+        },
+        "masked_unreachable_items": [
+          {
+            "id": "key_25",
+            "name": "RedCard",
+            "color": "red",
+            "category": "Key",
+            "x": 320,
+            "y": 332,
+            "source": "wad",
+            "distance": 34.41840645891339,
+            "reachable": false
+          },
+          {
+            "id": "weapon_80",
+            "name": "RocketLauncher",
+            "category": "Weapon",
+            "x": 2400,
+            "y": 576,
+            "source": "wad",
+            "distance": 99.53765024673831,
+            "reachable": false
+          },
+          {
+            "id": "key_26",
+            "name": "YellowCard",
+            "color": "yellow",
+            "category": "Key",
+            "x": 2400,
+            "y": 680,
+            "source": "wad",
+            "distance": 100.15584781002617,
+            "reachable": false
+          },
+          {
+            "id": "weapon_211",
+            "name": "Chainsaw",
+            "category": "Weapon",
+            "x": 2544,
+            "y": 128,
+            "source": "wad",
+            "distance": 102.56610750472875,
+            "reachable": false
+          }
+        ],
+        "movement_clearance": {
+          "ahead": 7.0,
+          "left": 8.5,
+          "right": 3.75,
+          "back": 4.5
+        },
+        "question_dependencies": {
+          "attack": [
+            "enemy",
+            "movement"
+          ],
+          "pickup": [
+            "item",
+            "combat"
+          ],
+          "use_switch": [
+            "switch",
+            "combat"
+          ],
+          "exit": [
+            "combat"
+          ],
+          "retreat": [],
+          "explore": [
+            "combat"
+          ],
+          "wait": [],
+          "look_back": []
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "runs/20260927_235309_007428_v031-observed-map03-seed54/decisions.jsonl": "58ccbfef80287df08616ebdd2dc68a25dae6f84317a12dba816d4dc95744c2af"
+  }
+}

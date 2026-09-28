@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scope": "Final command retention training, from the staged public parent, cache and traces; not a full end-to-end retraining of every earlier head.",
+  "files": {
+    "model.safetensors": {
+      "expected": "8abaf91af970d4494e4504bd47f32b820130ea58a527076903e1b6ecccc825c6",
+      "retrained": "8abaf91af970d4494e4504bd47f32b820130ea58a527076903e1b6ecccc825c6"
+    },
+    "numeric-residual.safetensors": {
+      "expected": "072b09627912b03cc6783cb0ecb893c8a40db2ff8841b1d73666138a567e4d00",
+      "retrained": "072b09627912b03cc6783cb0ecb893c8a40db2ff8841b1d73666138a567e4d00"
+    },
+    "numeric-residual.json": {
+      "expected": "aebd31e851352f5ec34ac4a4fb68dd8fbe2f81408b9d5dfa532788b7e5fee89d",
+      "retrained": "aebd31e851352f5ec34ac4a4fb68dd8fbe2f81408b9d5dfa532788b7e5fee89d"
+    }
+  },
+  "best_epoch": 65
+}

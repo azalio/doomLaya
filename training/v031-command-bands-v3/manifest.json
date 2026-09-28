@@ -1,0 +1,182 @@
+{
+  "note": "Tokenizer-only filtering, train before validation: remove incomplete HP/inventory/keys lines and repeated effective inputs. No relabeling. Development split limitations of the source dataset still apply.",
+  "source_manifest": {
+    "input_projection": "command-observed-facts-v3-bands",
+    "lift_context_only": true,
+    "bands": true,
+    "source_manifest": {
+      "kind": "command",
+      "input_projection": "command-key-facts-v1",
+      "sources": {
+        "runs/20260926_201638_873591_map02-root-goals54/config.json": "e9aa1ed363756756ba0599c2fc87155f751136b75d994305dcc11bf820d759a2",
+        "runs/20260926_201638_873591_map02-root-goals54/summary.json": "b5512715fa6a34d94b8587a4b0e5356979086c8279c89fa165d533c78397bb1a",
+        "runs/20260926_201638_873591_map02-root-goals54/decisions.jsonl": "880b8d3c65fabc72d3c919b0057ce10a208826b09c7528057e8f800b2dc7e63d",
+        "runs/20260926_204707_880341_map01-root-goals48/config.json": "5897b164091202d6d537ee059abe1045f51a022d35b6ee090f389f803358e0e2",
+        "runs/20260926_204707_880341_map01-root-goals48/summary.json": "6a9e0fbb5e98f488c1e4c0690f7aaa3678d6068f82d42b6848147fe9814a3fdb",
+        "runs/20260926_204707_880341_map01-root-goals48/decisions.jsonl": "8b1a087888d023eebed8d71c0ba6918d8cd334bfa5bcb952e047bc13f9a2edb0",
+        "runs/20260927_113829_722635_map03-item-category54/config.json": "7e4cdcf4ff6c4fb1d07a544c5d3af3802f62b3438c0ae44c00df97ebb3c8e787",
+        "runs/20260927_113829_722635_map03-item-category54/summary.json": "212c91f3a2ede60b149b22ad6d12e51d76e4a4bb25799f9debecd0359f1e4068",
+        "runs/20260927_113829_722635_map03-item-category54/decisions.jsonl": "849814157c09a99e081400f620ef71fefd983704a7366a390a3b3ab2b8023a0f",
+        "runs/20260927_124122_585216_v030-regression-map01-seed48/config.json": "4c5a8cea89259042138293289b6ce979eb459c000a1119b810445e2e700a6e8d",
+        "runs/20260927_124122_585216_v030-regression-map01-seed48/summary.json": "39e2998aa967417f569535f36347be5cfbfc347641e3af74ccaacc6aa73c104a",
+        "runs/20260927_124122_585216_v030-regression-map01-seed48/decisions.jsonl": "bd51ee410d6d3ab0448b2f099ab1cb70853040becafd4ad3978c76bddd8e4426",
+        "runs/20260927_124546_011663_v030-regression-map02-seed54/config.json": "5288b2f46a0d73fcc2c0cc828759a985633e3dfcb5876fe59e05a95731c5e79d",
+        "runs/20260927_124546_011663_v030-regression-map02-seed54/summary.json": "bcbdae30996390b1443589a4771aa9600b7699ce53da10da54b13b5c5d1470d4",
+        "runs/20260927_124546_011663_v030-regression-map02-seed54/decisions.jsonl": "6741fd82425db5987707ba7cc15625c52a06710babd35515fe7901853451c596",
+        "runs/20260927_152225_319380_v031-route-map01-seed48/config.json": "9767417ff51f6e0fd49c6e8521bb70396e515739a015ce0b1537dda8ddb53bca",
+        "runs/20260927_152225_319380_v031-route-map01-seed48/summary.json": "9e6188dddd42bb18c7f0ca88abafab17d0a243ad9bf1754b6c8c6a43fe468482",
+        "runs/20260927_152225_319380_v031-route-map01-seed48/decisions.jsonl": "555cbcdc263f132b585e9f28833d80fcfc65b514cf8f74bd7a0af4d7e9e068ab",
+        "runs/20260927_155012_353035_v031-mixed-map02-seed54/config.json": "0e7a9761dde9a2f039e124e5196d1a13dcf72978c7a7992b3847b439333f380d",
+        "runs/20260927_155012_353035_v031-mixed-map02-seed54/summary.json": "77a8e710349b63cd561e8cc24f91add763d689d7189d500119e8a4efd2cf89fd",
+        "runs/20260927_155012_353035_v031-mixed-map02-seed54/decisions.jsonl": "e1d0a39ba1e3c0869e10954472b950510a609d0f1b361f56d1a93341182f2710",
+        "runs/20260927_161539_760408_v031-lift-map01-seed48/config.json": "b68cfa232e7fa9e3b345b6565b459184b6d05536b4f572a9d91e6142d539aa0e",
+        "runs/20260927_161539_760408_v031-lift-map01-seed48/summary.json": "ee8530f148b372961bb4aa2cf150fc1e97f095c17bb5954a2b86aa43b7950b4f",
+        "runs/20260927_161539_760408_v031-lift-map01-seed48/decisions.jsonl": "507ec067377c5301c88306a95a621dc560d1a30cece6d4130ce6a4e60aa1a08a",
+        "runs/20260927_162439_799412_v031-exit-side-map02-seed54/config.json": "516d0db1fa9ae16f69c01e6734a1c7e571211e62574f4d2b26cf8fb4bfc8ebeb",
+        "runs/20260927_162439_799412_v031-exit-side-map02-seed54/summary.json": "b234e934026a5e3b9d19b2e35ff28a7a32d7302580335e80fe3b01ad7c0c27e3",
+        "runs/20260927_162439_799412_v031-exit-side-map02-seed54/decisions.jsonl": "8fa8286ed4c5b19e3927fb08f735bc3976d6c3b3a14b58230f0d1bdbf064ed44",
+        "runs/20260927_170318_396226_v031-keys-map01-seed48/config.json": "19960d7c303efd7547fdd6e765d03f4ebc490746328f1a1cc81e5101811360d7",
+        "runs/20260927_170318_396226_v031-keys-map01-seed48/summary.json": "3a69d4e64cac586a40e690478bd6fa3ee2f23d93f3dea74e6d09fb39a12fbfb4",
+        "runs/20260927_170318_396226_v031-keys-map01-seed48/decisions.jsonl": "e135e40af59061f022bff04a6067b6b0d504bb8f072fb387133613e5960f0ccb",
+        "runs/20260927_170502_698556_v031-keys-map02-seed54/config.json": "330eead6044407e04dbe81a7775dfbd48d52fa0d809901456931086dbc126f61",
+        "runs/20260927_170502_698556_v031-keys-map02-seed54/summary.json": "0cc20dad99b647c266a58f0f9f0701aecc004e961fa1102122bc705a14212693",
+        "runs/20260927_170502_698556_v031-keys-map02-seed54/decisions.jsonl": "c2a1108e30b07d2a1cf84c1eb53c15895c2ae79a6227f271876e3b3f9e860cb2",
+        "runs/20260927_173151_393032_v031-goals-map01-seed48/config.json": "26ed2ff524b5472c776c0dc85963bec591f80b27e9e9a8849c7eea8e64a41703",
+        "runs/20260927_173151_393032_v031-goals-map01-seed48/summary.json": "2b84b5d79640ed129bb368af9ed2f7416bfc697e6ce348105affceea453676ff",
+        "runs/20260927_173151_393032_v031-goals-map01-seed48/decisions.jsonl": "d0a587f11e503bdd56327999845b25d24197aded382ee0a761c51fb12b420444",
+        "runs/20260927_173346_897635_v031-goals-map02-seed54/config.json": "f7335908e4ebdd373b24f4aec7c57d8e69d9e81a0ba31b54f854f4b4e7c35adf",
+        "runs/20260927_173346_897635_v031-goals-map02-seed54/summary.json": "5b5752bb5419b2c7236c2e03c759e9523513d4555b9671ed648d25f875b101ec",
+        "runs/20260927_173346_897635_v031-goals-map02-seed54/decisions.jsonl": "a3c573b93d3eb3e2a88970ce87160e9f80795ed1214995f43cb94e24617e191f",
+        "runs/20260927_180208_504420_v031-combat-map01-seed48/config.json": "7995fafaa7e9af470de4e0262c01dbb3782958816edd1d4d1e5c3cc7aede55bc",
+        "runs/20260927_180208_504420_v031-combat-map01-seed48/summary.json": "0e2b3e0a57f13944c5945a940940dcfc3fb6aaaf02e91271b21098ff9e6bd0a1",
+        "runs/20260927_180208_504420_v031-combat-map01-seed48/decisions.jsonl": "32987c82e1d6e64b1743a5217447b060c780cd80835ff0388e56b533db6761d4",
+        "runs/20260927_180334_623119_v031-combat-map02-seed54/config.json": "288c43e69ac21ec239429b49c926d771686b2d7aedbb9721aea420a6574b2fc3",
+        "runs/20260927_180334_623119_v031-combat-map02-seed54/summary.json": "366209baf9b9828f95c0a786b4134229e1d427d0921272f93c31d19d43e0ac80",
+        "runs/20260927_180334_623119_v031-combat-map02-seed54/decisions.jsonl": "4780bb2e4f0d6e316f46c4e3cfd1ad9448368f64edf8836c3eafef878473c3b1",
+        "runs/20260927_190137_465475_v031-command-compact-map01-seed48/config.json": "77b74acf3dbf344e1ba28e24fd5ea660d2ef8335608d56e250fcd68975beaf05",
+        "runs/20260927_190137_465475_v031-command-compact-map01-seed48/summary.json": "c3950e4f06e8932a119d2073074be1ee7fff59f5a02aa1f0b517dca43450f9f4",
+        "runs/20260927_190137_465475_v031-command-compact-map01-seed48/decisions.jsonl": "351e27cdd93a9af52db1d98043ede96e6d16aa4e51798d77dc595da01f29fa3b",
+        "runs/20260927_191419_934537_v031-item-consistent-map01-seed48/config.json": "62f13cd2d3510e4ebc0fe6cbea04b05365cf0007e127413c60577389141448b9",
+        "runs/20260927_191419_934537_v031-item-consistent-map01-seed48/summary.json": "8893c854e36e5cf35061f7d947219f9395bbd10faf09294a7bf82a9831252625",
+        "runs/20260927_191419_934537_v031-item-consistent-map01-seed48/decisions.jsonl": "90495ca4df6b2c002d7aad9394094b740220f741238b6b5f57bbb3c731a6b574",
+        "runs/20260927_193820_757940_v031-command-stable-map01-seed48/config.json": "77a4e471fbc9e0d43f41728e056499125f956388b597be80e5dc86dfff2a0d6d",
+        "runs/20260927_193820_757940_v031-command-stable-map01-seed48/summary.json": "32f7ffef4bd7d9729343af2c4fa2bcbfb8df0da55226c49a18822583830c9701",
+        "runs/20260927_193820_757940_v031-command-stable-map01-seed48/decisions.jsonl": "393caac6eeb1012cdebebedd0547bf3b8abd7c377aff938911d6b5389c718774",
+        "fixtures/v031-bands-regression-cases.json": "fc47b6f07739e7663464b3481ad9f2f7515fa83671c5d87c0d36f03e74b3fd3e"
+      },
+      "splits": {
+        "train": {
+          "rows": 2707,
+          "sha256": "1e13c9640ca93a65b14380427e4dffd5736c6350da209db0f6ada44ba118bce7",
+          "categories": {
+            "route_fight": 475,
+            "route_available_exit": 94,
+            "route_blocked_door": 64,
+            "route_close_weapon": 327,
+            "route_needed_supply": 291,
+            "route_exit_platform": 159,
+            "route_missing_key": 251,
+            "route_continue_lift": 71,
+            "route_continue_route": 412,
+            "route_nearby_door": 328,
+            "route_all_keys_exit": 16,
+            "route_urgent_health": 156,
+            "regression_retention": 63
+          }
+        },
+        "validation": {
+          "rows": 884,
+          "sha256": "2bfb1b1cdae809ed6c7f2b9e1329be0dde5b7ddec2fa1ba74e52d0597fff8b41",
+          "categories": {
+            "route_needed_supply": 123,
+            "route_fight": 172,
+            "route_continue_route": 141,
+            "route_blocked_door": 38,
+            "route_nearby_door": 105,
+            "route_missing_key": 99,
+            "route_exit_platform": 58,
+            "route_all_keys_exit": 28,
+            "route_available_exit": 18,
+            "route_close_weapon": 69,
+            "route_continue_lift": 12,
+            "route_urgent_health": 21
+          }
+        }
+      },
+      "note": "One offline route rubric labels every state from successes and failures. No behavioral-cloning labels from old decisions. Per-map and per-category sampling; every fifth 20-second temporal block is correlated development validation. Regression cases are explicit training retention. This is not independent generalization or live teacher control.",
+      "builder_sha256": "1b0f1d742574468730124ea80dfc7ccbe4953839f85648d6865f868b360688dd",
+      "labeler_sha256": "63ae8f3f5754351e3bad662577ad9950f7e5adb6eb5eacd2d5952e6141400c46",
+      "projection_sha256": "3d9e454b21084317ffdbff5510d3dca441e81283c0d1b7db7a1e88c341ebd4ce",
+      "removed": {
+        "train_duplicate": 283,
+        "validation_duplicate": 145
+      }
+    },
+    "note": "Exact production command fact projection. Generic current action retained only in v1; v2 retains selected board/ride lift execution context; nearest reachable sightings by item name, owned/ammo facts, visible/recent enemy distances, mechanism counts and lift phases. Optional measurement bands preserve the offered actions; no action recommendations or option masking.",
+    "sources": {
+      "training/v031-command-bands-source-v1/train.json": "1e13c9640ca93a65b14380427e4dffd5736c6350da209db0f6ada44ba118bce7",
+      "training/v031-command-bands-source-v1/validation.json": "2bfb1b1cdae809ed6c7f2b9e1329be0dde5b7ddec2fa1ba74e52d0597fff8b41"
+    },
+    "splits": {
+      "train": {
+        "rows": 1946,
+        "sha256": "07590fe05da67e7ab81c51f219eb23f0e048f0add2bb70f1b9b57056838d68d3",
+        "categories": {
+          "route_fight": 455,
+          "route_available_exit": 66,
+          "route_blocked_door": 42,
+          "route_close_weapon": 283,
+          "route_needed_supply": 219,
+          "route_exit_platform": 130,
+          "route_missing_key": 109,
+          "route_continue_lift": 26,
+          "route_continue_route": 296,
+          "route_nearby_door": 152,
+          "route_all_keys_exit": 14,
+          "route_urgent_health": 120,
+          "regression_retention": 34
+        }
+      },
+      "validation": {
+        "rows": 545,
+        "sha256": "0e535386501a0354d3191f4298e94fb43d0e4e1cb67e0afc6afb4b368eceb3b7",
+        "categories": {
+          "route_needed_supply": 71,
+          "route_fight": 151,
+          "route_continue_route": 89,
+          "route_blocked_door": 23,
+          "route_nearby_door": 36,
+          "route_missing_key": 44,
+          "route_exit_platform": 37,
+          "route_all_keys_exit": 19,
+          "route_available_exit": 12,
+          "route_close_weapon": 51,
+          "route_urgent_health": 12
+        }
+      }
+    },
+    "projection_sha256": "533ce0d2c68e221c1ada1592db94acca7776045e361e032959b721651cdee0fa",
+    "builder_sha256": "de29200838d72d586cc3299db798ff0c33b2cca0673bc7ffe8bdc75ed287bf27",
+    "removed": {
+      "train_duplicate": 761,
+      "validation_duplicate": 339
+    }
+  },
+  "sources": {
+    "training/v031-command-bands-v2/train.json": "07590fe05da67e7ab81c51f219eb23f0e048f0add2bb70f1b9b57056838d68d3",
+    "training/v031-command-bands-v2/validation.json": "0e535386501a0354d3191f4298e94fb43d0e4e1cb67e0afc6afb4b368eceb3b7"
+  },
+  "checkpoint_config_sha256": "205b3bcd5f55b127739d8ac2ed3a191bd54e17a0b8ddd49c2a8472288c61be55",
+  "filter_sha256": "23328b758a59149fe90bcf842b7048ebb8d763ce8fb2ae2116391ad8a20e6dbd",
+  "removed": [],
+  "splits": {
+    "train": {
+      "rows": 1946,
+      "sha256": "07590fe05da67e7ab81c51f219eb23f0e048f0add2bb70f1b9b57056838d68d3"
+    },
+    "validation": {
+      "rows": 545,
+      "sha256": "0e535386501a0354d3191f4298e94fb43d0e4e1cb67e0afc6afb4b368eceb3b7"
+    }
+  }
+}

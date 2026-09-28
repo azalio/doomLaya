@@ -1,0 +1,21 @@
+{
+  "builder_sha256": "1d92dc10464e73a0a1a506335f24d5f82ed10f445b925b0e7cbf61d40c078e67",
+  "labeler_sha256": "e9eccab8a4314d4ad213b58d7301b5239a94a6293d4abcbbeb7e50983721ff11",
+  "sources": {
+    "runs/20260928_064722_646337_v031-key-retained-map03-seed54/decisions.jsonl": "c25af708e60de3cf9256f947ab193ef83a7aa897858d094a20d51b3ed0e30393",
+    "runs/20260928_063814_250370_v031-key-retained-map02-seed54/decisions.jsonl": "6b4183080a2cc48916d61e9f7ca83394e4e1f33ee39300ea3b044a9274da3640",
+    "runs/20260928_064432_364094_v031-key-retained-map01-seed48/decisions.jsonl": "d6c608f44444f71a9b4c7e702f56bd7bf8ee29dfb46f9022c4eb2c17d2edd41d",
+    "runs/20260928_060838_897203_v031-finish-retained-map03-seed54/decisions.jsonl": "4c989ed78ee1ee821eb14a8b6ed0b81333955e0c5069a7a2863ba7df7c7a935a"
+  },
+  "splits": {
+    "train": {
+      "rows": 849,
+      "sha256": "619dd57c05b75391d856cffa3146fcaca5520f27ca5dbe9d7ceb04418bb7fcb0"
+    },
+    "validation": {
+      "rows": 82,
+      "sha256": "8c3768b6496aff3d5441932b942f6b0ed37df8873ec7faa04a76eb64b7382e6e"
+    }
+  },
+  "note": "Observed target-order labels use only available enemies and the accepted target. Distinct source runs and projected inputs per split; same-map development, no held-out map or seed claim. No runtime teacher."
+}

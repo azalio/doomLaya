@@ -1,0 +1,15 @@
+{
+  "status": "interrupted",
+  "passed": false,
+  "reason": "Four deaths; stopped for diagnosis before the 1200-second budget.",
+  "suite": "runs/20260928_072306_275101_v031-enemy-numeric_suite/suite.json",
+  "run": "runs/20260928_072306_396113_v031-enemy-numeric-map03-seed54",
+  "model_manifest": "989c5e174ab01be4a3687fe1f9db9d20338165be18e984a9fdef1fdcc7e6479b",
+  "summary": {
+    "game_seconds": 524.543,
+    "deaths": 4,
+    "kills": 144,
+    "levels_completed": 0,
+    "errors": 0
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "builder_sha256": "1a0e3439b253622f0f5d12901a31128feac6f5d755b9bfdd8ff9eb9c547d7743",
+  "sources": {
+    "runs/20260927_225029_975621_v031-compact-movement-map02-seed54/decisions.jsonl": "056898c0083a946b6a8b067e7ee42e7d5128a9c30a37c25b1cb55dbd8a42dce1",
+    "training/map3-switch-route-v1/manifest.json": "14c80c6e0c137a9befd5e9efce6c64eb960228e2a19ebba18d06a4fd7a906fe6"
+  },
+  "added": {
+    "train": 80,
+    "validation": 16
+  },
+  "splits": {
+    "train": {
+      "rows": 776,
+      "sha256": "1082fcccc12a276751427084ad3378cfeaab508338970e88ec2d033973299ad8",
+      "categories": {
+        "use_switch": 400,
+        "map03_route": 296,
+        "map2_switch_loop": 80
+      }
+    },
+    "validation": {
+      "rows": 248,
+      "sha256": "87324d3e97e10abc34533de45363f6a26040820550e00e564fa256d22a9668f7",
+      "categories": {
+        "use_switch": 150,
+        "map03_route": 82,
+        "map2_switch_loop": 16
+      }
+    }
+  },
+  "note": "Same-map development corrections; four-second temporal blocks with every fifth block for validation. Goal variants remain in the same split. Original MAP03 route and MAP02 replay retained. No runtime rule, no held-out-map claim."
+}
